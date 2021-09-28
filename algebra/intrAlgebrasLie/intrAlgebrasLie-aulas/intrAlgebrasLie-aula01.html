@@ -51,10 +51,10 @@ w3IncludeHTML();
     <!-- DEFINIÇÃO 1 -->
     <p id="def-algebra"><strong>Definição 1.1.</strong>
       Uma <strong>álgebra</strong> é um $\mathbb{F}$-espaço vetorial $V$ munido de uma operação bilinear, chamada de <em>produto</em> e denotada por $\cdot$, isto é, uma operação $\cdot: V \times V \to V$ tal que
-      <ul>
+      <ol type="a">
         <li>$a \cdot (\alpha b + \beta c) = \alpha (a \cdot b)$ $ + $ $ \beta (a \cdot c)$,</li>
         <li>$(\alpha a + \beta b) \cdot c = \alpha (a \cdot c)$ $ + $ $ \beta (b \cdot c)$,</li>
-      </ul>
+      </ol>
       para todo $\alpha$, $\beta \in \mathbb{F}$ e para todo $a$, $b$, $c \in V$. Para fins de simplificação, sempre que for possível, denotamos o produto $a \cdot b$, apenas pela justaposição dos elementos, ou seja, por $ab$. Uma álgebra é chamada de:
       <ul>
         <li><strong>álgebra associativa</strong>, se $(ab)c = a(bc)$, para todo $a$, $b$, $c \in V$;</li>
@@ -66,10 +66,10 @@ w3IncludeHTML();
     <!-- DEFINIÇÃO 2 -->
     <p id="def-algLie">
       <strong>Definição 1.2.</strong> Uma <strong>álgebra de Lie</strong> é uma álgebra $\mathfrak{g}$, onde o produto, denotado por $[\cdot, \cdot]$ e dito <em>colchete de Lie</em>, satisfaz as condições:
-      <ul>
+      <ol type="a">
         <li><em>antissimetria</em>: $[a, a] = 0$, para todo $a \in \mathfrak{g}$</li>
         <li><em>identidade de Jacobi</em>: $[a,[b,c]] + [b, [c, a]] + [c, [a, b]]$ $ = 0$, para todo $a$, $b$, $c \in \mathfrak{g}$.</li>
-      </ul> 
+      </ol> 
     </p>
     
     <!-- OBSERVAÇÃO 1 -->
@@ -80,10 +80,10 @@ w3IncludeHTML();
     <!-- EXEMPLO 1 -->
     <p id="exemplo-algLie">
       <strong>Exemplo 1.1.</strong> São álgebras de Lie os seguintes exemplos:
-      <ul>
+      <ol type="a">
         <li id="exemplo-algLie-algLieAbel">Um $\mathbb{F}$-espaço vetorial $\mathfrak{g}$ com o colchete de Lie definido como $[a, b] = 0$, para todo $a$, $b \in \mathfrak{g}$. Tal álgebra de Lie é chamada <strong>álgebra de Lie abeliana</strong>.</li>
         <li>O $\mathbb{R}$-espaço vetorial $\mathbb{R}^3$ com o colchete de Lie definido como $[a, b] = a \times b$, para todo $a$, $b \in \mathfrak{g}$, onde $a \times b$ é o produto vetorial entre $a$ e $b$.</li>
-      </ul>
+      </ol>
     </p>
     
     <!-- DEFINIÇÃO 3 -->
@@ -99,10 +99,10 @@ w3IncludeHTML();
     <!-- DEFINIÇÃO 4 -->
     <p id="def-notColchLieSubconj">
       <strong>Definição 1.4.</strong> Sejam $\mathfrak{g}$ uma álgebra de Lie e $\mathfrak{m}$ um subespaço de $\mathfrak{g}$. Dizemos que $\mathfrak{m}$ é 
-      <ul>
+      <ol type="a">
         <li>uma <strong>subálgebra</strong>, se $[\mathfrak{m}, \mathfrak{m}] \subseteq \mathfrak{m}$;</li>
         <li>um <strong>ideal</strong>, se $[\mathfrak{m}, \mathfrak{g}] \subseteq \mathfrak{m}$.</li>
-      </ul>
+      </ol>
     </p>
     
     <!-- OBSERVAÇÃO 3 -->
@@ -132,7 +132,12 @@ w3IncludeHTML();
     
     <!-- EXEMPLO 2 -->
     <p id="exemplo-algLieObtAlgAssoc">
-      <strong>Exemplo 1.2.</strong> Seja $V$ um $\mathbb{F}$-espaço vetorial. A álgebra de Lie obtida a partir da álgebra associativa $(\text{End}(V), \circ)$, conforme a <a href="#prop-algLieObtAlgAssoc">Proposição 1.2.</a> é denotada por $(\mathfrak{gl}(V), [\cdot,\cdot])$. No caso em que $V = \mathbb{F}^n$, então a álgebra de Lie é denotada por $(\mathfrak{gl}_n(\mathbb{F})$.
+      <strong>Exemplo 1.2.</strong> Seja $V$ um $\mathbb{F}$-espaço vetorial. A álgebra de Lie obtida a partir da álgebra associativa $(\text{End}(V), \circ)$, conforme a <a href="#prop-algLieObtAlgAssoc">Proposição 1.2.</a> é denotada por $(\mathfrak{gl}(V), [\cdot,\cdot])$. No caso em que $V = \mathbb{F}^n$, então a álgebra de Lie é denotada por $\mathfrak{gl}_n(\mathbb{F})$.
+    </p>
+    
+    <!-- DEFINIÇÃO 5 -->
+    <p id="def-algLieLinear">
+      <strong>Definição 1.5.</strong> Qualquer subálgebra de $\mathfrak{gl}_n(\mathbb{F})$, para algum $n$, é dita <strong>álgebra de Lie linear</strong>.
     </p>
     
     <!-- OBSERVAÇÃO 5 -->
@@ -166,7 +171,156 @@ w3IncludeHTML();
     
     <!-- OBSERVAÇÃO 7 -->
     <p id="obs-oBVBase">
-      <strong>Observação 1.7.</strong> Seja $B: V \otimes V \to \mathbb{F}$ uma forma bilinear. Fixando uma base para $V$, podemos escrever $B$ segundo a matriz $[B]$. Daí $B(v, w) = v^t[B]w$. Nesse caso, supondo que $V \cong \mathbb{F}^n$, então definimos $O_{B,n} := \{A \in \text{Mat}_{n \times n}(\mathbb{F}) \mid A^tB$ $ + BA = 0\}$.
+      <strong>Observação 1.7.</strong> Seja $B: V \otimes V \to \mathbb{F}$ uma forma bilinear. Fixando uma base para $V$, podemos escrever $B$ segundo a matriz $[B]$. Daí $B(v, w) = v^t[B]w$. Nesse caso, supondo que $V \cong \mathbb{F}^n$, então definimos $O_{B,n} := \{A \in \text{Mat}_{n \times n}(\mathbb{F}) \mid A^tB $ $ + $ $ BA = 0\}$.
+    </p>
+    
+    <!-- EXEMPLO 4 -->
+    <p id="exemplo-familiasABCD">
+      <strong>Exemplo 1.4.</strong> Suponha que $V$ seja um $\mathbb{C}$-espaço vetorial de dimensão finita e $B$ seja uma forma bilinear não degenerada.
+      <ol type="a">
+        <li>
+          Se $V = \mathbb{C}^{2\ell}$ e 
+          $B =
+            \begin{pmatrix}
+              0_{\ell \times \ell} & I_{\ell \times \ell} \\
+              -I_{\ell \times \ell} & 0_{\ell \times \ell}
+            \end{pmatrix}
+          $, então a $O_{B,2\ell}$ é dita <em>álgebra de Lie simplética</em> e é denotada por $c_{\ell}$ ou por $\mathfrak{sp}(2\ell)$.
+        </li>
+        <li>
+          Se $V = \mathbb{C}^{2\ell + 1}$ e 
+          $B = \left(
+          \begin{array}{c|c}
+            1 & 0_{1 \times \ell} \\
+            \hline
+            0_{\ell \times 1} & 
+            \begin{array}{cc}
+              0_{\ell \times \ell} & I_{\ell \times \ell} \\
+              I_{\ell \times \ell} & 0_{\ell \times \ell}
+            \end{array}
+          \end{array}
+          \right)
+          $, então a $O_{B,2\ell + 1}$ é dita <em>álgebra de Lie ortogonal</em> e é denotada por $b_{\ell}$ ou por $\mathfrak{o}(2\ell + 1)$.
+        </li>
+        <li>
+          Se $V = \mathbb{C}^{2\ell}$ e 
+          $B =
+          \begin{pmatrix}
+            0_{\ell \times \ell} & I_{\ell \times \ell} \\
+            I_{\ell \times \ell} & 0_{\ell \times \ell}
+          \end{pmatrix}
+          $, então a $O_{B,2\ell}$ é dita <em>álgebra de Lie ortogonal</em> e é denotada por $d_{\ell}$ ou por $\mathfrak{o}(2\ell)$.
+        </li>
+      </ol>
+    </p>
+    
+    <!-- OBSERVAÇÃO 8 -->
+    <p id="obs-gl(g)AlgLie">
+      <strong>Observação 1.8.</strong> Se $\mathfrak{g}$ é uma álgebra de Lie, então $\mathfrak{gl}(\mathfrak{g})$ também é uma álgebra de Lie.
+    </p>
+    
+    <!-- DEFINIÇÃO 6 -->
+    <p id="def-reprAlgLie">
+      <strong>Definição 1.6.</strong> Uma representação de uma álgebra de Lie $\mathfrak{g}$ sobre um espaço vetorial $V$ é um morfismo de álgebra de Lie $\mathfrak{g} \to \mathfrak{gl}(\mathfrak{g})$.
+    </p>
+    
+    <!-- LEMA 3 -->
+    <p id="lema-repAdj">
+      <strong>Lema 1.3.</strong> A transformação linear $\text{ad}: \mathfrak{g} \to \mathfrak{gl}(\mathfrak{g})$, $a \mapsto \text{ad}(a)b := [a, b]$ é um morfismo de álgebras de Lie, chamado <strong>representação adjunta</strong>.
+    </p>
+    
+    <!-- DEFINIÇÃO 7 -->
+    <p id="def-centroAlgLie">
+      <strong>Definição 1.7.</strong> O centro de uma álgebra de Lie é definido como sendo $\mathcal{Z}(\mathfrak{g}) := \{a \in \mathfrak{g} \mid [a, b] = 0, $ para todo $ b \in \mathfrak{g}\}$.
+    </p>
+    
+    <!-- OBSERVAÇÃO 9 -->
+    <p id="obs-centroAlgLie">
+      <strong>Observação 1.9.</strong>
+      <ol type="a">
+        <li>$\mathcal{Z}(\mathfrak{g})$ é um ideal de $\mathfrak{g}$.</li> 
+        <li>$\ker(\text{ad}) = \mathcal{Z}(\mathfrak{g})$.</li>
+      </ol>
+    </p>
+    
+    <!-- DEFINIÇÃO 8 -->
+    <p id="def-algLieSimples">
+      <strong>Definição 1.8.</strong> Uma álgebra de Lie $\mathfrak{g}$ é chamada de <strong>simples</strong>, se não existe ideal não trivial próprio de $\mathfrak{g}$, $\{0\} \neq I \subsetneq \mathfrak{g}$.
+    </p>
+    
+    <!-- OBSERVAÇÃO 10 -->
+    <p id="obs-simpImplLinear">
+      <strong>Observação 1.10.</strong> Qualquer álgebra de Lie simples é uma <a href="#def-algLieLinear">álgebra de Lie linear</a>.
+    </p>
+    
+    <!-- OBSERVAÇÃO 11 -->
+    <p id="obs-caracEquivRepr">
+      <strong>Observação 1.11.</strong> Considerando o isomorfismo entre $\mathbb{F}$ e $\mathfrak{gl}_1(\mathbb{F})$, temos que um caracter de uma álgebra de Lie $\mathfrak{g}$ define uma representação unidimensional de $\mathfrak{g}$ e, reciprocamente, uma representação unidimensional de $\mathfrak{g}$ define um caracter de $\mathfrak{g}$. Assim, por exemplo, $\alpha$<a href="#lema-tracoCarac">$\text{tr}$</a> é uma representação de $\mathfrak{gl}_n(\mathbb{F})$, para todo $\alpha \in \mathbb{F}$.
+    </p>
+    
+    <!-- OBSERVAÇÃO 12 -->
+    <p id="obs-acaoGL(V)">
+      <strong>Observação 1.12.</strong> Dizemos que $\mathfrak{gl}(V)$ <strong>age</strong> sobre $V$, se existe alguma representação de $\mathfrak{gl}(V)$ sobre $V$.
+    </p>
+    
+    <!-- OBSERVAÇÃO 13 -->
+    <p id="obs-alfLieDim2">
+      <strong>Observação 1.13.</strong> A menos de isomorfismo só existem duas álgebras de Lie de dimensão $2$: uma abeliana e a outra é tal que se $\{a, b\}$ é base dela, então $[a, b] = b$.
+    </p>
+    
+    <!-- DEFINIÇÃO 9 -->
+    <p id="def-derivacao">
+      <strong>Definição 1.9.</strong> Uma <strong>derivação</strong> de uma álgebra $A$ é um endomorfismo $D$ tal que $D(ab) = D(a)b + aD(b)$, para todo $a$, $b \in A$. Observe que se $A$ é uma álgebra de Lie, a derivação é um endomorfismo tal que $D([a, b]) = [D(a), b] + [a, D(b)]$. O conjunto de todas as derivações de $A$ é denotada por $\text{Dev}(A)$.
+    </p>
+    
+    <!-- LEMA 4 -->
+    <p id="lema-adDeriv">
+      <strong>Lema 1.4.</strong> Se $a \in \mathfrak{g}$ é um elemento de uma álgebra de Lie $\mathfrak{g}$, então <a href="#lema-repAdj">$\text{ad}$</a>$(a)$ é uma derivação. As derivações $\text{ad}(a)$ são chamadas de <strong>derivações internas</strong>.
+    </p>
+    
+    <!-- OBSERVAÇÃO 14 -->
+    <p id="obs-derivAlgLie">
+      <strong>Observação 1.14.</strong>
+      <ol type="a">
+        <li>O conjunto de todas as derivações de $A$, $\text{Dev}(A)$, é uma álgebra de Lie (é uma subálgebra de $\mathfrak{gl}(A)$).</li>
+        <li>O conjunto das derivações internas, $\{\text{ad}(a) \mid a \in \mathfrak{g}\}$ forma um ideal em $\text{Dev}(\mathfrak{g})$.</li>
+      </ol>
+    </p>
+    
+    <!-- DEFINIÇÃO 10 -->
+    <p id="def-heisenberg">
+      <strong>Definição 1.10.</strong> A <strong>álgebra de Lie de Heisenberg</strong> é a álgebra gerada por três elementos, $p$, $q$ e $h$, tais que $[p, q] = h$ e $[h, p] = [h, q] = 0$. Tal álgebra é isomorfa a subálgebra de $\mathfrak{gl}_3(\mathbb{F})$ cujos elementos são da forma 
+      $
+        \begin{pmatrix}
+          0 & p & h \\
+          0 & 0 & q \\
+          0 & 0 & 0
+        \end{pmatrix}
+      $
+    </p>
+    
+    <!-- OBSERVAÇÃO 15 -->
+    <p id="obs-algLieDim3">
+      <strong>Observação 1.15.</strong> São três, a menos de isomorfismo, as álgebras de Lie de dimensão $3$: abeliana, <a href="#exemplo-algLie">$(\mathbb{R}, \times)$</a> ou álgebra de Lie de Heisenberg.
+    </p>
+    
+    <!-- LEMA 5 -->
+    <p id="lema-adDeriv">
+      <strong>Lema 1.5.</strong> Em uma álgebra de Lie não abeliana $\mathfrak{g}$, temos que $\dim(\mathcal{Z}(\mathfrak{g})) \le \dim(\mathfrak{g}) - 2$.
+    </p>
+    
+    <!-- OBSERVAÇÃO 16 -->
+    <p id="obs-centroHeis">
+      <strong>Observação 1.16.</strong> O centro da álgebra de Lie de Heisenberg é igual a $\mathbb{F}h$.
+    </p>
+    
+    <!-- DEFINIÇÃO 11 -->
+    <p id="def-extCentral">
+      <strong>Definição 1.11.</strong> Uma <strong>extensão central</strong> de uma álgebra de Lie $\mathfrak{g}$ é uma sequência exata curta
+      \[
+        0 \to \mathfrak{a} \to \tilde{\mathfrak{g}} \to \mathfrak{g} \to 0
+      \]
+      tal que $ \tilde{\mathfrak{g}} \cong \mathfrak{g} \oplus \mathfrak{a}$.
     </p>
     
   </body>
