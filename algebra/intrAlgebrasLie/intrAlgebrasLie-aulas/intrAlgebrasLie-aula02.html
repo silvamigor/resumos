@@ -27,6 +27,7 @@ w3IncludeHTML();
         font-size: 14pt;
         font-family: "Helvetica", sans-serif;
         line-height: 1.5;
+        background-color: rgb(233,227,206);
       }
       
       h1{
@@ -46,8 +47,122 @@ w3IncludeHTML();
     <div style="text-align:center"><h1>Introdução às Álgebras de Lie</h1></div>
     
     <!-- ###### AULA 02 ###### -->
-    <h2>Aula 2</h2>
-
+    <h2>Aula 2 - Álgebras de Lie nilpotentes e solúveis</h2>
+    
+    <!-- DEFINIÇÃO 1 -->
+    <p id="def-seqExataCurta">
+      <strong>Definição 2.1.</strong> Uma <strong>sequência exata curta</strong> de álgebras de Lie é uma sequência de morfismos de álgebras de Lie $0 \to \mathfrak{g}_1 \xrightarrow{i} \mathfrak{g}_2 \xrightarrow{j} \mathfrak{g}_3 \to 0$ tal que $i$ é injetivo, $j$ é sobrejetivo e $\ker(j) = \text{im}(i)$.
+    </p>
+    
+    <!-- OBSERVAÇÃO 1 -->
+    <p id="obs-somaDiretaAlgLie">
+      <strong>Observação 2.1.</strong> Se $\mathfrak{g}_1$ e $\mathfrak{g}_2$ são álgebras de Lie, então o $\mathbb{F}$-espaço vetorial $\mathfrak{g}_1 \oplus \mathfrak{g}_2$ também é uma álgebra de Lie, onde $[(a,b), (a',b')] = ([a,a'], [b,b'])$.
+    </p>
+    
+    <!-- DEFINIÇÃO 2 -->
+    <p id="def-grupoAlgeb">
+      <strong>Definição 2.2.</strong> Um <strong>grupo algébrico</strong> sobre $\mathbb{F}$ é uma coleção finita de polinômios $\{P_{\alpha}\}$ no espaço $\text{Mat}_{n \times n}(\mathbb{F})$ (isto é, $P_{\alpha} \in \text{Mat}_{n \times n}(\mathbb{F})[x]$) tal que $G(A) = \{a \in \text{Mat}_{n \times n}(A) \mid P_{\alpha}(a) = 0 $ e $ a $ é invertível$\}$ é um gupo, onde $A$ é qualquer álgebra comutativa associativa com identidade.
+    </p>
+    
+    <!-- EXEMPLO 1 -->
+    <p id="exemplo-grupoAlgeb">
+      <strong>Exemplo 2.1.</strong>
+      \[
+        \begin{array}{|c|c|}
+          \hline
+          \text{Coleção de polinômios} & \text{Grupo algébrico} \\
+          \hline
+          \{P_{\alpha}\} = \varnothing & GL_n(\mathbb{F}) \\
+          \{P_{\alpha}\} = \{\det - 1\} & SL_n(\mathbb{F}) \\
+          \hline
+        \end{array}
+      \]
+    </p>
+    
+    <!-- OBSERVAÇÃO 2 -->
+    <p id="obs-OBA">
+      <strong>Observação 2.2.</strong> Fixado $B \in \text{Mat}_{n \times n}(\mathbb{F})$, temos que, para toda álgebra comutativa associativa com identidade $A$, $O_{B}(A) := \{a \in G(A) \mid a^TBa = B\}$ é um subgrupo de $G(A)$.
+    </p>
+    
+    <!-- TEOREMA 1 -->
+    <p id="teor-lieG">
+      <strong>Teorema 2.1.</strong> O conjunto $\text{Lie}(G) := \{X \in \mathfrak{gl}_n(\mathbb{F}) $ $ \mid $ $ I_{n \times n} $ $ + $ $ \varepsilon X \in G\big({}^{\mathbb{F}[\varepsilon]}/{}_{(\varepsilon^2)}\big)\}$ é uma subálgebra de $\mathfrak{gl}_n(\mathbb{F})$.
+    </p>
+    
+    <!-- OBSERVAÇÃO 3 -->
+    <p id="obs-lieG">
+      <strong>Observação 2.3.</strong> 
+      <ol>
+        <li>$\text{Lie}(GL_n) = \mathfrak{gl_n}$.</li>
+        <li>$\text{Lie}(SL_n) = \mathfrak{sl_n}$, onde $\{P_{\alpha}\} = \{\det - 1\}$.</li>
+        <li>$\text{Lie}(O_B(A)) $ $ = $ <a href="intrAlgebrasLie-aula01.html/#obs-oBV">$o_{B,n}$</a></li>
+      </ol>
+    </p>
+    
+    <!-- LEMA 1 -->
+    <p id="lema-adNilp">
+      <strong>Lema 2.1.</strong> Sejam $V$ um $\mathbb{F}$-espaço vetorial de dimensão finita e $a \in \mathfrak{gl}(V)$ tal que $a$ é nilpotente (isto é, existe $n$ tal que $a^n = 0$). Então <a href="intrAlgebrasLie-aula01.html/#lema-repAdj">$\text{ad}$</a>(a) também é nilpotente.
+    </p>
+    
+    <!-- OBSERVAÇÃO 4 -->
+    <p id="obs-adNilp">
+      <strong>Observação 2.4.</strong> Existem matrizes $a$ que não são nilpotentes, mas que $\text{ad}(a)$ é nilpotente.
+    </p>
+    
+    <!-- TEOREMA 2 -->
+    <p id="teor-engel">
+      <strong>Teorema 2.2</strong> (Teorema de Engel) <strong>.</strong> Sejam $V \neq \{0\}$ um $\mathbb{F}$-espaço vetorial de dimensão finita e $\mathfrak{g} \subseteq \mathfrak{gl}(V)$ uma subálgebra consistindo de todos os endomorfismos nilpotentes. Então existe $0 \neq v \in V$ tal que $\mathfrak{g}v = 0$ (isto é, $av = 0$, para todo $a \in \mathfrak{g}$).
+    </p>
+    
+    <!-- OBSERVAÇÃO 5 -->
+    <p id="obs-operNilpMatrTriangSup">
+      <strong>Observação 2.5.</strong> 
+      <ol type="a">  
+        <li>Considere as mesmas hipóteses do Teorema de Engel. Então existe uma base para $V$ tal que $\mathfrak{g}$ consiste de todas as matrizes triangular superior.</li>
+        <li>Se \(\pi: \mathfrak{g} \to \mathfrak{gl}(V)\) é uma representação de dimensão finita de da subálgebra dos operadores nilpotentes, então existe uma base de \(V\) tal que \(\pi(\mathfrak{g})\) consiste de todas as matrizes triangular superior.</li>
+      </ol>
+    </p>
+    
+    <!-- OBSERVAÇÃO 6 -->
+    <p id="obs-sequenCentral">
+      <strong>Observação 2.6.</strong> Para qualquer álgebra de Lie \(\mathfrak{g}\), defina:
+      <ol type="a">
+        <li>\(\mathfrak{g}^0 := \mathfrak{g}\), \(\;\mathfrak{g}^1 := [\mathfrak{g}, \mathfrak{g}]\), \(\;\mathfrak{g}^2 := [[\mathfrak{g}, \mathfrak{g}], \mathfrak{g}]\), \(\cdots\), \(\;\mathfrak{g}^{k+1} := [\mathfrak{g}^k, \mathfrak{g}]\). Note que \(\mathfrak{g}^0 \supseteq \mathfrak{g}^1 \supseteq \cdots \supseteq \mathfrak{g}^{k+1}\);</li>
+        <li>\(\mathfrak{g}^{(0)} := \mathfrak{g}\), \(\;\mathfrak{g}^{(1)} := [\mathfrak{g}, \mathfrak{g}]\), \(\;\mathfrak{g}^{(2)} := [\mathfrak{g}^{(1)}, \mathfrak{g}^{(1)}]\), \(\cdots\), \(\;\mathfrak{g}^{(k+1)} := [\mathfrak{g}^{(k)}, \mathfrak{g}^{(k)}]\). Note que \(\mathfrak{g}^{(0)} \supseteq \mathfrak{g}^{(1)} \supseteq \cdots \supseteq \mathfrak{g}^{(k+1)}\).</li>
+        Temos que cada \(\mathfrak{g}^i\) e \(\mathfrak{g}^{(i)}\) é ideal de \(\mathfrak{g}\) e, além disso,  \(\mathfrak{g}^{(i)} \subseteq \mathfrak{g}^{i}\).
+      </ol>
+    </p>
+    
+    <!-- DEFINIÇÃO 3 -->
+    <p id="def-algLieNilp">
+      <strong>Definição 2.3.</strong> Uma álgebra de Lie \(\mathfrak{g}\) é chamada <strong>nilpotente</strong>, se \(\mathfrak{g}^k = \{0\}\), para algum \(k\). 
+    </p>
+    
+    <!-- OBSERVAÇÃO 7 -->
+    <p id="obs-algLieNilp">
+      <strong>Observação 2.7.</strong> Em uma álgebra de Lie nilpotente, onde \(\mathfrak{g}^k = 0\), para algum \(k\), temos que \(\mathfrak{g}^{k - 1} \neq \{0\}\) e que \(\mathfrak{g}^{k - 1} \in \mathcal{Z}(\mathfrak{g})\). Logo, toda álgebra de Lie nilpotente tem centro não trivial.
+    </p>
+    
+    <!-- DEFINIÇÃO 4 -->
+    <p id="def-algLieSol">
+      <strong>Definição 2.4.</strong> Uma álgebra de Lie \(\mathfrak{g}\) é chamada <strong>solúvel</strong>, se \(\mathfrak{g}^{(k)} = \{0\}\), para algum \(k\). 
+    </p>
+    
+    <!-- EXEMPLO 2 -->
+    <p id="exemplo-algLieNil&Sol">
+      <strong>Exemplo 2.2.</strong> 
+      <ol type="a">
+        <li>O conjunto das matrizes triangular superior é solúvel, mas não é nilpotente.</li>
+        <li>O conjunto das matrizes triangular superior com a diagonal formada por zeros é nilpotente e, em particular, é solúvel também.</li>
+        <li>Em uma álgebra de Lie bidimensional não abeliana \(\mathfrak{g} = \mathbb{F}a \oplus \mathbb{F}b\), temos que 
+          <ol type="i">
+            <li>\(\mathfrak{g}^0 = \mathfrak{g}\) e \(\mathfrak{g}^1 = \mathbb{F}[a,b] = \mathfrak{g}^2 = \cdots\);</li>
+            <li>\(\mathfrak{g}^{(0)} = \mathfrak{g}\), \(\mathfrak{g}^{(1)} = \mathbb{F}[a,b]\) e \(\mathfrak{g}^{(2)} = \{0\}\);</li>
+          </ol>
+        </li>
+      </ol>
+    </p>
+    
   </body>
   
 </html>

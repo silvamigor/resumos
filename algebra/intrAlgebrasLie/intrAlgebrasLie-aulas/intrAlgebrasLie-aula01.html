@@ -27,6 +27,7 @@ w3IncludeHTML();
         font-size: 14pt;
         font-family: "Helvetica", sans-serif;
         line-height: 1.5;
+        background-color: rgb(233,227,206);
       }
       
       h1{
@@ -161,17 +162,17 @@ w3IncludeHTML();
     
     <!-- OBSERVAÇÃO 6 -->
     <p id="obs-oBV">
-      <strong>Observação 1.6.</strong> Seja $B: V \otimes V \to \mathbb{F}$ uma forma bilinear. Denotamos $O_{B,V} := \{A \in \mathfrak{gl}(V) \mid B(Av, w)$ $ + B(v, Aw) = 0,$ para todo $v, w \in V\}$.
+      <strong>Observação 1.6.</strong> Seja $B: V \otimes V \to \mathbb{F}$ uma forma bilinear. Denotamos $o_{B,V} := \{A \in \mathfrak{gl}(V) \mid B(Av, w)$ $ + B(v, Aw) = 0,$ para todo $v, w \in V\}$.
     </p>
     
     <!-- LEMA 2 -->
     <p id="lema-oBVAlgLie">
-      <strong>Lema 1.2.</strong> $O_{B,V}$ é álgebra de Lie.
+      <strong>Lema 1.2.</strong> $o_{B,V}$ é álgebra de Lie.
     </p>
     
     <!-- OBSERVAÇÃO 7 -->
     <p id="obs-oBVBase">
-      <strong>Observação 1.7.</strong> Seja $B: V \otimes V \to \mathbb{F}$ uma forma bilinear. Fixando uma base para $V$, podemos escrever $B$ segundo a matriz $[B]$. Daí $B(v, w) = v^t[B]w$. Nesse caso, supondo que $V \cong \mathbb{F}^n$, então definimos $O_{B,n} := \{A \in \text{Mat}_{n \times n}(\mathbb{F}) \mid A^tB $ $ + $ $ BA = 0\}$.
+      <strong>Observação 1.7.</strong> Seja $B: V \otimes V \to \mathbb{F}$ uma forma bilinear. Fixando uma base para $V$, podemos escrever $B$ segundo a matriz $[B]$. Daí $B(v, w) = v^t[B]w$. Nesse caso, supondo que $V \cong \mathbb{F}^n$, então definimos $o_{B,n} := \{A \in \text{Mat}_{n \times n}(\mathbb{F}) \mid A^tB $ $ + $ $ BA = 0\}$.
     </p>
     
     <!-- EXEMPLO 4 -->
@@ -185,7 +186,7 @@ w3IncludeHTML();
               0_{\ell \times \ell} & I_{\ell \times \ell} \\
               -I_{\ell \times \ell} & 0_{\ell \times \ell}
             \end{pmatrix}
-          $, então a $O_{B,2\ell}$ é dita <em>álgebra de Lie simplética</em> e é denotada por $c_{\ell}$ ou por $\mathfrak{sp}(2\ell)$.
+          $, então a $o_{B,2\ell}$ é dita <em>álgebra de Lie simplética</em> e é denotada por $c_{\ell}$ ou por $\mathfrak{sp}(2\ell)$.
         </li>
         <li>
           Se $V = \mathbb{C}^{2\ell + 1}$ e 
@@ -200,7 +201,7 @@ w3IncludeHTML();
             \end{array}
           \end{array}
           \right)
-          $, então a $O_{B,2\ell + 1}$ é dita <em>álgebra de Lie ortogonal</em> e é denotada por $b_{\ell}$ ou por $\mathfrak{o}(2\ell + 1)$.
+          $, então a $o_{B,2\ell + 1}$ é dita <em>álgebra de Lie ortogonal</em> e é denotada por $b_{\ell}$ ou por $\mathfrak{o}(2\ell + 1)$.
         </li>
         <li>
           Se $V = \mathbb{C}^{2\ell}$ e 
@@ -209,7 +210,7 @@ w3IncludeHTML();
             0_{\ell \times \ell} & I_{\ell \times \ell} \\
             I_{\ell \times \ell} & 0_{\ell \times \ell}
           \end{pmatrix}
-          $, então a $O_{B,2\ell}$ é dita <em>álgebra de Lie ortogonal</em> e é denotada por $d_{\ell}$ ou por $\mathfrak{o}(2\ell)$.
+          $, então a $o_{B,2\ell}$ é dita <em>álgebra de Lie ortogonal</em> e é denotada por $d_{\ell}$ ou por $\mathfrak{o}(2\ell)$.
         </li>
       </ol>
     </p>
@@ -330,3 +331,4 @@ w3IncludeHTML();
   </body>
   
 </html>
+
