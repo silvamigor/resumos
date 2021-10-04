@@ -19,9 +19,8 @@
     </script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js"></script>
     <script src="http://www.w3schools.com/lib/w3data.js"></script>
-    <script>
-w3IncludeHTML();
-</script>
+    <link rel="stylesheet" type="text/css" href="../../../itemParenteses.css" />
+    
     <style>
       body{
         font-size: 14pt;
@@ -38,12 +37,11 @@ w3IncludeHTML();
       h2{
         color: rgb(153,51,153);
       }
-      
     </style>
   </head>
   
   <body>
-  
+    
     <div style="text-align:center"><h1>Introdução às Álgebras de Lie</h1></div>
     
     <!-- ###### AULA 02 ###### -->
@@ -92,7 +90,7 @@ w3IncludeHTML();
     <!-- OBSERVAÇÃO 3 -->
     <p id="obs-lieG">
       <strong>Observação 2.3.</strong> 
-      <ol>
+      <ol class=numerico>
         <li>$\text{Lie}(GL_n) = \mathfrak{gl_n}$.</li>
         <li>$\text{Lie}(SL_n) = \mathfrak{sl_n}$, onde $\{P_{\alpha}\} = \{\det - 1\}$.</li>
         <li>$\text{Lie}(O_B(A)) $ $ = $ <a href="intrAlgebrasLie-aula01.html/#obs-oBV">$o_{B,n}$</a></li>
@@ -117,7 +115,7 @@ w3IncludeHTML();
     <!-- OBSERVAÇÃO 5 -->
     <p id="obs-operNilpMatrTriangSup">
       <strong>Observação 2.5.</strong> 
-      <ol type="a">  
+      <ol class=alfa>  
         <li>Considere as mesmas hipóteses do Teorema de Engel. Então existe uma base para $V$ tal que $\mathfrak{g}$ consiste de todas as matrizes triangular superior.</li>
         <li>Se \(\pi: \mathfrak{g} \to \mathfrak{gl}(V)\) é uma representação de dimensão finita de da subálgebra dos operadores nilpotentes, então existe uma base de \(V\) tal que \(\pi(\mathfrak{g})\) consiste de todas as matrizes triangular superior.</li>
       </ol>
@@ -126,7 +124,7 @@ w3IncludeHTML();
     <!-- OBSERVAÇÃO 6 -->
     <p id="obs-sequenCentral">
       <strong>Observação 2.6.</strong> Para qualquer álgebra de Lie \(\mathfrak{g}\), defina:
-      <ol type="a">
+      <ol class=alfa>
         <li>\(\mathfrak{g}^0 := \mathfrak{g}\), \(\;\mathfrak{g}^1 := [\mathfrak{g}, \mathfrak{g}]\), \(\;\mathfrak{g}^2 := [[\mathfrak{g}, \mathfrak{g}], \mathfrak{g}]\), \(\cdots\), \(\;\mathfrak{g}^{k+1} := [\mathfrak{g}^k, \mathfrak{g}]\). Note que \(\mathfrak{g}^0 \supseteq \mathfrak{g}^1 \supseteq \cdots \supseteq \mathfrak{g}^{k+1}\);</li>
         <li>\(\mathfrak{g}^{(0)} := \mathfrak{g}\), \(\;\mathfrak{g}^{(1)} := [\mathfrak{g}, \mathfrak{g}]\), \(\;\mathfrak{g}^{(2)} := [\mathfrak{g}^{(1)}, \mathfrak{g}^{(1)}]\), \(\cdots\), \(\;\mathfrak{g}^{(k+1)} := [\mathfrak{g}^{(k)}, \mathfrak{g}^{(k)}]\). Note que \(\mathfrak{g}^{(0)} \supseteq \mathfrak{g}^{(1)} \supseteq \cdots \supseteq \mathfrak{g}^{(k+1)}\).</li>
         Temos que cada \(\mathfrak{g}^i\) e \(\mathfrak{g}^{(i)}\) é ideal de \(\mathfrak{g}\) e, além disso,  \(\mathfrak{g}^{(i)} \subseteq \mathfrak{g}^{i}\).
@@ -151,7 +149,7 @@ w3IncludeHTML();
     <!-- EXEMPLO 2 -->
     <p id="exemplo-algLieNil&Sol">
       <strong>Exemplo 2.2.</strong> 
-      <ol type="a">
+      <ol class=alfa>
         <li>O conjunto das matrizes triangular superior é solúvel, mas não é nilpotente.</li>
         <li>O conjunto das matrizes triangular superior com a diagonal formada por zeros é nilpotente e, em particular, é solúvel também.</li>
         <li>Em uma álgebra de Lie bidimensional não abeliana \(\mathfrak{g} = \mathbb{F}a \oplus \mathbb{F}b\), temos que 
@@ -166,4 +164,3 @@ w3IncludeHTML();
   </body>
   
 </html>
-
