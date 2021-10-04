@@ -38,6 +38,66 @@
         color: rgb(153,51,153);
       }
       
+      ol.numerico {
+        counter-reset: contNumerico;
+      }
+      
+      ol.romano {
+        counter-reset: contRomano;
+      }
+      
+      ol.alfa {
+        counter-reset: contAlfa;
+      }
+      
+      ol.numerico > li {
+        list-style: none;
+        position: relative;
+      }
+      
+      ol.romano > li {
+        list-style: none;
+        position: relative;
+      }
+      
+      ol.alfa > li {
+        list-style: none;
+        position: relative;
+      }
+      
+      ol.numerico > li:before {
+        counter-increment: contNumerico;
+        content:"(" counter(contNumerico)") ";
+        position: relative;
+        left: -5px;
+        margin-left: -25px;
+        padding-right: 5px;
+        text-align: center;
+        width: 40px;
+      }
+      
+      ol.romano > li:before {
+        counter-increment: contRomano;
+        content:"(" counter(contRomano, lower-roman)") ";
+        position: relative;
+        left: -5px;
+        margin-left: -25px;
+        padding-right: 5px;
+        text-align: center;
+        width: 40px;
+      }
+      
+      ol.alfa > li:before {
+        counter-increment: contAlfa;
+        content:"(" counter(contAlfa, lower-alpha)")";
+        position: relative;
+        left: -5px;
+        margin-left: -25px;
+        padding-right: 5px;
+        text-align: center;
+        width: 40px;
+      }
+      
     </style>
   </head>
   
@@ -51,7 +111,7 @@
     <!-- DEFINIÇÃO 1 -->
     <p id="def-algebra"><strong>Definição 1.1.</strong>
       Uma <strong>álgebra</strong> é um $\mathbb{F}$-espaço vetorial $V$ munido de uma operação bilinear, chamada de <em>produto</em> e denotada por $\cdot$, isto é, uma operação $\cdot: V \times V \to V$ tal que
-      <ol type="a">
+      <ol class=alfa>
         <li>$a \cdot (\alpha b + \beta c) = \alpha (a \cdot b)$ $ + $ $ \beta (a \cdot c)$,</li>
         <li>$(\alpha a + \beta b) \cdot c = \alpha (a \cdot c)$ $ + $ $ \beta (b \cdot c)$,</li>
       </ol>
@@ -66,7 +126,7 @@
     <!-- DEFINIÇÃO 2 -->
     <p id="def-algLie">
       <strong>Definição 1.2.</strong> Uma <strong>álgebra de Lie</strong> é uma álgebra $\mathfrak{g}$, onde o produto, denotado por $[\cdot, \cdot]$ e dito <em>colchete de Lie</em>, satisfaz as condições:
-      <ol type="a">
+      <ol class=alfa>
         <li><em>antissimetria</em>: $[a, a] = 0$, para todo $a \in \mathfrak{g}$</li>
         <li><em>identidade de Jacobi</em>: $[a,[b,c]] + [b, [c, a]] + [c, [a, b]]$ $ = 0$, para todo $a$, $b$, $c \in \mathfrak{g}$.</li>
       </ol> 
@@ -80,7 +140,7 @@
     <!-- EXEMPLO 1 -->
     <p id="exemplo-algLie">
       <strong>Exemplo 1.1.</strong> São álgebras de Lie os seguintes exemplos:
-      <ol type="a">
+      <ol class=alfa>
         <li id="exemplo-algLie-algLieAbel">Um $\mathbb{F}$-espaço vetorial $\mathfrak{g}$ com o colchete de Lie definido como $[a, b] = 0$, para todo $a$, $b \in \mathfrak{g}$. Tal álgebra de Lie é chamada <strong>álgebra de Lie abeliana</strong>.</li>
         <li>O $\mathbb{R}$-espaço vetorial $\mathbb{R}^3$ com o colchete de Lie definido como $[a, b] = a \times b$, para todo $a$, $b \in \mathfrak{g}$, onde $a \times b$ é o produto vetorial entre $a$ e $b$.</li>
       </ol>
@@ -99,7 +159,7 @@
     <!-- DEFINIÇÃO 4 -->
     <p id="def-notColchLieSubconj">
       <strong>Definição 1.4.</strong> Sejam $\mathfrak{g}$ uma álgebra de Lie e $\mathfrak{m}$ um subespaço de $\mathfrak{g}$. Dizemos que $\mathfrak{m}$ é 
-      <ol type="a">
+      <ol class=alfa>
         <li>uma <strong>subálgebra</strong>, se $[\mathfrak{m}, \mathfrak{m}] \subseteq \mathfrak{m}$;</li>
         <li>um <strong>ideal</strong>, se $[\mathfrak{m}, \mathfrak{g}] \subseteq \mathfrak{m}$.</li>
       </ol>
@@ -118,7 +178,7 @@
     <!-- PROPOSIÇÃO 1 -->
     <p id="prop-propMorf">
       <strong>Proposição 1.1.</strong> Se $f: \mathfrak{g}_1 \to \mathfrak{g}_2$ é um morfismo de álgebras de Lie, então
-      <ol type="a">
+      <ol class=alfa>
         <li>$\text{ker}(f)$ é um ideal de $\mathfrak{g}$;</li>
         <li>$\text{im}(f)$ é subálgebra de $\mathfrak{g}_2$;</li>
         <li>$\text{im}(f) \cong {}^{\mathfrak{g}_1}/{}_{\text{ker}(f)}$.</li>
@@ -143,7 +203,7 @@
     <!-- OBSERVAÇÃO 5 -->
     <p id="obs-caracAlgLie">
       <strong>Observação 1.5.</strong>
-      <ol type="a">
+      <ol class=alfa>
         <li>Uma álgebra de Lie de dimensão $1$ é, a menos de isomorfismo, a álgebra de Lie abeliana.</li>
         <li>Um morfismo $f$ de uma álgebra de Lie $\mathfrak{g}$ para a álgebra de Lie abeliana é um elemento de $\mathfrak{g}^{\ast} := \text{Hom}_{\mathbb{F}}(\mathfrak{g}, \mathbb{F})$ tal que $f([a, b]) = [f(a), f(b)] = 0$, para todo $a$, $b \in \mathfrak{g}$. Logo, em particular, $f|_{[\mathfrak{g},\mathfrak{g}]} = 0$. Um morfismo com essa propriedade, isto é, $f \in \mathfrak{g}^{\ast}$ tal que $f|_{[\mathfrak{g},\mathfrak{g}]} = 0$ é chamado <strong>caracter</strong> de $\mathfrak{g}$.</li>
       </ol>
@@ -177,7 +237,7 @@
     <!-- EXEMPLO 4 -->
     <p id="exemplo-familiasABCD">
       <strong>Exemplo 1.4.</strong> Suponha que $V$ seja um $\mathbb{C}$-espaço vetorial de dimensão finita e $B$ seja uma forma bilinear não degenerada.
-      <ol type="a">
+      <ol class=alfa>
         <li>
           Se $V = \mathbb{C}^{2\ell}$ e 
           $B =
@@ -237,7 +297,7 @@
     <!-- OBSERVAÇÃO 9 -->
     <p id="obs-centroAlgLie">
       <strong>Observação 1.9.</strong>
-      <ol type="a">
+      <ol class=alfa>
         <li>$\mathcal{Z}(\mathfrak{g})$ é um ideal de $\mathfrak{g}$.</li> 
         <li>$\ker(\text{ad}) = \mathcal{Z}(\mathfrak{g})$.</li>
       </ol>
@@ -246,7 +306,7 @@
     <!-- DEFINIÇÃO 8 -->
     <p id="def-algLieSimples">
       <strong>Definição 1.8.</strong> Uma álgebra de Lie $\mathfrak{g}$ é chamada de <strong>simples</strong>, se
-      <ol type="a">
+      <ol class=alfa>
         <li>não existe ideal não trivial próprio de $\mathfrak{g}$, $\{0\} \neq I \subsetneq \mathfrak{g}$;</li>
         <li>$\mathfrak{g}$ não é unidimensional.</li>
       </ol>
@@ -285,7 +345,7 @@
     <!-- OBSERVAÇÃO 14 -->
     <p id="obs-derivAlgLie">
       <strong>Observação 1.14.</strong>
-      <ol type="a">
+      <ol class=alfa>
         <li>O conjunto de todas as derivações de $A$, $\text{Dev}(A)$, é uma álgebra de Lie (é uma subálgebra de $\mathfrak{gl}(A)$).</li>
         <li>O conjunto das derivações internas, $\{\text{ad}(a) \mid a \in \mathfrak{g}\}$ forma um ideal em $\text{Dev}(\mathfrak{g})$.</li>
       </ol>
