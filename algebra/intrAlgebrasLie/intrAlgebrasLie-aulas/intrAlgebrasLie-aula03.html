@@ -7,7 +7,7 @@
     <title> Introdução às Álgebras de Lie - Aula 3 </title>
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
-        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js", "amsthm.js"],
         jax: ["input/TeX", "output/HTML-CSS"],
         tex2jax: {
           inlineMath: [ ['$','$'], ["\\(","\\)"] ],
@@ -19,15 +19,16 @@
     </script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js"></script>
     <script src="http://www.w3schools.com/lib/w3data.js"></script>
-    <script>
-w3IncludeHTML();
-</script>
+    <link rel="stylesheet" type="text/css" href="../../../itemParenteses.css" />
+    <link rel="stylesheet" type="text/css" href="../../../ambTeor.css" />
+    
     <style>
       body{
         font-size: 14pt;
         font-family: "Helvetica", sans-serif;
         line-height: 1.5;
         background-color: rgb(233,227,206);
+        counter-reset: contTeor contProp contLema contObs contDef contSec 3;
       }
       
       h1{
@@ -48,8 +49,19 @@ w3IncludeHTML();
     
     <!-- ###### AULA 03 ###### -->
     <h2>Aula 3</h2>
-
+    
+    <p class="teor">teorema teste</p>
+    
+    <p class="teor">teorema teste</p>
+    
+    <p class="prop">proposição teste</p>
+    
+    <p class="teor">teorema teste</p>
+    
+    <p class="lema">lema teste</p>
+    
+    <p class="teor" text='teorema de fulano'>teorema teste fulano</p>
+    
   </body>
   
 </html>
-
