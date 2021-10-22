@@ -3,10 +3,10 @@
   font-weight: bold;
   content: "Teorema " counter(contSec)"."counter(contTeor) ". ";
 }
-      
+    
 .teor[text]:before {
   counter-increment: contTeor;
-  content: "Teorema " counter(contSec)"."counter(contTeor) " (" attr(text)"). ";
+  content: "Teorema " counter(contSec)"."counter(contTeor) " (" attr(text) "). ";
 }
       
 .prop:before{
@@ -41,4 +41,21 @@
   counter-increment: contDef;
   font-weight: bold;
   content: "Definição " counter(contSec)"."counter(contDef) ". ";
+}
+
+.fim:after{
+  content: "\25A2";
+  float:right;
+}
+
+.exerc:before{
+  counter-increment: contExerc;
+  font-weight: bold;
+  content: "Exercício " counter(contSec)"."counter(contExerc) ". ";
+}
+
+.exemplo:before{
+  counter-increment: contExemplo;
+  font-weight: bold;
+  content: "Exemplo " counter(contSec)"."counter(contExemplo) ". ";
 }
