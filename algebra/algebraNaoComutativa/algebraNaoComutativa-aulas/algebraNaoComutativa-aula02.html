@@ -293,15 +293,184 @@
   
     <div style="text-align:center"><h1>Álgebra Não Comutativa</h1></div>
     
-    <!-- ###### AULA 01 ###### -->
+    <!-- ###### AULA 02 ###### -->
     <h2>Aula 2 - Revisão de teoria de anéis (parte 2)</h2>
     
-    <!-- DEFINIÇÃO 1 -->
-    <p class="def">
+    <!-- DEFINIÇÃO -->
+    <p id="" class="def">
+      Um subconjunto \(S\) de \(R\) é um <strong>subanel</strong> de \(R\), se com as operações herdadas de \(R\) é um anel.
+    <span class="fim"></span></p>
       
+    <!-- OBSERVAÇÃO -->
+    <p id="" class="obs">
+      Subanéis de anéis não necessariamente têm unidade.
+    <span class="fim"></span></p>
+    
+    <!-- EXEMPLO -->
+    <p id="" class="exemplo">
+      <ol class=alfa>
+        <li>\(\zero\) e \(R\) são subanéis. Se a unidade fosse necessária na definição de subanel, então \(\zero\) não seria subanel.</li>
+        <li>\(\bbZ \subseteq \bbQ \subseteq \bbR \subseteq \bbC\) é uma cadeia de subanéis de \(\bbC\).</li>
+        <li>Em \(\bbZ\), o conjunto \(n\bbZ = \{na \mid a \in \bbZ\}\) é um subanel de \(\bbZ\)</li>
+        <li>Em \(M_3(R)\), com \(R\) sendo um anel com unidade, o conjunto
+        \(
+          S = \left\{
+          \begin{pmatrix}
+            a & b & 0 \\
+            c & d & 0 \\
+            0 & 0 & 0
+          \end{pmatrix}
+          \;\; \bigg| \;\;
+          a, b, c, d \in R
+          \right\}
+        \)
+        é subanel de \(M_3(R)\) que possui unidade, mas que é diferente da unidade de \(M_3(\bbR)\).</li>
+        <li>\(\bbH_{\bbZ} = \{x_1 + x_2i + x_3j + x_4k \mid x_i \in \bbZ\}\) é um subanel de \(\bbH\), mas não é um anel de divisão, pois os únicos invertíveis desse subanel são \(\{\pm 1, \pm i, \pm j, \pm k\}\). Este exemplo mostrar que os subanéis não necessariamente herdam as propriedades do anel.</li>
+        <li>O conjunto \(\calZ(R) = \{r \in R \mid rs = sr, \forall s \in R\}\), chamado <strong>centro</strong> de \(R\) é um subanel de \(R\). Observe que \(R\) é comutativo se, e somente se, \(\calZ(R) = R\). Um elemento de \(\calZ(R)\) é chamado de <em>elemento central</em>.<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="" class="def">
+      Seja \(I\) um subanel de \(R\). Dizemos que \(I\) é um
+      <ol class=alfa>
+        <li><strong>ideal à esquerda</strong>, denotado por \(I \unlhd_{\ell} R\), se \(ra \in I\), para todo \(r \in R\) e para todo \(a \in I\);</li>
+        <li><strong>ideal à direita</strong>, denotado por \(I \unlhd_{r} R\), se \(ar \in I\), para todo \(r \in R\) e para todo \(a \in I\);</li>
+        <li><strong>ideal bilateral</strong>, denotado por \(I \unlhd R\), se \(I\) é ideal à esquerda e à direita de \(R\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- EXEMPLO -->
+    <p id="" class="exemplo">
+      <ol class=alfa>
+        <li>Em geral, \(\calZ(R)\) não é um ideal de \(R\)</li>
+        <li>\(\zero\) e \(R\) são ideais à esquerda (à direita, bilaterais). Todo ideal diferente de \(R\) é chamado de <em>ideal próprio</em>, enquanto \(\zero\) é chamado de <em>ideal trivial</em>.<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="" class="obs">
+      Chamaremos apenas de ideal um ideal bilateral.
+    <span class="fim"></span></p>
+    
+    <!-- EXEMPLO -->
+    <p id="" class="exemplo">
+      <ol class=alfa>
+        <li>\(n\bbZ\) são ideais de \(\bbZ\). Além disso, eles são únicos, quer dizer, se \(I\) é ideal de \(Z\), então existe \(n \in \bbZ\) tal que \(I = n\bbZ\).</li>
+        <li>Em \(M_n(R)\), o conjunto \(C_k = \{(a_{ij}) \in M_n(R) \mid a_{ij} = 0\), se \(j \neq k\}\) é um ideal à esquerda de \(M_n(R)\), mas não é um ideal à direita. Analogamente, o conjunto \(L_k = \{(a_{ij}) \in M_n(R) \mid a_{ij} = 0\), se \(i \neq k\}\) é um ideal à direita, mas que não é um ideal à esquerda.</li>
+        <li>Se \(a \in R\), então o conjunto \(Ra = \{ra \mid r \in R\}\) é um ideal à esquerda de \(R\). Analogamente, o conjunto \(aR = \{ar \mid r \in R\}\) é um ideal à direita de \(R\).</li>
+        <li>Se \(\{I_j\}\) é uma família de ideais à esquerda (à direita, bilaterais) de \(R\), então \(\cap I_j\) é um ideal à esquerda (à direita, bilateral). Isso não acontece para união de ideais, ou seja, união de ideais nem sempre é um ideal.<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="" class="def">
+      Dado um subconjunto \(S \subseteq R\), o <strong>ideal à esquerda gerado por \(S\)</strong> é a interseção de todos os ideais à esquerda de \(R\) que contêm \(S\). Notação: \(\langle S \rangle_{\ell}\). Analogamente, defini-se ideais à direita gerado por \(S\) e ideal gerado por \(S\), que são denotados, respectivamente, por \(\langle S \rangle_{r}\) e por \(\langle S \rangle\). Se \(S = \{s_1, \dots, s_n\}\), então \(\langle S \rangle_{\ell} = \langle s_1, \dots, s_n \rangle_{\ell}\). Idem para ideais à direita e ideais.
+    <span class="fim"></span></p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="" class="obs">
+      <ol class=alfa>
+        <li>Vamos denotar por \(R_a \unlhd_{\ell} R\) o ideal gerado por \(a\), mesmo que \(a \not\in R\).</li>
+        <li>\(\langle a \rangle = \{ra + as + na + \sum_{i=1}^{m}r_ias_i \mid r, s, r_i, s_i \in R, n \in \bbZ\}\).</li>
+        <li>Se o anel tem unidade, então \(\langle a \rangle = \{\sum_{i=1}^{m}r_ias_i \mid r_i, s_i \in R\}\}\).</li>
+        <li>Se o anel tem unidade e \(a \in \calZ(R)\), então \(\langle a \rangle = Ra = aR\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="" class="obs">
+      Se \(S_1, \dots, S_n\) são subconjuntos de \(R\), então denotaremos por
+      <ol class=alfa>
+        <li>\(S_1 + \cdots + S_n = \{s_1 + \cdots + s_n \mid s_i \in S_i\}\);</li>
+        <li>\(S_1\cdots S_n\) o conjunto formado por todas as somas finitas de elementos da forma \(s_1\dots s_n\), com \(s_i \in S_i\). Se \(S_1 = \cdots = S_n = S\), então \(S\dots S = S^n\)<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="" class="prop"> Sejam \(S_1, \dots, S_n \unlhd_{\ell} R\) (à direita, bilaterais). Então
+      <ol class=alfa>
+        <li>\(S_1 + \dots + S_n \unlhd_{\ell} R\) (à direita e bilateral);</li>
+        <li>\(S_1\dots S_n \unlhd_{\ell} R\) (à direita e bilateral);</li>
+        <li>\((S_1 + S_2) + S_3 = S_1 + (S_2 + S_3)\) e \((S_1S_2)S_3 = S_1(S_2S_3)\);</li>
+        <li>\(S_1(S_2 + \cdots + S_n) = S_1S_2 + \cdots + S_1S_n\) e \((S_2 + \cdots + S_n)S_1 = S_2S_1 + \cdots + S_nS_1\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="" class="def">
+      Dizemos que um ideal à esquerda \(I\) é um <strong> ideal nil</strong>, se todo elemento de \(I\) é nilpotente. Dizemos que \(I\) é um <strong>ideal nilpotente</strong>, se existe \(n \ge 0\) tal que \(I^n = \zero\). Se um ideal é nilpotente, então ele é nil. Mas a recíproca não é verdadeira.
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="" class="def">
+      Dizemos que \(I \unlhd_{ell} R\) (à direita, bilateral) é um <strong> ideal maximal à esquerda</strong> (à direita, bilateral), se \(I \neq R\) e para todo \(J\unlhd_{ell} R\) (à direita, bilateral) tal que \(I \subseteq J \subseteq R\), então \(J = R\) ou \(I = J\).
+    <span class="fim"></span></p>
+    
+    <!-- EXEMPLO -->
+    <p id="" class="exemplo">
+      Em \(\bbZ\) os ideais \(p\bbZ\), com \(p primo\), são maximais.
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="" class="def">
+      Dizemos que \(I \unlhd_{ell} R\) (à direita, bilateral) é um <strong> ideal minimal à esquerda</strong> (à direita, bilateral), se \(I \neq \zero\) e para todo \(J\unlhd_{ell} R\) (à direita, bilateral) tal que \(\zero \subseteq J \subseteq I\), então \(J = \zero\) ou \(I = J\).
+    <span class="fim"></span></p>
+    
+    <!-- EXEMPLO -->
+    <p id="" class="exemplo">
+      \(\bbZ\) não possui ideais minimais.
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="" class="def">
+      Dizemos que \(R\) é <strong>simples</strong>, se \(R^2 \neq \zero\) e os únicos <em>ideais</em> de \(R\) são \(\zero\) e \(R\). Note que se \(R^2 = \zero\), então qualquer subanel é um ideal. Se \(R\) tem unidade, então a condição \(R^2 \neq \zero\) sempre é satisfeita.
+    <span class="fim"></span></p>
+    
+    <!-- EXEMPLO -->
+    <p id="" class="exemplo">
+      Todo anel de divisão é um anel simples. Em geral, se \(R\) é um anel com unidade e \(I \unlhd_{\ell} R\) possui um elemento invertível de \(R\), então \(I = R\).
+    <span class="fim"></span></p>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="" class="prop">
+      Se \(D\) é um anel de divisão, então \(M_n(D)\) é um anel simples.
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="" class="def">
+      Seja \(I \unlhd_{\ell} R\). Defina a seguinte relação 
+      \[
+        a \sim b \Leftrightarrow a - b \in I,
+      \]
+      para todo \(a, b \in R\). A relação \(\sim\) é uma relação de equivalência e a classe de equivalência de \(a \in R\) será denotada por \(\overline{a}\) (algumas vezes também será denotada por \(a + I\)). Vamos denotar por \(\rfrac{R}{I} = \{\overline{a} \mid a \in R\}\). Se definirmos \(\overline{a} + \overline{b} = \overline{a + b}\), então \((\rfrac{R}{I}, +)\) é um grupo abeliano. Se definirmos \(\overline{a}\overline{b} = \overline{ab}\), então este produto dá uma estrutura de anel a \(\rfrac{R}{I}\) se, e somente se, \(I\) é ideal. Nesse caso, \((\rfrac{R}{I}, + , \cdot)\) é um anel chamado de <strong>anel quociente</strong> de \(R\) por \(I\).
+    <span class="fim"></span></p>
+    
+    <!-- EXEMPLO -->
+    <p id="" class="exemplo">
+      <ol class=alfa>
+        <li>Se \(R = \bbZ\) e \(I = n\bbZ\), então \(\rfrac{R}{I} = \bbZ_n\).</li>
+        <li>Seja \(R = \bbZ[x_1, x_2, \dots]\) e considere \(I = \langle x_1^2, x_2^2, x_3^2, \dots \rangle\). Em \(\rfrac{R}{I}\), considere o ideal \(J = \langle \overline{x_1}, \overline{x_2}, \dots \rangle \unlhd \rfrac{R}{I}\). Então \(J\) é um ideal nil, mas não é nilpotente.<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- EXERCÍCIO -->
+    <p id="" class="exerc">
+      <ol class=alfa>
+        <li>Seja \(R\) um anel com unidade. Mostre que \(\calZ(M_n(R)) = \{rI_n \mid r \in \calZ(R)\}\).</li>
+        <li>Seja \(D\) um anel de divisão. Mostre que os ideais à esquerda \(C_k\) de \(M_n(D)\) são minimais, onde \(k = 1, \dots, n\).</li>
+        <li>Mostre que \(I \unlhd M_n(R)\) se, e somente se, existe \(J \unlhd R\) tal que \(I = M_n(J)\). Conclua que se \(R\) é simples, então \(M_n(R)\) também o é.</li>
+        <li>
+          Sejam \(R\) um anel com unidade e \(I \unlhd R\). Mostre que
+          <ol class="romano">
+            <li>Se \(I\) é maximal e \(R\) é comutativo, então \(\rfrac{R}{I}\) é um corpo.</li>
+            <li>Se \(\rfrac{R}{I}\) é um anel de divisão, então \(I\) é maximal.</li>
+            <li>Mostre que se \(R\) não tem unidade, então o item (a) é falso e dê um exemplo de um anel não comutativo \(R\) que possui um ideal maximal \(I\) tal que o quociente não é um anel de divisão.<span class="fim"></span></li>
+          </ol>
+        </li>
+      </ol>
     </p>
     
   </body>
   
 </html>
-
