@@ -297,17 +297,17 @@
     <h2>Aula 2 - Revisão de teoria de anéis (parte 2)</h2>
     
     <!-- DEFINIÇÃO -->
-    <p id="" class="def">
+    <p id="def-subanel" class="def">
       Um subconjunto \(S\) de \(R\) é um <strong>subanel</strong> de \(R\), se com as operações herdadas de \(R\) é um anel.
     <span class="fim"></span></p>
       
     <!-- OBSERVAÇÃO -->
-    <p id="" class="obs">
+    <p id="obs-subanel" class="obs">
       Subanéis de anéis não necessariamente têm unidade.
     <span class="fim"></span></p>
     
     <!-- EXEMPLO -->
-    <p id="" class="exemplo">
+    <p id="exemplo-subanel" class="exemplo">
       <ol class=alfa>
         <li>\(\zero\) e \(R\) são subanéis. Se a unidade fosse necessária na definição de subanel, então \(\zero\) não seria subanel.</li>
         <li>\(\bbZ \subseteq \bbQ \subseteq \bbR \subseteq \bbC\) é uma cadeia de subanéis de \(\bbC\).</li>
@@ -331,7 +331,7 @@
     </p>
     
     <!-- DEFINIÇÃO -->
-    <p id="" class="def">
+    <p id="def-ideal" class="def">
       Seja \(I\) um subanel de \(R\). Dizemos que \(I\) é um
       <ol class=alfa>
         <li><strong>ideal à esquerda</strong>, denotado por \(I \unlhd_{\ell} R\), se \(ra \in I\), para todo \(r \in R\) e para todo \(a \in I\);</li>
@@ -341,7 +341,7 @@
     </p>
     
     <!-- EXEMPLO -->
-    <p id="" class="exemplo">
+    <p id="exemplo-ideal" class="exemplo">
       <ol class=alfa>
         <li>Em geral, \(\calZ(R)\) não é um ideal de \(R\)</li>
         <li>\(\zero\) e \(R\) são ideais à esquerda (à direita, bilaterais). Todo ideal diferente de \(R\) é chamado de <em>ideal próprio</em>, enquanto \(\zero\) é chamado de <em>ideal trivial</em>.<span class="fim"></span></li>
@@ -349,12 +349,12 @@
     </p>
     
     <!-- OBSERVAÇÃO -->
-    <p id="" class="obs">
+    <p id="obs-ideal" class="obs">
       Chamaremos apenas de ideal um ideal bilateral.
     <span class="fim"></span></p>
     
     <!-- EXEMPLO -->
-    <p id="" class="exemplo">
+    <p id="exemplo-subanel2" class="exemplo">
       <ol class=alfa>
         <li>\(n\bbZ\) são ideais de \(\bbZ\). Além disso, eles são únicos, quer dizer, se \(I\) é ideal de \(Z\), então existe \(n \in \bbZ\) tal que \(I = n\bbZ\).</li>
         <li>Em \(M_n(R)\), o conjunto \(C_k = \{(a_{ij}) \in M_n(R) \mid a_{ij} = 0\), se \(j \neq k\}\) é um ideal à esquerda de \(M_n(R)\), mas não é um ideal à direita. Analogamente, o conjunto \(L_k = \{(a_{ij}) \in M_n(R) \mid a_{ij} = 0\), se \(i \neq k\}\) é um ideal à direita, mas que não é um ideal à esquerda.</li>
@@ -364,12 +364,12 @@
     </p>
     
     <!-- DEFINIÇÃO -->
-    <p id="" class="def">
+    <p id="def-idealGerado" class="def">
       Dado um subconjunto \(S \subseteq R\), o <strong>ideal à esquerda gerado por \(S\)</strong> é a interseção de todos os ideais à esquerda de \(R\) que contêm \(S\). Notação: \(\langle S \rangle_{\ell}\). Analogamente, defini-se ideais à direita gerado por \(S\) e ideal gerado por \(S\), que são denotados, respectivamente, por \(\langle S \rangle_{r}\) e por \(\langle S \rangle\). Se \(S = \{s_1, \dots, s_n\}\), então \(\langle S \rangle_{\ell} = \langle s_1, \dots, s_n \rangle_{\ell}\). Idem para ideais à direita e ideais.
     <span class="fim"></span></p>
     
     <!-- OBSERVAÇÃO -->
-    <p id="" class="obs">
+    <p id="obs-idealGerado" class="obs">
       <ol class=alfa>
         <li>Vamos denotar por \(R_a \unlhd_{\ell} R\) o ideal gerado por \(a\), mesmo que \(a \not\in R\).</li>
         <li>\(\langle a \rangle = \{ra + as + na + \sum_{i=1}^{m}r_ias_i \mid r, s, r_i, s_i \in R, n \in \bbZ\}\).</li>
@@ -379,7 +379,7 @@
     </p>
     
     <!-- OBSERVAÇÃO -->
-    <p id="" class="obs">
+    <p id="obs-somaProdIdeais" class="obs">
       Se \(S_1, \dots, S_n\) são subconjuntos de \(R\), então denotaremos por
       <ol class=alfa>
         <li>\(S_1 + \cdots + S_n = \{s_1 + \cdots + s_n \mid s_i \in S_i\}\);</li>
@@ -388,7 +388,7 @@
     </p>
     
     <!-- PROPOSIÇÃO -->
-    <p id="" class="prop"> Sejam \(S_1, \dots, S_n \unlhd_{\ell} R\) (à direita, bilaterais). Então
+    <p id="prop-somaProdIdeais" class="prop"> Sejam \(S_1, \dots, S_n \unlhd_{\ell} R\) (à direita, bilaterais). Então
       <ol class=alfa>
         <li>\(S_1 + \dots + S_n \unlhd_{\ell} R\) (à direita e bilateral);</li>
         <li>\(S_1\dots S_n \unlhd_{\ell} R\) (à direita e bilateral);</li>
@@ -398,47 +398,47 @@
     </p>
     
     <!-- DEFINIÇÃO -->
-    <p id="" class="def">
+    <p id="def-idealNil" class="def">
       Dizemos que um ideal à esquerda \(I\) é um <strong> ideal nil</strong>, se todo elemento de \(I\) é nilpotente. Dizemos que \(I\) é um <strong>ideal nilpotente</strong>, se existe \(n \ge 0\) tal que \(I^n = \zero\). Se um ideal é nilpotente, então ele é nil. Mas a recíproca não é verdadeira.
     <span class="fim"></span></p>
     
     <!-- DEFINIÇÃO -->
-    <p id="" class="def">
+    <p id="def-idealMaximal" class="def">
       Dizemos que \(I \unlhd_{ell} R\) (à direita, bilateral) é um <strong> ideal maximal à esquerda</strong> (à direita, bilateral), se \(I \neq R\) e para todo \(J\unlhd_{ell} R\) (à direita, bilateral) tal que \(I \subseteq J \subseteq R\), então \(J = R\) ou \(I = J\).
     <span class="fim"></span></p>
     
     <!-- EXEMPLO -->
-    <p id="" class="exemplo">
+    <p id="exemplo-idealMaximal" class="exemplo">
       Em \(\bbZ\) os ideais \(p\bbZ\), com \(p primo\), são maximais.
     <span class="fim"></span></p>
     
     <!-- DEFINIÇÃO -->
-    <p id="" class="def">
+    <p id="def-idealMinimal" class="def">
       Dizemos que \(I \unlhd_{ell} R\) (à direita, bilateral) é um <strong> ideal minimal à esquerda</strong> (à direita, bilateral), se \(I \neq \zero\) e para todo \(J\unlhd_{ell} R\) (à direita, bilateral) tal que \(\zero \subseteq J \subseteq I\), então \(J = \zero\) ou \(I = J\).
     <span class="fim"></span></p>
     
     <!-- EXEMPLO -->
-    <p id="" class="exemplo">
+    <p id="exemplo-idealMinimal" class="exemplo">
       \(\bbZ\) não possui ideais minimais.
     <span class="fim"></span></p>
     
     <!-- DEFINIÇÃO -->
-    <p id="" class="def">
+    <p id="def-anelSimples" class="def">
       Dizemos que \(R\) é <strong>simples</strong>, se \(R^2 \neq \zero\) e os únicos <em>ideais</em> de \(R\) são \(\zero\) e \(R\). Note que se \(R^2 = \zero\), então qualquer subanel é um ideal. Se \(R\) tem unidade, então a condição \(R^2 \neq \zero\) sempre é satisfeita.
     <span class="fim"></span></p>
     
     <!-- EXEMPLO -->
-    <p id="" class="exemplo">
+    <p id="exemplo-anelSimples" class="exemplo">
       Todo anel de divisão é um anel simples. Em geral, se \(R\) é um anel com unidade e \(I \unlhd_{\ell} R\) possui um elemento invertível de \(R\), então \(I = R\).
     <span class="fim"></span></p>
     
     <!-- PROPOSIÇÃO -->
-    <p id="" class="prop">
+    <p id="prop-anelSimples" class="prop">
       Se \(D\) é um anel de divisão, então \(M_n(D)\) é um anel simples.
     <span class="fim"></span></p>
     
     <!-- DEFINIÇÃO -->
-    <p id="" class="def">
+    <p id="def-quociente" class="def">
       Seja \(I \unlhd_{\ell} R\). Defina a seguinte relação 
       \[
         a \sim b \Leftrightarrow a - b \in I,
@@ -447,7 +447,7 @@
     <span class="fim"></span></p>
     
     <!-- EXEMPLO -->
-    <p id="" class="exemplo">
+    <p id="exemplo-quociente" class="exemplo">
       <ol class=alfa>
         <li>Se \(R = \bbZ\) e \(I = n\bbZ\), então \(\rfrac{R}{I} = \bbZ_n\).</li>
         <li>Seja \(R = \bbZ[x_1, x_2, \dots]\) e considere \(I = \langle x_1^2, x_2^2, x_3^2, \dots \rangle\). Em \(\rfrac{R}{I}\), considere o ideal \(J = \langle \overline{x_1}, \overline{x_2}, \dots \rangle \unlhd \rfrac{R}{I}\). Então \(J\) é um ideal nil, mas não é nilpotente.<span class="fim"></span></li>
@@ -455,7 +455,7 @@
     </p>
     
     <!-- EXERCÍCIO -->
-    <p id="" class="exerc">
+    <p id="exerc-aula2" class="exerc">
       <ol class=numerico>
         <li>Seja \(R\) um anel com unidade. Mostre que \(\calZ(M_n(R)) = \{rI_n \mid r \in \calZ(R)\}\).</li>
         <li>Seja \(D\) um anel de divisão. Mostre que os ideais à esquerda \(C_k\) de \(M_n(D)\) são minimais, onde \(k = 1, \dots, n\).</li>
