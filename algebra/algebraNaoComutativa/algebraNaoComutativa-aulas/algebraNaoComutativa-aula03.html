@@ -7,7 +7,7 @@
     <title> Álgebra Não Comutativa - Aula 3 </title>
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
-        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+        extensions: ["https://lomath.in/doc/xyjax/xypic.js","tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
         jax: ["input/TeX", "output/HTML-CSS"],
         tex2jax: {
           inlineMath: [ ['$','$'], ["\\(","\\)"] ],
@@ -296,9 +296,136 @@
     <!-- ###### AULA 03 ###### -->
     <h2>Aula 3 - Revisão de teoria de anéis (parte 3)</h2>
     
+    <!-- DEFINIÇÃO -->
+    <p id="def-homomorfismo" class="def">
+      Seja \(R, S\) anéis e \(f: R \to S\) aplicação. Dizemos que \(f\) é um <strong>homomorfismo</strong> (de anéis), se, para todo \(a, b \in R\)
+      <ol class=alfa>
+        <li>\(f(a+b) = f(a) + f(b)\)</li>
+        <li>\(f(ab) = f(a)f(b)\)<span class="fim"></span></li>
+      </ol>
+    </p>
     
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-homomorfismo" class="obs">
+      Se \(f: R \to S\) é um homomorfismo de anéis, então
+      <ol class=alfa>
+        <li>\(f(0) = 0\);</li>
+        <li>\(f(-a) = -f(a)\);</li>
+        <li>Em geral, se \(R\) e \(S\) são anéis com unidade, então \(f(1_R) \neq 1_S\) (em algumas referências, exige-se que \(f(1_R) = 1_S\) na definição de homomorfismo).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- EXEMPLO -->
+    <p id="exemplo-homomorfismo" class="exemplo">
+      <ol class=alfa>
+        <li>Seja \(R\) um anel com unidade e considere a aplicação
+        \[
+          \begin{array}{rl}
+            f: M_2(R) &\to M_3(R) \\
+            \begin{pmatrix}
+              a & b \\
+              c & d
+            \end{pmatrix}
+            &\mapsto
+            \begin{pmatrix}
+              a & b & 0 \\
+              c & d & 0 \\
+              0 & 0 & 0
+            \end{pmatrix}.
+          \end{array}
+        \]
+        Então \(f\) é um homomorfismo, mas \(f(I_2) \neq f(I_3)\).</li>
+        <li>Sejam \(R\) e \(S\) anéis com unidade e \(f: R \to S\) um homomorfismo, então
+          <ol class=romano>
+            <li>se \(S\) é um domínio, então \(f(1_R) = 1_S\);</li>
+            <li>se \(f\) é sobrejetiva, então \(f(1_R) = 1_S\).<span class="fim"></span></li>
+          </ol>
+        </li>
+      </ol>
+    </p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-isomorfismo" class="def">
+      Seja \(f\) um homomorfismo de anéis. Dizemos que
+      <ol class=alfa>
+        <li>\(f\) é um <strong>monomorfismo</strong>, se \(f\) é injetiva;</li>
+        <li>\(f\) é um <strong>epimorfismo</strong>, se \(f\) é sobrejetiva;</li>
+        <li>\(f\) é um <strong>isomorfismo</strong>, se \(f\) é bijetiva. Nesse caso, escrevemos \(R \cong S\) e dizemos que os anéis \(R\) e \(S\) são <em>isomorfos</em>.</li>
+      </ol>
+      Além disso, um homomorfismo \(f: R \to R\) é chamado de <strong>endomorfismo</strong> e um isomorfismo \(f: R \to R\) é chamado de <strong>automorfismo</strong>.
+    <span class="fim"></span></p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-anelEndomorfismo" class="obs">
+      O conjunto \(\End(R) = \{f: R \to R \mid f\) é um endomorfismo\(\}\) com as operações \((f + g)(r) = f(r) + g(r)\) e \((fg)(r) = f(g(r))\) é um anel com unidade, chamado de <strong>anel dos endomorfismos</strong> de \(R\).
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-nucleoImagem" class="def">
+      Dado \(f: R \to S\) um homomorfismo de anéis, definimos
+      <ol class=alfa>
+        <li>\(\ker(f) = \{r \in R \mid f(r) = 0\}\), chamado <strong>núcleo</strong> de \(f\);</li>
+        <li>\(\im(f) = \{f(r) \mid r \in R\}\), chamado de <strong>imagem</strong> de \(f\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="prop-nucleoImagem" class="prop">
+      Seja \(f: R \to S\) um homomorfismo de anéis. Então
+      <ol class=alfa>
+        <li>\(\ker(f) \unlhd R\);</li>
+        <li>\(\im(f)\) é um subanel de \(S\);</li>
+        <li>\(f\) é um monomorfismo \(\Leftrightarrow\) \(\ker(f) = \zero\);</li>
+        <li>\(f\) é um epimorfismo \(\Leftrightarrow\) \(\im(f) = S\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- EXEMPLO -->
+    <p id="exemplo-projecaoImersao" class="exemplo">
+      <ol class=alfa>
+        <li>Sejam \(R\) um anel e \(I \unlhd R\). Então a aplicação \(f: R \to \rfrac{R}{I}\), \(r \mapsto \overline{r}\) é um epimorfismo, chamado de <strong>projeção canônica</strong> (ao quociente).</li>
+        <li>Sejam \(R\) um anel e \(S\) um subanel de \(R\). Então a aplicação \(f: S \to R\), \(s \mapsto s\) é um monomorfismo, chamado de <strong>imersão canônica</strong> (ou inclusão canônica).</li>
+        <li>Todo ideal \(I \unlhd R\) é o núcleo de algum homomorfismo. Basta tomar a projeção canônica \(\pi: R \to \rfrac{R}{I}\), pois \(\ker(\pi) = I\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-isomorficamenteImersa" class="obs">
+      Em geral, se \(f: R \to S\) é um monomorfismo de anéis, então podemos enxergar \(R\) como um subanel de \(S\) e identificar os elementos de \(R\) com suas respectivas imagens. Neste caso, dizemos que \(R\) está <em>isomorficamente imersa</em> em \(S\).
+    <span class="fim"></span></p>
+    
+    <!-- TEOREMA -->
+    <p id="teor-isomorfismo" class="teor" text="Teorema do Isomorfismo">
+      <ol class=alfa>
+        <li>Seja \(f: R \to S\) um homomorfismo de anéis. Considere \(\pi: R \to \rfrac{R}{\ker(f)}\) a projeção canônica e \(\iota: \im(f) \to S\) a imersão canônica. Então existe um único homomorfismo \(\overline{f}: \rfrac{R}{\ker(f)} \to \im(f)\) tal que \(f = \iota \circ \overline{f} \circ \pi\). Além disso, \(\overline{f}\) é um isomorfismo.
+        \[
+          \xymatrix{
+            R \ar[r]^{f} \ar[d]_{\pi} \ar@{}[dr]|{\circlearrowleft} & S \\ 
+            \rfrac{R}{\ker(f)} \ar[r]_{\overline{f}} & \im(f) \ar[u]_{\iota}
+          }
+        \]
+        </li>
+        <li>Sejam \(I, J \unlhd R\). Então \(\rfrac{R}{I \cap J} \cong \rfrac{I + J}{J}\).</li>
+        <li>
+          Sejam \(I \unlhd R\) e \(\pi: R \to \rfrac{R}{I}\) a projeção canônica. Então
+          <ol class=romano>
+            <li>para cada ideal (à esquerda, à direita, bilateral) \(J\) de \(R\) que contém o ideal \(I\), \(\pi(J) = \rfrac{J}{I}\) é um ideal (à esquerda, à direita, bilateral) de \(\rfrac{R}{I}\).</li>
+            <li>se \(\calJ \unlhd \rfrac{R}{I}\), então \(\pi^{-1}(\calJ) = \{r \in R \mid \overline{r} \in \calJ\}\) é um ideal de \(R\) contendo \(I\) e \(\calJ = \rfrac{J}{I}\), para algum \(J \unlhd R\), é um ideal de \(R\) que contém \(I\).</li>
+          </ol>
+        </li>
+        <li>Seja \(f: R \to S\) um homomorfismo. Então existe uma correspondência biunívoca entre os ideais de \(S\) e os ideais de \(R\) que contém \(\ker(f)\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- TEOREMA -->
+    <p id="teor-" class="teor">
+      Todo anel \(R\) pode ser imerso em um anel \(S\) com unidade. O anel \(S\), que não é único, pode ser escolhido para ter característica zero ou a mesma característica de \(R\).
+      <ol class=alfa>
+        <li>Característica zero: faça \(S := R \times \bbZ\) com a soma componente a componente e a multiplicação \((r_1, n_1)\ast(r_2, n_2) := (r_1r_2 + n_2r_1 + n_1r_2, n_1n_2)\).</li>
+        <li>Característica de \(R\): se \(\char(R) = n\), faça \(S := R \times \bbZ_n\) com a soma componente a componente e a multiplicação \((r_1, \overline{m_1})\ast(r_2, \overline{m_2}) := (r_1r_2 + m_2r_1 + m_1r_2, \overline{m_1}\,\overline{m_2})\).<span class="fim"></span></li>
+      </ol>
+    </p>
     
   </body>
   
 </html>
-
