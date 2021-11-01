@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> Geometria Algébrica - Aula 1 </title>
+    <title> Geometria Algébrica - Aula 2 </title>
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
         extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
@@ -274,7 +274,7 @@
         font-family: "Helvetica", sans-serif;
         line-height: 1.5;
         background-color: rgb(233,227,206);
-        counter-reset: contTeor contProp contLema contObs contDef contSec 1;
+        counter-reset: contTeor contProp contLema contObs contDef contSec 2;
       }
       
       h1{
@@ -293,91 +293,79 @@
   
     <div style="text-align:center"><h1>Geometria Algébrica</h1></div>
     
-    <!-- ###### AULA 01 ###### -->
-    <h2>Aula 1 - Conjuntos algébricos</h2>
+    <!-- ###### AULA 02 ###### -->
+    <h2>Aula 2 - Multiplicidade de uma curva plana</h2>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-variedadeAfim" class="def">
+      Um conjunto algébrico irredutível é chamado de <strong>variedade</strong>.
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-anelCoord" class="def">
+      Seja \(V \subseteq \bbA^n\) uma variedade. Definimos o <strong>anel de coordenadas de \(V\)</strong> como sendo \(\Gamma(V) := \rfrac{K[X_1, \dots, X_n]}{\calI(V)}\). Observe que, pela <a href="geometriaAlgebrica-aula01.html#prop-caracConjAlgIrred">Proposição 1.2.</a>, temos que \(\calI(V)\) é um ideal primo, logo \(\Gamma(V)\) é um domínio.
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-corpoFunRac" class="def">
+      Sejam \(V \subseteq \bbA^n\) uma variedade não vazia e \(\Gamma(V)\) seu anel de coordenadas. Como \(\Gamma(V)\) é um domínio, então podemos formar seu corpo quociente, o qual chamamos de <strong>corpo das funções racionais</strong> e denotamos por \(K(V)\). Um elemento em \(K(V)\) é chamado <em>função racional</em>.
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-anelLocal" class="def">
+      Sejam \(V \subseteq \bbA^n\) uma variedade não vazia e \(P \in V\). Definimos \(\calO_P(V)\), o <strong>anel local de \(V\) em \(P\)</strong>, como sendo o conjunto das funções racionais que estão definidas em \(P\), quer dizer, o conjunto de todas as funções racionais \(f = \frac{a}{b}\), com \(a, b \in \Gamma(V)\), tais que \(b(P) \neq 0\). 
+    <span class="fim"></span></p>
     
     <!-- OBSERVAÇÃO -->
-    <p id="obs-anel" class="obs">
-      Para esse curso:
+    <p id="obs-incAC&CFR&AL" class="obs">
+      Note que \(K \subseteq \Gamma(V) \subseteq \calO_P(V) \subseteq K(V)\).
+    <span class="fim"></span></p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-idealMaxAnelLocal" class="obs">
+      Em \(\calO_P(V)\), o ideal \(\frakm_P(V) = \{f \in \calO_P(V) \mid f(P) = 0\}\) é o único ideal maximal. Além disso, \(\frakm_P(V) = \{\)não unidades de \(\calO_P(V)\}\).
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-curvaAlgAfim" class="def">
+      Dizemos que dois polinômios não constantes \(F, G \in K[X, Y]\) são <em>equivalentes</em>, se \(F = \lambda G\), para algum \(\lambda \in K\). Uma classe de equivalência de um polinômio não constante é chamada <strong>curva plana</strong>. Frequentemente, omitiremos a distinção de equivalência e escreveremos o polinômio e sua classe de equivalência pelo mesmo símbolo.
+    <span class="fim"></span></p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-AC&CFR&ALparaCPA" class="obs">
+      Seja \(F \in K[X, Y]\). Se \(F\) é irredutível, então \(\calV(F)\) é uma variedade e abreviamos:
       <ol class=alfa>
-        <li>um <em>anel</em> é um anel comutativo com unidade;</li>
-        <li>um <em>homomorfismo de anéis</em> leva unidade em unidade, quer dizer, se \(\varphi: R \to S\) é um homomorfismo de anéis, então \(\varphi(1_R) = 1_S\).<span class="fim"></span></li>
+        <li>\(\Gamma(\calV(F)) = \rfrac{K[X,Y]}{\calI(\calV(F))}\) por \(\Gamma(F) = \rfrac{K[X,Y]}{F} = k[x,y]\);</li>
+        <li>\(K(\calV(F))\) por \(K(F) = k(x,y)\).</li>
+        <li>\(\calO_P(\calV(F))\) por \(\calO_P(F)\).<span class="fim"></span></li>
       </ol>
     </p>
     
     <!-- DEFINIÇÃO -->
-    <p id="def-espacoAfim" class="def">
-      Seja \(K\) um corpo. Chamamos de <strong>\(\bfn\)-espaço afim sobre \(\bfK\)</strong> o produto cartesiano de \(K\) com ele mesmo \(n\) vezes, o qual denotamos por \(\bbA^n(K)\) (ou, simplesmente, \(\bbA^n\), quando \(K\) já está implícito no contexto). Se \(n = 1\), então \(\bbA^1(K)\) é chamado de <em>linha afim</em> e se \(n = 2\), \(\bbA^2(K)\) é chamado de <em>plano afim</em>.
-    <span class="fim"></span></p>
-      
-    <!-- DEFINIÇÃO -->
-    <p id="def-hipersuperficie" class="def">
-      Seja \(F \in K[X_1, \dots, X_n]\) um polinômio não constante. O conjunto dos zeros de \(F\) é chamado <strong>hipersuperfície</strong> definida por \(F\) e é denotada por \(\calV(F)\). Em outros termos, \(\calV(F) := \{x \in \bbA^n \mid F(x) = 0\}\).
+    <p id="def-pontoSimples" class="def">
+      Sejam \(F\) uma curva plana e \(P = (a, b) \in F\). Dizemos que \(P\) é um <strong>ponto simples de \(F\)</strong> (ponto liso ou ponto não singular), se \(F_X(P) \neq 0\) ou \(F_Y(P) \neq 0\), onde \(F_X\) e \(F_Y\) denotam, respectivamente, a derivada de \(F\) em \(X\) e em \(Y\). Neste caso, \(F_X(X - a) + F_Y(P)(Y - b) = 0\) é chamada de <strong>reta tangente</strong> de \(P\) em \(F\).
     <span class="fim"></span></p>
     
-    <!-- DEFINIÇÃO -->
-    <p id="def-conjuntoAlgebrico" class="def">
-      Um conjunto \(X \subseteq \bbA^n\) é chamado de <strong>conjunto algébrico</strong>, se existe \(S \subseteq K[X_1, \dots, X_n]\) tal que \(X = \calV(S)\). Uma vez que \(\calV(S) = \cap_{F \in S}\calV(F)\), temos que um conjunto algébrico é definido como sendo a interseção de hipersuperfícies.
-    <span class="fim"></span></p>
-    
-    <!-- PROPOSIÇÃO -->
-    <p id="prop-conjAlgFinPol" class="prop">
-      Todo conjunto algébrico é uma interseção <em>finita</em> de hipersuperfícies.
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-forma" class="obs">
+      Um <em>monômio</em> em \(R[X_1, \dots, X_n]\) é um polinômio da forma \(X_1^{i_1}X_2^{i_2}\dots X_n^{i_n}\), onde \(i_i\) são inteiros não negativos; o <em>grau de um monômio</em> é \(i_1 + \cdots + i_n\). Todo \(F \in R[X_1, \dots, X_n]\) se escreve unicamente como \(\sum a_{(i)}X^{(i)}\), onde \(X^{(i)}\) é um monômio de grau \(i\) e \(a_{(i)} \in F\). Chamamos \(F\) de <em>uma forma de grau \(d\)</em>, se todos os coeficientes \(a_{(i)}\) são zeros exceto para monômios de grau \(d\). Qualquer polinômio \(F \in R[X_1, \dots, X_n]\) se escreve unicamente como \(F_0 + F_1 + \cdots + F_d\), onde \(F_i\) é uma forma de grau \(i\). Se \(F_d \neq 0\), então \(d\) é o <em>grau</em> de \(F\).
     <span class="fim"></span></p>
     
     <!-- DEFINIÇÃO -->
-    <p id="def-anelNoeth" class="def">
-      Um anel \(R\) é <strong>noetheriano</strong>, se todo ideal de \(R\) é finitamente gerado, isto é, se \(I \unlhd R\), então existem \(a_1, \dots, a_n \in R\) tais que \(I = \langle a_1, \dots, a_n \rangle = \{\sum_{i=1}^nr_ia_i \mid r_i \in R\}\).
-    <span class="fim"></span></p>
-    
-    <!-- LEMA -->
-    <p id="lema-anelNoeth" class="lema">
-      São condições equivalentes:
-      <ol class=alfa>
-        <li>\(R\) é anel noetheriano.</li>
-        <li>Toda cadeia ascendente de ideais \(I_1 \subseteq I_2 \subseteq \cdots \subseteq I_n\) estaciona.</li>
-        <li>Toda coleção não vazia \(\calC\) de ideais em \(R\) admite elemento maximal, isto é, existe \(I_0 \in \calC\) tal que para todo \(I \in \calC\), se \(I_0 \subseteq I\), então \(I = I_0\).<span class="fim"></span></li>
-      </ol>
-    </p>
-    
-    <!-- TEOREMA -->
-    <p id="teor-baseHilbert" class="teor">
-      Se \(R\) é um anel noetheriano, então o anel \(R[X]\) também é noetheriano.
-    <span class="fim"></span></p>
-    
-    <!-- DEFINIÇÃO -->
-    <p id="def-idealConj" class="def">
-      Seja \(X \subseteq \bbA^n\). Definimos o <strong>ideal de \(X\)</strong> como sendo \(\calI(X) := \{F \in K[X_1, \dots, X_n] \mid F(a_1, \dots, a_n) = 0\), para todo \((a_1, \dots, a_n) \in X\}\).
-    <span class="fim"></span></p>
-    
-    <!-- LEMA -->
-    <p id="lema-idealConj" class="lema">
-      <ol class=alfa>
-        <li>\(X \subseteq Y \Rightarrow \calI(X) \supseteq \calI(Y)\).</li>
-        <li>\(\calI(\varnothing) = \langle 1 \rangle\).</li>
-        <li>\(\calI(\bbA^n) = \zero\), se \(K\) é infinito.</li>
-        <li>\(P = (a_1, \dots, a_n) \in \bbA^n \Rightarrow \calI(P) = \langle X_1 - a_1, \dots, X_n - a_n \rangle\).</li>
-        <li>\(\calV\big(\calI(\calV(S))\big) = \calV(S)\), para todo conjunto \(S\) de polinômios.</li>
-        <li>\(\calI\big(\calV(\calI(X))\big) = \calI(X)\), para todo conjunto \(X \subseteq \bbA^n\).</li>
-        <li>Se \(V\) é um conjunto algébrico, então \(V = \calV(\calI(V))\).</li>
-        <li>Se \(I\) é o ideal de algum conjunto algébrico, vale \(I = \calI(\calV(I))\).</li>
-        <li>\(\calI(X)\) é um ideal radical, isto é, se \(f^m \in \calI(X)\), para algum \(m\), então \(f \in \calI(X)\).<span class="fim"></span></li>
-      </ol>
-    </p>
-    
-    <!-- DEFINIÇÃO -->
-    <p id="def-compIrred" class="def">
-      Um conjunto algébrico não vazio \(V \subseteq \bbA^n\) é <strong>irredutível</strong>, se não existem conjuntos algébricos \(V_1, V_2 \subseteq \bbA^n\), com \(V_1 \neq V \neq V_2\), tais que \(V = V_1 \cup V_2\). Em outros termos, \(V \subseteq \bbA^n\) é irredutível, se dados quaisquer dois conjuntos algébricos \(V_1, V_2 \subseteq \bbA^n\), com \(V_1 \neq V \neq V_2\), temos que \(V \neq V_1 \cup V_2\). Caso contrário, \(V\) é <em>redutível</em>.
-    <span class="fim"></span></p>
-    
-    <!-- PROPOSIÇÃO -->
-    <p id="prop-caracConjAlgIrred" class="prop">
-      Um conjunto algébrico \(V\) é irredutível se, e somente se, \(\calI(V)\) é um ideal primo.
+    <p id="def-multiplicidade" class="def">
+      Sejam \(F\) uma curva plana e \(P = (0, 0) \in F\). Escreva \(F = F_m + F_{m+1} + \cdots + F_n\), onde \(F_i\) é uma forma em \(K[X,Y]\) de grau \(i\) e \(F_m \neq 0\). Definimos \(m\) com sendo a <strong>multiplicidade</strong> de \(F\) em \(P\), o qual denotamos por \(m_P(F)\). Chamamos cada fator linear de \(F_m = (\alpha_1X + \beta_1Y)\dots(\alpha_mX + \beta_mY)\) de uma <em>reta tangente</em> a \(F\) na origem.
     <span class="fim"></span></p>
     
     <!-- TEOREMA -->
-    <p id="teor-decompConjAlg" class="teor">
-      Seja \(V \subseteq \bbA^n\) um conjunto algébrico não vazio. Então existem únicos \(V_1, \dots, V_r \subseteq \bbA^n\) conjuntos algébricos irredutíveis \(V = V_1 \cup \cdots \cup V_r\), com \(V_i \subseteq V_j\), para todo \(i \neq j\).
+    <p id="teor-multCalcAlg" class="teor">
+      Sejam 
+      <ol class=alfa>
+        <li>\(F\) uma curva plana irredutível,</li>
+        <li>\(P \in F\),</li>
+        <li>\(m\) a multiplicidade de \(F\) em \(P\) e </li>
+        <li>\(\frakm\) o ideal maximal de \(P\) em \(\calO_P(F)\)</li>
+      </ol>
+      Então, para \(r\) suficientemente grande, temos que \(m = \dim\big(\rfrac{\frakm^r}{\frakm^{r+1}}\big)\).
     <span class="fim"></span></p>
     
   </body>
