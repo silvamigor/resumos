@@ -4,10 +4,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> Álgebra Não Comutativa - Aula 3 </title>
+    <title> Álgebra Não Comutativa - Aula 4 </title>
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
-        extensions: ["https://lomath.in/doc/xyjax/xypic.js","tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
         jax: ["input/TeX", "output/HTML-CSS"],
         tex2jax: {
           inlineMath: [ ['$','$'], ["\\(","\\)"] ],
@@ -274,7 +274,7 @@
         font-family: "Helvetica", sans-serif;
         line-height: 1.5;
         background-color: rgb(233,227,206);
-        counter-reset: contTeor contProp contLema contObs contDef contExerc contExemplo contSec 3;
+        counter-reset: contTeor contProp contLema contObs contDef contExerc contExemplo contSec 4;
       }
       
       h1{
@@ -293,136 +293,128 @@
   
     <div style="text-align:center"><h1>Álgebra Não Comutativa</h1></div>
     
-    <!-- ###### AULA 03 ###### -->
-    <h2>Aula 3 - Revisão de teoria de anéis (parte 3)</h2>
+    <!-- ###### AULA 04 ###### -->
+    <h2>Aula 4 - Revisão de teoria de módulos (parte 1)</h2>
     
     <!-- DEFINIÇÃO -->
-    <p id="def-homomorfismo" class="def">
-      Seja \(R, S\) anéis e \(f: R \to S\) aplicação. Dizemos que \(f\) é um <strong>homomorfismo</strong> (de anéis), se, para todo \(a, b \in R\)
+    <p id="def-rModulos" class="def">
+      Sejam \(R\) uma anel e \(M\) um grupo abeliano. Um <strong>\(R\)-módulo</strong> é o grupo \(M\), onde para cada \(r \in R\) e \(m \in M\) está associado o elemento \(rm \in M\) tal que
       <ol class=alfa>
-        <li>\(f(a+b) = f(a) + f(b)\)</li>
-        <li>\(f(ab) = f(a)f(b)\)<span class="fim"></span></li>
+        <li>\((r_1 + r_2)m = r_1m + r_2m\);</li>
+        <li>\(r(m_1 + m_2) = rm_1 + rm_2\);</li>
+        <li>\(r_1(r_2m) = (r_1r_2)m\)</li>
       </ol>
-    </p>
-    
-    <!-- OBSERVAÇÃO -->
-    <p id="obs-homomorfismo" class="obs">
-      Se \(f: R \to S\) é um homomorfismo de anéis, então
-      <ol class=alfa>
-        <li>\(f(0) = 0\);</li>
-        <li>\(f(-a) = -f(a)\);</li>
-        <li>Em geral, se \(R\) e \(S\) são anéis com unidade, então \(f(1_R) \neq 1_S\) (em algumas referências, exige-se que \(f(1_R) = 1_S\) na definição de homomorfismo).<span class="fim"></span></li>
-      </ol>
-    </p>
-    
-    <!-- EXEMPLO -->
-    <p id="exemplo-homomorfismo" class="exemplo">
-      <ol class=alfa>
-        <li>Seja \(R\) um anel com unidade e considere a aplicação
-        \[
-          \begin{array}{rl}
-            f: M_2(R) &\to M_3(R) \\
-            \begin{pmatrix}
-              a & b \\
-              c & d
-            \end{pmatrix}
-            &\mapsto
-            \begin{pmatrix}
-              a & b & 0 \\
-              c & d & 0 \\
-              0 & 0 & 0
-            \end{pmatrix}.
-          \end{array}
-        \]
-        Então \(f\) é um homomorfismo, mas \(f(I_2) \neq f(I_3)\).</li>
-        <li>Sejam \(R\) e \(S\) anéis com unidade e \(f: R \to S\) um homomorfismo, então
-          <ol class=romano>
-            <li>se \(S\) é um domínio, então \(f(1_R) = 1_S\);</li>
-            <li>se \(f\) é sobrejetiva, então \(f(1_R) = 1_S\).<span class="fim"></span></li>
-          </ol>
-        </li>
-      </ol>
-    </p>
-    
-    <!-- DEFINIÇÃO -->
-    <p id="def-isomorfismo" class="def">
-      Seja \(f\) um homomorfismo de anéis. Dizemos que
-      <ol class=alfa>
-        <li>\(f\) é um <strong>monomorfismo</strong>, se \(f\) é injetiva;</li>
-        <li>\(f\) é um <strong>epimorfismo</strong>, se \(f\) é sobrejetiva;</li>
-        <li>\(f\) é um <strong>isomorfismo</strong>, se \(f\) é bijetiva. Nesse caso, escrevemos \(R \cong S\) e dizemos que os anéis \(R\) e \(S\) são <em>isomorfos</em>.</li>
-      </ol>
-      Além disso, um homomorfismo \(f: R \to R\) é chamado de <strong>endomorfismo</strong> e um isomorfismo \(f: R \to R\) é chamado de <strong>automorfismo</strong>.
+      para todo \(r_1, r_2 \in R\) e para todo \(m_1, m_2 \in M\). Além disso, se \(R\) tem unidade, então \(1m = m\), para todo \(m \in M\). Para alguns autores, a condição anterior não é necessária mesmo \(R\) tendo unidade. Para eles, nesse caso, o \(R\)-módulo é chamado de <em>\(R\)-módulo unitário</em>.
     <span class="fim"></span></p>
     
     <!-- OBSERVAÇÃO -->
-    <p id="obs-anelEndomorfismo" class="obs">
-      O conjunto \(\End(R) = \{f: R \to R \mid f\) é um endomorfismo\(\}\) com as operações \((f + g)(r) = f(r) + g(r)\) e \((fg)(r) = f(g(r))\) é um anel com unidade, chamado de <strong>anel dos endomorfismos</strong> de \(R\).
-    <span class="fim"></span></p>
-    
-    <!-- DEFINIÇÃO -->
-    <p id="def-nucleoImagem" class="def">
-      Dado \(f: R \to S\) um homomorfismo de anéis, definimos
+    <p id="obs-rModulos" class="obs">
       <ol class=alfa>
-        <li>\(\ker(f) = \{r \in R \mid f(r) = 0\}\), chamado <strong>núcleo</strong> de \(f\);</li>
-        <li>\(\im(f) = \{f(r) \mid r \in R\}\), chamado de <strong>imagem</strong> de \(f\).<span class="fim"></span></li>
+        <li>\(R\)-módulo é sinônimo de \(R\)-módulo à esquerda.</li>
+        <li>Tudo que for demonstrado para \(R\)-módulos à esquerda pode ser demonstrado para \(R\)-módulos à direita.<span class="fim"></span></li>
       </ol>
     </p>
     
     <!-- PROPOSIÇÃO -->
-    <p id="prop-nucleoImagem" class="prop">
-      Seja \(f: R \to S\) um homomorfismo de anéis. Então
+    <p id="prop-rModulos" class="prop">
       <ol class=alfa>
-        <li>\(\ker(f) \unlhd R\);</li>
-        <li>\(\im(f)\) é um subanel de \(S\);</li>
-        <li>\(f\) é um monomorfismo \(\Leftrightarrow\) \(\ker(f) = \zero\);</li>
-        <li>\(f\) é um epimorfismo \(\Leftrightarrow\) \(\im(f) = S\).<span class="fim"></span></li>
+        <li>\(r0_M = 0_M\), para todo \(r \in R\)</li>
+        <li>\(0_Rm = 0_M\), para todo \(m \in M\)</li>
+        <li>\((-r)m = -(rm) = r(-m)\), para todo \(r \in R\) e para todo \(m \in M\)</li>
+        <li>\(a(rm) = r(am)\), para todo \(a \in \bbZ\), para todo \(r \in R\) e para todo \(m \in M\)<span class="fim"></span></li>
       </ol>
     </p>
     
     <!-- EXEMPLO -->
-    <p id="exemplo-projecaoImersao" class="exemplo">
+    <p id="exemplo-rModulos" class="exemplo">
       <ol class=alfa>
-        <li>Sejam \(R\) um anel e \(I \unlhd R\). Então a aplicação \(f: R \to \rfrac{R}{I}\), \(r \mapsto \overline{r}\) é um epimorfismo, chamado de <strong>projeção canônica</strong> (ao quociente).</li>
-        <li>Sejam \(R\) um anel e \(S\) um subanel de \(R\). Então a aplicação \(f: S \to R\), \(s \mapsto s\) é um monomorfismo, chamado de <strong>imersão canônica</strong> (ou inclusão canônica).</li>
-        <li>Todo ideal \(I \unlhd R\) é o núcleo de algum homomorfismo. Basta tomar a projeção canônica \(\pi: R \to \rfrac{R}{I}\), pois \(\ker(\pi) = I\).<span class="fim"></span></li>
+        <li>Anéis e grupos abelianos são \(\bbZ\)-módulos.</li>
+        <li>Quando \(R\) é um corpo, então \(R\)-módulos são os espaços vetoriais sobre \(R\).</li>
+        <li>Sejam \(R\) um anel e \(S\) um subanel de \(R\). Então \(R\) é um \(S\)-módulo, mas, em geral, \(S\) não é um \(R\)-módulo. No entanto, se \(S\) for um ideal à esquerda de \(R\), então \(S\) não é um \(R\)-módulo. Em particular, \(R\) é um \(R\)-módulo.</li>
+        <li>Se \(I \unlhd_{\ell} R\), então \(\rfrac{R}{I}\) é um grupo abeliano e possui estrutura de \(R\)-módulo, se definirmos \(r\overline{r_1} = \overline{rr_1}\), para todo \(r, r_1 \in R\).</li>
+        <li>Se \(f: R \to S\) é um homomorfismo de anéis, então todo \(S\)-módulo \(M\) pode ser visto como um \(R\)-módulo via \(rm := f(r)m\), para todo \(r \in R\) e para todo \(m \in M\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-rSubmodulos" class="def">
+      Sejam \(M\) um \(R\)-módulo e \(N\) um subconjunto não vazio de \(M\). Dizemos que \(N\) é um <strong>\(R\)-submódulo de \(M\)</strong>, denotado por \(N \le M\), se para todo \(n_1, n_2 \in N\) e para todo \(r \in R\), temos que
+      <ol class=alfa>
+        <li>\(n_1 + n_2 \in N\)</li>
+        <li>\(rn_1 \in N\)<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- EXEMPLO -->
+    <p id="exemplo-rSubmodulos" class="exemplo">
+      <ol class=alfa>
+        <li>Os \(R\)-submódulos de um anel \(R\) são os seus ideais à esquerda.</li>
+        <li>Se \(R\) é um corpo e \(V\) é um \(R\)-espaço vetorial, então os \(R\)-submódulos de \(V\) são seus subespaços vetoriais.</li>
+        <li>Sejam \(M\) um \(R\)-módulo e \(N \le M\). Como no caso de anéis, o quociente \(\rfrac{M}{N}\) tem estrutura de \(R\)-módulo definindo
+\(r\overline{m} = \overline{rm}\), para todo \(r \in R\) e para todo \(m \in M\).</li>
+        <li>Sejam \(M\) um \(R\)-módulo, \(I \unlhd_{\ell} R\) e \(N\) um subconjunto não vazio de \(M\). Então o conjunto 
+        \[
+          IN = \{\sum_{i=1}^{k}r_in_i \mid r_i \in I, n_i \in N, k \ge 1\}
+        \]
+        é um \(R\)-submódulo de \(M\). Em particular, se \(N = \{n\}\), então \(IN = In = \{rn \mid r \in I\}\) é um \(R\)-submódulo de \(M\).<span class="fim"></span></li>
       </ol>
     </p>
     
     <!-- OBSERVAÇÃO -->
-    <p id="obs-isomorficamenteImersa" class="obs">
-      Em geral, se \(f: R \to S\) é um monomorfismo de anéis, então podemos enxergar \(R\) como um subanel de \(S\) e identificar os elementos de \(R\) com suas respectivas imagens. Neste caso, dizemos que \(R\) está <em>isomorficamente imersa</em> em \(S\).
+    <p id="obs-rSubmodulosInter" class="obs">
+      Se \(\{N_i \mid i \in I\}\) é uma família de \(R\)-submódulos de um \(R\)-módulo \(M\), então \(\cap_{i\in I}N_i \le M\).
+    <span class="fim"></span></p>
+
+    <!-- DEFINIÇÃO -->
+    <p id="def-rSubmodGerado" class="def">
+      Se \(X\) é um subconjunto não vazio de um \(R\)-módulo \(M\), então a interseção de todos os \(R\)-submódulos de \(M\) que contém \(X\) é um submódulo de \(M\), chamado de <strong>\(R\)-submódulo gerado por \(X\)</strong> e denotado por \(\langle X \rangle\). Se \(X = \{m\}\), então \(\langle X \rangle = \langle m \rangle\). Como no caso de anéis:
+      <ol class=alfa>
+        <li>\(\langle m \rangle = \{rm + nm \mid r \in R, n \in \bbZ\}\). Se \(R\) tem unidade, então \(\langle m \rangle = Rm = \{rm \mid r \in R\}\)</li>
+        <li>\(\langle X \rangle = \{\sum_{i=1}^{s}r_im_i + \sum_{j=1}^{t}n_jm_j \mid m_i,m_j \in X, r_i \in R, n_j \in \bbZ, s,t \ge 0\}\). Se \(R\) tem unidade, então \(\langle X \rangle = RX\). Se \(M = \langle X \rangle\) para algum subconjunto não vazio \(X\) de \(M\), então dizemos que \(X\) <em>gera</em> \(M\). Se \(X\) é finito, então dizemos que \(M\) é um <strong>\(R\)-módulo finitamente gerado</strong>.<span class="fim"></span></li>
+      </ol>
+    </p>    
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-rSubmodGerado" class="obs">
+      Por abuso de notação, usaremos \(RX\) para denotar o \(R\)-módulo gerado por \(X\).
     <span class="fim"></span></p>
     
-    <!-- TEOREMA -->
-    <p id="teor-isomorfismo" class="teor" text="Teorema do Isomorfismo">
+    <!-- DEFINIÇÃO -->
+    <p id="def-homoRMod" class="def">
+      Seja \(f: M \to N\) uma aplicação entre dois \(R\)-módulos. Dizemos que \(f\) é um homomorfismo de \(R\)-módulos (ou \(R\)-homomorfismo), se para todos \(r \in R\), \(m,n \in M\), temos que
       <ol class=alfa>
-        <li>Seja \(f: R \to S\) um homomorfismo de anéis. Considere \(\pi: R \to \rfrac{R}{\ker(f)}\) a projeção canônica e \(\iota: \im(f) \to S\) a imersão canônica. Então existe um único homomorfismo \(\overline{f}: \rfrac{R}{\ker(f)} \to \im(f)\) tal que \(f = \iota \circ \overline{f} \circ \pi\). Além disso, \(\overline{f}\) é um isomorfismo.
-        \[
-          \xymatrix{
-            R \ar[r]^{f} \ar[d]_{\pi} \ar@{}[dr]|{\circlearrowleft} & S \\ 
-            \rfrac{R}{\ker(f)} \ar[r]_{\overline{f}} & \im(f) \ar[u]_{\iota}
-          }
-        \]
-        </li>
-        <li>Sejam \(I, J \unlhd R\). Então \(\rfrac{R}{I \cap J} \cong \rfrac{I + J}{J}\).</li>
-        <li>
-          Sejam \(I \unlhd R\) e \(\pi: R \to \rfrac{R}{I}\) a projeção canônica. Então
-          <ol class=romano>
-            <li>para cada ideal (à esquerda, à direita, bilateral) \(J\) de \(R\) que contém o ideal \(I\), \(\pi(J) = \rfrac{J}{I}\) é um ideal (à esquerda, à direita, bilateral) de \(\rfrac{R}{I}\).</li>
-            <li>se \(\calJ \unlhd \rfrac{R}{I}\), então \(\pi^{-1}(\calJ) = \{r \in R \mid \overline{r} \in \calJ\}\) é um ideal de \(R\) contendo \(I\) e \(\calJ = \rfrac{J}{I}\), para algum \(J \unlhd R\), é um ideal de \(R\) que contém \(I\).</li>
-          </ol>
-        </li>
-        <li>Seja \(f: R \to S\) um homomorfismo. Então existe uma correspondência biunívoca entre os ideais de \(S\) e os ideais de \(R\) que contém \(\ker(f)\).<span class="fim"></span></li>
+        <li>\(f(m+n) = f(m) + f(n)\)</li>
+        <li>\(f(rm) = rf(m)\)<span class="fim"></span></li>
       </ol>
     </p>
     
-    <!-- TEOREMA -->
-    <p id="teor-imersaoAnelComUnid" class="teor">
-      Todo anel \(R\) pode ser imerso em um anel \(S\) com unidade. O anel \(S\), que não é único, pode ser escolhido para ter característica zero ou a mesma característica de \(R\).
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-homoRMod" class="obs">
       <ol class=alfa>
-        <li>Característica zero: faça \(S := R \times \bbZ\) com a soma componente a componente e a multiplicação \((r_1, n_1)\ast(r_2, n_2) := (r_1r_2 + n_2r_1 + n_1r_2, n_1n_2)\).</li>
-        <li>Característica de \(R\): se \(\char(R) = n\), faça \(S := R \times \bbZ_n\) com a soma componente a componente e a multiplicação \((r_1, \overline{m_1})\ast(r_2, \overline{m_2}) := (r_1r_2 + m_2r_1 + m_1r_2, \overline{m_1}\,\overline{m_2})\).<span class="fim"></span></li>
+        <li>Se \(R\) é um corpo, então \(R\)-homomorfismos são aplicações lineares.</li>
+        <li>As noções de monomorfismo, epimorfismo, isomorfismo (\(M \cong N\)), endomorfismo e automorfismo (veja a <a href="algebraNaoComutativa-aula03.html#def-isomorfismo">Definição 3.2</a>) são definidas analogamente como no caso de anéis, assim como núcleo e imagem (veja a <a href="algebraNaoComutativa-aula03.html#def-nucleoImagem">Definição 3.3</a>). Além disso, \(\ker(f) \le M\) e \(\im(f) \le N\).</li>
+        <li>Todos os "teoremas do isomorfismo de anéis" são válidos para \(R\)-módulos (veja o <a href="algebraNaoComutativa-aula03.html#teor-isomorfismo">Teorema 3.1</a>).</li>
+        <li>O conjunto \(\End(M) = \{f: M \to M \mid f\) é um endomorfismo \(\}\) é um anel com unidade e possui estrutura de \(R\)-módulo se definirmos \((rf)(m) = rf(m)\), para todo \(r \in R\) e para todo \(m \in M\)</li>
+        <li>Se \(M, N\) são \(R\)-módulos, então o conjunto \(\Hom_R(M,N) = \{f: M \to N \mid f\) é um \(R\)-homomorfismo \(\}\) é um \(R\)-módulo. Se \(M = N\), então \(\Hom_R(M,M) = \End(M)\)<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-rModSimples" class="def">
+      Dizemos que um \(R\)-módulo \(M\) é um <strong>\(R\)-módulo simples</strong>, se \(RM \neq \zero\) e os únicos \(R\)-submódulos de \(M\) são \(\zero\) e \(M\).
+    <span class="fim"></span></p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-rModSimples" class="obs">
+      Cuidado! Se \(D\) é um anel de divisão, então \(M_n(D)\) é um anel simples. Contudo, \(M_n(D)\) visto como \(M_n(D)\)-módulo, ele não é simples, pois os conjuntos \(C_k\) são \(M_n(D)\)-submódulos de \(M_n(D)\)-módulo.
+    <span class="fim"></span></p>
+    
+    <!-- EXERCÍCIO -->
+    <p id="exerc-aula4" class="exerc">
+      <ol class=alfa>
+        <li>Sejam \(R\) um anel comutativo e \(M\) um \(R\)-módulo (enfatizando, à esquerda). Mostre que o produto dado por \(mr := rm\), para todo \(r \in R\) e para todo \(m \in M\), dá uma estrutura de \(R\)-módulo à direita a \(M\) (e vice-versa).</li>
+        <li>Sejam \(I \unlhd R\) (bilateral) e \(M\) um \(R\)-módulo. Mostre que \(\rfrac{M}{IM}\) tem estrutura de \(\rfrac{R}{I}\) módulo com o produto dado por \((r + I)(m + IM) = rm + IM\).</li>
+        <li>Sejam \(V\) um \(R\)-espaço vetorial e \(T \in \End(V)\). Se \(f(x) \in \sum_{i=0}^{n}a_ix^i \in R[x]\), defina \(f(T) = \sum_{i=0}^{n}a_iT^i \in \End(V)\). Considere \(V\) como um \(R[x]-módulo\) com a estrutura definida por \(f(x)v = f(T)(v)\), para todo \(v \in V\) e \(f(x) \in R[x]\). Mostre que os \(R[x]\)-submódulos de \(V\) são exatamente os subespaços de \(V\) que são \(T\)-invariantes (T(W) \subseteq W).<span class="fim"></span></li>
       </ol>
     </p>
     
