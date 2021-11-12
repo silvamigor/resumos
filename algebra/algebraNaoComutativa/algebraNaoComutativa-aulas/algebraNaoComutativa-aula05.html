@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> Álgebra Não Comutativa - Aula 4 </title>
+    <title> Álgebra Não Comutativa - Aula 5 </title>
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
         extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
@@ -274,7 +274,7 @@
         font-family: "Helvetica", sans-serif;
         line-height: 1.5;
         background-color: rgb(233,227,206);
-        counter-reset: contTeor contProp contLema contObs contDef contExerc contExemplo contSec 4;
+        counter-reset: contTeor contProp contLema contCoro contObs contDef contExerc contExemplo contSec 5;
       }
       
       h1{
@@ -294,130 +294,128 @@
     <div style="text-align:center"><h1>Álgebra Não Comutativa</h1></div>
     
     <!-- ###### AULA 04 ###### -->
-    <h2>Aula 4 - Revisão de teoria de módulos (parte 1)</h2>
+    <h2>Aula 5 - Revisão de teoria de módulos (parte 2)</h2>
     
     <!-- DEFINIÇÃO -->
-    <p id="def-rModulos" class="def">
-      Sejam \(R\) uma anel e \(M\) um grupo abeliano. Um <strong>\(R\)-módulo</strong> é o grupo \(M\), onde para cada \(r \in R\) e \(m \in M\) está associado o elemento \(rm \in M\) tal que
-      <ol class=alfa>
-        <li>\((r_1 + r_2)m = r_1m + r_2m\);</li>
-        <li>\(r(m_1 + m_2) = rm_1 + rm_2\);</li>
-        <li>\(r_1(r_2m) = (r_1r_2)m\)</li>
-      </ol>
-      para todo \(r_1, r_2 \in R\) e para todo \(m_1, m_2 \in M\). Além disso, se \(R\) tem unidade, então \(1m = m\), para todo \(m \in M\). Para alguns autores, a condição anterior não é necessária mesmo \(R\) tendo unidade. Para eles, nesse caso, o \(R\)-módulo é chamado de <em>\(R\)-módulo unitário</em>.
+    <p id="def-idealRegular" class="def">
+      Um ideal à esquerda \(I\) de um anel \(R\) é dito <strong>regular</strong> (à esquerda), se existe \(s \in R\) tal que para todo \(r \in R\), temos que \(r - rs \in I\).
     <span class="fim"></span></p>
     
     <!-- OBSERVAÇÃO -->
-    <p id="obs-rModulos" class="obs">
-      <ol class=alfa>
-        <li>\(R\)-módulo é sinônimo de \(R\)-módulo à esquerda.</li>
-        <li>Tudo que for demonstrado para \(R\)-módulos à esquerda pode ser demonstrado para \(R\)-módulos à direita.<span class="fim"></span></li>
-      </ol>
-    </p>
+    <p id="obs-idealRegular" class="obs">
+      Se \(R\) tem unidade, todo ideal é regular.
+    <span class="fim"></span></p>
     
     <!-- PROPOSIÇÃO -->
-    <p id="prop-rModulos" class="prop">
-      <ol class=alfa>
-        <li>\(r0_M = 0_M\), para todo \(r \in R\)</li>
-        <li>\(0_Rm = 0_M\), para todo \(m \in M\)</li>
-        <li>\((-r)m = -(rm) = r(-m)\), para todo \(r \in R\) e para todo \(m \in M\)</li>
-        <li>\(a(rm) = r(am)\), para todo \(a \in \bbZ\), para todo \(r \in R\) e para todo \(m \in M\)<span class="fim"></span></li>
-      </ol>
-    </p>
-    
-    <!-- EXEMPLO -->
-    <p id="exemplo-rModulos" class="exemplo">
-      <ol class=alfa>
-        <li>Anéis e grupos abelianos são \(\bbZ\)-módulos.</li>
-        <li>Quando \(R\) é um corpo, então \(R\)-módulos são os espaços vetoriais sobre \(R\).</li>
-        <li>Sejam \(R\) um anel e \(S\) um subanel de \(R\). Então \(R\) é um \(S\)-módulo, mas, em geral, \(S\) não é um \(R\)-módulo. No entanto, se \(S\) for um ideal à esquerda de \(R\), então \(S\) não é um \(R\)-módulo. Em particular, \(R\) é um \(R\)-módulo.</li>
-        <li>Se \(I \unlhd_{\ell} R\), então \(\rfrac{R}{I}\) é um grupo abeliano e possui estrutura de \(R\)-módulo, se definirmos \(r\overline{r_1} = \overline{rr_1}\), para todo \(r, r_1 \in R\).</li>
-        <li>Se \(f: R \to S\) é um homomorfismo de anéis, então todo \(S\)-módulo \(M\) pode ser visto como um \(R\)-módulo via \(rm := f(r)m\), para todo \(r \in R\) e para todo \(m \in M\).<span class="fim"></span></li>
-      </ol>
-    </p>
-    
-    <!-- DEFINIÇÃO -->
-    <p id="def-rSubmodulos" class="def">
-      Sejam \(M\) um \(R\)-módulo e \(N\) um subconjunto não vazio de \(M\). Dizemos que \(N\) é um <strong>\(R\)-submódulo de \(M\)</strong>, denotado por \(N \le M\), se para todo \(n_1, n_2 \in N\) e para todo \(r \in R\), temos que
-      <ol class=alfa>
-        <li>\(n_1 + n_2 \in N\)</li>
-        <li>\(rn_1 \in N\)<span class="fim"></span></li>
-      </ol>
-    </p>
-    
-    <!-- EXEMPLO -->
-    <p id="exemplo-rSubmodulos" class="exemplo">
-      <ol class=alfa>
-        <li>Os \(R\)-submódulos de um anel \(R\) são os seus ideais à esquerda.</li>
-        <li>Se \(R\) é um corpo e \(V\) é um \(R\)-espaço vetorial, então os \(R\)-submódulos de \(V\) são seus subespaços vetoriais.</li>
-        <li>Sejam \(M\) um \(R\)-módulo e \(N \le M\). Como no caso de anéis, o quociente \(\rfrac{M}{N}\) tem estrutura de \(R\)-módulo definindo
-\(r\overline{m} = \overline{rm}\), para todo \(r \in R\) e para todo \(m \in M\).</li>
-        <li>Sejam \(M\) um \(R\)-módulo, \(I \unlhd_{\ell} R\) e \(N\) um subconjunto não vazio de \(M\). Então o conjunto 
-        \[
-          IN = \{\sum_{i=1}^{k}r_in_i \mid r_i \in I, n_i \in N, k \ge 1\}
-        \]
-        é um \(R\)-submódulo de \(M\). Em particular, se \(N = \{n\}\), então \(IN = In = \{rn \mid r \in I\}\) é um \(R\)-submódulo de \(M\).<span class="fim"></span></li>
-      </ol>
-    </p>
-    
-    <!-- OBSERVAÇÃO -->
-    <p id="obs-rSubmodulosInter" class="obs">
-      Se \(\{N_i \mid i \in I\}\) é uma família de \(R\)-submódulos de um \(R\)-módulo \(M\), então \(\cap_{i\in I}N_i \le M\).
-    <span class="fim"></span></p>
-
-    <!-- DEFINIÇÃO -->
-    <p id="def-rSubmodGerado" class="def">
-      Se \(X\) é um subconjunto não vazio de um \(R\)-módulo \(M\), então a interseção de todos os \(R\)-submódulos de \(M\) que contém \(X\) é um submódulo de \(M\), chamado de <strong>\(R\)-submódulo gerado por \(X\)</strong> e denotado por \(\langle X \rangle\). Se \(X = \{m\}\), então \(\langle X \rangle = \langle m \rangle\). Como no caso de anéis:
-      <ol class=alfa>
-        <li>\(\langle m \rangle = \{rm + nm \mid r \in R, n \in \bbZ\}\). Se \(R\) tem unidade, então \(\langle m \rangle = Rm = \{rm \mid r \in R\}\)</li>
-        <li>\(\langle X \rangle = \{\sum_{i=1}^{s}r_im_i + \sum_{j=1}^{t}n_jm_j \mid m_i,m_j \in X, r_i \in R, n_j \in \bbZ, s,t \ge 0\}\). Se \(R\) tem unidade, então \(\langle X \rangle = RX\). Se \(M = \langle X \rangle\) para algum subconjunto não vazio \(X\) de \(M\), então dizemos que \(X\) <em>gera</em> \(M\). Se \(X\) é finito, então dizemos que \(M\) é um <strong>\(R\)-módulo finitamente gerado</strong>.<span class="fim"></span></li>
-      </ol>
-    </p>    
-    
-    <!-- OBSERVAÇÃO -->
-    <p id="obs-rSubmodGerado" class="obs">
-      Por abuso de notação, usaremos \(RX\) para denotar o \(R\)-módulo gerado por \(X\).
-    <span class="fim"></span></p>
-    
-    <!-- DEFINIÇÃO -->
-    <p id="def-homoRMod" class="def">
-      Seja \(f: M \to N\) uma aplicação entre dois \(R\)-módulos. Dizemos que \(f\) é um homomorfismo de \(R\)-módulos (ou \(R\)-homomorfismo), se para todos \(r \in R\), \(m,n \in M\), temos que
-      <ol class=alfa>
-        <li>\(f(m+n) = f(m) + f(n)\)</li>
-        <li>\(f(rm) = rf(m)\)<span class="fim"></span></li>
-      </ol>
-    </p>
-    
-    <!-- OBSERVAÇÃO -->
-    <p id="obs-homoRMod" class="obs">
-      <ol class=alfa>
-        <li>Se \(R\) é um corpo, então \(R\)-homomorfismos são aplicações lineares.</li>
-        <li>As noções de monomorfismo, epimorfismo, isomorfismo (\(M \cong N\)), endomorfismo e automorfismo (veja a <a href="algebraNaoComutativa-aula03.html#def-isomorfismo">Definição 3.2</a>) são definidas analogamente como no caso de anéis, assim como núcleo e imagem (veja a <a href="algebraNaoComutativa-aula03.html#def-nucleoImagem">Definição 3.3</a>). Além disso, \(\ker(f) \le M\) e \(\im(f) \le N\).</li>
-        <li>Todos os "teoremas do isomorfismo de anéis" são válidos para \(R\)-módulos (veja o <a href="algebraNaoComutativa-aula03.html#teor-isomorfismo">Teorema 3.1</a>).</li>
-        <li>O conjunto \(\End(M) = \{f: M \to M \mid f\) é um endomorfismo \(\}\) é um anel com unidade e possui estrutura de \(R\)-módulo se definirmos \((rf)(m) = rf(m)\), para todo \(r \in R\) e para todo \(m \in M\)</li>
-        <li>Se \(M, N\) são \(R\)-módulos, então o conjunto \(\Hom_R(M,N) = \{f: M \to N \mid f\) é um \(R\)-homomorfismo \(\}\) é um \(R\)-módulo. Se \(M = N\), então \(\Hom_R(M,M) = \End(M)\)<span class="fim"></span></li>
-      </ol>
-    </p>
-    
-    <!-- DEFINIÇÃO -->
-    <p id="def-rModSimples" class="def">
-      Dizemos que um \(R\)-módulo \(M\) é um <strong>\(R\)-módulo simples</strong>, se \(RM \neq \zero\) e os únicos \(R\)-submódulos de \(M\) são \(\zero\) e \(M\).
-    <span class="fim"></span></p>
-    
-    <!-- OBSERVAÇÃO -->
-    <p id="obs-rModSimples" class="obs">
+    <p id="prop-caracModSimples" class="prop">
+      Seja \(M\) um \(R\)-módulo. São equivalentes:
       <ol class="alfa">
-        <li>Cuidado! Se \(D\) é um anel de divisão, então \(M_n(D)\) é um anel simples. Contudo, \(M_n(D)\) visto como \(M_n(D)\)-módulo, ele não é simples, pois os conjuntos \(C_k\) são \(M_n(D)\)-submódulos de \(M_n(D)\)-módulo. Assim, podemos ter um anel simples, mas não é um módulo simples sobre ele mesmo.</li>
-        <li>Em anéis com unidade, não precisa da condição \(RM \neq \zero\).</li>
+        <li>\(M\) é simples;</li>
+        <li>\(M\) é cíclico e todo elemento não nulo gera \(M\);</li>
+        <li>\(M \cong \rfrac{R}{I}\), para algum ideal à esquerda maximal e regular de \(R\). <span class="fim"></span></li>
       </ol>
+    </p>
+    
+    <!-- LEMA -->
+    <p id="lema-schur" class="lema" text="Lema de Schur">
+      Sejam \(M\) e \(N\) \(R\)-módulos simples. Então
+      <ol class=alfa>
+        <li>todo \(R\)-homomorfismo não nulo \(f: M \to N\) é um isomorfismo;</li>
+        <li>\(\End_R(M)\) é um anel de divisão.<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-prodDirExt" class="def">
+      Seja \(\{M_i\}_{i \in I}\) uma família de \(R\)-módulos e considere \(M = \prod_{i \in I}M_i = \{(m_i)_{i \in I} \mid m_i \in M_i\}\). Tal conjunto possui uma estrutura de \(R\)-módulo, se definirmos
+      <ol class=alfa>
+        <li>\(r(m_i)_{i \in I} = (rm_i)_{i \in I}\),</li>
+        <li>\((m_i)_{i \in I} + (m_i')_{i \in I} = \) \((m_i + m_i')_{i \in I}\).</li>
+      </ol>
+      Ele é chamado de <strong>produto direto</strong> (externo) da família \(\{M_i\}_{i \in I}\).
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-somaDirExt" class="def">
+      Sejam \(\{M_i\}_{i \in I}\) uma família de \(R\)-módulos e \(M = \prod_{i \in I}M_i\). Uma sequência \((m_i)_{i \in I}\) é chamada de <em>sequência quase-nula</em>, se \(m_i = 0\), exceto para um número finito de índices. O conjunto de todas as sequências quase-nulas de \(M\) é chamado de <strong>soma direta</strong> (externa) da família \(\{M_i\}_{i \in I}\) e será denotado por \(\oplus_{i \in I}M_i\).
+    <span class="fim"></span></p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-coincProdDirSomaDir" class="obs">
+      Quando \(I = \{1, 2, \dots, k\}\), então a soma direta e o produto direto coincidem e nesse caso \(M = M_1 \oplus \cdots \oplus M_k\). Se \(M_1 = \cdots = M_k = N\), então \(M = N^{(k)}\).
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-somaRmod" class="def">
+      Se \(\{M_i\}_{i \in I}\) é uma família de \(R\)-módulos, o \(R\)-módulo gerado por essa família é chamado de <strong>soma</strong> dos \(R\)-módulos \(M_i\) e é denotado por \(\sum_{i \in I}M_i\). Quando \(I = \{1, 2, \dots, k\}\), denotamos \(\sum_{i \in I}M_i\) por \(M_1 + \cdots + M_k\). Temos que \(\sum_{i \in I}M_i\) consiste de todas as somas finitas \(m_{i_1} + \cdots + m_{i_r}\), onde \(m_{i_j} \in M_{i_j}\).
+    <span class="fim"></span></p>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="prop-somaDirInt" class="prop">
+      Seja \(\{M_i\}_{i \in I}\) é uma família de \(R\)-submódulos de um \(R\)-módulo \(M\). São equivalentes
+      <ol class="alfa">
+        <li>todo elemento \(m \in M\) se escreve de modo único na forma \(m = \sum_{i \in I}m_i\), onde \(m_i \in M_i\) e \((m_i)_{i \in I}\) é quase-nula;</li>
+        <li>se \(M = \sum_{i \in I}M_i\) e se \(\sum_{i \in I}m_i = 0\), então \(m_i = 0\), para todo \(i \in I\);</li>
+        <li>\(M = \sum_{i \in I}M_i\) e \(M_j \cap (\sum_{i \neq j}M_i) = \zero\), para todo \(j \in I\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-somaDirInt" class="def">
+      Um \(R\)-módulo \(M\) que satisfaz uma (logo todas) as condições da <a href="#prop-somaDirInt">Proposição 5.2</a>, é chamado de <strong>soma direta</strong> (interna) da família \(\{M_i\}_{i \in I}\). Além disso, \(M \cong \oplus_{i \in I}M_i\).
+    <span class="fim"></span></p>
+    
+    <!-- EXEMPLO -->
+    <p id="exemplo-somaDir" class="exemplo">
+      <ol class="alfa">
+        <li>\(M = M \oplus \zero\).</li>
+        <li>Considere o \(\bbZ\)-módulo \(\bbZ_6 = \{\overline{0}, \dots, \overline{5}\}\). Sejam \(M_1 = \{\overline{0}, \overline{2}, \overline{4}\}\) e \(M_2 = \{\overline{0}, \overline{3}\}\). Então \(\bbZ_6 = M_1 \oplus M_2\). Note que \(M_1 \cong \bbZ_3\) e \(M_2 \cong \bbZ_2\). Em geral, se \(n = p_1^{\alpha_1}\dots p_n^{\alpha_n}\), então \(\bbZ_n \cong \bbZ_{p_1^{\alpha_1}} \oplus \cdots \oplus \bbZ_{p_n^{\alpha_n}}\).</li>
+        <li>\(M_n(R) = \oplus_{i=1}^nC_i\), como \(M_n(R)\)-módulos.<span class="fim"></span></li>
+      </ol>
+    <span class="fim"></span></p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-estencaoAneis" class="obs">
+      Todas essas construções que fizemos para \(R\)-módulos se estendem para anéis. Por exemplo, se \(\{R_i\}_{i \in I}\) é uma família de anéis, então \(R = \prod_{i \in I}R_i\) é anel, com o produto \((r_i)_{i \in I}(r_i')_{i \in I} = (r_ir_i')_{i \in I}\). Os resultados apresentados são válidos para anéis.
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-somandoDir" class="def">
+      Sejam \(M\) um \(R\)-módulo e \(N \le M\). Dizemos que \(N\) é um <strong>somando direto</strong> de \(M\), se existe \(N_1 \le M\) tal que \(M = N \oplus N_1\).
+    <span class="fim"></span></p>
+    
+    <!-- LEMA -->
+    <p id="lema-somandoDir" class="lema">
+      Sejam \(M\) um \(R\)-módulo e \(N_1, N_2 \le M\). Suponha que \(M = N_1 \oplus N_2\). Então \(\rfrac{M}{N_1} \cong N_2\).
+    <span class="fim"></span></p>
+    
+    <!-- COROLÁRIO -->
+    <p id="coro-somandoDir1" class="coro">
+      Se \(M = N \oplus N_1 = N \oplus N_2\), então \(N_1 \cong N_2\).
+    <span class="fim"></span></p>
+    
+    <!-- COROLÁRIO -->
+    <p id="coro-somandoDir2" class="coro">
+      \(\bbZ\) como \(\bbZ\)-módulo não possui somandos diretos não triviais.
+    <span class="fim"></span></p>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="prop-somandoDir" class="prop">
+      Seja \(M\) um \(R\)-módulo e \(N \le M\). Então \(N\) é um somando direto de \(M\) se, e somente se, existe \(f \in \End_R(M)\) tal que \(f^2 = f\) e \(\im(f) = N\).
     <span class="fim"></span></p>
     
     <!-- EXERCÍCIO -->
-    <p id="exerc-aula4" class="exerc">
+    <p id="exerc-aula5" class="exerc">
       <ol class=alfa>
-        <li>Sejam \(R\) um anel comutativo e \(M\) um \(R\)-módulo (enfatizando, à esquerda). Mostre que o produto dado por \(mr := rm\), para todo \(r \in R\) e para todo \(m \in M\), dá uma estrutura de \(R\)-módulo à direita a \(M\) (e vice-versa). (<a href="algebraNaoComutativa-exercicios/anc-aula04-exerc/anc-aula04-exerc01.html">Solução</a>)</li>
-        <li>Sejam \(I \unlhd R\) (bilateral) e \(M\) um \(R\)-módulo. Mostre que \(\rfrac{M}{IM}\) tem estrutura de \(\rfrac{R}{I}\)-módulo com o produto dado por \((r + I)(m + IM) = rm + IM\). (<a href="algebraNaoComutativa-exercicios/anc-aula04-exerc/anc-aula04-exerc02.html">Solução</a>)</li>
-        <li>Sejam \(V\) um \(R\)-espaço vetorial e \(T \in \End(V)\). Se \(f(x) \in \sum_{i=0}^{n}a_ix^i \in R[x]\), defina \(f(T) = \sum_{i=0}^{n}a_iT^i \in \End(V)\). Considere \(V\) como um \(R[x]\)-módulo com a estrutura definida por \(f(x)v = f(T)(v)\), para todo \(v \in V\) e \(f(x) \in R[x]\). Mostre que os \(R[x]\)-submódulos de \(V\) são exatamente os subespaços de \(V\) que são \(T\)-invariantes (\(T(W) \subseteq W\)). (<a href="algebraNaoComutativa-exercicios/anc-aula04-exerc/anc-aula04-exerc03.html">Solução</a>)<span class="fim"></span></li>
+        <li>Mostre que \(M\) é um \(\bbZ\)-módulo simples se, e somente se, \(M\) é finito e \(|M|\) é um número primo. (<a href="algebraNaoComutativa-exercicios/anc-aula05-exerc/anc-aula05-exerc01.html">Solução</a>)</li>
+        <li>
+          Sejam \(\{M_i\}_{i \in I}\) uma família de \(R\)-módulos, \(\prod_{i \in I}M_i\) e \(\oplus_{i \in I}M_i\). Mostre que
+          <ol class="romano">
+            <li>\(\oplus_{i \in I}M_i \le \prod_{i \in I}M_i\);</li>
+            <li>a projeção \(\pi_k: \prod_{i \in I}M_i \to M_k\) é um epimorfismo de \(R\)-módulos;</li>
+            <li>a imersão \(\iota: M_k \to \oplus_{i \in I}M_i\) é um monomorfismode \(R\)-módulos. (<a href="algebraNaoComutativa-exercicios/anc-aula05-exerc/anc-aula05-exerc02.html">Solução</a>)<span class="fim"></span></li>
+          </ol>
+        </li>
       </ol>
     </p>
     
