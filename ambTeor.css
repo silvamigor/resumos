@@ -30,6 +30,17 @@
   counter-increment: contLema;
   content: "Lema " counter(contSec)"."counter(contLema) " (" attr(text)"). ";
 }
+
+.coro:before{
+  counter-increment: contCoro;
+  font-weight: bold;
+  content: "Corolário " counter(contSec)"."counter(contCoro) ". ";
+}
+      
+.coro[text]:before {
+  counter-increment: contCoro;
+  content: "Corolário " counter(contSec)"."counter(contCoro) " (" attr(text)"). ";
+}
       
 .obs:before{
   counter-increment: contObs;
