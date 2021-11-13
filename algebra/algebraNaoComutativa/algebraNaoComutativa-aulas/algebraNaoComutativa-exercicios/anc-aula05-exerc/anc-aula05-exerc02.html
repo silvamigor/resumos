@@ -330,15 +330,34 @@
       <ol class="alfa">
         <li>\(\oplus_{i \in I}M_i \le \prod_{i \in I}M_i\);</li>
         <li>a projeção \(\pi_k: \prod_{i \in I}M_i \to M_k\) é um epimorfismo de \(R\)-módulos;</li>
-        <li>a imersão \(\iota: M_k \to \oplus_{i \in I}M_i\) é um monomorfismode \(R\)-módulos.</li>
+        <li>a imersão \(\iota: M_k \to \oplus_{i \in I}M_i\) é um monomorfismo de \(R\)-módulos.</li>
       </ol>
     </p>
     
-    <p class="sol">
-      
-    <span class="cqd"></span></p>
+    <p class="sol"></p>
+    
+    <p>(a) Sejam \((m_i)_{i \in I}\) e \((m'_i)_{i \in I}\) elementos em \(\oplus_{i \in I}M_i\). Logo \(m_i = 0\) e \(m'_i = 0\), exceto para uma quantidade finita de índices. Assim, podemos supor que existe \(k \in \bbN\) tal que \(m_i = m'_i = 0\), para todo \(i \ge k\). Uma vez que \(\oplus_{i \in I}M_i \subseteq \prod_{i \in I}M_i\), temos que \((m_i)_{i \in I} + (m'_i)_{i \in I} = (m_i + m'_i)_{i \in I}\) é tal que \(m_i + m'_i = 0\), para todo \(i \ge k\). Logo, \((m_i)_{i \in I} + (m'_i)_{i \in I} \in \oplus_{i \in I}M_i\). Observe também que, se \(r \in R\), então \(r(m_i)_{i \in I} = (rm_i)_{i \in I}\), onde \(rm_i = 0\), para todo \(i \ge k\), o que implica que \(r(m_i)_{i \in I} \in \oplus_{i \in I}M_i\). Portanto, \(\oplus_{i \in I}M_i\) é um \(R\)-submódulo de \(\prod_{i \in I}M_i\).</p>
+        
+        <p>(b) Seja \(\pi_k: \prod_{i \in I}M_i \to M_k\), \((m_i)_{i \in I} \mapsto m_k\). Veja que
+        <ol class="romano">
+          <li>\(\pi_k((m_i)_{i \in I} + (m'_i)_{i \in I}) = \) \(\pi_k((m_i + m'_i)_{i \in I}) = \) \(m_k + m'_k = \) \(\pi_k((m_i)_{i \in I}) + \pi_k((m'_i)_{i \in I})\);</li>
+          <li>\(\pi_k(r(m_i)_{i \in I}) = \) \(\pi_k((rm_i)_{i \in I}) = \) \(rm_k = r\pi_k((m_i)_{i \in I})\).</li>
+        </ol>
+        Logo, \(\pi_k\) é um homomorfismo de \(R\)-módulos. Dado \(m \in M_k\), tome \((m_i)_{i \in I}\), onde o elemento na \(k\)-ésima posição \(m_k\) seja igual a \(m\). Então \(\pi_k((m_i)_{i \in I}) = m\). Portanto, \(\pi_k\) é um epimorfismo de \(R\)-módulos.</p>
+        
+      <p>(c)Seja 
+      \[
+        \begin{array}{rl}
+          \iota_k: M_k &\to \oplus_{i \in I}M_i \\
+          m_k &\mapsto (m_i)_{i \in I} = 
+          \begin{cases}
+            m_i = m_k, & \text{ se } i = k \\
+            m_i = 0, & \text{ se } i \neq k
+          \end{cases}
+        \end{array}
+      \]
+      Veja que \(\iota_k(m_k + m'_k)\) é o elemento \((m_i)_{i \in I}\) de \(\oplus_{i \in I}M_i\), onde a única coordenada diferente de zero é a \(k\)-ésima que corresponde a \(m_k + m'_k\). Note, por outro lado, que \(\iota_k(m_k) + \iota_k(m'_k)\) também nos dá o mesmo elemento. Analogamente, vemos que \(\iota_k(rm_k)\) é igual a \(r\iota_k(m_k)\). Logo, \(\iota_k\) é um homomorfismo de \(R\)-módulos. Agora, se \(\iota_k(m_k) = \iota_k(m'_k)\), temos, comparando coordenada a coordenada, que \(m_k = m'_k\), portanto, \(\iota_k\) é um monomorfismo de \(R\)-módulos.<span class="cqd"></span></p>
     
   </body>
   
 </html>
-
