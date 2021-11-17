@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> Geometria Algébrica - Aula 2 </title>
+    <title> Geometria Algébrica - Aula 6 </title>
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
         extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
@@ -274,7 +274,7 @@
         font-family: "Helvetica", sans-serif;
         line-height: 1.5;
         background-color: rgb(233,227,206);
-        counter-reset: contTeor contProp contLema contObs contDef contSec 2;
+        counter-reset: contTeor contProp contLema contCoro contObs contDef contSec 6;
       }
       
       h1{
@@ -293,79 +293,68 @@
   
     <div style="text-align:center"><h1>Geometria Algébrica</h1></div>
     
-    <!-- ###### AULA 02 ###### -->
-    <h2>Aula 2 - Multiplicidade de uma curva plana</h2>
+    <!-- ###### AULA 06 ###### -->
+    <h2>Aula 6 - Teorema Fundamental (AF + BG) de Max Noether</h2>
     
     <!-- DEFINIÇÃO -->
-    <p id="def-variedadeAfim" class="def">
-      Um conjunto algébrico irredutível é chamado de <strong>variedade</strong>.
-    <span class="fim"></span></p>
-    
-    <!-- DEFINIÇÃO -->
-    <p id="def-anelCoord" class="def">
-      Seja \(V \subseteq \bbA^n\) uma variedade. Definimos o <strong>anel de coordenadas de \(V\)</strong> como sendo \(\Gamma(V) := \rfrac{K[X_1, \dots, X_n]}{\calI(V)}\). Observe que, pela <a href="geometriaAlgebrica-aula01.html#prop-caracConjAlgIrred">Proposição 1.2.</a>, temos que \(\calI(V)\) é um ideal primo, logo \(\Gamma(V)\) é um domínio.
-    <span class="fim"></span></p>
-    
-    <!-- DEFINIÇÃO -->
-    <p id="def-corpoFunRac" class="def">
-      Sejam \(V \subseteq \bbA^n\) uma variedade não vazia e \(\Gamma(V)\) seu anel de coordenadas. Como \(\Gamma(V)\) é um domínio, então podemos formar seu corpo quociente, o qual chamamos de <strong>corpo das funções racionais</strong> e denotamos por \(K(V)\). Um elemento em \(K(V)\) é chamado <em>função racional</em>.
-    <span class="fim"></span></p>
-    
-    <!-- DEFINIÇÃO -->
-    <p id="def-anelLocal" class="def">
-      Sejam \(V \subseteq \bbA^n\) uma variedade não vazia e \(P \in V\). Definimos \(\calO_P(V)\), o <strong>anel local de \(V\) em \(P\)</strong>, como sendo o conjunto das funções racionais que estão definidas em \(P\), quer dizer, o conjunto de todas as funções racionais \(f = \frac{a}{b}\), com \(a, b \in \Gamma(V)\), tais que \(b(P) \neq 0\). 
+    <p id="def-zeroCiclo" class="def">
+      Um <strong>zero-ciclo</strong> em \(\bbP^2\) é uma combinação linear (finita) \(\sum_Pn_pP\) de pontos em \(\bbP^2\) com coeficientes inteiros. A coleção dos \(0\)-ciclos é um grupo abeliano livre gerado por \(\bbP^2\). O <em>grau</em> de um \(0\)-ciclo \(\sum_Pn_pP\) é a soma \(\sum_Pn_P\). Um \(0\)-ciclo é dito <em>positivo</em>, se cada \(n_P \ge 0\).
     <span class="fim"></span></p>
     
     <!-- OBSERVAÇÃO -->
-    <p id="obs-incAC&CFR&AL" class="obs">
-      Note que \(K \subseteq \Gamma(V) \subseteq \calO_P(V) \subseteq K(V)\).
+    <p id="obs-zeroCicloCurvasPlanasSemCompComum" class="obs">
+      Sejam \(F, G\) duas curvas planas afim sem componentes em comum. Denotamos por \(F \cdot G\) o \(0\)-ciclo \(\sum_PI(P, F \cap G)P\). Note que pelo Teorema de Bézout, o grau de \(F \cdot G\) é igual a \(\deg(F)\deg(G)\).
     <span class="fim"></span></p>
     
     <!-- OBSERVAÇÃO -->
-    <p id="obs-idealMaxAnelLocal" class="obs">
-      Em \(\calO_P(V)\), o ideal \(\frakm_P(V) = \{f \in \calO_P(V) \mid f(P) = 0\}\) é o único ideal maximal. Além disso, \(\frakm_P(V) = \{\)não unidades de \(\calO_P(V)\}\).
+    <p id="obs-zeroCicloOrdem" class="obs">
+      Dados \(Z = \sum_Pn_PP\) e \(Z' = \sum_Pn'_PP\), dizemos que \(Z \ge Z'\), se cada \(n_P \ge n'_P\).
     <span class="fim"></span></p>
     
     <!-- DEFINIÇÃO -->
-    <p id="def-curvaAlgAfim" class="def">
-      Dizemos que dois polinômios não constantes \(F, G \in K[X, Y]\) são <em>equivalentes</em>, se \(F = \lambda G\), para algum \(\lambda \in K\). Uma classe de equivalência de um polinômio não constante é chamada <strong>curva plana</strong>. Frequentemente, omitiremos a distinção de equivalência e escreveremos o polinômio e sua classe de equivalência pelo mesmo símbolo.
-    <span class="fim"></span></p>
-    
-    <!-- OBSERVAÇÃO -->
-    <p id="obs-AC&CFR&ALparaCPA" class="obs">
-      Seja \(F \in K[X, Y]\). Se \(F\) é irredutível, então \(\calV(F)\) é uma variedade e abreviamos:
-      <ol class=alfa>
-        <li>\(\Gamma(\calV(F)) = \rfrac{K[X,Y]}{\calI(\calV(F))}\) por \(\Gamma(F) = \rfrac{K[X,Y]}{F} = k[x,y]\);</li>
-        <li>\(K(\calV(F))\) por \(K(F) = k(x,y)\).</li>
-        <li>\(\calO_P(\calV(F))\) por \(\calO_P(F)\).<span class="fim"></span></li>
-      </ol>
-    </p>
-    
-    <!-- DEFINIÇÃO -->
-    <p id="def-pontoSimples" class="def">
-      Sejam \(F\) uma curva plana e \(P = (a, b) \in F\). Dizemos que \(P\) é um <strong>ponto simples de \(F\)</strong> (ponto liso ou ponto não singular), se \(F_X(P) \neq 0\) ou \(F_Y(P) \neq 0\), onde \(F_X\) e \(F_Y\) denotam, respectivamente, a derivada de \(F\) em \(X\) e em \(Y\). Neste caso, \(F_X(X - a) + F_Y(P)(Y - b) = 0\) é chamada de <strong>reta tangente</strong> de \(P\) em \(F\).
-    <span class="fim"></span></p>
-    
-    <!-- OBSERVAÇÃO -->
-    <p id="obs-forma" class="obs">
-      Um <em>monômio</em> em \(R[X_1, \dots, X_n]\) é um polinômio da forma \(X_1^{i_1}X_2^{i_2}\dots X_n^{i_n}\), onde \(i_i\) são inteiros não negativos; o <em>grau de um monômio</em> é \(i_1 + \cdots + i_n\). Todo \(F \in R[X_1, \dots, X_n]\) se escreve unicamente como \(\sum a_{(i)}X^{(i)}\), onde \(X^{(i)}\) é um monômio de grau \(i\) e \(a_{(i)} \in R\). Chamamos \(F\) de <em>uma forma de grau \(d\)</em>, se todos os coeficientes \(a_{(i)}\) são zeros exceto para monômios de grau \(d\). Qualquer polinômio \(F \in R[X_1, \dots, X_n]\) se escreve unicamente como \(F_0 + F_1 + \cdots + F_d\), onde \(F_i\) é uma forma de grau \(i\). Se \(F_d \neq 0\), então \(d\) é o <em>grau</em> de \(F\).
-    <span class="fim"></span></p>
-    
-    <!-- DEFINIÇÃO -->
-    <p id="def-multiplicidade" class="def">
-      Sejam \(F\) uma curva plana e \(P = (0, 0) \in F\). Escreva \(F = F_m + F_{m+1} + \cdots + F_n\), onde \(F_i\) é uma forma em \(K[X,Y]\) de grau \(i\) e \(F_m \neq 0\). Definimos \(m\) com sendo a <strong>multiplicidade</strong> de \(F\) em \(P\), o qual denotamos por \(m_P(F)\). Chamamos cada fator linear de \(F_m = (\alpha_1X + \beta_1Y)\dots(\alpha_mX + \beta_mY)\) de uma <em>reta tangente</em> a \(F\) na origem.
+    <p id="def-condNoether" class="def">
+      Sejam \(P \in \bbP^2\), \(F, G\) curvas sem componentes em comum por \(P\) e \(H\) outra curva qualquer. Dizemos que as <strong>condições de Noether</strong> são satisfeitas em \(P\) (com respeito a \(F, G, H\)), se \(H_{\ast} \in \langle F_{\ast}, G_{\ast} \rangle \subseteq \calO_P(\bbP^2)\), onde \(H_{\ast}, F_{\ast}, G_{\ast}\) são as <a href="geometriaAlgebrica-aula04.html#def-homogDesom">desomogeneização</a> de \(H, F, G\) com respeito a alguma variável, isto é, se existem \(a, b \in \calO_P(\bbP^2)\) tal que \(H_{\ast} = aF_{\ast} + bG_{\ast}\).
     <span class="fim"></span></p>
     
     <!-- TEOREMA -->
-    <p id="teor-multCalcAlg" class="teor">
-      Sejam 
-      <ol class=alfa>
-        <li>\(F\) uma curva plana irredutível,</li>
-        <li>\(P \in F\),</li>
-        <li>\(m\) a multiplicidade de \(F\) em \(P\) e </li>
-        <li>\(\frakm\) o ideal maximal de \(P\) em \(\calO_P(F)\)</li>
+    <p id="teor-maxNoetherAFmaisBG" class="teor" text="AF + BG">
+      Suponha que \(\mdc(F,G) = 1\). Então vale um relação homogênea \(H = AF + BG\) se, e somente se, as condições de Noether são satisfeitas em cada \(P \in F \cap G\).
+    <span class="fim"></span></p>
+    
+    <!-- TEOREMA -->
+    <p id="teor-condSufMaxNoetherAFmaisBG" class="teor">
+      Sejam \(F,G,H\) curvas planas, \(P \in F \cap G\). Então as condições de Noether valem em \(P\) em qualquer dos seguintes casos
+      <ol class="alfa">
+        <li>\(F\) e \(G\) se cortam transversalmente em \(P\) e \(P \in H\).</li>
+        <li>\(P\) é um ponto simples de \(F\) e \(I(P, H \cap F) \ge I(P, G \cap F)\).</li>
+        <li>\(F, G\) têm tangentes distintas em \(P\) e \(m_P(H) \ge m_P(F) + m_P(G) - 1\).<span class="fim"></span></li>
       </ol>
-      Então, para \(r\) suficientemente grande, temos que \(m = \dim\big(\rfrac{\frakm^r}{\frakm^{r+1}}\big)\).
+    </p>
+    
+    <!-- COROLÁRIO -->
+    <p id="coro-maxNoetherAFmaisBG1" class="coro">
+      Suponha
+      <ol class="numerico">
+        <li>\(F, G\) se cortam em \(\deg(F)\deg(G)\) pontos distintos, e \(H\) passa por esses pontos, ou</li>
+        <li>Todos os pontos de \(F \cap G\) são simples em \(F\) e \(H \cdot F \ge G \cdot F\).</li>
+      </ol>
+      Então existe uma curva \(B\) tal que \(B \cdot F = H \cdot F - G \cdot F\).
+    <span class="fim"></span></p>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="prop-maxNoetherAFmaisBG" class="prop">
+      Sejam \(C, C_0\) cúbicas tais que \(C_0 \cdot C = \sum_{i=1}^{9} P_i\). Suponha que \(Q\) é uma cônica tal que \(Q \cdot C = \sum_{i=1}^6 P_i\) e \(P_1 , \dots , P_6\) são simples em \(C\). Então \(P_7, P_8, P_9\) são colineares.
+    <span class="fim"></span></p>
+    
+    <!-- COROLÁRIO -->
+    <p id="coro-maxNoetherAFmaisBG2" class="coro" text="Pascal">
+      Se um hexágono está inscrito em uma cônica irredutı́vel, então lados opostos se cortam em
+pontos colineares.
+    <span class="fim"></span></p>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="prop-leiGrupoCubica" class="prop">
+      Sejam \(C\) uma cúbica não singular e \(P, Q \in C\).Então existe um reta \(L\) tal que \(L \cdot C = P + Q + R\), para algum \(R \in C\). Defina \(\varphi: C \times C \to C\), \((P, Q) \mapsto R\). Fixe \(O \in C\) e defina \(P \oplus Q = \varphi(O, \varphi(P,Q))\). Então \(C\) munido da operação \(\oplus\) forma um grupo abeliano, no qual \(O\) é o elemento neutro.
     <span class="fim"></span></p>
     
   </body>

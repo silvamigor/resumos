@@ -324,8 +324,13 @@
     <span class="fim"></span></p>
     
     <!-- DEFINIÇÃO -->
+    <p id="def-homogDesom" class="def">
+      Seja \(R\) um domínio. Se \(F \in R[X_1,\dots,X_{n+1}]\) é uma forma, definimos a <strong>desomogeneização</strong> de \(F\) com respeito a \(X_{n+1}\) o polinômio \(F_{\ast} = F(X_1,\dots,X_n,1)\). Inversamente, se \(F \in R[X_1,\dots,X_n]\) é um polinômio de grau \(d\), escrito na forma \(F = F_0 + F_1 + \cdots + F_d\), onde \(F_i\) é uma forma de grau \(i\), definimos a <strong>homogeneização</strong> de de \(F\) com respeito a \(X_{n+1}\) o polinômio \(F^{\ast} = X_{n+1}^{d}F_0 + X_{n+1}^{d-1}F_1 + \cdots + F_d = \) \(X_{n+1}^{d}F(\frac{X_1}{X_{n+1}}, \dots, \frac{X_n}{X_{n+1}})\).
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
     <p id="def-fechoProjetivo" class="def">
-      O <strong>fecho projetivo</strong> de uma curva definida por uma equação polinomial de grau \(d\), \(f(x_1,x_2) := \sum_{i+j\le d}a_{ij}x_1^ix_2^j\) é obtido pela <em>homogeneização</em> que é acrescentar um variável no polinômio fazendo \(f\) ser \(a_{ij}x_1^ix_2^jx_3^{d-i-j}\)
+      O <strong>fecho projetivo</strong> de uma curva definida por uma equação polinomial de grau \(d\), \(f(x_1,x_2) := \sum_{i+j\le d}a_{ij}x_1^ix_2^j\) é obtido pela homogeneização de \(f\) com respeito a \(x_3\), isto é, é o polinômio \(\sum_{i+j\le d}a_{ij}x_1^ix_2^jx_3^{d-i-j}\)
     <span class="fim"></span></p>
     
     <!-- OBSERVAÇÃO -->
