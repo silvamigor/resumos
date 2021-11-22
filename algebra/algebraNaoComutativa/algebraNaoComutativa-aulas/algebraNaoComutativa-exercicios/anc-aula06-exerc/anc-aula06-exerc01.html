@@ -334,11 +334,20 @@
       </ol>
     </p>
     
-    <p class="sol">
-      
+    <p class="sol"></p>
+    
+    <p>
+      (a) Considere o \(\bbZ\)-módulo \(\bbZ_{3} = \{\overline{0}, \overline{1}, \overline{2}\}\). Note que \(\bbZ_{3} = \langle \overline{1} \rangle\), ou seja, \(\{\overline{1}\}\) é um conjunto gerador minimal de \(\bbZ_{3}\) (é um conjunto que gera e que tem um único elemento). Observe também que \(3 \cdot \overline{1} = \overline{3} = \overline{0}\). Portanto, tal conjunto não é linearmente independente, o que implica que ele não é uma base. Por ser minimal, ele não contém nenhuma base.
+    </p>
+    
+    <p>
+      (b) Seja \(\bbZ \times \bbZ\) um \(\bbZ\)-módulo. Note que ele é livre com base \(\{(1, 0), (0, 1)\}\). O conjunto \(A = \{(1, 0), (0, 2)\}\) é linearmente independente, porque não existem \(x, y \in \bbZ\setminus\zero\) tais que \(x \cdot (1, 0) + y \cdot (0, 2) = (0, 0)\). Note que o \(\bbZ\)-módulo gerado por \(A\) não contém o elemento \((0, 1)\). Acrescentando-o a \(A\), temos \(A \cup \{(0, 1)\}\) gera todos os elementos de \(\bbZ \times \bbZ\), contudo deixa de ser linearmente independente, pois \((0, 2) = 0 \cdot (1, 0) + 2 \cdot (0, 1)\). Logo, \(A\) não se estende a uma base.
+    </p>
+    
+    <p>
+      (c) Considere o anel dos polinômios em duas variáveis, \(\bbZ[x, y]\), visto como \(\bbZ[x, y]\)-módulo. Note que \(\bbZ[x, y]\) é um \(\bbZ[x, y]\)-módulo livre com base \(\{1\}\), já que qualquer \(f(x, y) \in \bbZ[x, y]\) é igual a \(f(x, y) \cdot 1\) e \(\bbZ[x, y]\) não possui divisores de zero. Seja \(I = \langle x, y \rangle \trianglelefteq \bbZ[x, y]\) um ideal. Então \(I\) é um \(\bbZ[x, y]\)-submódulo de \(\bbZ[x, y]\). Observe que \(y \cdot x - x \cdot y = 0\). Logo, embora \(\{x, y\}\) gere \(I\), ele não é linearmente independente. Portanto, \(I\) não é um \(\bbZ[x, y]\)-módulo livre.
     <span class="cqd"></span></p>
     
   </body>
   
 </html>
-
