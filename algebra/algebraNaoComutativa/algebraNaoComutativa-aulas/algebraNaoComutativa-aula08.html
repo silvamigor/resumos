@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Álgebra Não Comutativa - Aula 8 </title>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+          processEscapes: true
+        },
+        "HTML-CSS": { fonts: ["TeX"] },
+        TeX: {
+          equationNumbers: { autoNumber: "AMS" },
+          Macros: {
+            fraka: ["\\mathfrak{a}"],
+            frakb: ["\\mathfrak{b}"],
+            frakc: ["\\mathfrak{c}"],
+            frakd: ["\\mathfrak{d}"],
+            frake: ["\\mathfrak{e}"],
+            frakf: ["\\mathfrak{f}"],
+            frakg: ["\\mathfrak{g}"],
+            frakh: ["\\mathfrak{h}"],
+            fraki: ["\\mathfrak{i}"],
+            frakj: ["\\mathfrak{j}"],
+            frakk: ["\\mathfrak{k}"],
+            frakl: ["\\mathfrak{l}"],
+            frakm: ["\\mathfrak{m}"],
+            frakn: ["\\mathfrak{n}"],
+            frako: ["\\mathfrak{o}"],
+            frakp: ["\\mathfrak{p}"],
+            frakq: ["\\mathfrak{q}"],
+            frakr: ["\\mathfrak{r}"],
+            fraks: ["\\mathfrak{s}"],
+            frakt: ["\\mathfrak{t}"],
+            fraku: ["\\mathfrak{u}"],
+            frakv: ["\\mathfrak{v}"],
+            frakx: ["\\mathfrak{x}"],
+            frakw: ["\\mathfrak{w}"],
+            fraky: ["\\mathfrak{y}"],
+            frakz: ["\\mathfrak{z}"],
+            frakA: ["\\mathfrak{A}"],
+            frakB: ["\\mathfrak{B}"],
+            frakC: ["\\mathfrak{C}"],
+            frakD: ["\\mathfrak{D}"],
+            frakE: ["\\mathfrak{E}"],
+            frakF: ["\\mathfrak{F}"],
+            frakG: ["\\mathfrak{G}"],
+            frakH: ["\\mathfrak{H}"],
+            frakI: ["\\mathfrak{I}"],
+            frakJ: ["\\mathfrak{J}"],
+            frakK: ["\\mathfrak{K}"],
+            frakL: ["\\mathfrak{L}"],
+            frakM: ["\\mathfrak{M}"],
+            frakN: ["\\mathfrak{N}"],
+            frakO: ["\\mathfrak{O}"],
+            frakP: ["\\mathfrak{P}"],
+            frakQ: ["\\mathfrak{Q}"],
+            frakR: ["\\mathfrak{R}"],
+            frakS: ["\\mathfrak{S}"],
+            frakT: ["\\mathfrak{T}"],
+            frakU: ["\\mathfrak{U}"],
+            frakV: ["\\mathfrak{V}"],
+            frakX: ["\\mathfrak{X}"],
+            frakW: ["\\mathfrak{W}"],
+            frakY: ["\\mathfrak{Y}"],
+            frakZ: ["\\mathfrak{Z}"],
+            frakgl: ["\\mathfrak{gl}"],
+            fraksl: ["\\mathfrak{sl}"],
+            bba: ["\\mathbb{a}"],
+            bbb: ["\\mathbb{b}"],
+            bbc: ["\\mathbb{c}"],
+            bbd: ["\\mathbb{d}"],
+            bbe: ["\\mathbb{e}"],
+            bbf: ["\\mathbb{f}"],
+            bbg: ["\\mathbb{g}"],
+            bbh: ["\\mathbb{h}"],
+            bbi: ["\\mathbb{i}"],
+            bbj: ["\\mathbb{j}"],
+            bbk: ["\\mathbb{k}"],
+            bbl: ["\\mathbb{l}"],
+            bbm: ["\\mathbb{m}"],
+            bbn: ["\\mathbb{n}"],
+            bbo: ["\\mathbb{o}"],
+            bbp: ["\\mathbb{p}"],
+            bbq: ["\\mathbb{q}"],
+            bbr: ["\\mathbb{r}"],
+            bbs: ["\\mathbb{s}"],
+            bbt: ["\\mathbb{t}"],
+            bbu: ["\\mathbb{u}"],
+            bbv: ["\\mathbb{v}"],
+            bbx: ["\\mathbb{x}"],
+            bbw: ["\\mathbb{w}"],
+            bby: ["\\mathbb{y}"],
+            bbz: ["\\mathbb{z}"],
+            bbA: ["\\mathbb{A}"],
+            bbB: ["\\mathbb{B}"],
+            bbC: ["\\mathbb{C}"],
+            bbD: ["\\mathbb{D}"],
+            bbE: ["\\mathbb{E}"],
+            bbF: ["\\mathbb{F}"],
+            bbG: ["\\mathbb{G}"],
+            bbH: ["\\mathbb{H}"],
+            bbI: ["\\mathbb{I}"],
+            bbJ: ["\\mathbb{J}"],
+            bbK: ["\\mathbb{K}"],
+            bbL: ["\\mathbb{L}"],
+            bbM: ["\\mathbb{M}"],
+            bbN: ["\\mathbb{N}"],
+            bbO: ["\\mathbb{O}"],
+            bbP: ["\\mathbb{P}"],
+            bbQ: ["\\mathbb{Q}"],
+            bbR: ["\\mathbb{R}"],
+            bbS: ["\\mathbb{S}"],
+            bbT: ["\\mathbb{T}"],
+            bbU: ["\\mathbb{U}"],
+            bbV: ["\\mathbb{V}"],
+            bbX: ["\\mathbb{X}"],
+            bbW: ["\\mathbb{W}"],
+            bbY: ["\\mathbb{Y}"],
+            bbZ: ["\\mathbb{Z}"],
+            cala: ["\\mathcal{a}"],
+            calb: ["\\mathcal{b}"],
+            calc: ["\\mathcal{c}"],
+            cald: ["\\mathcal{d}"],
+            cale: ["\\mathcal{e}"],
+            calf: ["\\mathcal{f}"],
+            calg: ["\\mathcal{g}"],
+            calh: ["\\mathcal{h}"],
+            cali: ["\\mathcal{i}"],
+            calj: ["\\mathcal{j}"],
+            calk: ["\\mathcal{k}"],
+            call: ["\\mathcal{l}"],
+            calm: ["\\mathcal{m}"],
+            caln: ["\\mathcal{n}"],
+            calo: ["\\mathcal{o}"],
+            calp: ["\\mathcal{p}"],
+            calq: ["\\mathcal{q}"],
+            calr: ["\\mathcal{r}"],
+            cals: ["\\mathcal{s}"],
+            calt: ["\\mathcal{t}"],
+            calu: ["\\mathcal{u}"],
+            calv: ["\\mathcal{v}"],
+            calx: ["\\mathcal{x}"],
+            calw: ["\\mathcal{w}"],
+            caly: ["\\mathcal{y}"],
+            calz: ["\\mathcal{z}"],
+            calA: ["\\mathcal{A}"],
+            calB: ["\\mathcal{B}"],
+            calC: ["\\mathcal{C}"],
+            calD: ["\\mathcal{D}"],
+            calE: ["\\mathcal{E}"],
+            calF: ["\\mathcal{F}"],
+            calG: ["\\mathcal{G}"],
+            calH: ["\\mathcal{H}"],
+            calI: ["\\mathcal{I}"],
+            calJ: ["\\mathcal{J}"],
+            calK: ["\\mathcal{K}"],
+            calL: ["\\mathcal{L}"],
+            calM: ["\\mathcal{M}"],
+            calN: ["\\mathcal{N}"],
+            calO: ["\\mathcal{O}"],
+            calP: ["\\mathcal{P}"],
+            calQ: ["\\mathcal{Q}"],
+            calR: ["\\mathcal{R}"],
+            calS: ["\\mathcal{S}"],
+            calT: ["\\mathcal{T}"],
+            calU: ["\\mathcal{U}"],
+            calV: ["\\mathcal{V}"],
+            calX: ["\\mathcal{X}"],
+            calW: ["\\mathcal{W}"],
+            calY: ["\\mathcal{Y}"],
+            calZ: ["\\mathcal{Z}"],
+            bfa: ["\\mathbf{a}"],
+            bfb: ["\\mathbf{b}"],
+            bfc: ["\\mathbf{c}"],
+            bfd: ["\\mathbf{d}"],
+            bfe: ["\\mathbf{e}"],
+            bff: ["\\mathbf{f}"],
+            bfg: ["\\mathbf{g}"],
+            bfh: ["\\mathbf{h}"],
+            bfi: ["\\mathbf{i}"],
+            bfj: ["\\mathbf{j}"],
+            bfk: ["\\mathbf{k}"],
+            bfl: ["\\mathbf{l}"],
+            bfm: ["\\mathbf{m}"],
+            bfn: ["\\mathbf{n}"],
+            bfo: ["\\mathbf{o}"],
+            bfp: ["\\mathbf{p}"],
+            bfq: ["\\mathbf{q}"],
+            bfr: ["\\mathbf{r}"],
+            bfs: ["\\mathbf{s}"],
+            bft: ["\\mathbf{t}"],
+            bfu: ["\\mathbf{u}"],
+            bfv: ["\\mathbf{v}"],
+            bfx: ["\\mathbf{x}"],
+            bfw: ["\\mathbf{w}"],
+            bfy: ["\\mathbf{y}"],
+            bfz: ["\\mathbf{z}"],
+            bfA: ["\\mathbf{A}"],
+            bfB: ["\\mathbf{B}"],
+            bfC: ["\\mathbf{C}"],
+            bfD: ["\\mathbf{D}"],
+            bfE: ["\\mathbf{E}"],
+            bfF: ["\\mathbf{F}"],
+            bfG: ["\\mathbf{G}"],
+            bfH: ["\\mathbf{H}"],
+            bfI: ["\\mathbf{I}"],
+            bfJ: ["\\mathbf{J}"],
+            bfK: ["\\mathbf{K}"],
+            bfL: ["\\mathbf{L}"],
+            bfM: ["\\mathbf{M}"],
+            bfN: ["\\mathbf{N}"],
+            bfO: ["\\mathbf{O}"],
+            bfP: ["\\mathbf{P}"],
+            bfQ: ["\\mathbf{Q}"],
+            bfR: ["\\mathbf{R}"],
+            bfS: ["\\mathbf{S}"],
+            bfT: ["\\mathbf{T}"],
+            bfU: ["\\mathbf{U}"],
+            bfV: ["\\mathbf{V}"],
+            bfX: ["\\mathbf{X}"],
+            bfW: ["\\mathbf{W}"],
+            bfY: ["\\mathbf{Y}"],
+            bfZ: ["\\mathbf{Z}"],
+            zero: ["\\{0\\}"],
+            id: ["\\operatorname\{id\}"],
+            sen: ["\\operatorname\{sen\}"],
+            tg: ["\\operatorname\{tg\}"],
+            ad: ["\\operatorname\{ad\}"],
+            mdc: ["\\operatorname\{mdc\}"],
+            im: ["\\operatorname\{im\}"],
+            Quat: ["\\operatorname\{Quat\}"],
+            Aut: ["\\operatorname\{Aut\}"],
+            Inn: ["\\operatorname\{Inn\}"],
+            orb: ["\\operatorname\{orb\}"],
+            stab: ["\\operatorname\{stab\}"],
+            Rep: ["\\operatorname\{Rep\}"],
+            Hom: ["\\operatorname\{Hom\}"],
+            End: ["\\operatorname\{End\}"],
+            Obj: ["\\operatorname\{Obj\}"],
+            tr: ["\\operatorname\{tr\}"],
+            diam: ["\\operatorname\{diam\}"],
+            diag: ["\\operatorname\{diag\}"],
+            Ind: ["\\operatorname\{Ind\}"],
+            Res: ["\\operatorname\{Res\}"],
+            Set: ["\\operatorname\{Set\}"],
+            coker: ["\\operatorname\{coker\}"],
+            supp: ["\\operatorname\{supp\}"],
+            Tor: ["\\operatorname\{Tor\}"],
+            vspan: ["\\operatorname\{vspan\}"],
+            char: ["\\operatorname\{char\}"],
+            pint: ["{ \\langle #1,#2 \\rangle }",2],
+            rfrac: ["{ {}^{#1}\\!/_{#2} }",2],
+            norma: ["{ \\Vert #1 \\Vert }",1],
+          },
+        },
+      });
+    </script>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js"></script>
+    <script src="http://www.w3schools.com/lib/w3data.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../itemParenteses.css" />
+    <link rel="stylesheet" type="text/css" href="../../../ambTeor.css" />
+    
+    <style>
+      body{
+        font-size: 14pt;
+        font-family: "Helvetica", sans-serif;
+        line-height: 1.5;
+        background-color: rgb(233,227,206);
+        counter-reset: contTeor contProp contLema contCoro contObs contDef contExerc contExemplo contSec 8;
+      }
+      
+      h1{
+        background-color: rgb(153,51,153);
+        color: rgb(255,250,250);
+      }
+      
+      h2{
+        color: rgb(153,51,153);
+      }
+      
+    </style>
+  </head>
+  
+  <body>
+  
+    <div style="text-align:center"><h1>Álgebra Não Comutativa</h1></div>
+    
+    <!-- ###### AULA 08 ###### -->
+    <h2>Aula 8 - Teorema de Wedderburn</h2>
+    
+    <!-- TEOREMA -->
+    <p id="teor-anelSemisEqui" class="teor">
+    Seja \(R\) um anel. São equivalentes:
+      <ol class="alfa">
+        <li>todo \(R\)-módulo é semissimples;</li>
+        <li>\(R\) é um anel semissimples;</li>
+        <li>\(R\) é a soma direta <em>finita</em> de ideais minimais à esquerda.<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- COROLÁRIO -->
+    <p id="coro-decomAnelSemis" class="coro">
+      Seja \(R = L_1 \oplus \dots \oplus L_n\) a decomposição de um anel semissimples como a soma direta de ideais minimais à esquerda. Se \(M\) é um \(R\)-módulo simples, então \(M \cong L_i\), para algum \(i = 1, \dots, n\). Em particular, a menos de isomorfismos, existe apenas uma quantidade finita de \(R\)-módulos simples.
+    <span class="fim"></span></p>
+    
+    <!-- COROLÁRIO -->
+    <p id="coro-anelSemisArtNoeth" class="coro">
+      Todo anel semissimples é artiniano e noetheriano.
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-modHomogeneo" class="def">
+      Dizemos que um \(R\)-módulo \(M\) é <strong>homogêneo</strong>, se \(M = M_1 \oplus \cdots \oplus M_n\), onde cada \(M_i \le M\) é simples, isomorfo a um \(R\)-módulo fixo \(M'\).
+    <span class="fim"></span></p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-anelSemisHomog" class="obs">
+      Seja \(R = L_1 \oplus \cdots \oplus L_n\) a decomposição de um anel semissimples. Agrupando os ideais isomorfos que aparecem nessa decomposição, temos que \(R \cong L_1' \oplus \cdots L_m'\), onde cada \(L_j'\) é a soma direta dos ideais isomorfos a \(L_j\) que aparecem na decomposição de \(L\). Note que cada \(L_j'\) é um anel homogêneo. Logo, todo anel semissimples é a soma direta de anéis homogêneos. Em particular, se \(R\) é um anel semissimples e homogêneo, então todos os \(R\)-módulos simples são isomorfos.
+    <span class="fim"></span></p>
+    
+    <!-- EXEMPLO -->
+    <p id="exemplo-anelSemis" class="exemplo">
+      <ol class="alfa">
+        <li>Se \(D\) é um anel de divisão, então \(M_n(D)\) é um anel semissimples, pois \(M_n(D) = C_1 \oplus \cdots \oplus C_n\) e cada \(C_i\) é um ideal minimal à esquerda de \(M_n(D)\).</li>
+        <li>O anel de polinômios \(F[x]\), \(F\) corpo, não é semissimples, pois ele não é artiniano.<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-endEspVet" class="obs">
+      Sabemos que se \(V\) é um espaço vetorial de dimensão finita sobre um corpo \(F\), então \(\End_{F}(V) \cong M_n(F)\). Em particular, \(\End_{F}(F) \cong F\). Se \(\{v_1, \dots, v_n\}\) é uma base de \(V\), então as aplicações \(f_i: F \to Fv_i\), \(\alpha \mapsto \alpha v_i\) são isomorfismos, já que \(F\) é um \(F\)-módulo simples e \(V = Fv_1 \oplus \cdots \oplus Fv_n \cong {F \oplus \cdots \oplus F} = F^{(n)}\). Logo,
+      <br><br>
+      <div style="text-align:center">\(\End_{F}(V) \cong \End_{F}(F^{(n)}) \cong M_n(F) \cong M_n(\End_{F}(F))\)<span class="fim"></span></div>
+    </p>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="prop-endMod" class="prop">
+      Seja \(M\) um \(R\)-módulo semissimples de comprimento finito. Então \(\End_{R}(M)\) é isomorfo a uma soma direta finita de anéis de matrizes com coeficientes em anéis de divisão.
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-anelOposto" class="def">
+      O <strong>anel oposto</strong> de um anel \(R\), denotado por \(R^{op}\), é definido da seguinte maneira: como grupo abeliano \((R^{op}, +) = (R, +)\) e a multiplicação em \(R^{op}\) é dada por \(a \cdot b = ba\), para todos \(a, b \in R\).
+    <span class="fim"></span></p>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="prop-anelOposto" class="prop">
+      <ol class="alfa">
+        <li>\(R\) tem unidade se, e somente se, \(R^{op}\) tem unidade.</li>
+        <li>\(R\) é um anel de divisão se, e somente se, \(R^{op}\) é de divisão.</li>
+        <li>\((R^{op})^{op} = R\).</li>
+        <li>\(R \cong S\) se, e somente se, \(R^{op} \cong S^{op}\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-anelOpostoEndAnel" class="obs">
+      Dados \(R\) um anel e \(r \in R\), seja \(f_r: R \to R\), \(x \mapsto rx\). Observe que se \(R\) não é comutativo, então \(f_r\) não é um \(R\)-homomorfismo. Considere \(f_r: R \to R\), \(x \mapsto xr\). Então \(f_r\) é um \(R\)-homomorfismo que induz uma aplicação \(g: R \to \End_{R}(R)\), \(r \mapsto f_r\) que não é um homomorfismo de anéis, porque dados \(r, s \in R\), temos que \(g(rs) = f_{rs}: R \to R\), \(x \mapsto r(rs)\) que é igual a \(f_s \circ f_r\) que é diferente de \(g(r)g(s)\). Se considerarmos \(g: R^{op} \to \End_{R}(R)\), \(r \mapsto f_r\), então \(g\) é um homomorfismo de anéis. Temos que
+      <ol class="alfa">
+        <li>\(g\) é injetiva, pois dados \(r, s \in R\), \(f_r = f_s\) implica que \(r = f_r(1) = f_s(1) = s\);</li>
+        <li>\(g\) é sobrejetiva, porque dados \(h \in \End_{R}(R)\), então \(h(x) = h(x1) = xh(1) = f_{h(1)}(x)\).</li>
+      </ol>
+      Conclusão: \(R^{op} \cong \End_{R}(R)\).
+    <span class="fim"></span></p>
+    
+    <!-- EXEMPLO -->
+    <p id="exemplo-endModDiv" class="exemplo">
+      Se \(D\) é um anel de divisão e \(V\) é um \(D\)-módulo livre de posto finito, então
+      \[
+        \End_{D}(V) \cong \End_{D}(D^{(n)}) \cong M_n(\End_{D}(D)) \cong M_n(D^{op})
+      \]
+      é semissimples, pois \(D^{op}\) é um anel de divisão.
+    <span class="fim"></span></p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-espVetAnelDiv" class="obs">
+      Os principais teoremas de álgebra linear são válidos quando se tira a comutatividade do corpo, isto é, se se usa um anel de divisão.
+    <span class="fim"></span></p>
+    
+    <!-- TEOREMA -->
+    <p id="teor-wedderburn" class="teor" text="Teorema de Wedderburn">
+      Todo anel semissimples é isomorfismo a uma soma direta finita de anéis de matrizes com coeficientes em anéis de divisão.
+    <span class="fim"></span></p>
+    
+    <!-- COROLÁRIO -->
+    <p id="coro-wedderburn1" class="coro">
+      Todo anel semissimples é isomorfismo a um soma direta finita de anéis simples.
+    <span class="fim"></span></p>
+    
+    <!-- COROLÁRIO -->
+    <p id="coro-wedderburn2" class="coro">
+      Se \(R\) é um anel comutativo semissimples, então \(R\) é isomorfismo a uma soma direta finita de corpos.
+    <span class="fim"></span></p>
+    
+    <!-- EXERCÍCIO -->
+    <p id="exerc-aula08" class="exerc">
+      <ol class="numerico">
+        <li>Mostre que se \(M\) é um \(R\)-módulo e \(n \ge 1\), então \(\End_{R}(M^{(n)}) \cong M_n(\End_{F}(M))\). (<a href="algebraNaoComutativa-exercicios/anc-aula08-exerc/anc-aula08-exerc01.html">Solução</a>)</li>
+        <li>Mostre que \(M_n(R)^{op} \cong M_n(R^{op})\). Dê um exemplo de anel tal que \(R^{op} \not\cong R\). (<a href="algebraNaoComutativa-exercicios/anc-aula08-exerc/anc-aula08-exerc02.html">Solução</a>)</li>
+        <li>Mostre a unicidade da decomposição de Wedderburn de um anel semissimples, isto é, mostre que se
+        \[
+          R \cong \oplus_{i = 1}^{k_1}M_{n_i}(D_i) \cong \oplus_{j = 1}^{k_2}M_{r_j}(D'_j),
+        \]
+        então \(k_1 = k_2\) e, após uma possível reordenação dos índices, \(n_i = r_i\) e \(D_i \cong D'_j\). (<a href="algebraNaoComutativa-exercicios/anc-aula08-exerc/anc-aula08-exerc03.html">Solução</a>)</li>
+        <li>Mostre que se \(R\) é semissimples, então \(M_n(R)\) também o é. (<a href="algebraNaoComutativa-exercicios/anc-aula08-exerc/anc-aula08-exerc04.html">Solução</a>)</li>
+        <li>Seja \(R\) um domínio. Mostre que se \(M_n(R)\) é semissimples, então \(R\) é um anel de divisão. (<a href="algebraNaoComutativa-exercicios/anc-aula08-exerc/anc-aula08-exerc05.html">Solução</a>)<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+  </body>
+  
+</html>
+
