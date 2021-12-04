@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Álgebra Não Comutativa - Aula 10 </title>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+          processEscapes: true
+        },
+        "HTML-CSS": { fonts: ["TeX"] },
+        TeX: {
+          equationNumbers: { autoNumber: "AMS" },
+          Macros: {
+            fraka: ["\\mathfrak{a}"],
+            frakb: ["\\mathfrak{b}"],
+            frakc: ["\\mathfrak{c}"],
+            frakd: ["\\mathfrak{d}"],
+            frake: ["\\mathfrak{e}"],
+            frakf: ["\\mathfrak{f}"],
+            frakg: ["\\mathfrak{g}"],
+            frakh: ["\\mathfrak{h}"],
+            fraki: ["\\mathfrak{i}"],
+            frakj: ["\\mathfrak{j}"],
+            frakk: ["\\mathfrak{k}"],
+            frakl: ["\\mathfrak{l}"],
+            frakm: ["\\mathfrak{m}"],
+            frakn: ["\\mathfrak{n}"],
+            frako: ["\\mathfrak{o}"],
+            frakp: ["\\mathfrak{p}"],
+            frakq: ["\\mathfrak{q}"],
+            frakr: ["\\mathfrak{r}"],
+            fraks: ["\\mathfrak{s}"],
+            frakt: ["\\mathfrak{t}"],
+            fraku: ["\\mathfrak{u}"],
+            frakv: ["\\mathfrak{v}"],
+            frakx: ["\\mathfrak{x}"],
+            frakw: ["\\mathfrak{w}"],
+            fraky: ["\\mathfrak{y}"],
+            frakz: ["\\mathfrak{z}"],
+            frakA: ["\\mathfrak{A}"],
+            frakB: ["\\mathfrak{B}"],
+            frakC: ["\\mathfrak{C}"],
+            frakD: ["\\mathfrak{D}"],
+            frakE: ["\\mathfrak{E}"],
+            frakF: ["\\mathfrak{F}"],
+            frakG: ["\\mathfrak{G}"],
+            frakH: ["\\mathfrak{H}"],
+            frakI: ["\\mathfrak{I}"],
+            frakJ: ["\\mathfrak{J}"],
+            frakK: ["\\mathfrak{K}"],
+            frakL: ["\\mathfrak{L}"],
+            frakM: ["\\mathfrak{M}"],
+            frakN: ["\\mathfrak{N}"],
+            frakO: ["\\mathfrak{O}"],
+            frakP: ["\\mathfrak{P}"],
+            frakQ: ["\\mathfrak{Q}"],
+            frakR: ["\\mathfrak{R}"],
+            frakS: ["\\mathfrak{S}"],
+            frakT: ["\\mathfrak{T}"],
+            frakU: ["\\mathfrak{U}"],
+            frakV: ["\\mathfrak{V}"],
+            frakX: ["\\mathfrak{X}"],
+            frakW: ["\\mathfrak{W}"],
+            frakY: ["\\mathfrak{Y}"],
+            frakZ: ["\\mathfrak{Z}"],
+            frakgl: ["\\mathfrak{gl}"],
+            fraksl: ["\\mathfrak{sl}"],
+            bba: ["\\mathbb{a}"],
+            bbb: ["\\mathbb{b}"],
+            bbc: ["\\mathbb{c}"],
+            bbd: ["\\mathbb{d}"],
+            bbe: ["\\mathbb{e}"],
+            bbf: ["\\mathbb{f}"],
+            bbg: ["\\mathbb{g}"],
+            bbh: ["\\mathbb{h}"],
+            bbi: ["\\mathbb{i}"],
+            bbj: ["\\mathbb{j}"],
+            bbk: ["\\mathbb{k}"],
+            bbl: ["\\mathbb{l}"],
+            bbm: ["\\mathbb{m}"],
+            bbn: ["\\mathbb{n}"],
+            bbo: ["\\mathbb{o}"],
+            bbp: ["\\mathbb{p}"],
+            bbq: ["\\mathbb{q}"],
+            bbr: ["\\mathbb{r}"],
+            bbs: ["\\mathbb{s}"],
+            bbt: ["\\mathbb{t}"],
+            bbu: ["\\mathbb{u}"],
+            bbv: ["\\mathbb{v}"],
+            bbx: ["\\mathbb{x}"],
+            bbw: ["\\mathbb{w}"],
+            bby: ["\\mathbb{y}"],
+            bbz: ["\\mathbb{z}"],
+            bbA: ["\\mathbb{A}"],
+            bbB: ["\\mathbb{B}"],
+            bbC: ["\\mathbb{C}"],
+            bbD: ["\\mathbb{D}"],
+            bbE: ["\\mathbb{E}"],
+            bbF: ["\\mathbb{F}"],
+            bbG: ["\\mathbb{G}"],
+            bbH: ["\\mathbb{H}"],
+            bbI: ["\\mathbb{I}"],
+            bbJ: ["\\mathbb{J}"],
+            bbK: ["\\mathbb{K}"],
+            bbL: ["\\mathbb{L}"],
+            bbM: ["\\mathbb{M}"],
+            bbN: ["\\mathbb{N}"],
+            bbO: ["\\mathbb{O}"],
+            bbP: ["\\mathbb{P}"],
+            bbQ: ["\\mathbb{Q}"],
+            bbR: ["\\mathbb{R}"],
+            bbS: ["\\mathbb{S}"],
+            bbT: ["\\mathbb{T}"],
+            bbU: ["\\mathbb{U}"],
+            bbV: ["\\mathbb{V}"],
+            bbX: ["\\mathbb{X}"],
+            bbW: ["\\mathbb{W}"],
+            bbY: ["\\mathbb{Y}"],
+            bbZ: ["\\mathbb{Z}"],
+            cala: ["\\mathcal{a}"],
+            calb: ["\\mathcal{b}"],
+            calc: ["\\mathcal{c}"],
+            cald: ["\\mathcal{d}"],
+            cale: ["\\mathcal{e}"],
+            calf: ["\\mathcal{f}"],
+            calg: ["\\mathcal{g}"],
+            calh: ["\\mathcal{h}"],
+            cali: ["\\mathcal{i}"],
+            calj: ["\\mathcal{j}"],
+            calk: ["\\mathcal{k}"],
+            call: ["\\mathcal{l}"],
+            calm: ["\\mathcal{m}"],
+            caln: ["\\mathcal{n}"],
+            calo: ["\\mathcal{o}"],
+            calp: ["\\mathcal{p}"],
+            calq: ["\\mathcal{q}"],
+            calr: ["\\mathcal{r}"],
+            cals: ["\\mathcal{s}"],
+            calt: ["\\mathcal{t}"],
+            calu: ["\\mathcal{u}"],
+            calv: ["\\mathcal{v}"],
+            calx: ["\\mathcal{x}"],
+            calw: ["\\mathcal{w}"],
+            caly: ["\\mathcal{y}"],
+            calz: ["\\mathcal{z}"],
+            calA: ["\\mathcal{A}"],
+            calB: ["\\mathcal{B}"],
+            calC: ["\\mathcal{C}"],
+            calD: ["\\mathcal{D}"],
+            calE: ["\\mathcal{E}"],
+            calF: ["\\mathcal{F}"],
+            calG: ["\\mathcal{G}"],
+            calH: ["\\mathcal{H}"],
+            calI: ["\\mathcal{I}"],
+            calJ: ["\\mathcal{J}"],
+            calK: ["\\mathcal{K}"],
+            calL: ["\\mathcal{L}"],
+            calM: ["\\mathcal{M}"],
+            calN: ["\\mathcal{N}"],
+            calO: ["\\mathcal{O}"],
+            calP: ["\\mathcal{P}"],
+            calQ: ["\\mathcal{Q}"],
+            calR: ["\\mathcal{R}"],
+            calS: ["\\mathcal{S}"],
+            calT: ["\\mathcal{T}"],
+            calU: ["\\mathcal{U}"],
+            calV: ["\\mathcal{V}"],
+            calX: ["\\mathcal{X}"],
+            calW: ["\\mathcal{W}"],
+            calY: ["\\mathcal{Y}"],
+            calZ: ["\\mathcal{Z}"],
+            bfa: ["\\mathbf{a}"],
+            bfb: ["\\mathbf{b}"],
+            bfc: ["\\mathbf{c}"],
+            bfd: ["\\mathbf{d}"],
+            bfe: ["\\mathbf{e}"],
+            bff: ["\\mathbf{f}"],
+            bfg: ["\\mathbf{g}"],
+            bfh: ["\\mathbf{h}"],
+            bfi: ["\\mathbf{i}"],
+            bfj: ["\\mathbf{j}"],
+            bfk: ["\\mathbf{k}"],
+            bfl: ["\\mathbf{l}"],
+            bfm: ["\\mathbf{m}"],
+            bfn: ["\\mathbf{n}"],
+            bfo: ["\\mathbf{o}"],
+            bfp: ["\\mathbf{p}"],
+            bfq: ["\\mathbf{q}"],
+            bfr: ["\\mathbf{r}"],
+            bfs: ["\\mathbf{s}"],
+            bft: ["\\mathbf{t}"],
+            bfu: ["\\mathbf{u}"],
+            bfv: ["\\mathbf{v}"],
+            bfx: ["\\mathbf{x}"],
+            bfw: ["\\mathbf{w}"],
+            bfy: ["\\mathbf{y}"],
+            bfz: ["\\mathbf{z}"],
+            bfA: ["\\mathbf{A}"],
+            bfB: ["\\mathbf{B}"],
+            bfC: ["\\mathbf{C}"],
+            bfD: ["\\mathbf{D}"],
+            bfE: ["\\mathbf{E}"],
+            bfF: ["\\mathbf{F}"],
+            bfG: ["\\mathbf{G}"],
+            bfH: ["\\mathbf{H}"],
+            bfI: ["\\mathbf{I}"],
+            bfJ: ["\\mathbf{J}"],
+            bfK: ["\\mathbf{K}"],
+            bfL: ["\\mathbf{L}"],
+            bfM: ["\\mathbf{M}"],
+            bfN: ["\\mathbf{N}"],
+            bfO: ["\\mathbf{O}"],
+            bfP: ["\\mathbf{P}"],
+            bfQ: ["\\mathbf{Q}"],
+            bfR: ["\\mathbf{R}"],
+            bfS: ["\\mathbf{S}"],
+            bfT: ["\\mathbf{T}"],
+            bfU: ["\\mathbf{U}"],
+            bfV: ["\\mathbf{V}"],
+            bfX: ["\\mathbf{X}"],
+            bfW: ["\\mathbf{W}"],
+            bfY: ["\\mathbf{Y}"],
+            bfZ: ["\\mathbf{Z}"],
+            zero: ["\\{0\\}"],
+            id: ["\\operatorname\{id\}"],
+            sen: ["\\operatorname\{sen\}"],
+            tg: ["\\operatorname\{tg\}"],
+            ad: ["\\operatorname\{ad\}"],
+            mdc: ["\\operatorname\{mdc\}"],
+            im: ["\\operatorname\{im\}"],
+            Quat: ["\\operatorname\{Quat\}"],
+            Aut: ["\\operatorname\{Aut\}"],
+            Inn: ["\\operatorname\{Inn\}"],
+            orb: ["\\operatorname\{orb\}"],
+            stab: ["\\operatorname\{stab\}"],
+            Rep: ["\\operatorname\{Rep\}"],
+            Hom: ["\\operatorname\{Hom\}"],
+            End: ["\\operatorname\{End\}"],
+            Obj: ["\\operatorname\{Obj\}"],
+            tr: ["\\operatorname\{tr\}"],
+            diam: ["\\operatorname\{diam\}"],
+            diag: ["\\operatorname\{diag\}"],
+            Ind: ["\\operatorname\{Ind\}"],
+            Res: ["\\operatorname\{Res\}"],
+            Set: ["\\operatorname\{Set\}"],
+            coker: ["\\operatorname\{coker\}"],
+            supp: ["\\operatorname\{supp\}"],
+            Tor: ["\\operatorname\{Tor\}"],
+            vspan: ["\\operatorname\{vspan\}"],
+            char: ["\\operatorname\{char\}"],
+            Ann: ["\\operatorname\{Ann\}"],
+            pint: ["{ \\langle #1,#2 \\rangle }",2],
+            rfrac: ["{ {}^{#1}\\!/_{#2} }",2],
+            norma: ["{ \\Vert #1 \\Vert }",1],
+          },
+        },
+      });
+    </script>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js"></script>
+    <script src="http://www.w3schools.com/lib/w3data.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../itemParenteses.css" />
+    <link rel="stylesheet" type="text/css" href="../../../ambTeor.css" />
+    
+    <style>
+      body{
+        font-size: 14pt;
+        font-family: "Helvetica", sans-serif;
+        line-height: 1.5;
+        background-color: rgb(233,227,206);
+        counter-reset: contTeor contProp contLema contCoro contObs contDef contExerc contExemplo contSec 10;
+      }
+      
+      h1{
+        background-color: rgb(153,51,153);
+        color: rgb(255,250,250);
+      }
+      
+      h2{
+        color: rgb(153,51,153);
+      }
+      
+    </style>
+  </head>
+  
+  <body>
+  
+    <div style="text-align:center"><h1>Álgebra Não Comutativa</h1></div>
+    
+    <!-- ###### AULA 10 ###### -->
+    <h2>Aula 10 - Teorema de Maschke</h2>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-anelDeGrupo" class="def">
+      Sejam \(R\) é um anel (com unidade) e \(G\) um grupo. Definimos \(RG\) para ser o \(R\)-módulo livremente gerado pelo grupo \(G\), chamado <strong>anel de grupo</strong> de \(G\) sobre \(R\). Os elementos de \(RG\) são somas formas finitas da forma \(\sum_{g \in G} a_g g\), \(a_g \in R\) com apenas uma quantidade finita não nula.
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-suporte" class="def">
+      Dado \(\alpha = \sum_{g \in G} a_g g \in RG\), definimos o <strong>suporte</strong> de \(\alpha\) como sendo o conjunto 
+      <div style="text-align:center">\(\supp(\alpha) = \{g \in G \mid a_g \neq 0\}\).<span class="fim"></span></div>
+    </p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-anelDeGrupo" class="obs">
+      Dados \(\alpha = \sum_{g \in G} a_g g\) e \(\beta = \sum_{g \in G} a_g' g\) em \(RG\), temos que:
+      <ol class="alfa">
+        <li>\(\alpha + \beta = \) \(\sum_{g \in G} a_g g + \sum_{g \in G} a_g' g = \) \(\sum_{g \in G} (a_g + a_g') g\);</li>
+        <li>\(r\alpha = \) \(r\sum_{g \in G}a_g g = \) \(\sum_{g \in G}ra_g g\).</li>
+      </ol>
+      Se \(\alpha = \sum_{g \in G} a_g g\) e \(\beta = \sum_{h \in G} b_h h\) em \(RG\), definimos
+\(\alpha\beta = \) \((\sum_{g \in G} a_g g)(\sum_{h \in G} b_h h) = \) \(\sum_{g \in G}a_gb_h gh\). Assim, temos que \(RG\) é um anel com unidade \(1 = 1_R\cdot 1_G\).
+    <span class="fim"></span></p>
+    
+    <!-- EXEMPLO -->
+    <p id="exemplo-anelDeGrupo" class="exemplo">
+      Seja \(C_3\) o grupo cíclico gerado por \(g\), isto é, \(C_3 = \langle g \rangle = \{1, g, g^2\}\). Considere \(\bbZ_3C_3\) e tome \(\alpha = 2 - g + g^2\) e \(\beta = 1 - g\). Então
+      <ol class="alfa">
+        <li>\(\alpha + \beta = 3 - 2g + g^2\);</li>
+        <li>\(\alpha\beta = (2 - g + g^2)(1 - g) = \) \(2 - 2g - g + g^2 + g^2 - g^3 = \) \(1 - 3g + 2g^2\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-anelDeGrupo2" class="obs">
+      Se \(R\) é um corpo e \(G\) é um grupo finito, então \(RG\) é um \(R\)-espaço vetorial de dimensão \(|G|\).
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-apliAumento" class="def">
+      A aplicação \(\varepsilon: RG \to R\), \(\sum_{g \in G}a_g g \mapsto \sum_{g \in G}a_g\) é chamada de <strong>aplicação de aumento</strong>.
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-idealAumento" class="def">
+      O núcleo da aplicação de aumento é um ideal do anel de grupo e é chamado de <strong>ideal de aumento</strong> de \(RG\) e é denotado por \(\Delta(G)\).
+    <span class="fim"></span></p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-" class="obs">
+      <ol class="alfa">
+        <li>Pelo Teorema do Isomorfismo, temos que \(R \cong \rfrac{RG}{\Delta(G)}\).</li>
+        <li>Se \(\alpha = \sum_{g \in G}a_g g \in \Delta(G)\), então \(\sum_{g \in G}a_g = 0\). Logo, \(\alpha = \sum_{g \in G}a_g g - \sum_{g \in G}a_g = \sum_{g \in G}a_g (g - 1)\). Com isso, o conjunto \(B = \{g - 1 \mid g \in G\setminus\{1\}\}\) é um conjunto gerador de \(\Delta(G)\) como \(R\)-módulo. Como \(G\) é uma \(R\)-base para \(RG\), então \(B\) é uma \(R\)-base para o ideal de aumento. Observe que se \(R\) é um corpo e \(G\) é um grupo finito, então \(\Delta(G)\) é um \(R\)-espaço vetorial de dimensão \(|G| - 1\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-anulador" class="def">
+      Se \(X \subseteq R\), definimos o <strong>anulador à esquerda</strong> de \(X\) como sendo o conjunto \(\Ann_{\ell}(X) = \{r \in R \mid rx = 0, \forall x \in X\}\). Analogamente, \(\Ann_{r}(X) = \{r \in R \mid xr = 0, \forall x \in X\}\) é o <em>anulador à direita</em> de \(X\).
+    <span class="fim"></span></p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-hatX" class="obs">
+      <ol class="alfa">
+        <li>Se \(X \subseteq R\) é um subconjunto finito, definimos \(\hat{X} = \sum_{x \in X}x\).</li>
+        <li>Se \(G\) é um grupo finito, então em \(RG\) o elemento \(\hat{G}\) comuta com todos os elementos de \(G\).</li>
+        <li>\(g\hat{G} = g\sum_{h \in G}h = \sum_{h \in G}gh = \hat{G}g\), pois o produto \(gh\) percorre todos os elementos do grupo.<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- LEMA -->
+    <p id="lema-anuladorHatX" class="lema">
+      Temos que \(\Ann_{r}\Delta(G) \neq \zero\) se, e somente se, \(G\) é finito. Neste caso, \(\Ann_{r}(\Delta(G)) = \Ann_{\ell}(\Delta(G)) = RG\cdot \hat{G} = R\cdot\hat{G}\) e \(\Ann_{r}(\Delta(G)) \cap \Delta(G) = \{a\hat{G} \mid a \in R, a|G| = 0\}\).
+    <span class="fim"></span></p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-somandoSubAnelAnul" class="obs">
+      Seja \(I \trianglelefteq R\) e suponha que existe \(J \trianglelefteq_{\ell} R\) tal que \(R = I \oplus J\), como \(R\)-módulo. Então \(J \le \Ann_{r}(I)\).
+    <span class="fim"></span></p>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="prop-DeltaSomandoDirRG" class="prop">
+      Se \(\Delta(G)\) é um somando direto de \(RG\) como \(RG\)-módulo, então \(G\) é finito e \(|G| \in \calU(R)\).
+    <span class="fim"></span></p>
+    
+    <!-- TEOREMA -->
+    <p id="teor-maschke" class="teor" text="Maschke">
+      Sejam \(R\) um anel e \(G\) um grupo. O anel \(RG\) é semissimples se, e somente se, as seguintes condições são satisfeitas:
+      <ol class="alfa">
+        <li>\(R\) é semissimples;</li>
+        <li>\(G\) é finito;</li>
+        <li>\(|G| \in \calU(R)\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- COROLÁRIO -->
+    <p id="coro-maschke" class="coro">
+      Sejam \(G\) um grupo finito e \(F\) um corpo. Então \(FG\) é semissimples se, e somente se, \(\char(F) \not\mid |G|\). Neste caso, \(FG \cong \oplus_{i=1}^k M_{n_i}(D_i)\), onde \(D_i\) é um anel de divisão.
+    <span class="fim"></span></p>
+    
+    <!-- EXERCÍCIO -->
+    <p id="exerc-" class="exerc">
+      <ol class="numerico">
+        <li>Mostre que a aplicação de aumento é um epimorfismo de anéis. (<a href="algebraNaoComutativa-exercicios/anc-aula10-exerc/anc-aula10-exerc01.html">Solução</a>)<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+  </body>
+  
+</html>
+
