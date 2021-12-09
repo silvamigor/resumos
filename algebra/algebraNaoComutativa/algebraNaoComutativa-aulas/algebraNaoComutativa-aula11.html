@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Álgebra Não Comutativa - Aula 11 </title>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+          processEscapes: true
+        },
+        "HTML-CSS": { fonts: ["TeX"] },
+        TeX: {
+          equationNumbers: { autoNumber: "AMS" },
+          Macros: {
+            fraka: ["\\mathfrak{a}"],
+            frakb: ["\\mathfrak{b}"],
+            frakc: ["\\mathfrak{c}"],
+            frakd: ["\\mathfrak{d}"],
+            frake: ["\\mathfrak{e}"],
+            frakf: ["\\mathfrak{f}"],
+            frakg: ["\\mathfrak{g}"],
+            frakh: ["\\mathfrak{h}"],
+            fraki: ["\\mathfrak{i}"],
+            frakj: ["\\mathfrak{j}"],
+            frakk: ["\\mathfrak{k}"],
+            frakl: ["\\mathfrak{l}"],
+            frakm: ["\\mathfrak{m}"],
+            frakn: ["\\mathfrak{n}"],
+            frako: ["\\mathfrak{o}"],
+            frakp: ["\\mathfrak{p}"],
+            frakq: ["\\mathfrak{q}"],
+            frakr: ["\\mathfrak{r}"],
+            fraks: ["\\mathfrak{s}"],
+            frakt: ["\\mathfrak{t}"],
+            fraku: ["\\mathfrak{u}"],
+            frakv: ["\\mathfrak{v}"],
+            frakx: ["\\mathfrak{x}"],
+            frakw: ["\\mathfrak{w}"],
+            fraky: ["\\mathfrak{y}"],
+            frakz: ["\\mathfrak{z}"],
+            frakA: ["\\mathfrak{A}"],
+            frakB: ["\\mathfrak{B}"],
+            frakC: ["\\mathfrak{C}"],
+            frakD: ["\\mathfrak{D}"],
+            frakE: ["\\mathfrak{E}"],
+            frakF: ["\\mathfrak{F}"],
+            frakG: ["\\mathfrak{G}"],
+            frakH: ["\\mathfrak{H}"],
+            frakI: ["\\mathfrak{I}"],
+            frakJ: ["\\mathfrak{J}"],
+            frakK: ["\\mathfrak{K}"],
+            frakL: ["\\mathfrak{L}"],
+            frakM: ["\\mathfrak{M}"],
+            frakN: ["\\mathfrak{N}"],
+            frakO: ["\\mathfrak{O}"],
+            frakP: ["\\mathfrak{P}"],
+            frakQ: ["\\mathfrak{Q}"],
+            frakR: ["\\mathfrak{R}"],
+            frakS: ["\\mathfrak{S}"],
+            frakT: ["\\mathfrak{T}"],
+            frakU: ["\\mathfrak{U}"],
+            frakV: ["\\mathfrak{V}"],
+            frakX: ["\\mathfrak{X}"],
+            frakW: ["\\mathfrak{W}"],
+            frakY: ["\\mathfrak{Y}"],
+            frakZ: ["\\mathfrak{Z}"],
+            frakgl: ["\\mathfrak{gl}"],
+            fraksl: ["\\mathfrak{sl}"],
+            bba: ["\\mathbb{a}"],
+            bbb: ["\\mathbb{b}"],
+            bbc: ["\\mathbb{c}"],
+            bbd: ["\\mathbb{d}"],
+            bbe: ["\\mathbb{e}"],
+            bbf: ["\\mathbb{f}"],
+            bbg: ["\\mathbb{g}"],
+            bbh: ["\\mathbb{h}"],
+            bbi: ["\\mathbb{i}"],
+            bbj: ["\\mathbb{j}"],
+            bbk: ["\\mathbb{k}"],
+            bbl: ["\\mathbb{l}"],
+            bbm: ["\\mathbb{m}"],
+            bbn: ["\\mathbb{n}"],
+            bbo: ["\\mathbb{o}"],
+            bbp: ["\\mathbb{p}"],
+            bbq: ["\\mathbb{q}"],
+            bbr: ["\\mathbb{r}"],
+            bbs: ["\\mathbb{s}"],
+            bbt: ["\\mathbb{t}"],
+            bbu: ["\\mathbb{u}"],
+            bbv: ["\\mathbb{v}"],
+            bbx: ["\\mathbb{x}"],
+            bbw: ["\\mathbb{w}"],
+            bby: ["\\mathbb{y}"],
+            bbz: ["\\mathbb{z}"],
+            bbA: ["\\mathbb{A}"],
+            bbB: ["\\mathbb{B}"],
+            bbC: ["\\mathbb{C}"],
+            bbD: ["\\mathbb{D}"],
+            bbE: ["\\mathbb{E}"],
+            bbF: ["\\mathbb{F}"],
+            bbG: ["\\mathbb{G}"],
+            bbH: ["\\mathbb{H}"],
+            bbI: ["\\mathbb{I}"],
+            bbJ: ["\\mathbb{J}"],
+            bbK: ["\\mathbb{K}"],
+            bbL: ["\\mathbb{L}"],
+            bbM: ["\\mathbb{M}"],
+            bbN: ["\\mathbb{N}"],
+            bbO: ["\\mathbb{O}"],
+            bbP: ["\\mathbb{P}"],
+            bbQ: ["\\mathbb{Q}"],
+            bbR: ["\\mathbb{R}"],
+            bbS: ["\\mathbb{S}"],
+            bbT: ["\\mathbb{T}"],
+            bbU: ["\\mathbb{U}"],
+            bbV: ["\\mathbb{V}"],
+            bbX: ["\\mathbb{X}"],
+            bbW: ["\\mathbb{W}"],
+            bbY: ["\\mathbb{Y}"],
+            bbZ: ["\\mathbb{Z}"],
+            cala: ["\\mathcal{a}"],
+            calb: ["\\mathcal{b}"],
+            calc: ["\\mathcal{c}"],
+            cald: ["\\mathcal{d}"],
+            cale: ["\\mathcal{e}"],
+            calf: ["\\mathcal{f}"],
+            calg: ["\\mathcal{g}"],
+            calh: ["\\mathcal{h}"],
+            cali: ["\\mathcal{i}"],
+            calj: ["\\mathcal{j}"],
+            calk: ["\\mathcal{k}"],
+            call: ["\\mathcal{l}"],
+            calm: ["\\mathcal{m}"],
+            caln: ["\\mathcal{n}"],
+            calo: ["\\mathcal{o}"],
+            calp: ["\\mathcal{p}"],
+            calq: ["\\mathcal{q}"],
+            calr: ["\\mathcal{r}"],
+            cals: ["\\mathcal{s}"],
+            calt: ["\\mathcal{t}"],
+            calu: ["\\mathcal{u}"],
+            calv: ["\\mathcal{v}"],
+            calx: ["\\mathcal{x}"],
+            calw: ["\\mathcal{w}"],
+            caly: ["\\mathcal{y}"],
+            calz: ["\\mathcal{z}"],
+            calA: ["\\mathcal{A}"],
+            calB: ["\\mathcal{B}"],
+            calC: ["\\mathcal{C}"],
+            calD: ["\\mathcal{D}"],
+            calE: ["\\mathcal{E}"],
+            calF: ["\\mathcal{F}"],
+            calG: ["\\mathcal{G}"],
+            calH: ["\\mathcal{H}"],
+            calI: ["\\mathcal{I}"],
+            calJ: ["\\mathcal{J}"],
+            calK: ["\\mathcal{K}"],
+            calL: ["\\mathcal{L}"],
+            calM: ["\\mathcal{M}"],
+            calN: ["\\mathcal{N}"],
+            calO: ["\\mathcal{O}"],
+            calP: ["\\mathcal{P}"],
+            calQ: ["\\mathcal{Q}"],
+            calR: ["\\mathcal{R}"],
+            calS: ["\\mathcal{S}"],
+            calT: ["\\mathcal{T}"],
+            calU: ["\\mathcal{U}"],
+            calV: ["\\mathcal{V}"],
+            calX: ["\\mathcal{X}"],
+            calW: ["\\mathcal{W}"],
+            calY: ["\\mathcal{Y}"],
+            calZ: ["\\mathcal{Z}"],
+            bfa: ["\\mathbf{a}"],
+            bfb: ["\\mathbf{b}"],
+            bfc: ["\\mathbf{c}"],
+            bfd: ["\\mathbf{d}"],
+            bfe: ["\\mathbf{e}"],
+            bff: ["\\mathbf{f}"],
+            bfg: ["\\mathbf{g}"],
+            bfh: ["\\mathbf{h}"],
+            bfi: ["\\mathbf{i}"],
+            bfj: ["\\mathbf{j}"],
+            bfk: ["\\mathbf{k}"],
+            bfl: ["\\mathbf{l}"],
+            bfm: ["\\mathbf{m}"],
+            bfn: ["\\mathbf{n}"],
+            bfo: ["\\mathbf{o}"],
+            bfp: ["\\mathbf{p}"],
+            bfq: ["\\mathbf{q}"],
+            bfr: ["\\mathbf{r}"],
+            bfs: ["\\mathbf{s}"],
+            bft: ["\\mathbf{t}"],
+            bfu: ["\\mathbf{u}"],
+            bfv: ["\\mathbf{v}"],
+            bfx: ["\\mathbf{x}"],
+            bfw: ["\\mathbf{w}"],
+            bfy: ["\\mathbf{y}"],
+            bfz: ["\\mathbf{z}"],
+            bfA: ["\\mathbf{A}"],
+            bfB: ["\\mathbf{B}"],
+            bfC: ["\\mathbf{C}"],
+            bfD: ["\\mathbf{D}"],
+            bfE: ["\\mathbf{E}"],
+            bfF: ["\\mathbf{F}"],
+            bfG: ["\\mathbf{G}"],
+            bfH: ["\\mathbf{H}"],
+            bfI: ["\\mathbf{I}"],
+            bfJ: ["\\mathbf{J}"],
+            bfK: ["\\mathbf{K}"],
+            bfL: ["\\mathbf{L}"],
+            bfM: ["\\mathbf{M}"],
+            bfN: ["\\mathbf{N}"],
+            bfO: ["\\mathbf{O}"],
+            bfP: ["\\mathbf{P}"],
+            bfQ: ["\\mathbf{Q}"],
+            bfR: ["\\mathbf{R}"],
+            bfS: ["\\mathbf{S}"],
+            bfT: ["\\mathbf{T}"],
+            bfU: ["\\mathbf{U}"],
+            bfV: ["\\mathbf{V}"],
+            bfX: ["\\mathbf{X}"],
+            bfW: ["\\mathbf{W}"],
+            bfY: ["\\mathbf{Y}"],
+            bfZ: ["\\mathbf{Z}"],
+            zero: ["\\{0\\}"],
+            id: ["\\operatorname\{id\}"],
+            sen: ["\\operatorname\{sen\}"],
+            tg: ["\\operatorname\{tg\}"],
+            ad: ["\\operatorname\{ad\}"],
+            mdc: ["\\operatorname\{mdc\}"],
+            im: ["\\operatorname\{im\}"],
+            Quat: ["\\operatorname\{Quat\}"],
+            Aut: ["\\operatorname\{Aut\}"],
+            Inn: ["\\operatorname\{Inn\}"],
+            orb: ["\\operatorname\{orb\}"],
+            stab: ["\\operatorname\{stab\}"],
+            Rep: ["\\operatorname\{Rep\}"],
+            Hom: ["\\operatorname\{Hom\}"],
+            End: ["\\operatorname\{End\}"],
+            Obj: ["\\operatorname\{Obj\}"],
+            tr: ["\\operatorname\{tr\}"],
+            diam: ["\\operatorname\{diam\}"],
+            diag: ["\\operatorname\{diag\}"],
+            Ind: ["\\operatorname\{Ind\}"],
+            Res: ["\\operatorname\{Res\}"],
+            Set: ["\\operatorname\{Set\}"],
+            coker: ["\\operatorname\{coker\}"],
+            supp: ["\\operatorname\{supp\}"],
+            Tor: ["\\operatorname\{Tor\}"],
+            vspan: ["\\operatorname\{vspan\}"],
+            char: ["\\operatorname\{char\}"],
+            Ann: ["\\operatorname\{Ann\}"],
+            pint: ["{ \\langle #1,#2 \\rangle }",2],
+            rfrac: ["{ {}^{#1}\\!/_{#2} }",2],
+            norma: ["{ \\Vert #1 \\Vert }",1],
+          },
+        },
+      });
+    </script>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js"></script>
+    <script src="http://www.w3schools.com/lib/w3data.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../itemParenteses.css" />
+    <link rel="stylesheet" type="text/css" href="../../../ambTeor.css" />
+    
+    <style>
+      body{
+        font-size: 14pt;
+        font-family: "Helvetica", sans-serif;
+        line-height: 1.5;
+        background-color: rgb(233,227,206);
+        counter-reset: contTeor contProp contLema contCoro contObs contDef contExerc contExemplo contSec 11;
+      }
+      
+      h1{
+        background-color: rgb(153,51,153);
+        color: rgb(255,250,250);
+      }
+      
+      h2{
+        color: rgb(153,51,153);
+      }
+      
+    </style>
+  </head>
+  
+  <body>
+  
+    <div style="text-align:center"><h1>Álgebra Não Comutativa</h1></div>
+    
+    <!-- ###### AULA 11 ###### -->
+    <h2>Aula 11 - O radical de Jacobson de um anel</h2>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-radJacobson" class="def">
+      Seja \(R\) um anel. O <strong>radical de Jacobson</strong> de \(R\), denotado por \(J(R)\), é a interseção de todos os anuladores dos \(R\)-módulos simples, isto é, 
+    <div style="text-align:center">\(J(R) = \displaystyle\bigcap_{M \text{ simples}}\Ann(M)\).<span class="fim"></span></div>
+    </p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-radJacobson" class="obs">
+      <ol class="alfa">
+        <li>Como, para todo \(R\)-módulo \(M\), \(\Ann(M) \trianglelefteq R\), temos que \(J(R) \trianglelefteq R\). Uma vez que \(R\) tem unidade, então \(J(R) \neq R\).</li>
+        <li>Seja \(M\) um \(R\)-módulo simples. Então a aplicação \(f: R \to M = Rm\), \(r \mapsto rm\) é um epimorfismo com núcleo igual a \(\Ann(M)\), que é um ideal maximal à esquerda de \(R\). Além disso, um ideal maximal à esquerda \(I\) de \(R\) é o anulador de algum \(R\)-módulo simples, a saber, \(\rfrac{R}{I}\). Com isso,
+        <div style="text-align:center">\(J(R) = \displaystyle\bigcap_{\;\;\,I \trianglelefteq_{\ell} R \\ I \text{ maximal}}I\).<span class="fim"></span></div>
+        </li>
+      </ol>
+    </p>
+    
+    <!-- EXEMPLO -->
+    <p id="exemplo-radJacobson" class="exemplo">
+      <ol class="alfa">
+        <li>Se \(R\) é um anel simples, então \(J(R) = \zero\). Em particular, se \(D\) é um anel de divisão, então \(J(M_n(D)) = \zero\).</li>
+        <li>Considere \(\bbZ\). Os ideais maximais de \(\bbZ\) são da forma \(p\bbZ\), com \(p\) primo. Assim, \(J(\bbZ) = \cap_{p \text{ primo}} p\bbZ = \zero\).</li>
+        <li>Quem é \(J(\rfrac{R}{J(R)})\)? Todo ideal maximal à esquerda de \(\rfrac{R}{J(R)}\) é da forma \(\rfrac{I}{J(R)}\), onde \(I \trianglelefteq_{\ell} R\) é maximal. Assim
+\(J(\rfrac{R}{J(R)}) = \cap_{I \trianglelefteq_{\ell} R \\ I \text{ maximal}}\rfrac{I}{J(R)} = \rfrac{\cap I}{J(R)} = \rfrac{J(R)}{J(R)} = \zero\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-Jsemissi" class="obs">
+      Em alguns livros é definido que uma anel \(R\) é semissimples, se \(J(R) = \zero\). Essa definição não concorda com a nossa definição, pois \(J(\bbZ) = \zero\), mas \(\bbZ\) não é um anel semissimples. Para evitar essa confusão, um anel \(R\) tal que \(J(R) = \zero\) é chamado de um anel \(J\)-<strong>semissimples</strong>.
+    <span class="fim"></span></p>
+    
+    <!-- LEMA -->
+    <p id="lema-caracRadJac" class="lema">
+      Sejam \(R\) um anel e \(x \in R\). Então \(x \in J(R)\) se, e somente se, \(1 + rx\) possui inverso à esquerda (1 + xr possui inverso à direita), para todo \(r \in R\).
+    <span class="fim"></span></p>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="prop-maiorIdealJ" class="prop">
+      Sejam \(R\) um anel e \(x \in R\). Se \(x \in J(R)\), então \(1 + x \in \calU(R)\). Além disso, \(J(R)\) é o maior ideal de \(R\) com essa propriedade.
+    <span class="fim"></span></p>
+    
+    <!-- COROLÁRIO -->
+    <p id="coro-nilContRadJac" class="coro">
+      Todo ideal nil de um anel \(R\) está contido no radical de Jacobson de \(R\).
+    <span class="fim"></span></p>
+    
+    <!-- EXEMPLO -->
+    <p id="exemplo-jSemisAnelMat" class="exemplo">
+      Para todo anel \(R\), \(J(M_n(R)) = M_n(J(R))\). Logo, se \(R\) é um anel \(J\)-semissimples, então \(M_n(R)\) também o é.
+    <span class="fim"></span></p>
+    
+    <!-- EXERCÍCIO -->
+    <p id="exerc-" class="exerc">
+      <ol class="numerico">
+        <li>Seja \(I \trianglelefteq R\). Mostre que se \(J(\rfrac{R}{I}) = \zero\), então \(J(R) \subseteq I\). Em particular, se \(I \subseteq J(R)\) e \(J(\rfrac{R}{I}) = \zero\), então \(I = J(R)\). (<a href="algebraNaoComutativa-exercicios/anc-aula11-exerc/anc-aula11-exerc01.html">Solução</a>)</li>
+        <li>Seja \(f: R \to S\) um epimorfismo de anéis. Mostre que \(f(J(R)) \subseteq J(S)\). Dê um exemplo onde essa inclusão é estrita. (<a href="algebraNaoComutativa-exercicios/anc-aula11-exerc/anc-aula11-exerc02.html">Solução</a>)</li>
+        <li>Seja \(\{R_i\}_{i \in I}\) uma família de anéis. Mostre que \(J(\prod_{i \in I}R_i) = \prod_{i \in I}J(R_i)\). Conclua que se \(R\) é um anel semissimples, então \(J(R)\) é trivial, ou seja, a semissimples implica em \(J\)-semissimplicidade. (<a href="algebraNaoComutativa-exercicios/anc-aula11-exerc/anc-aula11-exerc03.html">Solução</a>)</li>
+        <li>Sejam \(R\) um anel e 
+        \(
+          UT_2(R) = 
+          \begin{pmatrix}
+            R & R \\
+            0 & R
+          \end{pmatrix}.
+        \)
+        Mostre que
+        \(
+          UT_2(R) = 
+          \begin{pmatrix}
+            J(R) & R \\
+            0 & J(R)
+          \end{pmatrix}.
+        \)
+        Generalize. (<a href="algebraNaoComutativa-exercicios/anc-aula11-exerc/anc-aula11-exerc04.html">Solução</a>)</li>
+        <li>Sejam \(R\) um anel e \(x \in R\). Mostre que \(x \in \calU\) se, e somente se, \(\overline{x} \in \calU(\rfrac{R}{J(R)})\). (<a href="algebraNaoComutativa-exercicios/anc-aula11-exerc/anc-aula11-exerc05.html">Solução</a>)</li>
+        <li>Seja \(R\) um anel. Mostre que se \(e \in R\) é um idempotente tal que \(e \in J(R)\), então \(e = 0\). (<a href="algebraNaoComutativa-exercicios/anc-aula11-exerc/anc-aula11-exerc06.html">Solução</a>)<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+  </body>
+  
+</html>
+
