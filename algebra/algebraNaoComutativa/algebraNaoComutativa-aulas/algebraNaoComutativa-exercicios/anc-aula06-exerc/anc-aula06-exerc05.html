@@ -330,7 +330,11 @@
     </p>
     
     <p class="sol">
-      
+      Sejam \(R\) domínio de integridade artiniano e \(r \in R\setminus\zero\). Vamos mostrar que \(r\) possui um inverso. Para isso, considere o ideal \(\langle r \rangle\). Note que
+    \[
+      \langle r \rangle \supseteq \langle r^2 \rangle \supseteq \cdots \supseteq \langle r^i \rangle \supseteq \cdots
+    \]
+    é uma cadeia descendente de ideais de \(R\). Uma vez que \(R\) é artiniano, então existe algum \(N \in \bbN\) tal que \(\langle r^N \rangle = \langle r^n \rangle\), para todo \(n \ge N\). Em particular, \(\langle r^N \rangle = \langle r^{N + 1} \rangle\). Disso segue que existe \(s \in R\) tal que \(r^N = sr^{N+1}\), ou seja, \(r^N(1 - sr) = 0\). Como \(R\) é um domínio, então \(r^N = 0\) ou \(sr = 1\). Contudo, \(r \neq 0\). Logo, mais uma vez por \(R\) ser um domínio, temos que \(r^N \neq 0\). Assim, \(sr = 1\), ou seja, \(s\) é um inverso à esquerda de \(r\). Mas \(R\) é um domínio de integridade, então \(R\) é comutativo. Portanto, \(s\) é um inverso de \(r\), o que mostra que \(R\) é um corpo.
     <span class="cqd"></span></p>
     
   </body>
