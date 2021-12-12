@@ -7,7 +7,7 @@
     <title> Aula 7 - Exercício 2 </title>
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
-        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+        extensions: ["https://lomath.in/doc/xyjax/xypic.js","tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
         jax: ["input/TeX", "output/HTML-CSS"],
         tex2jax: {
           inlineMath: [ ['$','$'], ["\\(","\\)"] ],
@@ -329,11 +329,51 @@
       Mostre que um \(R\)-módulo \(M\) tem comprimento finito se, e somente se, é artiniano e noetheriano.
     </p>
     
-    <p class="sol">
-      
+    <p class="sol"></p>
+    
+    <p>
+      Suponha que \(M\) tem comprimento finito e seja \(M_0 = \zero \subseteq M_1 \subseteq \cdots \subseteq M_{k-1} \subseteq M_k = M\) uma série de composição de \(M\). Para mostrarmos que \(M\) é artiniano e noetheriano, vamos mostrar a seguinte afirmação.
+    </p>
+    
+    <p>
+      <em>Afirmação</em>. Sejam \(M\), \(N\) e \(L\) \(R\)-módulos e 
+      \(
+        \xymatrix{
+          0 \ar[r] & N \ar[r]^{f} & M \ar[r]^{g} & L \ar[r] & 0
+        }
+      \)
+      uma sequência exata curta. Então \(M\) é noetheriano (artiniano) se, e somente se, \(N\) e \(L\) são noetherianos (artinianos).
+    </p>
+    
+    <p>
+      <em>Demonstração</em>. Suponha que \(M\) é noetheriano. Sejam \(N_1 \subseteq N_2 \subseteq \cdots\) e \(L_1 \subseteq L_2 \subseteq \cdots\) cadeias ascendentes de \(R\)-submódulos de \(N\) e \(L\), respectivamente. Então \(f(N_1) \subseteq f(N_2) \subseteq \cdots\) e \(g^{-1}(L_1) \subseteq g^{-1}(L_2) \subseteq \cdots\) são cadeias ascendentes de \(R\)-submódulos de \(M\). Uma vez que \(M\) é noetheriano, então existem \(n\) e \(\ell\) tais que \(f(N_n) = f(N_i)\), para todo \(i \ge n\), e \(g^{-1}(L_{\ell}) = g^{-1}(L_j)\), para todo \(j \ge \ell\). Como
+      \(
+        \xymatrix{
+          0 \ar[r] & N \ar[r]^{f} & M \ar[r]^{g} & L \ar[r] & 0
+        }
+      \)
+      é uma sequência exata curta, temos que \(f\) é injetiva e \(g\) é sobrejetiva. Assim, \(N_n = f^{-1}(f(N_n)) = f^{-1}(f(N_i)) = N_i\), para todo \(i \ge n\), e \(L_{\ell} = g(g^{-1}(L_{\ell})) = g(g^{-1}(L_j)) = L_j\), para todo \(j \ge \ell\). Portanto, as cadeias \(N_1 \subseteq N_2 \subseteq \cdots\) e \(L_1 \subseteq L_2 \subseteq \cdots\) são estacionárias, ou seja, \(N\) e \(L\) são noetherianos. Reciprocamente, suponha que \(N\) e \(L\) são noetherianos e seja \(M_1 \subseteq M_2 \subseteq \cdots\) uma cadeia ascendente de \(R\)-submódulos de \(M\). Então \(g(M_1) \subseteq g(M_2) \subseteq \cdots\) e \(M_1 \cap f(N) \subseteq M_2 \cap f(N) \subseteq \cdots\) são estacionárias. Tome \(r\) grande o suficiente para estabilizar ambas as cadeias, quer dizer, tome \(r\) tal que \(g(M_r) = g(M_i)\) e \(M_r \cap f(N) = M_i \cap f(N)\), para todo \(i \ge r\). Vamos mostrar que \(M_r = M_i\), para todo \(i \ge r\), mostrando que a cadeia \(M_1 \subseteq M_2 \subseteq \cdots\) se estabiliza, ou seja, que \(M\) é noetheriano. Observe, primeiro, que, pela condição de cadeia ascendente, \(M_r \subseteq M_i\), para todo \(i \ge r\). Dessa forma, precisamos mostrar a outra inclusão. Seja \(x \in M_i\). Como \(g(M_r) = g(M_i)\), então \(g(x) = g(x')\), para algum \(x' \in M_r\). Logo, \(g(x - x') = 0\), ou seja, \(x - x' \in \ker(g) = \im(f)\). Como \(x \in M_i\) e \(x' \in M_r \subseteq M_i\), então \(x - x' \in M_i\). Assim, \(x - x' \in M_i \cap f(N) = M_r \cap f(N) \subseteq M_r\). Uma vez que \(x' \in M_r\), então \(x \in M_r\), o que mostra que \(M_r \subseteq M_i\). Com isso, concluímos que \(M\) é noetheriano. A demonstração para caso artiniano é análoga, mudando cadeia ascendente por descendente. \(\Box\)
+    </p>
+    
+    <p>
+      De posse dessa afirmação, considere a sequência exata curta
+    \[
+      \xymatrix{
+        0 \ar[r] & M_1 \ar[r]^{\iota_1} & M_2 \ar[r]^-{\pi_2} & \rfrac{M_2}{M_1} \ar[r] & 0,
+      }
+    \]
+    onde \(\iota_1\) é a inclusão e \(\pi_2\) é a projeção. Como \(M_0 = \zero \subseteq M_1 \subseteq \cdots \subseteq M_{k-1} \subseteq M_k = M\) é uma série de composição de \(M\), então \(M_1 \cong \rfrac{M_1}{\zero}\) e \(\rfrac{M_2}{M_1}\) são simples. Note que \(R\)-módulos simples são noetherianos e artinianos, pois só têm como \(R\)-submódulos o próprio \(R\)-módulo e o \(R\)-módulo trivial. Portanto, pela afirmação demonstrada acima, \(M_2\) é um \(R\)-módulo noetheriano e artiniano. Vamos mostrar, por indução sobre \(k\), o comprimento da série de composição em questão, que \(M = M_k\) é noetheriano e artiniano. Suponha que \(M_{k-1}\) seja noetheriano e artiniano e considere a a sequência exata curta
+    \(
+      \xymatrix{
+        0 \ar[r] & M_{k-1} \ar[r]^{\iota_{k-1}} & M_k \ar[r]^-{\pi_{k}} & \rfrac{M_k}{M_{k-1}} \ar[r] & 0.
+      }
+    \)
+    Então, da mesma forma como mostramos que \(M_2\) é noetheriano e artiniano, mostra-se que o mesmo vale para \(M_k = M\), o que encerra uma implicação.
+    </p>
+    
+    <p>Agora, vamos mostrar a recíproca. Suponha que \(M\) é noetheriano e artiniano e vamos mostrar que ele tem comprimento finito. Seja \(M_0 = \zero\) e considere a família de \(R\)-submódulos não nulos. Sabemos da <a href="https://silvamigor.github.io/resumos/algebra/algebraNaoComutativa/algebraNaoComutativa-aulas/algebraNaoComutativa-aula06.html#teor-artiniano">Aula 6</a> que, por \(M\) ser artiniano, existe um elemento minimal contido em tal família, isto é, existe \(M_1\) um menor \(R\)-submódulo de \(M\) que é diferente de \(\zero\). Se \(M_1 = M\), então \(M\) é simples e \(\zero \subseteq M\) é uma série de composição. Se \(M_1 \neq M\), então, considerando a família de \(R\)-submódulo de \(M\) que contém estritamente \(M_1\), tome \(M_2\) para ser o menor de todos. Se \(M_2 = M\), então temos a cadeia \(\zero \subsetneq M_1 \subsetneq M\), onde \(M_1\) é simples, pela minimalidade de \(M_1\), e \(\rfrac{M}{M_1}\) também é simples, pois, pelo <a href="https://silvamigor.github.io/resumos/algebra/algebraNaoComutativa/algebraNaoComutativa-aulas/algebraNaoComutativa-aula04.html#obs-homoRMod">Teorema do isomorfismo</a>, temos que os \(R\)-submódulos de \(\rfrac{M}{M_1}\) estão em correspondência biunívoca com os \(R\)-submódulos de \(M\) que contém \(M_1\), que são apenas \(\zero\) e o próprio \(M = M_2\), pela minimalidade de \(M_2\). Se \(M_2 \neq M\), construímos \(M_3\) e seguimos o raciocínio, obtendo uma cadeia ascendente de \(R\)-submódulos \(\zero \subseteq M_1 \subseteq M_2 \subseteq \cdots\), onde \(\rfrac{M_{i+1}}{M_i}\) é simples. Uma vez que \(M\) é noetheriano, então tal cadeia se estabiliza. Pela construção dos \(R\)-submódulos \(M_i\), a cadeia tem que se estabilizar em algum \(M_n\) igual ao \(R\)-módulo \(M\), pois do contrário, poderíamos obter \(M_{n+1}\) o menor \(R\)-submódulo de \(M\) que contém estritamente \(M_n\), o que seria um absurdo, porque a cadeia se estabiliza em \(M_n\). Com isso, concluímos que \(M\) tem comprimento finito.
     <span class="cqd"></span></p>
     
   </body>
   
 </html>
-
