@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Álgebra Não Comutativa - Aula 13 </title>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        extensions: ["https://lomath.in/doc/xyjax/xypic.js","tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+          processEscapes: true
+        },
+        "HTML-CSS": { fonts: ["TeX"] },
+        TeX: {
+          equationNumbers: { autoNumber: "AMS" },
+          Macros: {
+            fraka: ["\\mathfrak{a}"],
+            frakb: ["\\mathfrak{b}"],
+            frakc: ["\\mathfrak{c}"],
+            frakd: ["\\mathfrak{d}"],
+            frake: ["\\mathfrak{e}"],
+            frakf: ["\\mathfrak{f}"],
+            frakg: ["\\mathfrak{g}"],
+            frakh: ["\\mathfrak{h}"],
+            fraki: ["\\mathfrak{i}"],
+            frakj: ["\\mathfrak{j}"],
+            frakk: ["\\mathfrak{k}"],
+            frakl: ["\\mathfrak{l}"],
+            frakm: ["\\mathfrak{m}"],
+            frakn: ["\\mathfrak{n}"],
+            frako: ["\\mathfrak{o}"],
+            frakp: ["\\mathfrak{p}"],
+            frakq: ["\\mathfrak{q}"],
+            frakr: ["\\mathfrak{r}"],
+            fraks: ["\\mathfrak{s}"],
+            frakt: ["\\mathfrak{t}"],
+            fraku: ["\\mathfrak{u}"],
+            frakv: ["\\mathfrak{v}"],
+            frakx: ["\\mathfrak{x}"],
+            frakw: ["\\mathfrak{w}"],
+            fraky: ["\\mathfrak{y}"],
+            frakz: ["\\mathfrak{z}"],
+            frakA: ["\\mathfrak{A}"],
+            frakB: ["\\mathfrak{B}"],
+            frakC: ["\\mathfrak{C}"],
+            frakD: ["\\mathfrak{D}"],
+            frakE: ["\\mathfrak{E}"],
+            frakF: ["\\mathfrak{F}"],
+            frakG: ["\\mathfrak{G}"],
+            frakH: ["\\mathfrak{H}"],
+            frakI: ["\\mathfrak{I}"],
+            frakJ: ["\\mathfrak{J}"],
+            frakK: ["\\mathfrak{K}"],
+            frakL: ["\\mathfrak{L}"],
+            frakM: ["\\mathfrak{M}"],
+            frakN: ["\\mathfrak{N}"],
+            frakO: ["\\mathfrak{O}"],
+            frakP: ["\\mathfrak{P}"],
+            frakQ: ["\\mathfrak{Q}"],
+            frakR: ["\\mathfrak{R}"],
+            frakS: ["\\mathfrak{S}"],
+            frakT: ["\\mathfrak{T}"],
+            frakU: ["\\mathfrak{U}"],
+            frakV: ["\\mathfrak{V}"],
+            frakX: ["\\mathfrak{X}"],
+            frakW: ["\\mathfrak{W}"],
+            frakY: ["\\mathfrak{Y}"],
+            frakZ: ["\\mathfrak{Z}"],
+            frakgl: ["\\mathfrak{gl}"],
+            fraksl: ["\\mathfrak{sl}"],
+            bba: ["\\mathbb{a}"],
+            bbb: ["\\mathbb{b}"],
+            bbc: ["\\mathbb{c}"],
+            bbd: ["\\mathbb{d}"],
+            bbe: ["\\mathbb{e}"],
+            bbf: ["\\mathbb{f}"],
+            bbg: ["\\mathbb{g}"],
+            bbh: ["\\mathbb{h}"],
+            bbi: ["\\mathbb{i}"],
+            bbj: ["\\mathbb{j}"],
+            bbk: ["\\mathbb{k}"],
+            bbl: ["\\mathbb{l}"],
+            bbm: ["\\mathbb{m}"],
+            bbn: ["\\mathbb{n}"],
+            bbo: ["\\mathbb{o}"],
+            bbp: ["\\mathbb{p}"],
+            bbq: ["\\mathbb{q}"],
+            bbr: ["\\mathbb{r}"],
+            bbs: ["\\mathbb{s}"],
+            bbt: ["\\mathbb{t}"],
+            bbu: ["\\mathbb{u}"],
+            bbv: ["\\mathbb{v}"],
+            bbx: ["\\mathbb{x}"],
+            bbw: ["\\mathbb{w}"],
+            bby: ["\\mathbb{y}"],
+            bbz: ["\\mathbb{z}"],
+            bbA: ["\\mathbb{A}"],
+            bbB: ["\\mathbb{B}"],
+            bbC: ["\\mathbb{C}"],
+            bbD: ["\\mathbb{D}"],
+            bbE: ["\\mathbb{E}"],
+            bbF: ["\\mathbb{F}"],
+            bbG: ["\\mathbb{G}"],
+            bbH: ["\\mathbb{H}"],
+            bbI: ["\\mathbb{I}"],
+            bbJ: ["\\mathbb{J}"],
+            bbK: ["\\mathbb{K}"],
+            bbL: ["\\mathbb{L}"],
+            bbM: ["\\mathbb{M}"],
+            bbN: ["\\mathbb{N}"],
+            bbO: ["\\mathbb{O}"],
+            bbP: ["\\mathbb{P}"],
+            bbQ: ["\\mathbb{Q}"],
+            bbR: ["\\mathbb{R}"],
+            bbS: ["\\mathbb{S}"],
+            bbT: ["\\mathbb{T}"],
+            bbU: ["\\mathbb{U}"],
+            bbV: ["\\mathbb{V}"],
+            bbX: ["\\mathbb{X}"],
+            bbW: ["\\mathbb{W}"],
+            bbY: ["\\mathbb{Y}"],
+            bbZ: ["\\mathbb{Z}"],
+            cala: ["\\mathcal{a}"],
+            calb: ["\\mathcal{b}"],
+            calc: ["\\mathcal{c}"],
+            cald: ["\\mathcal{d}"],
+            cale: ["\\mathcal{e}"],
+            calf: ["\\mathcal{f}"],
+            calg: ["\\mathcal{g}"],
+            calh: ["\\mathcal{h}"],
+            cali: ["\\mathcal{i}"],
+            calj: ["\\mathcal{j}"],
+            calk: ["\\mathcal{k}"],
+            call: ["\\mathcal{l}"],
+            calm: ["\\mathcal{m}"],
+            caln: ["\\mathcal{n}"],
+            calo: ["\\mathcal{o}"],
+            calp: ["\\mathcal{p}"],
+            calq: ["\\mathcal{q}"],
+            calr: ["\\mathcal{r}"],
+            cals: ["\\mathcal{s}"],
+            calt: ["\\mathcal{t}"],
+            calu: ["\\mathcal{u}"],
+            calv: ["\\mathcal{v}"],
+            calx: ["\\mathcal{x}"],
+            calw: ["\\mathcal{w}"],
+            caly: ["\\mathcal{y}"],
+            calz: ["\\mathcal{z}"],
+            calA: ["\\mathcal{A}"],
+            calB: ["\\mathcal{B}"],
+            calC: ["\\mathcal{C}"],
+            calD: ["\\mathcal{D}"],
+            calE: ["\\mathcal{E}"],
+            calF: ["\\mathcal{F}"],
+            calG: ["\\mathcal{G}"],
+            calH: ["\\mathcal{H}"],
+            calI: ["\\mathcal{I}"],
+            calJ: ["\\mathcal{J}"],
+            calK: ["\\mathcal{K}"],
+            calL: ["\\mathcal{L}"],
+            calM: ["\\mathcal{M}"],
+            calN: ["\\mathcal{N}"],
+            calO: ["\\mathcal{O}"],
+            calP: ["\\mathcal{P}"],
+            calQ: ["\\mathcal{Q}"],
+            calR: ["\\mathcal{R}"],
+            calS: ["\\mathcal{S}"],
+            calT: ["\\mathcal{T}"],
+            calU: ["\\mathcal{U}"],
+            calV: ["\\mathcal{V}"],
+            calX: ["\\mathcal{X}"],
+            calW: ["\\mathcal{W}"],
+            calY: ["\\mathcal{Y}"],
+            calZ: ["\\mathcal{Z}"],
+            bfa: ["\\mathbf{a}"],
+            bfb: ["\\mathbf{b}"],
+            bfc: ["\\mathbf{c}"],
+            bfd: ["\\mathbf{d}"],
+            bfe: ["\\mathbf{e}"],
+            bff: ["\\mathbf{f}"],
+            bfg: ["\\mathbf{g}"],
+            bfh: ["\\mathbf{h}"],
+            bfi: ["\\mathbf{i}"],
+            bfj: ["\\mathbf{j}"],
+            bfk: ["\\mathbf{k}"],
+            bfl: ["\\mathbf{l}"],
+            bfm: ["\\mathbf{m}"],
+            bfn: ["\\mathbf{n}"],
+            bfo: ["\\mathbf{o}"],
+            bfp: ["\\mathbf{p}"],
+            bfq: ["\\mathbf{q}"],
+            bfr: ["\\mathbf{r}"],
+            bfs: ["\\mathbf{s}"],
+            bft: ["\\mathbf{t}"],
+            bfu: ["\\mathbf{u}"],
+            bfv: ["\\mathbf{v}"],
+            bfx: ["\\mathbf{x}"],
+            bfw: ["\\mathbf{w}"],
+            bfy: ["\\mathbf{y}"],
+            bfz: ["\\mathbf{z}"],
+            bfA: ["\\mathbf{A}"],
+            bfB: ["\\mathbf{B}"],
+            bfC: ["\\mathbf{C}"],
+            bfD: ["\\mathbf{D}"],
+            bfE: ["\\mathbf{E}"],
+            bfF: ["\\mathbf{F}"],
+            bfG: ["\\mathbf{G}"],
+            bfH: ["\\mathbf{H}"],
+            bfI: ["\\mathbf{I}"],
+            bfJ: ["\\mathbf{J}"],
+            bfK: ["\\mathbf{K}"],
+            bfL: ["\\mathbf{L}"],
+            bfM: ["\\mathbf{M}"],
+            bfN: ["\\mathbf{N}"],
+            bfO: ["\\mathbf{O}"],
+            bfP: ["\\mathbf{P}"],
+            bfQ: ["\\mathbf{Q}"],
+            bfR: ["\\mathbf{R}"],
+            bfS: ["\\mathbf{S}"],
+            bfT: ["\\mathbf{T}"],
+            bfU: ["\\mathbf{U}"],
+            bfV: ["\\mathbf{V}"],
+            bfX: ["\\mathbf{X}"],
+            bfW: ["\\mathbf{W}"],
+            bfY: ["\\mathbf{Y}"],
+            bfZ: ["\\mathbf{Z}"],
+            zero: ["\\{0\\}"],
+            id: ["\\operatorname\{id\}"],
+            sen: ["\\operatorname\{sen\}"],
+            tg: ["\\operatorname\{tg\}"],
+            ad: ["\\operatorname\{ad\}"],
+            mdc: ["\\operatorname\{mdc\}"],
+            im: ["\\operatorname\{im\}"],
+            Quat: ["\\operatorname\{Quat\}"],
+            Aut: ["\\operatorname\{Aut\}"],
+            Inn: ["\\operatorname\{Inn\}"],
+            orb: ["\\operatorname\{orb\}"],
+            stab: ["\\operatorname\{stab\}"],
+            Rep: ["\\operatorname\{Rep\}"],
+            Hom: ["\\operatorname\{Hom\}"],
+            End: ["\\operatorname\{End\}"],
+            Obj: ["\\operatorname\{Obj\}"],
+            tr: ["\\operatorname\{tr\}"],
+            diam: ["\\operatorname\{diam\}"],
+            diag: ["\\operatorname\{diag\}"],
+            Ind: ["\\operatorname\{Ind\}"],
+            Res: ["\\operatorname\{Res\}"],
+            Set: ["\\operatorname\{Set\}"],
+            coker: ["\\operatorname\{coker\}"],
+            supp: ["\\operatorname\{supp\}"],
+            Tor: ["\\operatorname\{Tor\}"],
+            vspan: ["\\operatorname\{vspan\}"],
+            char: ["\\operatorname\{char\}"],
+            Ann: ["\\operatorname\{Ann\}"],
+            pint: ["{ \\langle #1,#2 \\rangle }",2],
+            rfrac: ["{ {}^{#1}\\!/_{#2} }",2],
+            norma: ["{ \\Vert #1 \\Vert }",1],
+          },
+        },
+      });
+    </script>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js"></script>
+    <script src="http://www.w3schools.com/lib/w3data.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../itemParenteses.css" />
+    <link rel="stylesheet" type="text/css" href="../../../ambTeor.css" />
+    
+    <style>
+      body{
+        font-size: 14pt;
+        font-family: "Helvetica", sans-serif;
+        line-height: 1.5;
+        background-color: rgb(233,227,206);
+        counter-reset: contTeor contProp contLema contCoro contObs contDef contExerc contExemplo contSec 13;
+      }
+      
+      h1{
+        background-color: rgb(153,51,153);
+        color: rgb(255,250,250);
+      }
+      
+      h2{
+        color: rgb(153,51,153);
+      }
+      
+    </style>
+  </head>
+  
+  <body>
+  
+    <div style="text-align:center"><h1>Álgebra Não Comutativa</h1></div>
+    
+    <!-- ###### AULA 13 ###### -->
+    <h2>Aula 13 - Produto tensorial</h2>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-prodCartMod" class="obs">
+      <ol class="alfa">
+        <li>Vamos denotar um \(R\)-módulo à esquerda \(M\), por \({}_RM\). Se \(M\) for um \(R\)-módulo à direita, vamos denotá-lo por \(M_R\).</li>
+        <li>Se \(R\) é comutativo e \(M\) é um \(R\)-módulo à esquerda, então \(M\) é um \(R\)-módulo à direita de definirmos \(mr = rm\), para todo \(r \in R\) e para todo \(m \in M\) (veja o <a href="algebraNaoComutativa-exercicios/anc-aula04-exerc/anc-aula04-exerc01.html">Exercício 4.1</a>).</li>
+        <li>Se \(M\) e \(N\) são \(R\)-módulos, então \(M \times N\) é um \(R\)-módulo, se definirmos</li>
+      </ol>
+      <div style="text-align:center">
+        \(r(m,n) = (rm,rn)\) <br>
+        \((m_1, n_1) + (m_2, n_2) = (m_1+m_2,n_1+n_2)\)
+      <span class="fim"></span></div>
+    </p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-prodTens" class="def">
+      Sejam \(M_R\), \({}_RM\) \(R\)-módulos e \(L\) um \(\bbZ\)-módulo livremente gerado pelo \(M \times N\). Seja \(W\) o \(\bbZ\)-submódulo de \(L\) gerado pelos seguintes elementos:
+      <ol class="alfa">
+        <li>\((m_1+m_2,n)-(m_1,n)-(m_2,n)\)</li>
+        <li>\((m,n_1+n_2)-(m,n_1)-(m,n_2)\)</li>
+        <li>\((mr,n)-(m,rn)\)</li>
+      </ol>
+      para todo \(m, m_1, m_2 \in M\), \(n, n_1, n_2 \in N\) e \(r \in R\). O \(\bbZ\)-módulo quociente \(\rfrac{L}{W}\) é chamado de <strong>produto tensorial</strong> entre os módulos \(M\) e \(N\) e é denotado por \(M \otimes_R N\). A classe \(\overline{(m,n)} \in T\) é denotada por \(m \otimes n\) e a classe \(\overline{(0,0)}\) por \(0\).
+    <span class="fim"></span></p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-prodTens" class="obs">
+      <ol class="alfa">
+        <li>\((m_1+m_2)\otimes n = m_1\otimes n + m_2\otimes n\).</li>
+        <li>\(m \otimes (n_1 + n_2) = m \otimes n_1 + m \otimes n_2\).</li>
+        <li>\((mr) \otimes n = m \otimes rn\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- EXEMPLO -->
+    <p id="exemplo-prodTens" class="exemplo">
+      Para todo \(m \ge 2\), \(\bbQ \otimes_{\bbZ} \bbZ_m = \zero\). Esse exemplo, mostra que podemos ter \(m\otimes n = m' \otimes n'\), mas \(m \neq m'\) e \(n \neq n'\).
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-apliBalan" class="def">
+      Sejam \(M_R\), \({}_RN\) \(R\)-módulos e \(P\) um \(\bbZ\)-módulo. Dizemos que uma aplicação \(f: M \times N \to P\) é uma <strong>aplicação balanceada</strong>, se satisfaz
+      <ol class="alfa">
+        <li>\(f(m_1 + m_2, n) = f(m_1, n) + f(m_2,n)\);</li>
+        <li>\(f(m, n_1 + n_2) = f(m, n_1) + f(m,n_2)\);</li>
+        <li>\(f(rm,n) = f(m,rn)\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- EXEMPLO -->
+    <p id="exemplo-apliBalan" class="exemplo">
+      Temos que a aplicação 
+      \[
+        \begin{array}{rcl}
+          b: M \times N &\to& M \otimes_R N \\
+          (m,n) &\mapsto& m \otimes n
+        \end{array}
+      \]
+      é uma aplicação balanceada, chamada de <em>aplicação balanceada canônica</em>.
+    <span class="fim"></span></p>
+    
+    <!-- TEOREMA -->
+    <p id="teor-proUniProTens" class="teor" text="Propriedade universal do produto tensorial">
+      Sejam \(M_R\), \({}_RN\) \(R\)-módulos e \(P\) um \(\bbZ\)-módulo. Seja \(f: M \times N \to P\) uma aplicação balanceada. Então existe um único \(\bbZ\)-homomorfismo \(\overline{f}: M \otimes_R N \to P\) tal que \(\overline{f}\circ b = f\).
+      \[
+        \xymatrix{
+          M \times N \ar[r]^{b} \ar[dr]_{f} \ar@{}[dr]^{\circlearrowleft} & M \otimes_R N \ar[d]^{\overline{f}} \\ 
+           & P 
+        }
+      \]
+      Além disso, o produto tensorial é unicamente determinado, a menos de isomorfismos, por esta propriedade.
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-bimod" class="def">
+      Sejam \(R\) e \(S\) anéis e \((M, +)\) um grupo abeliano. Dizemos que \(M\) é um \((R,S)\)-<strong>bimódulo</strong>, se \(M\) é simultaneamente um \(R\)-módulo à esquerda, um \(S\)-módulo à direita e satisfaz \((rm)s = r(ms)\), para todo \(r \in R\), \(s \in S\) e \(m \in M\). Quando \(R=S\), simplesmente dizemos que \(M\) é um \(R\)-bimódulo. Notação: \({}_RM_S\).
+    <span class="fim"></span></p>
+    
+    <!-- TEOREMA -->
+    <p id="teor-prodTensMapas" class="teor">
+      Sejam \(R\) e \(S\) anéis e \({}_SM_R\), \({}_RN_S\) bimódulos.
+    <ol class="alfa">
+        <li>\(M \otimes_R N\) é um \(S\)-módulo tal que \(s(m \otimes n) = (sm) \otimes n\)</li>
+        <li>Se \(f: M \to M'\) é um homomorfismo de \((S,R)\)-bimódulos e \(g: N \to N'\) é um \(R\)-homomorfismo, então \(f \otimes g: M \otimes_R N \to M' \otimes_R N'\), \(m \otimes n \mapsto f(m) \otimes g(n)\) é um \(S\)-homomorfismo.<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="prop-prodTens" class="prop">
+      <ol class="alfa">
+        <li>Se \(\{RM_i \mid i \in I\}\) uma família de \(R\)-módulos e \(N_R\) é um \(R\)-módulo, então \(N \otimes_R (\oplus_{i \in I}M_i) \cong \oplus_{i\in I}(N \otimes_R M_i)\).</li>
+        <li>Se \(R\) é um anel com unidade e \(M\) é um \(R\)-módulo, então \(R \otimes_R M \cong M\).</li>
+        <li>Se \(M\) e \(N\) são \(R\)-bimódulos, então \(M \otimes_R N \cong N \otimes_R M\).</li>
+        <li>Se \(M_R\), \(RL\), \(RN_S\), então \(M \otimes_R (N \otimes_R L) \cong (M \otimes_R N) \otimes_R L\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-bimod" class="obs">
+      Se \(R\) é comutativo, então \(r(m \otimes n) = \)\(rm \otimes n = \)\(mr \otimes n = \)\(m \otimes rn = \)\((m \otimes n)r\), ou seja, \(M \otimes_R N\) é um \(R\)-bimódulo.
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-bilinear" class="def">
+      Sejam \(R\) um anel comutativo e \(M, N, P\) \(R\)-bimódulos. Uma aplicação \(f:M \times N \to P\) é <strong>bilinear</strong>, se 
+      <ol class="alfa">
+        <li>\(f(m_1+m_2,n) = f(m_1,n)+f(m_2,n)\)</li>
+        <li>\(f(m, n_1+n_2) = f(m,n_1)+f(m,n_2)\)</li>
+        <li>\(f(rm,n) = f(m,rn) = rf(m,n)\)<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-bilinear" class="obs">
+      Toda aplicação bilinear se fatora pela balanceada.
+    <span class="fim"></span></p>
+    
+    <!-- TEOREMA -->
+    <p id="teor-prodTensBase" class="teor">
+      Se \(R\) é um anel com unidade e \(M_R\), \({}_RN\) são \(R\)-módulos livres com \(R\)-bases \(X\) e \(Y\), respectivamente, então \(M \otimes_R N\) é livre com base \(Z = \{x \otimes y \mid x \in X, y \in Y\}\) de cardinalidade \(|X||Y|\).
+    <span class="fim"></span></p>
+    
+    <!-- TEOREMA -->
+    <p id="teor-prodTensBase2" class="teor">
+      Sejam \(R\) um anel com unidade e \(S\) um subanel de \(R\) que contém a unidade \(1_R\). Se \(M\) é um \(S\)-módulo livre com \(S\)-base \(X\), então \(R \otimes_S M\) é um \(R\)-módulo livre, com base \(\{1_R \otimes x, x \in X\}\) e cardinalidade \(|X|\).
+    <span class="fim"></span></p>
+    
+    <!-- TEOREMA -->
+    <p id="teor-prodTensBase3" class="teor">
+      Sejam \(F\) um corpo, \(K\) uma extensão de \(F\) e \(V\) um \(F\)-espaço vetorial. Então \(V^K = V \otimes_F K\) é um \(K\)-espaço vetorial com base \(B^K = \{v \otimes 1 \mid v \in B\}\), onde \(B\) é uma \(F\)-base de \(V\) e \(\dim_F(V) = \dim_K(V^K)\).
+    <span class="fim"></span></p>
+    
+  </body>
+  
+</html>
+
