@@ -326,14 +326,87 @@
     <h2>Aula 8 - Teorema de Wedderburn</h2>
     
     <p class="exerc" text="1">
-      Mostre que se \(M\) é um \(R\)-módulo e \(n \ge 1\), então \(\End_{R}(M^{(n)}) \cong M_n(\End_{R}(M))\).
+      Mostre que se \(M\) é um \(R\)-módulo e \(n \ge 1\), então \(\End_{R}(M^{(n)}) \cong M_n(\End_{F}(M))\).
     </p>
     
     <p class="sol">
-      
+      Vamos de definir um isomorfismo de \(\End_{R}(M^{(n)})\) para \(M_n(\End_{R}(M))\). Para isso,  lembre-se, primeiro, que \(M^{(n)} = \underbrace{M \oplus \cdots \oplus M}_{n \text{ vezes}}\). Assim, dado \(f \in \End_{R}(M^{(n)})\), defina, para cada \(i, j \in \{1, \dots, n\}\), 
+    \[
+      \begin{array}{rcl}
+        f_{ij}: M &\to& M \\
+        m &\mapsto& (\pi_j\circ f\circ \iota_i)(m),
+      \end{array}
+    \]
+    onde \(\pi_j: M^{(n)} \to M\), \((m_1, \dots, m_n) \mapsto m_j\), a projeção canônica da \(j\)-ésima coordenada e \(\iota_i: M \to M^{(n)}\), \(m \mapsto (0, \dots, m, \dots, 0)\), a inclusão canônica na \(i\)-ésima coordenada. Observe que \(\pi_j\) e \(\iota_i\) são homomorfismo de \(R\)-módulos. Logo, \(f_{ij}\), por ser composição de \(R\)-homomorfismos, é também um \(R\)-homomorfismo. Como seu domínio e contradomínio coincidem, então \(f_{ij} \in \End_{R}(M)\). Disso, podemos definir
+    \[
+      \begin{array}{rcl}
+        \varphi: \End_{R}(M^{(n)}) &\to& M_n(\End_{R}(M)) \\
+        f &\mapsto& 
+        \begin{pmatrix}
+          f_{11} & \cdots & f_{1n} \\
+          \vdots & \ddots & \vdots \\
+          f_{n1} & \cdots & f_{nn}
+        \end{pmatrix}.
+      \end{array}
+    \]
+    Sejam \(f, g \in \End_{R}(M^{(n)})\) e \(r \in R\). Então
+    \[
+      \begin{split}
+        (f + rg)_{ij} &= \pi_j\circ (f + rg)\circ \iota_i \\
+        &= \pi_j\circ f \circ \iota_i + r(g\circ \iota_i) \\
+        &= (f)_{ij} + r(g)_{ij}.
+      \end{split}
+    \]
+    Assim,
+    \[
+      \varphi(f + rg) = 
+      \begin{pmatrix}
+        f_{11} & \cdots & f_{1n} \\
+        \vdots & \ddots & \vdots \\
+        f_{n1} & \cdots & f_{nn}
+      \end{pmatrix}
+      +
+      r
+      \begin{pmatrix}
+        g_{11} & \cdots & g_{1n} \\
+        \vdots & \ddots & \vdots \\
+        g_{n1} & \cdots & g_{nn}
+      \end{pmatrix},
+    \]
+    ou seja, \(\varphi\) é um \(R\)-homomorfismo. Seja 
+    \(
+      \begin{pmatrix}
+        a_{11} & \cdots & a_{1n} \\
+        \vdots & \ddots & \vdots \\
+        a_{n1} & \cdots & a_{nn}
+      \end{pmatrix}
+      \in M_n(\End_{R}(M)).
+    \)
+    Note que se \(f \in \End_{R}(M^{(n)})\), então \(f(m_1, \dots, m_n) = f(m_1, \dots, 0) + \cdots + f(0, \dots, m_n)\). Assim, dado \(m \in M\), escolha \(f \in \End_{R}(M^{(n)})\) tal que
+    \[
+      \begin{array}{rcl}
+        f(m, 0, \dots, 0) &=& \big(a_{11}(m), \;a_{12}(m), \;\dots, \;a_{1n}(m)\big), \\
+        f(0, m, \dots, 0) &=& \big(a_{21}(m), \;a_{22}(m), \;\dots, \;a_{2n}(m)\big), \\
+        &\vdots& \\
+        f(0, 0, \dots, m) &=& \big(a_{n1}(m), \;a_{n2}(m), \;\dots, \;a_{nn}(m)\big).
+      \end{array}
+    \]
+    Então
+    \[
+      \begin{split}
+        f_{ij}(m) &= \pi_j\Big(f\big(\iota_i(m)\big)\Big) \\
+        &= \pi_j\big(f(0, \dots, m, \dots, 0)\big) \\
+        &= \pi_j\big(a_{i1}(m), \;a_{i2}(m), \;\dots, \;a_{in}(m)\big) \\
+        &= a_{ij}(m).
+      \end{split}
+    \]
+    Logo, \(f_{ij} = a_{ij}\), para todo \(i,j = 1, \dots, n\), ou seja, \(\varphi\) é sobrejetiva. Seja \(f \in \End_{R}(M^{(n)})\) um endomorfismo não nulo. Então existe \((m_1, \dots, m_n) \in M^{(n)}\) não nulo tal que \(f(m_1, \dots, m_n) \neq (0, \dots, 0)\). Como \(f(m_1, \dots, m_n) = f(m_1, \dots, 0) + \cdots + f(0, \dots, m_n)\), então algum \(f(0, \dots, m_i, \dots, 0) \neq (0, \dots, 0)\). Logo, alguma coordenada é diferente de zero, digamos que seja a coordenada \(j\) e cujo valor seja \(a\). Disso segue que 
+    \[
+      \pi_j\Big(f\big(\iota_i(m_i)\big)\Big) = \pi_j\big(f(0, \dots, m_i, \dots, 0)\big) = \pi_j(a) = (0, \dots, a, \dots, 0).
+    \]
+    Portanto, \(\varphi(f)\) é não nulo, para todo \(f\) não nulo. Logo, \(\varphi\) é injetiva. Isso mostra que \(\varphi\) é um isomorfismo, conforme queríamos demonstrar.
     <span class="cqd"></span></p>
     
   </body>
   
 </html>
-
