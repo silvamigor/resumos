@@ -330,10 +330,65 @@
     </p>
     
     <p class="sol">
-      
+      Defina 
+    \[
+      \begin{array}{rcl}
+        \varphi: M_n(R)^{op} &\to& M_n(R^{op}) \\
+        A &\mapsto& A^{T}.
+      \end{array}
+    \]
+    Como não há diferença entre \(M_n(R)^{op}\) e \(M_n(R)\), vistos como grupo, e o mesmo acontece com \(R\) e \(R^{op}\), então \(\varphi(A + B) = (A + B)^{T} = A^{T} + B^{T} = \varphi(A) + \varphi(B)\). Agora, observe que se \(A, B \in M_n(R^{op})\), então
+    \[
+      \begin{split}
+        ((BA)^{T})_{ij} &= (BA)_{ji} = \sum_{k=1}^{n}(B)_{jk}\cdot(A)_{ki} = \sum_{k=1}^{n}(A)_{ki}(B)_{jk} = \sum_{k=1}^{n}(A^{T})_{ik}(B^{T})_{kj} \\
+        &= (A^{T}B^{T})_{ij}.
+      \end{split}
+    \]
+    Assim, \((BA)^{T} = A^{T}B^{T}\). Dessa forma, \(\varphi(A\cdot B) = \varphi(BA) = (BA)^{T} = A^{T}B^{T} = \varphi(A)\varphi(B)\). Portanto, \(\varphi\) é um homomorfismo de anéis. Uma vez que \(\varphi(\varphi(A)) = \varphi(A^{T}) = A = \id(A)\), então \(\varphi^{-1} = \varphi\). Com isso, mostramos que \(\varphi\) é um isomorfismo, ou seja, \(M_n(R)^{op} \cong M_n(R^{op})\). Vamos, agora, dar um exemplo de um anel que não é isomorfo ao seu anel oposto. Seja 
+    \[
+      R = \{0, E_{11}, E_{21}, E_{11} + E_{21}\} \subseteq M_2(\bbZ_2),
+    \]
+    onde
+    \[
+      \begin{array}{cccc}
+        0 :=
+        \begin{pmatrix}
+          0 & 0 \\
+          0 & 0
+        \end{pmatrix},
+        &
+        E_{11} :=
+        \begin{pmatrix}
+          1 & 0 \\
+          0 & 0
+        \end{pmatrix},
+        &
+        E_{21} :=
+        \begin{pmatrix}
+          0 & 0 \\
+          1 & 0
+        \end{pmatrix},
+        &
+        E_{11} + E_{21} :=
+        \begin{pmatrix}
+          1 & 0 \\
+          1 & 0
+        \end{pmatrix}.
+      \end{array}
+    \]
+    Observe que 
+    \[
+      \begin{array}{ccc}
+        E_{11}E_{11} = E_{11}, \quad & E_{21}E_{21} = 0, \quad & (E_{11} + E_{21})(E_{11} + E_{21}) = E_{11} + E_{21}.
+      \end{array}
+    \]
+    Logo, \(E_{21}\) é o único elemento nilpotente em \(R\) e em \(R^{op}\). Assim, suponha que \(f: R \to R^{op}\) é um isomorfismo. Então \(0 = f(0) = f(E_{21}^2) = f(E_{21})^2\), ou seja, \(f(E_{21})\) é um nilponte em \(R^{op}\). Pela unicidade, \(f(E_{21}) = E_{21}\). Assim, \(f(E_{11}) = E_{11}\) ou \(f(E_{11}) = E_{11} + E_{21}\). Em ambos os casos, temos que
+    \[
+      0 = f(0) = f(E_{11}E_{21}) = f(E_{11})\cdot f(E_{21}) = f(E_{21})f(E_{11}) = E_{21}f(E_{11}) = E_{21}.
+    \]
+    Isso é um absurdo. Portanto, \(R^{op} \not\cong R\).
     <span class="cqd"></span></p>
     
   </body>
   
 </html>
-
