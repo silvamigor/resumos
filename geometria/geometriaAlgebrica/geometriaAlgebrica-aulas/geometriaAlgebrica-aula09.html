@@ -326,15 +326,49 @@
       </ol>
     </p>
     
-    <!-- TEOREMA -->
-    <p id="teor-condSufXIrred" class="teor">
-      Seja \(f: X \to Y\) um morfismo sobrejetivo entre conjuntos algébricos, com Y sendo irredutível, que leva fechado em fechado e que tenha
-fibras irredutíveis de mesma dimensão. Então X é irredutível.
+    <!-- EXEMPLO -->
+    <p id="exemplo-tdf" class="exemplo">
+      <ol class="alfa">
+        <li>Seja \(\varphi: \bbA^2 \to \bbA^2\), \((x,y) \mapsto (x, xy)\). Então \(\varphi^{-1}(0,0) = \{(0, y) \mid y \in \bbA^1\}\) e \(\varphi^{-1}(a,b) = \{(a, \frac{b}{a})\}\), se \(a \neq 0\).</li>
+        <li>Seja \(\bbG\) a coleção dos subespaços de dimensão \(2\) do espaço de funções lineares em \(K^4\), \((K^4)^{\ast}\), ou seja, \(\bbG = \{\langle A_1, A_2 \rangle \mid A_j = \sum a_{ij}x_i\) são funcionais lineares independentes em \((K^4)^{\ast}\}\). O conjunto \(\bbG\) é chamado de <strong>grassmanniana</strong> de retas em \(\bbP^3\). Seja \(\bbM\) o espaço das matrizes \(2\times 4\) de posto \(2\). Defina \(\pi: \bbM \to \bbG\) a função tal que
+        \[
+          \begin{array}{rcl}
+            \pi: \bbM &\to& \bbG \\
+            \begin{pmatrix}
+              a_{11} & a_{12} & a_{13} & a_{14} \\
+              a_{21} & a_{22} & a_{23} & a_{24}
+            \end{pmatrix}
+            &\mapsto&
+            \left\langle
+              \begin{matrix}
+                a_{11}x_1 + a_{12}x_2 + a_{13}x_3 + a_{14}x_4, \\
+                a_{21}x_1 + a_{22}x_2 + a_{23}x_3 + a_{24}x_4
+              \end{matrix}
+            \right\rangle
+          \end{array}
+        \]
+        Podemos ver que \(\bbG = \rfrac{\bbM}{\sim}\), onde \(\sim\) é a relação de linha equivalência. Defina \(\bbG_{jk}\) como sendo o aberto em que o menor dado pela escolha das colunas \(j\) e \(k\) é diferente de zero, isto é, tal que 
+        \(
+          p_{jk} := \left|
+            \begin{matrix}
+              a_{1j} & a_{1k} \\
+              a_{2j} & a_{2k}
+            \end{matrix}
+          \right| \neq 0.
+        \)
+        Isso define \(6\) abertos, cada um deles isomorfo a \(\bbA^4\). Definimos o <strong>mergulho de Plücker</strong> como sendo a função de \(\bbG = \rfrac{\bbM}{\sim}\) para \(\bbP^5\) que pega uma matriz e leva no ponto \([p_{12}:p_{13}:\cdots:p_{34}]\), onde \(p_{ij}\) são os \(6\) menores da matriz.
+        <span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="prop-domIrred" class="prop">
+      Seja \(f: X \to Y\) um morfismo sobrejetivo entre conjuntos algébricos, com \(Y\) sendo irredutível, que leva fechado em fechado e que tenha fibras irredutíveis de mesma dimensão. Então \(X\) é irredutível.
     <span class="fim"></span></p>
     
     <!-- TEOREMA -->
-    <p id="teor-projFechEmFech" class="teor">
-      Se \(\pi: X \times \bbP^n \to X\) é a projeção e \(Z \subseteq X \times \bbP^n\) é fechado, então \(\pi(Z)\) é fechado.
+    <p id="teor-teorFundTeoEli" class="teor" text="Teorema Fundamental da Teoria da Eliminação">
+      Sejam \(X\) um conjunto algébrico e \(Z \subseteq X \times \bbP^n\) um fechado. Então a imagem de \(p: X \times \bbP^n \to X\) é fechada.
     <span class="fim"></span></p>
     
   </body>
