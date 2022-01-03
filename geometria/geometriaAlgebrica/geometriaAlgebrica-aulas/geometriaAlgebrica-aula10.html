@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Geometria Algébrica - Aula 10 </title>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        extensions: ["https://lomath.in/doc/xyjax/xypic.js","tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+          processEscapes: true
+        },
+        "HTML-CSS": { fonts: ["TeX"] },
+        TeX: {
+          equationNumbers: { autoNumber: "AMS" },
+          Macros: {
+            fraka: ["\\mathfrak{a}"],
+            frakb: ["\\mathfrak{b}"],
+            frakc: ["\\mathfrak{c}"],
+            frakd: ["\\mathfrak{d}"],
+            frake: ["\\mathfrak{e}"],
+            frakf: ["\\mathfrak{f}"],
+            frakg: ["\\mathfrak{g}"],
+            frakh: ["\\mathfrak{h}"],
+            fraki: ["\\mathfrak{i}"],
+            frakj: ["\\mathfrak{j}"],
+            frakk: ["\\mathfrak{k}"],
+            frakl: ["\\mathfrak{l}"],
+            frakm: ["\\mathfrak{m}"],
+            frakn: ["\\mathfrak{n}"],
+            frako: ["\\mathfrak{o}"],
+            frakp: ["\\mathfrak{p}"],
+            frakq: ["\\mathfrak{q}"],
+            frakr: ["\\mathfrak{r}"],
+            fraks: ["\\mathfrak{s}"],
+            frakt: ["\\mathfrak{t}"],
+            fraku: ["\\mathfrak{u}"],
+            frakv: ["\\mathfrak{v}"],
+            frakx: ["\\mathfrak{x}"],
+            frakw: ["\\mathfrak{w}"],
+            fraky: ["\\mathfrak{y}"],
+            frakz: ["\\mathfrak{z}"],
+            frakA: ["\\mathfrak{A}"],
+            frakB: ["\\mathfrak{B}"],
+            frakC: ["\\mathfrak{C}"],
+            frakD: ["\\mathfrak{D}"],
+            frakE: ["\\mathfrak{E}"],
+            frakF: ["\\mathfrak{F}"],
+            frakG: ["\\mathfrak{G}"],
+            frakH: ["\\mathfrak{H}"],
+            frakI: ["\\mathfrak{I}"],
+            frakJ: ["\\mathfrak{J}"],
+            frakK: ["\\mathfrak{K}"],
+            frakL: ["\\mathfrak{L}"],
+            frakM: ["\\mathfrak{M}"],
+            frakN: ["\\mathfrak{N}"],
+            frakO: ["\\mathfrak{O}"],
+            frakP: ["\\mathfrak{P}"],
+            frakQ: ["\\mathfrak{Q}"],
+            frakR: ["\\mathfrak{R}"],
+            frakS: ["\\mathfrak{S}"],
+            frakT: ["\\mathfrak{T}"],
+            frakU: ["\\mathfrak{U}"],
+            frakV: ["\\mathfrak{V}"],
+            frakX: ["\\mathfrak{X}"],
+            frakW: ["\\mathfrak{W}"],
+            frakY: ["\\mathfrak{Y}"],
+            frakZ: ["\\mathfrak{Z}"],
+            frakgl: ["\\mathfrak{gl}"],
+            fraksl: ["\\mathfrak{sl}"],
+            bba: ["\\mathbb{a}"],
+            bbb: ["\\mathbb{b}"],
+            bbc: ["\\mathbb{c}"],
+            bbd: ["\\mathbb{d}"],
+            bbe: ["\\mathbb{e}"],
+            bbf: ["\\mathbb{f}"],
+            bbg: ["\\mathbb{g}"],
+            bbh: ["\\mathbb{h}"],
+            bbi: ["\\mathbb{i}"],
+            bbj: ["\\mathbb{j}"],
+            bbk: ["\\mathbb{k}"],
+            bbl: ["\\mathbb{l}"],
+            bbm: ["\\mathbb{m}"],
+            bbn: ["\\mathbb{n}"],
+            bbo: ["\\mathbb{o}"],
+            bbp: ["\\mathbb{p}"],
+            bbq: ["\\mathbb{q}"],
+            bbr: ["\\mathbb{r}"],
+            bbs: ["\\mathbb{s}"],
+            bbt: ["\\mathbb{t}"],
+            bbu: ["\\mathbb{u}"],
+            bbv: ["\\mathbb{v}"],
+            bbx: ["\\mathbb{x}"],
+            bbw: ["\\mathbb{w}"],
+            bby: ["\\mathbb{y}"],
+            bbz: ["\\mathbb{z}"],
+            bbA: ["\\mathbb{A}"],
+            bbB: ["\\mathbb{B}"],
+            bbC: ["\\mathbb{C}"],
+            bbD: ["\\mathbb{D}"],
+            bbE: ["\\mathbb{E}"],
+            bbF: ["\\mathbb{F}"],
+            bbG: ["\\mathbb{G}"],
+            bbH: ["\\mathbb{H}"],
+            bbI: ["\\mathbb{I}"],
+            bbJ: ["\\mathbb{J}"],
+            bbK: ["\\mathbb{K}"],
+            bbL: ["\\mathbb{L}"],
+            bbM: ["\\mathbb{M}"],
+            bbN: ["\\mathbb{N}"],
+            bbO: ["\\mathbb{O}"],
+            bbP: ["\\mathbb{P}"],
+            bbQ: ["\\mathbb{Q}"],
+            bbR: ["\\mathbb{R}"],
+            bbS: ["\\mathbb{S}"],
+            bbT: ["\\mathbb{T}"],
+            bbU: ["\\mathbb{U}"],
+            bbV: ["\\mathbb{V}"],
+            bbX: ["\\mathbb{X}"],
+            bbW: ["\\mathbb{W}"],
+            bbY: ["\\mathbb{Y}"],
+            bbZ: ["\\mathbb{Z}"],
+            cala: ["\\mathcal{a}"],
+            calb: ["\\mathcal{b}"],
+            calc: ["\\mathcal{c}"],
+            cald: ["\\mathcal{d}"],
+            cale: ["\\mathcal{e}"],
+            calf: ["\\mathcal{f}"],
+            calg: ["\\mathcal{g}"],
+            calh: ["\\mathcal{h}"],
+            cali: ["\\mathcal{i}"],
+            calj: ["\\mathcal{j}"],
+            calk: ["\\mathcal{k}"],
+            call: ["\\mathcal{l}"],
+            calm: ["\\mathcal{m}"],
+            caln: ["\\mathcal{n}"],
+            calo: ["\\mathcal{o}"],
+            calp: ["\\mathcal{p}"],
+            calq: ["\\mathcal{q}"],
+            calr: ["\\mathcal{r}"],
+            cals: ["\\mathcal{s}"],
+            calt: ["\\mathcal{t}"],
+            calu: ["\\mathcal{u}"],
+            calv: ["\\mathcal{v}"],
+            calx: ["\\mathcal{x}"],
+            calw: ["\\mathcal{w}"],
+            caly: ["\\mathcal{y}"],
+            calz: ["\\mathcal{z}"],
+            calA: ["\\mathcal{A}"],
+            calB: ["\\mathcal{B}"],
+            calC: ["\\mathcal{C}"],
+            calD: ["\\mathcal{D}"],
+            calE: ["\\mathcal{E}"],
+            calF: ["\\mathcal{F}"],
+            calG: ["\\mathcal{G}"],
+            calH: ["\\mathcal{H}"],
+            calI: ["\\mathcal{I}"],
+            calJ: ["\\mathcal{J}"],
+            calK: ["\\mathcal{K}"],
+            calL: ["\\mathcal{L}"],
+            calM: ["\\mathcal{M}"],
+            calN: ["\\mathcal{N}"],
+            calO: ["\\mathcal{O}"],
+            calP: ["\\mathcal{P}"],
+            calQ: ["\\mathcal{Q}"],
+            calR: ["\\mathcal{R}"],
+            calS: ["\\mathcal{S}"],
+            calT: ["\\mathcal{T}"],
+            calU: ["\\mathcal{U}"],
+            calV: ["\\mathcal{V}"],
+            calX: ["\\mathcal{X}"],
+            calW: ["\\mathcal{W}"],
+            calY: ["\\mathcal{Y}"],
+            calZ: ["\\mathcal{Z}"],
+            bfa: ["\\mathbf{a}"],
+            bfb: ["\\mathbf{b}"],
+            bfc: ["\\mathbf{c}"],
+            bfd: ["\\mathbf{d}"],
+            bfe: ["\\mathbf{e}"],
+            bff: ["\\mathbf{f}"],
+            bfg: ["\\mathbf{g}"],
+            bfh: ["\\mathbf{h}"],
+            bfi: ["\\mathbf{i}"],
+            bfj: ["\\mathbf{j}"],
+            bfk: ["\\mathbf{k}"],
+            bfl: ["\\mathbf{l}"],
+            bfm: ["\\mathbf{m}"],
+            bfn: ["\\mathbf{n}"],
+            bfo: ["\\mathbf{o}"],
+            bfp: ["\\mathbf{p}"],
+            bfq: ["\\mathbf{q}"],
+            bfr: ["\\mathbf{r}"],
+            bfs: ["\\mathbf{s}"],
+            bft: ["\\mathbf{t}"],
+            bfu: ["\\mathbf{u}"],
+            bfv: ["\\mathbf{v}"],
+            bfx: ["\\mathbf{x}"],
+            bfw: ["\\mathbf{w}"],
+            bfy: ["\\mathbf{y}"],
+            bfz: ["\\mathbf{z}"],
+            bfA: ["\\mathbf{A}"],
+            bfB: ["\\mathbf{B}"],
+            bfC: ["\\mathbf{C}"],
+            bfD: ["\\mathbf{D}"],
+            bfE: ["\\mathbf{E}"],
+            bfF: ["\\mathbf{F}"],
+            bfG: ["\\mathbf{G}"],
+            bfH: ["\\mathbf{H}"],
+            bfI: ["\\mathbf{I}"],
+            bfJ: ["\\mathbf{J}"],
+            bfK: ["\\mathbf{K}"],
+            bfL: ["\\mathbf{L}"],
+            bfM: ["\\mathbf{M}"],
+            bfN: ["\\mathbf{N}"],
+            bfO: ["\\mathbf{O}"],
+            bfP: ["\\mathbf{P}"],
+            bfQ: ["\\mathbf{Q}"],
+            bfR: ["\\mathbf{R}"],
+            bfS: ["\\mathbf{S}"],
+            bfT: ["\\mathbf{T}"],
+            bfU: ["\\mathbf{U}"],
+            bfV: ["\\mathbf{V}"],
+            bfX: ["\\mathbf{X}"],
+            bfW: ["\\mathbf{W}"],
+            bfY: ["\\mathbf{Y}"],
+            bfZ: ["\\mathbf{Z}"],
+            zero: ["\\{0\\}"],
+            id: ["\\operatorname\{id\}"],
+            sen: ["\\operatorname\{sen\}"],
+            tg: ["\\operatorname\{tg\}"],
+            ad: ["\\operatorname\{ad\}"],
+            mdc: ["\\operatorname\{mdc\}"],
+            im: ["\\operatorname\{im\}"],
+            Quat: ["\\operatorname\{Quat\}"],
+            Aut: ["\\operatorname\{Aut\}"],
+            Inn: ["\\operatorname\{Inn\}"],
+            orb: ["\\operatorname\{orb\}"],
+            stab: ["\\operatorname\{stab\}"],
+            Rep: ["\\operatorname\{Rep\}"],
+            Hom: ["\\operatorname\{Hom\}"],
+            End: ["\\operatorname\{End\}"],
+            Obj: ["\\operatorname\{Obj\}"],
+            tr: ["\\operatorname\{tr\}"],
+            diam: ["\\operatorname\{diam\}"],
+            diag: ["\\operatorname\{diag\}"],
+            Ind: ["\\operatorname\{Ind\}"],
+            Res: ["\\operatorname\{Res\}"],
+            Set: ["\\operatorname\{Set\}"],
+            coker: ["\\operatorname\{coker\}"],
+            supp: ["\\operatorname\{supp\}"],
+            Tor: ["\\operatorname\{Tor\}"],
+            vspan: ["\\operatorname\{vspan\}"],
+            char: ["\\operatorname\{char\}"],
+            trdeg: ["\\operatorname\{trdeg\}"],
+            pint: ["{ \\langle #1,#2 \\rangle }",2],
+            rfrac: ["{ {}^{#1}\\!/_{#2} }",2],
+            norma: ["{ \\Vert #1 \\Vert }",1],
+          },
+        },
+      });
+    </script>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js"></script>
+    <script src="http://www.w3schools.com/lib/w3data.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../itemParenteses.css" />
+    <link rel="stylesheet" type="text/css" href="../../../ambTeor.css" />
+    
+    <style>
+      body{
+        font-size: 14pt;
+        font-family: "Helvetica", sans-serif;
+        line-height: 1.5;
+        background-color: rgb(233,227,206);
+        counter-reset: contTeor contProp contLema contCoro contObs contDef contSec 10;
+      }
+      
+      h1{
+        background-color: rgb(153,51,153);
+        color: rgb(255,250,250);
+      }
+      
+      h2{
+        color: rgb(153,51,153);
+      }
+      
+    </style>
+  </head>
+  
+  <body>
+  
+    <div style="text-align:center"><h1>Geometria Algébrica</h1></div>
+    
+    <!-- ###### AULA 10 ###### -->
+    <h2>Aula 10 - </h2>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-pontoSimples" class="def">
+      Um ponto \(P\) em uma curva \(C\) (afim ou projetiva) é dito <strong>simples</strong> (liso ou não singular), se o anel local \(\calO_P(C)\) é um anel de valorização discreto.
+    <span class="fim"></span></p>
+    
+    <!-- TEOREMA -->
+    <p id="teor-avdDomina" class="teor">
+      Sejam \(C\) uma curva projetiva, \(L\) um corpo, \(K = K(C) \subseteq L\) e \(R\) uma anel de de valorização discreto de \(L\) que não contém \(K\). Então existe um único ponto \(P \in C\) tal que \(R\) domina \(\calO_P(C)\), isto é, \(R\) contém (\calO_P(C)\) e o maximal de \(R\) intersepta o maximal de \(\calO_P(C)\).
+    <span class="fim"></span></p>
+    
+    <!-- COROLÁRIO -->
+    <p id="coro-avdDomina" class="coro">
+      Seja \(f: C' \to C\) um mapa racional da curva \(C'\) em uma curva projetiva \(C\). Então o domínio de \(f\) contém todo ponto simples de \(C'\). Em particular, se \(C'\) é lisa, então \(f: C' \to C\) é um morfismo.
+    <span class="fim"></span></p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-explosão" class="obs">
+      Considere o conjunto \(\bbB := \left\{\big((x,y),[s:t]\big) \;\big|\; (x, y) \in [s:t]\right\} \subseteq \bbA^2 \times \bbP^1\). Um pouco informal, \(\bbB\) é a coleção de todos os pares ordenados, onde na primeira coordenada percorremos todos os pontos pertencentes a uma reta \(r\) passando pela origem e, na segunda coordenada, colocamos a reta \(r\), para toda reta \(r\) em \(\bbA^2\), com \((0,0) \in r\) (ponto de \(\bbP^2\)). Assim, na definição de \(\bbB\), \((x, y) \in [s: t]\), significa que \((x, y) \in \bbA^2\) pertence à reta definida pelos pontos \((0,0) \in \bbA^2\) e \((s,t) \in \bbA^2\), ou seja, que \(y = \frac{t}{s}x\). Em outros termos, temos que \(ys - tx = 0\). Note que um conjunto algébrico em \(\bbA^2 \times \bbP^1\) é o conjunto dos zeros de um polinômio da forma \(F(X,Y,S,T)\) tal que \(F\), como elemento de \(K[X,Y][S,T]\) é homogêneo. Portanto, tomando \(F(X,Y,S,T) = YS - TX \in K[X,Y][S,T]\), temos que \(\bbB = \calV(F)\), ou seja, \(\bbB\) é um conjunto algébrico irredutível em \(\bbA^2 \times \bbP^1\). Sejam \(\iota: \bbB \to \bbA^2 \times \bbP^1\) a inclusão canônica e \(\pi: \bbA^2 \times \bbP^1 \to \bbA^2\) a projeção canônica. Defina \(\varphi := \pi \circ \iota\).
+  \[
+    \xymatrix{
+      \bbB \ar[r]^-{\iota} \ar[rd]_-{\varphi} & \bbA^2 \times \bbP^1 \ar[d]^-{\pi}\\
+      & \bbA^2
+    }
+  \]
+  O par \((\bbB, \varphi)\) é chamado de <strong>blow-up</strong> de \(\bbA^2\) na origem \(P := (0,0)\). Vejamos algumas propriedades dessa construção.
+  <ol>
+    <li> Note que \(\pi^{-1}(P) = \{P\} \times \bbP^1 \in \bbB\), pois \(P\), por definição, é a origem, logo pertence a todo ponto de \(\bbP^1\). Assim, \(\varphi^{-1}(P) = \iota^{-1}(\pi^{-1}(P)) = \{P\} \times \bbP^1 \cong \bbP^1\). Defina \(E := \{P\} \times \bbP^1 \in \bbB\), ou seja, \(E\) é a coleção dos pares ordenados \((P, r)\), onde \(r\) é uma reta em \(\bbA^2\) contendo \(P\).</li>
+    
+    <li> Seja \((Q, r) \in \bbB\). Note que \(\varphi(Q, r) = \pi(\iota(Q, r)) = \pi(Q, r) = Q\). Assim, se \(\varphi(Q, r) = P\), então \(Q = P\). Além disso, \(\varphi(P, r) = P\). Portanto, \(\ker(\varphi) = \{P\} \times \bbP^1 = E\). Dessa forma, temos que \(\varphi|_{\bbB\setminus E}: \bbB\setminus E \to \bbA^2\setminus\{P\}\). Observe que, dado \((x,y) \in \bbA^2\setminus\{P\}\), temos que \(\varphi((x,y), [x:y]) = (x,y)\), ou seja, \(\varphi|_{\bbB\setminus E}\) é sobrejetiva. Veja também que a imagem de dois pontos em \(\bbB\) por \(\varphi\) coincide se, e somente se, a primeira coordenado do ponto for a origem. Logo, \(\varphi|_{\bbB\setminus E}\) é injetiva. Como \(\iota\) e \(\pi\) são morfismo entre conjunto algébricos, então \(\varphi|_{\bbB\setminus E}\) é um isomorfismo entre conjuntos algébricos.</li>
+  </ol>
+  
+  Com essas propriedades, podemos concluir que o <em>blow up</em> da origem em \(\bbA^2\) nos dá um isomorfismo entre o espaço afim \(\bbA^2\) com o espaço \(\bbB\setminus E\) e que a fibra \(\varphi^{-1}(0,0)\) é isomorfa ao espaço projetivo \(\bbP^1\).
+  
+  O <em>blow up</em> da origem em \(\bbP^2\) é construído analogamente. O conjunto \(\bbB\) é definido como sendo \(\left\{\big([x:y:z],[s:t]\big) \;\big|\; (x, y) \in [s:t]\right\} \subseteq \bbP^2 \times \bbP^1\). Note que \(\bbB\) é um conjunto algébrico irredutível, pois seus pontos satisfazem o polinômio mônico irredutível \(F(X,Y,Z,S,T) = YS - TX\). Assim como antes, sejam \(\iota: \bbB \to \bbP^2 \times \bbP^1\) a inclusão canônica e \(\pi: \bbP^2 \times \bbP^1 \to \bbP^2\) a projeção canônica e defina \(\varphi := \pi \circ \iota\).
+  \[
+    \xymatrix{
+      \bbB \ar[r]^-{\iota} \ar[rd]_-{\varphi} & \bbP^2 \times \bbP^1 \ar[d]^-{\pi}\\
+      & \bbP^2
+    }
+  \]
+  O par \((\bbB, \varphi)\) é chamado de <strong>blow-up</strong> de \(\bbP^2\) na origem \([0:0:1]\). As mesmas propriedades obtidas para o <em>blow-up</em> de \(\bbA^2\) na origem, são obtidas para \(\bbP^2\).
+    <span class="fim"></span></p>
+    
+  </body>
+  
+</html>
+
