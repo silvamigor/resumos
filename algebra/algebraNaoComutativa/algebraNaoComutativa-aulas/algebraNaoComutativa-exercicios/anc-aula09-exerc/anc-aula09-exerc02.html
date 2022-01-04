@@ -330,10 +330,17 @@
     </p>
     
     <p class="sol">
-      
+      Considere o endomorfismo derivada \(\frac{d}{dx}: \bbC[x] \to \bbC[x]\), onde \(\bbC[x]\) é o anel dos polinômios na variável \(x\) e com coeficientes complexos. Dado \(f(x) \in \bbC[x]\), podemos vê-lo como o endomorfismo \(f(x): \bbC[x] \to \bbC[x]\), \(p(x) \mapsto f(x)g(x)\). Assim, temos que \(f(x)\circ\frac{d}{dx} \in \End_{\bbC}(\bbC[x])\). Considere o subconjunto de \(\End_{\bbC}(\bbC[x])\) formado por elementos da forma
+    \[
+      f_n(x)\circ\frac{d^n}{dx^n} + \cdots + f_1(x)\circ\frac{d}{dx} + f_0(x),
+    \]
+    o qual denotaremos por \(R\). Observe que \(R\) é um subanel de \(\End_{\bbC}(\bbC[x])\), pois é fechado pela soma e pela composição. Seja \(I\) um ideal bilateral de \(R\) não nulo. Se \(f(x) \in I\), então \(\frac{d^n}{dx^n}\circ f(x) \in I\), onde \(n = \deg\big(f(x)\big)\). Assim, obtemos que \(\lambda \in I\), para algum \(\lambda \in \bbC\). Considerando o polinômio \(\frac{1}{\lambda} \in \bbC[x]\), concluímos que \(1 = \frac{1}{\lambda}\lambda \in I\), ou seja, \(I = R\). Se \(\frac{d^n}{dx^n} \in I\), então \(\frac{d^n}{dx^n} \circ x^n \in I\). Note que \(\big(\frac{d^n}{dx^n} \circ x^n\big)\big(f(x)\big) = \frac{d^n}{dx^n}\big(x^nf(x)\big) = n!f(x) + x^n\frac{d^n}{dx^n}\big(f(x)\big) = \big(n! + x^n\frac{d^n}{dx^n}\big)\big(f(x)\big)\). Portanto, \(n! + x^n\frac{d^n}{dx^n} \in I\). Como \(I\) é ideal bilateral, \(-x^n \circ \frac{d^n}{x^n} \in I\). Assim, \(n! \in I\), o que implica que \(1 \in I\) e como consequência, \(I = R\). Dessa maneira, pela forma dos elementos de \(R\), concluímos que qualquer ideal bilateral coincide com o anel \(R\). Isso significa que \(R\) é um anel simples. Finalmente, observe que 
+    \[
+      R \supseteq Rx \supseteq Rx^2 \supseteq \cdots
+    \]
+    é uma cadeia descendente de ideais à esquerda que não estabiliza. Logo, \(R\) não é artiniano. Pelo Teorema de Artin, temos que \(R\) não é isomorfo a um anel de matrizes com coeficientes em um anel de divisão.
     <span class="cqd"></span></p>
     
   </body>
   
 </html>
-
