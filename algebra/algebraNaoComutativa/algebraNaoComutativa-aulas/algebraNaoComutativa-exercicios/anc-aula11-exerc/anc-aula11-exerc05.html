@@ -331,10 +331,13 @@
     </p>
     
     <p class="sol">
-      
+      Suponha que \(x \in \calU(R)\). Então existe \(y \in R\) tal que \(xy = 1 = yx\). Isso implica que \(xy - 1 = 0 = yx - 1\). Como \(0 \in J(R)\), então tanto \(xy - 1\), quanto \(yx - 1\) pertencem a \(J(R)\), ou seja, \(xy - 1 + J(R) = 0 + J(R) = yx - 1 + J(R)\). Em outros termos, obtemos 
+    \begin{equation} \label{eq:eq1}
+      (x + J(R))(y + J(R)) = 1 + J(R) = (y + J(R))(x + J(R)).
+    \end{equation}
+    Portanto, \(\overline{x} = x + J(R) \in \calU(\rfrac{R}{J(R)})\). Reciprocamente, suponha que \(x + J(R) \in \calU(\rfrac{R}{J(R)})\). Então existe \(y \in R\) tal que vale a Equação \eqref{eq:eq1}. Disso segue que \(xy - 1, yx - 1 \in J(R)\). Pela <a href="https://silvamigor.github.io/resumos/algebra/algebraNaoComutativa/algebraNaoComutativa-aulas/algebraNaoComutativa-aula11.html#prop-maiorIdealJ">Aula 11</a>, temos que \(xy, yx \in \calU(R)\). Portanto, \(x \in \calU(R)\).
     <span class="cqd"></span></p>
     
   </body>
   
 </html>
-
