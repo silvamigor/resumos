@@ -336,10 +336,18 @@
     </p>
     
     <p class="sol">
+      <p> &#8226; (a) \(\Rightarrow\) (b). Suponha que \(M\) é finitamente gerado, isto é, suponha que existam \(m_1, \dots, m_k \in M\) elementos distintos tais que \(M = \langle m_1, \dots, m_k \rangle\). Como \(M\) é semissimples, então \(M = \oplus_{j \in J}N_j\), onde \(N_j\) é um \(R\)-submódulo simples de \(M\). Assim, \(m_1\) pertence a algum \(N_j\), digamos \(N_1\). Se \(m_2 \in N_1\), então, por \(N_1\) ser simples, teríamos que \(\langle m_1 \rangle = \langle m_2 \rangle\), o que implica que \(m_1 = m_2\). Absurdo, pois \(m_1 \neq m_2\). Logo, \(m_2 \not\in N_1\). Suponha, sem perda de generalidade, que \(m_2 \in N_2\). Seguindo esse raciocínio, concluímos que \(m_i \in N_i\), para todo \(i = 1, \dots, k\). Além disso, como cada \(N_j\) é simples, temos que \(N_i = \langle m_i \rangle\), para todo \(i = 1, \dots, k\). Portanto, como \(M\) é gerado por \(m_1, \dots, m_k\), temos que \(N_j = \zero\), para todo \(j > k\), o que nos dá que \(M = \oplus_{i = 1}^{k}\langle m_i \rangle\).</p>
       
-    <span class="cqd"></span></p>
+      <p> &#8226; (b) \(\Rightarrow\) (c). Suponha que \(M = M_1 \oplus \cdots \oplus M_n\), onde \(M_i\) é um \(R\)-submódulo livre de \(M\). Então a cadeia
+      \[
+        M_0 = \zero \subseteq M_1 \subseteq M_1 \oplus M_2 \subseteq \cdots \subseteq \oplus_{i=1}^{n}M_i = M
+      \]
+      é tal que os quocientes consecutivos, \(M_1\) para o primeiro e \(\rfrac{\oplus_{i=1}^{j}M_j}{\oplus_{i=1}^{j-1}M_j} \cong M_j\), para \(j = 2, \dots, n\), são simples. Portanto, essa é uma série de composição, o que significa que \(M\) tem comprimento finito.</p>
+      
+      <p> &#8226; (c) \(\Leftrightarrow\) (d). Essa equivalência foi feita no <a href="https://silvamigor.github.io/resumos/algebra/algebraNaoComutativa/algebraNaoComutativa-aulas/algebraNaoComutativa-exercicios/anc-aula07-exerc/anc-aula07-exerc02.html">Exercício 7.2</a> e independe do fato de \(M\) se um \(R\)-módulo semissimples.</p>
+      
+      <p> &#8226; (d) \(\Rightarrow\) (a). Por \(M\) ser noetheriano, sabemos que todo \(R\)-submódulo de \(M\) é finitamente gerado. Em particular, \(M\) é \(R\)-submódulo dele mesmo, logo \(M\) é finitamente gerado.<span class="cqd"></span></p>
     
   </body>
   
 </html>
-
