@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Álgebra Não Comutativa - Aula 14 </title>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        extensions: ["https://lomath.in/doc/xyjax/xypic.js","tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+          processEscapes: true
+        },
+        "HTML-CSS": { fonts: ["TeX"] },
+        TeX: {
+          equationNumbers: { autoNumber: "AMS" },
+          Macros: {
+            fraka: ["\\mathfrak{a}"],
+            frakb: ["\\mathfrak{b}"],
+            frakc: ["\\mathfrak{c}"],
+            frakd: ["\\mathfrak{d}"],
+            frake: ["\\mathfrak{e}"],
+            frakf: ["\\mathfrak{f}"],
+            frakg: ["\\mathfrak{g}"],
+            frakh: ["\\mathfrak{h}"],
+            fraki: ["\\mathfrak{i}"],
+            frakj: ["\\mathfrak{j}"],
+            frakk: ["\\mathfrak{k}"],
+            frakl: ["\\mathfrak{l}"],
+            frakm: ["\\mathfrak{m}"],
+            frakn: ["\\mathfrak{n}"],
+            frako: ["\\mathfrak{o}"],
+            frakp: ["\\mathfrak{p}"],
+            frakq: ["\\mathfrak{q}"],
+            frakr: ["\\mathfrak{r}"],
+            fraks: ["\\mathfrak{s}"],
+            frakt: ["\\mathfrak{t}"],
+            fraku: ["\\mathfrak{u}"],
+            frakv: ["\\mathfrak{v}"],
+            frakx: ["\\mathfrak{x}"],
+            frakw: ["\\mathfrak{w}"],
+            fraky: ["\\mathfrak{y}"],
+            frakz: ["\\mathfrak{z}"],
+            frakA: ["\\mathfrak{A}"],
+            frakB: ["\\mathfrak{B}"],
+            frakC: ["\\mathfrak{C}"],
+            frakD: ["\\mathfrak{D}"],
+            frakE: ["\\mathfrak{E}"],
+            frakF: ["\\mathfrak{F}"],
+            frakG: ["\\mathfrak{G}"],
+            frakH: ["\\mathfrak{H}"],
+            frakI: ["\\mathfrak{I}"],
+            frakJ: ["\\mathfrak{J}"],
+            frakK: ["\\mathfrak{K}"],
+            frakL: ["\\mathfrak{L}"],
+            frakM: ["\\mathfrak{M}"],
+            frakN: ["\\mathfrak{N}"],
+            frakO: ["\\mathfrak{O}"],
+            frakP: ["\\mathfrak{P}"],
+            frakQ: ["\\mathfrak{Q}"],
+            frakR: ["\\mathfrak{R}"],
+            frakS: ["\\mathfrak{S}"],
+            frakT: ["\\mathfrak{T}"],
+            frakU: ["\\mathfrak{U}"],
+            frakV: ["\\mathfrak{V}"],
+            frakX: ["\\mathfrak{X}"],
+            frakW: ["\\mathfrak{W}"],
+            frakY: ["\\mathfrak{Y}"],
+            frakZ: ["\\mathfrak{Z}"],
+            frakgl: ["\\mathfrak{gl}"],
+            fraksl: ["\\mathfrak{sl}"],
+            bba: ["\\mathbb{a}"],
+            bbb: ["\\mathbb{b}"],
+            bbc: ["\\mathbb{c}"],
+            bbd: ["\\mathbb{d}"],
+            bbe: ["\\mathbb{e}"],
+            bbf: ["\\mathbb{f}"],
+            bbg: ["\\mathbb{g}"],
+            bbh: ["\\mathbb{h}"],
+            bbi: ["\\mathbb{i}"],
+            bbj: ["\\mathbb{j}"],
+            bbk: ["\\mathbb{k}"],
+            bbl: ["\\mathbb{l}"],
+            bbm: ["\\mathbb{m}"],
+            bbn: ["\\mathbb{n}"],
+            bbo: ["\\mathbb{o}"],
+            bbp: ["\\mathbb{p}"],
+            bbq: ["\\mathbb{q}"],
+            bbr: ["\\mathbb{r}"],
+            bbs: ["\\mathbb{s}"],
+            bbt: ["\\mathbb{t}"],
+            bbu: ["\\mathbb{u}"],
+            bbv: ["\\mathbb{v}"],
+            bbx: ["\\mathbb{x}"],
+            bbw: ["\\mathbb{w}"],
+            bby: ["\\mathbb{y}"],
+            bbz: ["\\mathbb{z}"],
+            bbA: ["\\mathbb{A}"],
+            bbB: ["\\mathbb{B}"],
+            bbC: ["\\mathbb{C}"],
+            bbD: ["\\mathbb{D}"],
+            bbE: ["\\mathbb{E}"],
+            bbF: ["\\mathbb{F}"],
+            bbG: ["\\mathbb{G}"],
+            bbH: ["\\mathbb{H}"],
+            bbI: ["\\mathbb{I}"],
+            bbJ: ["\\mathbb{J}"],
+            bbK: ["\\mathbb{K}"],
+            bbL: ["\\mathbb{L}"],
+            bbM: ["\\mathbb{M}"],
+            bbN: ["\\mathbb{N}"],
+            bbO: ["\\mathbb{O}"],
+            bbP: ["\\mathbb{P}"],
+            bbQ: ["\\mathbb{Q}"],
+            bbR: ["\\mathbb{R}"],
+            bbS: ["\\mathbb{S}"],
+            bbT: ["\\mathbb{T}"],
+            bbU: ["\\mathbb{U}"],
+            bbV: ["\\mathbb{V}"],
+            bbX: ["\\mathbb{X}"],
+            bbW: ["\\mathbb{W}"],
+            bbY: ["\\mathbb{Y}"],
+            bbZ: ["\\mathbb{Z}"],
+            cala: ["\\mathcal{a}"],
+            calb: ["\\mathcal{b}"],
+            calc: ["\\mathcal{c}"],
+            cald: ["\\mathcal{d}"],
+            cale: ["\\mathcal{e}"],
+            calf: ["\\mathcal{f}"],
+            calg: ["\\mathcal{g}"],
+            calh: ["\\mathcal{h}"],
+            cali: ["\\mathcal{i}"],
+            calj: ["\\mathcal{j}"],
+            calk: ["\\mathcal{k}"],
+            call: ["\\mathcal{l}"],
+            calm: ["\\mathcal{m}"],
+            caln: ["\\mathcal{n}"],
+            calo: ["\\mathcal{o}"],
+            calp: ["\\mathcal{p}"],
+            calq: ["\\mathcal{q}"],
+            calr: ["\\mathcal{r}"],
+            cals: ["\\mathcal{s}"],
+            calt: ["\\mathcal{t}"],
+            calu: ["\\mathcal{u}"],
+            calv: ["\\mathcal{v}"],
+            calx: ["\\mathcal{x}"],
+            calw: ["\\mathcal{w}"],
+            caly: ["\\mathcal{y}"],
+            calz: ["\\mathcal{z}"],
+            calA: ["\\mathcal{A}"],
+            calB: ["\\mathcal{B}"],
+            calC: ["\\mathcal{C}"],
+            calD: ["\\mathcal{D}"],
+            calE: ["\\mathcal{E}"],
+            calF: ["\\mathcal{F}"],
+            calG: ["\\mathcal{G}"],
+            calH: ["\\mathcal{H}"],
+            calI: ["\\mathcal{I}"],
+            calJ: ["\\mathcal{J}"],
+            calK: ["\\mathcal{K}"],
+            calL: ["\\mathcal{L}"],
+            calM: ["\\mathcal{M}"],
+            calN: ["\\mathcal{N}"],
+            calO: ["\\mathcal{O}"],
+            calP: ["\\mathcal{P}"],
+            calQ: ["\\mathcal{Q}"],
+            calR: ["\\mathcal{R}"],
+            calS: ["\\mathcal{S}"],
+            calT: ["\\mathcal{T}"],
+            calU: ["\\mathcal{U}"],
+            calV: ["\\mathcal{V}"],
+            calX: ["\\mathcal{X}"],
+            calW: ["\\mathcal{W}"],
+            calY: ["\\mathcal{Y}"],
+            calZ: ["\\mathcal{Z}"],
+            bfa: ["\\mathbf{a}"],
+            bfb: ["\\mathbf{b}"],
+            bfc: ["\\mathbf{c}"],
+            bfd: ["\\mathbf{d}"],
+            bfe: ["\\mathbf{e}"],
+            bff: ["\\mathbf{f}"],
+            bfg: ["\\mathbf{g}"],
+            bfh: ["\\mathbf{h}"],
+            bfi: ["\\mathbf{i}"],
+            bfj: ["\\mathbf{j}"],
+            bfk: ["\\mathbf{k}"],
+            bfl: ["\\mathbf{l}"],
+            bfm: ["\\mathbf{m}"],
+            bfn: ["\\mathbf{n}"],
+            bfo: ["\\mathbf{o}"],
+            bfp: ["\\mathbf{p}"],
+            bfq: ["\\mathbf{q}"],
+            bfr: ["\\mathbf{r}"],
+            bfs: ["\\mathbf{s}"],
+            bft: ["\\mathbf{t}"],
+            bfu: ["\\mathbf{u}"],
+            bfv: ["\\mathbf{v}"],
+            bfx: ["\\mathbf{x}"],
+            bfw: ["\\mathbf{w}"],
+            bfy: ["\\mathbf{y}"],
+            bfz: ["\\mathbf{z}"],
+            bfA: ["\\mathbf{A}"],
+            bfB: ["\\mathbf{B}"],
+            bfC: ["\\mathbf{C}"],
+            bfD: ["\\mathbf{D}"],
+            bfE: ["\\mathbf{E}"],
+            bfF: ["\\mathbf{F}"],
+            bfG: ["\\mathbf{G}"],
+            bfH: ["\\mathbf{H}"],
+            bfI: ["\\mathbf{I}"],
+            bfJ: ["\\mathbf{J}"],
+            bfK: ["\\mathbf{K}"],
+            bfL: ["\\mathbf{L}"],
+            bfM: ["\\mathbf{M}"],
+            bfN: ["\\mathbf{N}"],
+            bfO: ["\\mathbf{O}"],
+            bfP: ["\\mathbf{P}"],
+            bfQ: ["\\mathbf{Q}"],
+            bfR: ["\\mathbf{R}"],
+            bfS: ["\\mathbf{S}"],
+            bfT: ["\\mathbf{T}"],
+            bfU: ["\\mathbf{U}"],
+            bfV: ["\\mathbf{V}"],
+            bfX: ["\\mathbf{X}"],
+            bfW: ["\\mathbf{W}"],
+            bfY: ["\\mathbf{Y}"],
+            bfZ: ["\\mathbf{Z}"],
+            zero: ["\\{0\\}"],
+            id: ["\\operatorname\{id\}"],
+            sen: ["\\operatorname\{sen\}"],
+            tg: ["\\operatorname\{tg\}"],
+            ad: ["\\operatorname\{ad\}"],
+            mdc: ["\\operatorname\{mdc\}"],
+            im: ["\\operatorname\{im\}"],
+            Quat: ["\\operatorname\{Quat\}"],
+            Aut: ["\\operatorname\{Aut\}"],
+            Inn: ["\\operatorname\{Inn\}"],
+            orb: ["\\operatorname\{orb\}"],
+            stab: ["\\operatorname\{stab\}"],
+            Rep: ["\\operatorname\{Rep\}"],
+            Hom: ["\\operatorname\{Hom\}"],
+            End: ["\\operatorname\{End\}"],
+            Obj: ["\\operatorname\{Obj\}"],
+            tr: ["\\operatorname\{tr\}"],
+            diam: ["\\operatorname\{diam\}"],
+            diag: ["\\operatorname\{diag\}"],
+            Ind: ["\\operatorname\{Ind\}"],
+            Res: ["\\operatorname\{Res\}"],
+            Set: ["\\operatorname\{Set\}"],
+            coker: ["\\operatorname\{coker\}"],
+            supp: ["\\operatorname\{supp\}"],
+            Tor: ["\\operatorname\{Tor\}"],
+            vspan: ["\\operatorname\{vspan\}"],
+            char: ["\\operatorname\{char\}"],
+            Ann: ["\\operatorname\{Ann\}"],
+            pint: ["{ \\langle #1,#2 \\rangle }",2],
+            rfrac: ["{ {}^{#1}\\!/_{#2} }",2],
+            norma: ["{ \\Vert #1 \\Vert }",1],
+          },
+        },
+      });
+    </script>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js"></script>
+    <script src="http://www.w3schools.com/lib/w3data.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../itemParenteses.css" />
+    <link rel="stylesheet" type="text/css" href="../../../ambTeor.css" />
+    
+    <style>
+      body{
+        font-size: 14pt;
+        font-family: "Helvetica", sans-serif;
+        line-height: 1.5;
+        background-color: rgb(233,227,206);
+        counter-reset: contTeor contProp contLema contCoro contObs contDef contExerc contExemplo contSec 14;
+      }
+      
+      h1{
+        background-color: rgb(153,51,153);
+        color: rgb(255,250,250);
+      }
+      
+      h2{
+        color: rgb(153,51,153);
+      }
+      
+    </style>
+  </head>
+  
+  <body>
+  
+    <div style="text-align:center"><h1>Álgebra Não Comutativa</h1></div>
+    
+    <!-- ###### AULA 14 ###### -->
+    <h2>Aula 14 - Conceitos gerais sobre \(R\)-álgebras</h2>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-apliBilinear" class="obs">
+      Sejam \(R\) um anel comutativo e \(M\) um \(R\)-módulo. Uma <strong>aplicação bilinear</strong> \(f: M \times M \to M\) é bilinear, se
+      <ol class="alfa">
+        <li>\(f(m_1 + m_2, m) = f(m_1, m) + f(m_2, m)\),</li>
+        <li>\(f(m, m_1 + m_2) = f(m, m_1) + f(m, m_2)\),</li>
+        <li>\(f(rm_1, m_2) = f(m_1, rm_2) = rf(m_1, m_2)\),</li>
+      </ol>
+      para todo \(r \in R\), \(m, m_1, m_2 \in M\). Na <a href="https://silvamigor.github.io/resumos/algebra/algebraNaoComutativa/algebraNaoComutativa-aulas/algebraNaoComutativa-aula13.html#def-bilinear">Aula 13</a>, definimos uma aplicação bilinear entre bimódulos sobre um anel.
+    <span class="fim"></span></p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-operacaoMod" class="obs">
+      Uma aplicação bilinear \(f\) induz uma operação em \(M\), denotada por \(\ast\):
+      <ol class="alfa">
+        <li>\((m_1 + m_2)\ast m = m_1 \ast m + m_2 \ast m\)</li>
+        <li>\(m\ast(m_1 + m_2) = m\ast m_1 + m\ast m_2\)</li>
+        <li>\((rm_1)\ast m_2 = r(m_1 \ast m_2) = m_1\ast (rm_2)\)<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-algebra" class="def">
+      Seja \(R\) um <em>anel comutativo</em>. Um \(R\)-módulo \(A\) munido de uma aplicação bilinear \(f: A \times A \to A\) é chamado de uma <strong>\(R\)-álgebra</strong> (ou uma álgebra sobre \(R\)).
+    <span class="fim"></span></p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-algebra" class="obs">
+      <ol class="alfa">
+        <li>Em geral, uma álgebra não é um anel, pois não tem a propriedade da associatividade.</li>
+        <li>Como \(R\) é comutativo, então uma \(R\)-álgebra \(A\) é um \(R\)-bimódulo, com \(ra = ar\), para todo \(r \in R\) e \(a \in A\).<span class="fim"></span></li>
+      </ol>  
+    </p>
+    
+    <!-- EXEMPLO -->
+    <p id="exemplo-algebra" class="exemplo">
+      <ol class="alfa">
+        <li>Todo anel é uma \(\bbZ\)-álgebra.</li>
+        <li>Se \(D\) é um anel de divisão, então \(D\) é uma álgebra sobre \(\calZ(D)\).</li>
+        <li>Todo anel comutativo é uma álgebra sobre si próprio.<span class="fim"></span></li>
+      </ol>  
+    </p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-algebraCorpo" class="obs">
+      Ao longo do curso, trabalharemos com álgebras sobre corpos. Uma \(F\)-álgebra, com \(F\) sendo um corpo, é um \(F\)-espaço vetorial. A dimensão de uma \(F\)-álgebra é sua dimensão como espaço vetorial sobre \(F\), a qual denotaremos por \(\dim_F(A)\). Uma base de uma \(F\)-álgebra \(A\) é uma base de \(A\) como espaço vetorial sobre \(F\).
+    <span class="fim"></span></p>
+    
+    <!-- EXEMPLO -->
+    <p id="exemplo-algebraCorpo" class="exemplo">
+      <ol class="alfa">
+        <li>\(\bbC\) é uma \(\bbR\)-álgebra com \(\dim_{\bbR}(\bbC) = 2\) e \(\{1, i\}\) é uma base da álgebra \(\bbC\) sobre \(\bbR\).</li>
+        <li>\(\bbR\) é uma \(\bbQ\)-álgebra, com \(\dim_{\bbQ}(\bbR) = \infty\).</li>
+        <li>A \(\bbF\)-álgebra de matrizes \(M_n(\bbF)\) tem \(\dim_{\bbF}(M_n(\bbF)) = n^2\) e \(\{e_{ij} \mid 1 \le i, j \le n\}\) é uma base de \(M_n(\bbF)\) sobre \(\bbF\).</li>
+        <li>\(\bbR^3\) com o produto dado pelo produto vetorial usual é uma \(\bbR\)-álgebra com \(\dim_{\bbR}(\bbR^3) = 3\). Note que esse produto vetorial não dá uma estrutura de anéis para \(\bbR^3\).<span class="fim"></span></li>
+      </ol>  
+    </p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-variasAlgebras" class="def">
+      Seja \(A\) uma \(\bbF\)-álgebra. Dizemos que \(A\) é
+      <ol class="alfa">
+        <li><strong>unitária</strong>, se existe \(1 \in A\) tal que \(1\ast a = a \ast 1 = a\);</li>
+        <li><strong>associativa</strong>, se \((a\ast b)\ast c = a\ast (b \ast c)\), para todo \(a, b, c \in A\);</li>
+        <li><strong>de Lie</strong>, se \(a\ast a = 0\) e \((a\ast b)\ast c + (b \ast c)\ast a + (c \ast a)\ast b = 0\), para todo \(a, b, c \in A\);</li>
+        <li><strong>de Jordan</strong>, se \(a\ast b = b \ast a\) e \((a^2 \ast b)\ast a = a^2\ast (b \ast a)\), para todo \(a, b \in A\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-variasAlgebras" class="obs">
+      <ol class="alfa">
+        <li>Se \(A\) é associativa, então \(A\) é um espaço vetorial com uma estrutura de anel. Nesse caso, vamos denotar \(a\ast b\) por \(ab\).</li>
+        <li>Se \(A\) é uma álgebra de Lie, denotamos \(a\ast b\) por \([a, b]\). Chamamos, nesse caso, \([a,b]\) de <em>colchete de Lie</em>. Aqui, temos que \([a,a] = 0\) e \([[a,b],c] + [[b,c],a] + [[c,a],b] = 0\). A última igualdade é chamada de <em>identidade de Jacobi</em>.</li>
+        <li>Se \(A\) é uma álgebra de Jordan, denotamos \(a\ast b\) por \(a\circ b\), o qual é chamado de <em>produto de Jordan</em>. Aqui vale \(a\circ b = b \circ a\) e \((a^2 \circ b)\circ a = a^2\circ (b \circ a)\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-constEstr" class="def">
+      Sejam \(A\) uma álgebra e \(B = \{a_i \mid i \in I\}\) uma base de \(A\). Se \(a_i, a_j \in B\), então \(a_i\ast a_j = \sum_{k \in I}\alpha_{ij}^ka_k\), onde \(a_k \in B\) e \(\alpha_{ij}^k \in F\). As constantes \(\alpha_{ij}^k \in F\) são chamadas <strong>constantes estruturais</strong> de \(A\).
+    <span class="fim"></span></p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-algebraAnel" class="obs">
+      <ol class="alfa">
+        <li>De agora em diante, a palavra "álgebra" será sinônimo de "álgebra associativa". Logo, uma álgebra é uma \(F\)-espaço vetorial que possui uma estrutura de anel.</li>
+        <li>Dizemos que uma álgebra \(A\) é comutativa (nil, nilpotente, de divisão, etc), se \(A\) é um anel comutativo (nil, nilpotente, de divisão, etc).<span class="fim"></span></li>
+      </ol>  
+    </p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-subalgIdeal" class="def">
+      <ol class="alfa">
+        <li>Seja \(A\) uma álgebra. Uma <strong>subálgebra</strong> \(B\) de \(A\) é um subespaço vetorial de \(A\) que também é um subanel de \(A\).</li>
+        <li>Um <strong>ideal à esquerda</strong> (à direita, bilateral) de \(A\) é um subespaço vetorial de \(A\) que também é um ideal à esquerda (à direita, bilateral) de \(A\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-subalgIdeal" class="obs">
+      <ol class="alfa">
+        <li>A palavra "ideal" será reservada para ideal bilateral. A noção de ideais maximais e minimais são definidas analogamente.</li>
+        <li>Seja \(A\) uma álgebra. Então um ideal do anel \(A\) não necessariamente é um ideal da álgebra \(A\).</li>
+        <li>Se \(A\) é uma álgebra unitária, então todo ideal do anel \(A\) é um ideal da álgebra \(A\). Se \(\alpha \in F\) e \(a \in A\), então \(\alpha a = \alpha (1a) = (\alpha 1) a = a (\alpha 1)\). Logo, se \(I\) é um ideal de um anel \(A\), então \(\alpha I = (\alpha 1)I \subseteq I\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-anelQuoc" class="def">
+      Se \(I\) é um ideal de \(A\), então \(\rfrac{A}{I}\) é uma álgebra, chamada de <strong>álgebra quociente</strong> de \(A\) por \(I\).
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-homo" class="def">
+      Sejam \(A\) e \(B\) álgebras e \(f: A \to B\) uma função. Dizemos que \(f\) é um <strong>homomorfismo</strong> (de álgebras), se
+      <ol class="alfa">
+        <li>\(f(a_1 + a_2) = f(a_1) + f(a_2)\)</li>
+        <li>\(f(a_1a_2) = f(a_1)f(a_2)\)</li>
+        <li>\(f(\alpha a) = \alpha f(a)\)</li>
+      </ol>
+      para todo \(\alpha \in F\), \(a, a_1, a_2 \in A\). Em outros termos, um homomorfismo de álgebras é uma transformação linear que respeita o produto.
+    <span class="fim"></span></p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-iso" class="obs">
+      As definições de núcleo, imagem, monomorfismo, epimorfismo, isomorfismo são análogos ao caso de anéis e módulos. Além disso, os teoremas do isomorfismo são válidos para álgebras (reveja a <a href="https://silvamigor.github.io/resumos/algebra/algebraNaoComutativa/algebraNaoComutativa-aulas/algebraNaoComutativa-aula03.html">Aula 3</a>).
+    <span class="fim"></span></p>
+    
+    <!-- EXERCÍCIO -->
+    <p id="exerc-" class="exerc">
+      <ol class="numerico">
+        <li>Seja \(A\) uma álgebra de Lie. Mostre que \([a, b] = -[b, a]\), para todo \(a, b \in A\). Mostre que se \(\char(F) \neq 2\), então está propriedade é equivalente a \([a, a] = 0\), para todo \(a \in A\). (<a href="algebraNaoComutativa-exercicios/anc-aula14-exerc/anc-aula14-exerc01.html">Solução</a>)</li>
+        <li>
+          Seja \(A\) uma álgebra associativa. Mostre que
+          <ol class="alfa">
+            <li>o produto \([a, b] = ab - ba\), para todo \(a, b \in A\), dá uma estrutura de álgebra de Lie para \(A\).</li>
+            <li>se \(\char(F) \neq 2\), então o produto \(a \circ b = \frac{1}{2}(ab + ba)\) dá uma estrutura de álgebra de Jordan para \(A\). (<a href="algebraNaoComutativa-exercicios/anc-aula14-exerc/anc-aula14-exerc02.html">Solução</a>)</li>
+          </ol>
+        </li>
+        <li>Mostre que se \(A\) é um \(F\)-álgebra, então \(\End_{F}(A)\) também o é. Além disso, se \(A\) tem dimensão finita, então \(\End_{F}(A) \cong M_n(F)\). (<a href="algebraNaoComutativa-exercicios/anc-aula14-exerc/anc-aula14-exerc03.html">Solução</a>)<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+  </body>
+  
+</html>
+
