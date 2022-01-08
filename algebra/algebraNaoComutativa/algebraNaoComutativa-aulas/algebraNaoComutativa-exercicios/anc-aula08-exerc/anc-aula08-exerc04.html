@@ -330,10 +330,79 @@
     </p>
     
     <p class="sol">
-      
+      Considere a função
+    \[
+      \begin{array}{rcl}
+        \varphi: M_n(\oplus_{i=1}^{m}R_i) & \to & \oplus_{i=1}^{m}M_n(R_i) \\
+        \begin{pmatrix}
+          r_{11}^{1} + \cdots + r_{11}^{m} & \cdots & r_{1n}^{1} + \cdots + r_{1n}^{m} \\
+          \vdots & \ddots & \vdots \\
+          r_{n1}^{1} + \cdots + r_{n1}^{m} & \cdots & r_{nn}^{1} + \cdots + r_{nn}^{m}
+        \end{pmatrix}
+        & \mapsto &
+        \begin{pmatrix}
+          r_{11}^{1} & \cdots & r_{1n}^{1} \\
+          \vdots & \ddots & \vdots \\
+          r_{n1}^{1} & \cdots & r_{nn}^{1}
+        \end{pmatrix}
+        +
+        \cdots
+        +
+        \begin{pmatrix}
+          r_{11}^{m} & \cdots & r_{1n}^{m} \\
+          \vdots & \ddots & \vdots \\
+          r_{n1}^{m} & \cdots & r_{nn}^{m}
+        \end{pmatrix}.
+      \end{array}
+    \]
+    Note que \(\varphi\) é um homomorfismo de anéis bijetor. Logo, \(M_n(\oplus_{i=1}^{m}R_i) \cong \oplus_{i=1}^{m}M_n(R_i)\). Observe também que um elemento do anel \(M_n(M_m(R))\) pode ser escrito da seguinte forma:
+    \[
+      \begin{pmatrix}
+        \begin{pmatrix}
+          a_{11}^{11} & \cdots & a_{1m}^{1m} \\
+          \vdots & \ddots & \vdots \\
+          a_{m1}^{m1} & \cdots & a_{mm}^{mm}
+        \end{pmatrix}
+        & \cdots &
+        \begin{pmatrix}
+          a_{11}^{1\big((n-1)m+1\big)} & \cdots & a_{1m}^{1(nm)} \\
+          \vdots & \ddots & \vdots \\
+          a_{m1}^{m\big((n-1)m+1\big)} & \cdots & a_{mm}^{m(nm)}
+        \end{pmatrix}
+        \\
+        \vdots & \ddots & \vdots \\
+        \begin{pmatrix}
+          a_{11}^{\big((n-1)m+1\big)1} & \cdots & a_{1m}^{\big((n-1)m+1\big)m} \\
+          \vdots & \ddots & \vdots \\
+          a_{m1}^{(nm)1} & \cdots & a_{mm}^{(nm)m}
+        \end{pmatrix}
+        & \cdots &
+        \begin{pmatrix}
+          a_{11}^{\big((n-1)m+1\big)\big((n-1)m+1\big)} & \cdots & a_{1m}^{\big((n-1)m+1\big)(nm)} \\
+          \vdots & \ddots & \vdots \\
+          a_{m1}^{(nm)\big((n-1)m+1\big)} & \cdots & a_{mm}^{(nm)(nm)}
+        \end{pmatrix}
+      \end{pmatrix}.
+    \]
+    Tal elemento pode ser identificado com o elemento
+    \[
+      \begin{pmatrix}
+        a_{11}^{11} & \cdots & a_{1m}^{1m} & \cdots & a_{11}^{1\big((n-1)m+1\big)} & \cdots & a_{1m}^{1(nm)} \\
+        \vdots & \ddots & \vdots & \cdots & \vdots & \ddots & \vdots \\
+        a_{m1}^{m1} & \cdots & a_{mm}^{mm} & \cdots & a_{11}^{1\big((n-1)m+1\big)} & \cdots & a_{1m}^{1(nm)} \\
+        \vdots & \ddots & \vdots & \cdots & \vdots & \ddots & \vdots \\
+        a_{11}^{\big((n-1)m+1\big)1} & \cdots & a_{1m}^{\big((n-1)m+1\big)m} & \cdots & a_{11}^{\big((n-1)m+1\big)\big((n-1)m+1\big)} & \cdots & a_{1m}^{\big((n-1)m+1\big)(nm)}\\
+        \vdots & \ddots & \vdots & \cdots & \vdots & \ddots & \vdots \\
+        a_{m1}^{(nm)1} & \cdots & a_{mm}^{(nm)m} & \cdots & a_{m1}^{(nm)\big((n-1)m+1\big)} & \cdots & a_{mm}^{(nm)(nm)}
+      \end{pmatrix}
+    \]
+    que pertence a \(M_{nm}(R)\). Veja que essa identificação pode ser feita de maneira recíproca. Logo, os anéis \(M_n(M_m(R))\) e \(M_{nm}(R)\) são isomorfos. Assim, de posse dessas duas observações, concluímos que se \(R\) é semissimples, então \(R \cong \oplus_{i=1}^{\ell} M_{n_i}(D_i)\), onde \(D_i\) são anéis de divisão. Logo, 
+    \[
+      M_n(R) \;=\; M_n(\oplus_{i=1}^{\ell} M_{n_i}(D_i)) \;\cong\; \oplus_{i=1}^{\ell} M_n(M_{n_i}(D_i)) \;\cong\; \oplus_{i=1}^{\ell} M_{n+n_i}(D_i).
+    \]
+    Portanto, pelo Teorema de Artin, \(M_n(R)\) é um anel semissimples.
     <span class="cqd"></span></p>
     
   </body>
   
 </html>
-
