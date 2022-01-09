@@ -334,10 +334,27 @@
     </p>
     
     <p class="sol">
-      
+      Seja \(\varphi: \oplus_{i=1}^{r}R_i \to \oplus_{j=1}^{\ell}S_j\) um isomorfismo de anéis, onde \(R_i\) e \(S_j\) são anéis simples. Podemos mostrar que  \(\varphi(R_i) \cong R_i\) (aqui \(\varphi(R_i)\) é uma notação para simplificar \(\varphi(\zero \oplus \cdots \oplus R_i \oplus \cdots \oplus \zero)\)). Disso, segue que \(R_i\) é um ideal simples de \(\oplus_{j=1}^{\ell}S_j\). Pela <a href="https://silvamigor.github.io/resumos/algebra/algebraNaoComutativa/algebraNaoComutativa-aulas/algebraNaoComutativa-aula09.html#lema-idealAnelSemissimples">Aula 9</a>, temos que \(R_i \cong \oplus_{k=1}^{m}S_{j_k}\), com \(m \le \ell\). Como \(R_i\) é simples, então \(R_i \cong S_j\), para algum \(j\). Isso mostra que \(r \le \ell\). Usando \(\varphi^{-1}\), mostramos a desigualdade contrária, o que demonstra que \(r = \ell\). Portanto, se \(\oplus_{i = 1}^{k_1}M_{n_i}(D_i) \cong \oplus_{j = 1}^{k_2}M_{r_j}(D'_j)\), então, uma vez que \(M_{n_i}(D_i)\) e \(M_{r_j}(D'_j)\) são simples, concluímos que \(k_1 = k_2\) e que \(M_{n_i}(D_i) \cong M_{r_i}(D'_i)\), para cada \(i = 1, \dots, k_1\). Pela dimensão das matrizes, temos que \(n_i = r_i\). Precisamos mostrar que \(D_i \cong D'_i\). Denote por \(E = M_n(D)\) e por \(E' = M_n(D')\) e suponha que \(E \cong E'\). Defina
+    \[
+      \begin{array}{ccc}
+        L = \begin{pmatrix}
+          D & 0 & \cdots & 0 \\
+          D & 0 & \cdots & 0 \\
+          \vdots & \vdots & \ddots & \vdots \\
+          D & 0 & \cdots & 0
+        \end{pmatrix},
+        & &
+        L' = \begin{pmatrix}
+          D' & 0 & \cdots & 0 \\
+          D' & 0 & \cdots & 0 \\
+          \vdots & \vdots & \ddots & \vdots \\
+          D' & 0 & \cdots & 0
+        \end{pmatrix}.
+      \end{array}
+    \]
+    Como \(L\) e \(L'\) são ideais à esquerda de \(E\) e \(E'\), respectivamente, então, também pela <a href="https://silvamigor.github.io/resumos/algebra/algebraNaoComutativa/algebraNaoComutativa-aulas/algebraNaoComutativa-aula09.html#teor-caracAnelSemisIdeal">Aula 9</a>, temos que \(L = Ee\) e \(L' = E'f\), onde \(e\) e \(f\) são idempotentes. Fazendo uma mudança de base, se preciso for, temos que o isomorfismo de \(E\) para \(E'\) leva \(e\) para \(f\). Isso implica que \(L \cong L'\). Disso, concluímos que \(D \cong D'\), finalizando essa questão.
     <span class="cqd"></span></p>
     
   </body>
   
 </html>
-
