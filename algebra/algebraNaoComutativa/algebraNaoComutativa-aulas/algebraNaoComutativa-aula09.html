@@ -353,7 +353,7 @@
     <span class="fim"></span></p>
     
     <!-- OBSERVAÇÃO -->
-    <p id="obs-" class="obs">
+    <p id="obs-idempPrimCentrais" class="obs">
       <ol class="alfa">
         <li>Se pegarmos a decomposição de \(R\) sem ser a de Wedderburn, mas sendo apenas de ideais à esquerda, o resultado acima ainda vale, a menos da condição de centralidade dos idempotentes. Nesse caso, a família de idempotentes é dita primitiva (sem central).</li>
         <li>Seja \(V\) um espaço vetorial de dimensão finita sobre um corpo \(F\). Se \(\alpha \in F\) e \(v \in V\setminus\zero\), então \(\alpha v = 0\) implica que \(\alpha = 0\). Nesse caso, dizemos que \(V\) é um \(F\)-módulo <em>fiel</em>. <span class="fim"></span></li>
@@ -361,17 +361,17 @@
     </p>
     
     <!-- DEFINIÇÃO -->
-    <p id="def-" class="def">
+    <p id="def-fiel" class="def">
       Dizemos que um \(R\)-módulo \(M\) é <strong>fiel</strong>, se \(\{r \in R \mid rm = 0 \; \forall \, m \in M\} = \zero\). O conjunto \(\{r \in R \mid rm = 0, \; \forall \, m \in M\}\) é chamado de <strong>anulador</strong> de \(M\) e é denotado por \(\Ann(M)\). Com essa notação temos que um \(R\)-módulo \(M\) é fiel se, e somente se, \(\Ann(M) = \zero\).
     <span class="fim"></span></p>
     
     <!-- LEMA -->
-    <p id="lema-" class="lema">
+    <p id="lema-RsimplesEntaoMfiel" class="lema">
       Se \(M\) é um \(R\)-módulo, então \(\Ann(M) \trianglelefteq R\) e \(M\) é um \(\rfrac{R}{\Ann(M)}\)-módulo fiel. Em particular, se \(R\) é um anel simples, então \(M\) é fiel.
     <span class="fim"></span></p>
     
     <!-- TEOREMA -->
-    <p id="teor-" class="teor" text="Teorema de Artin">
+    <p id="teor-artin" class="teor" text="Teorema de Artin">
       Seja \(R\) um anel. São equivalentes:
       <ol class="alfa">
         <li>\(R\) é um anel artiniano simples;</li>
@@ -382,8 +382,13 @@
       </ol>
     </p>
     
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-artin" class="obs">
+      Em alguns textos, chama-se Teorema de Artin apenas a equivalência entre as afirmações (a) e (b). O Teorema de Artin, conforme apresentamos, também é chamado, por alguns autores, de <em>Teorema de Wedderburn-Artin</em>.
+    <span class="fim"></span></p>
+    
     <!-- EXERCÍCIO -->
-    <p id="exerc-" class="exerc">
+    <p id="exerc-aula09" class="exerc">
       <ol class="numerico">
         <li>Sejam \(M\) um \(R\)-módulo e \(I \trianglelefteq R\) tal que \(I \subseteq \Ann(M)\). Mostre que \(\overline{r}m = rm\), para todo \(\overline{r} \in \rfrac{R}{I}\), \(m \in M\) dá uma estrutura de \(\rfrac{R}{I}\)-módulo a \(M\) e os \(\rfrac{R}{I}\)-módulos de \(M\) coincidem com os \(R\)-módulos de \(M\). (<a href="algebraNaoComutativa-exercicios/anc-aula09-exerc/anc-aula09-exerc01.html">Solução</a>)</li>
         <li>Encontre um anel simples que não seja isomorfo a um anel de matrizes com coeficientes em um anel de divisão. (<a href="algebraNaoComutativa-exercicios/anc-aula09-exerc/anc-aula09-exerc02.html">Solução</a>)<span class="fim"></span></li>
@@ -393,4 +398,3 @@
   </body>
   
 </html>
-
