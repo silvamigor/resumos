@@ -337,7 +337,7 @@
         \)
         Mostre que
         \(
-          J(UT_2(R)) = 
+          UT_2(R) = 
           \begin{pmatrix}
             J(R) & R \\
             0 & J(R)
@@ -347,10 +347,69 @@
     </p>
     
     <p class="sol">
-      
+      Lembre-se de que 
+    \(
+      \begin{pmatrix}
+        a & b \\
+        0 & c
+      \end{pmatrix}
+      \in J(UT_2(R))
+    \)
+    se, e somente se, 
+    \[
+      \begin{pmatrix}
+        1 & 0 \\
+        0 & 1
+      \end{pmatrix}
+      +
+      \begin{pmatrix}
+        x & y \\
+        0 & z
+      \end{pmatrix}
+      \begin{pmatrix}
+        a & b \\
+        0 & c
+      \end{pmatrix}
+      =
+      \begin{pmatrix}
+        1 + xa & xb + yc \\
+        0 & 1 + zc
+      \end{pmatrix}
+    \]
+    tem iverso à esquerda para todo \(x, y, z \in R\). Ou seja, 
+    \(
+      \begin{pmatrix}
+        a & b \\
+        0 & c
+      \end{pmatrix}
+      \in J(UT_2(R))
+    \)
+    se, e somente se, existirem \(\alpha, \beta, \gamma \in R\) tais que 
+    \[
+      \begin{pmatrix}
+        \alpha & \beta \\
+        0 & \gamma
+      \end{pmatrix}
+      \begin{pmatrix}
+        1 + xa & xb + yc \\
+        0 & 1 + zc
+      \end{pmatrix}
+      =
+      \begin{pmatrix}
+        1 & 0 \\
+        0 & 1
+      \end{pmatrix}.
+    \]
+    Isso equivale a dizer que \(a, b \in J(R)\). Portanto, 
+    \[
+      J(UT_2(R)) = 
+      \begin{pmatrix}
+        J(R) & R \\
+        0 & J(R)
+      \end{pmatrix}.
+    \]
     <span class="cqd"></span></p>
     
   </body>
   
 </html>
-
