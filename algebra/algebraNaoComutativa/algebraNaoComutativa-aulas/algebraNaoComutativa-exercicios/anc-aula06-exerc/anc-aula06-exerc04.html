@@ -338,10 +338,104 @@
     </p>
     
     <p class="sol">
-      
+      Sejam 
+    \(
+      S = 
+      \begin{pmatrix}
+        0 & \bbR \\
+        0 & \bbQ
+      \end{pmatrix}
+    \),
+    \(
+      T = 
+      \begin{pmatrix}
+        \bbR & 0 \\
+        0 & 0
+      \end{pmatrix}
+    \) e 
+    \(
+      U = 
+      \begin{pmatrix}
+        0 & \bbR \\
+        0 & 0
+      \end{pmatrix}
+    \)
+    subconjuntos de \(R\). Observe que
+    \[
+      \begin{pmatrix}
+        x_1 & x_2 \\
+        0 & q
+      \end{pmatrix}
+      \begin{pmatrix}
+        x'_1 & x'_2 \\
+        0 & q'
+      \end{pmatrix}
+      =
+      \begin{pmatrix}
+        x_1x'_1 & x_1x'_2 + x_2q' \\
+        0 & qq'
+      \end{pmatrix},
+    \]
+    onde \(x_1, x'_1, x_2, x'_2 \in \bbR\) e \(q, q' \in \bbQ\). Portanto, \(S\), \(T\) e \(U\) são ideais à esquerda de \(R\), logo \(R\)-submódulos do \(R\)-módulo \(R\). Vamos mostrar que a cadeia de \(R\)-submódulos
+    \[
+      \zero \subseteq U \subseteq S \subseteq R.
+    \]
+    é uma série de composição de \(R\), ou seja, vamos mostrar que \(\rfrac{R}{S}\), \(\rfrac{S}{U}\) e \(U\) são \(R\)-módulos simples. Assim, pelo <a href="../anc-aula07-exerc/anc-aula07-exerc02.html">Exercício 7.2</a>, concluiremos que \(R\) é um anel artiniano e noetheriano à esquerda. Sejam \(xE_{12}, yE_{12} \in U\), com \(x \neq 0 \neq y\) e
+    \(
+      E_{12} =
+      \begin{pmatrix}
+        0 & 1 \\
+        0 & 0
+      \end{pmatrix}.
+    \)
+    Então \(xE_{12} = \frac{x}{y}E_{12}yE_{12}\). Isso significa que \(U\) é gerado por qualquer elemento não nulo. Logo, \(U\) é um \(R\)-módulo simples. Observe que um elemento de \(S\) é da forma \(xE_{12} + qE_{22}\), com \(x \in \bbR\) e \(q \in \bbQ\). Assim, um elemento de \(\rfrac{S}{U}\) é da forma \(qE_{22} + U\). Sejam \(q_1E_{22} + U, q_2E_{22} + U \in \rfrac{S}{U}\). Então \(q_1E_{22} + U = (\frac{q_1}{q_2}E_{22} + U)(q_2E_{22} + U)\). Logo, todo elemento não nulo de \(\rfrac{S}{U}\) gera o \(R\)-módulo \(\rfrac{S}{U}\). Isso implica que \(\rfrac{S}{U}\) é um \(R\)-módulo simples. O mesmo raciocínio se aplica para \(\rfrac{R}{S}\), observando que um elemento desse conjunto é da forma \(xE_{11} + S\). Logo, \(\rfrac{R}{S}\) também é um \(R\)-módulo simples, o que demonstra que \(R\) é artiniano e noetheriano à esquerda. Agora, vamos mostrar que \(R\) não é artiniano, nem noetheriano à direita. Sejam
+    \[
+      \begin{array}{cccc}
+        F_1 = \bbQ(\sqrt{2}), & F_2 = \bbQ(\sqrt{2}, \sqrt{3}), & F_3 = \bbQ(\sqrt{2}, \sqrt{3}, \sqrt{5}), & \dots
+      \end{array}
+    \]
+    subcorpos de \(\bbR\). Defina 
+    \(
+      R_{F_i} = 
+      \begin{pmatrix}
+        0 & F_i \\
+        0 & 0
+      \end{pmatrix}.
+    \)
+    Uma vez que \(F_i\) é um \(\bbQ\)-espaço vetorial, então, para todo \(d \in F_i\), \(x_1, x_2 \in \bbR\) e \(q \in \bbQ\), temos que
+    \[
+      \begin{pmatrix}
+        0 & d \\
+        0 & 0
+      \end{pmatrix}
+      \begin{pmatrix}
+        x_1 & x_2 \\
+        0 & q
+      \end{pmatrix}
+      =
+      \begin{pmatrix}
+        0 & qd \\
+        0 & 0
+      \end{pmatrix}
+      \in R_{F_i}.
+    \]
+    Logo, \(R_{F_i}\) é um ideal à direita de \(R\). Uma vez que \(F_1 \subsetneq F_2 \subsetneq \cdots\), então \(R_{F_1} \subsetneq R_{F_2} \subsetneq \cdots\). Portanto, essa é uma cadeia ascendente de ideais à direita que não estabiliza, logo, \(R\) não é um anel noetheriano à direita. Defina, agora, \(\calP = \{\sqrt{p} \mid p \text{ primo}\}\) e sejam
+    \[
+      \begin{array}{cccc}
+        K_1 = \bbQ(\calP), & K_2 = \bbQ(\calP\setminus\{\sqrt{2}\}), & K_3 = \bbQ(\calP\setminus\{\sqrt{2}, \sqrt{3}\}), & \dots
+      \end{array}
+    \]
+    subcorpos de \(\bbR\). Defina
+    \(
+      R_{K_i} = 
+      \begin{pmatrix}
+        0 & K_i \\
+        0 & 0
+      \end{pmatrix}.
+    \)
+    Pelas mesmas razões que \(R_{F_i}\) é um ideal à direita de \(R\), mostra-se que \(R_{K_i}\) também é um ideal à direita de \(R\). Uma vez que \(K_1 \supsetneq K_2 \supsetneq \cdots\), então \(R_{K_1} \supsetneq R_{K_2} \supsetneq \cdots\). Portanto, \(R\) não é um anel artiniano à direita.
     <span class="cqd"></span></p>
     
   </body>
   
 </html>
-
