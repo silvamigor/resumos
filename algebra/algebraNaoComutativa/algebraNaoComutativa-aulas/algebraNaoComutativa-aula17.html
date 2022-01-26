@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Álgebra Não Comutativa - Aula 17 </title>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        extensions: ["https://lomath.in/doc/xyjax/xypic.js","tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+          processEscapes: true
+        },
+        "HTML-CSS": { fonts: ["TeX"] },
+        TeX: {
+          equationNumbers: { autoNumber: "AMS" },
+          Macros: {
+            fraka: ["\\mathfrak{a}"],
+            frakb: ["\\mathfrak{b}"],
+            frakc: ["\\mathfrak{c}"],
+            frakd: ["\\mathfrak{d}"],
+            frake: ["\\mathfrak{e}"],
+            frakf: ["\\mathfrak{f}"],
+            frakg: ["\\mathfrak{g}"],
+            frakh: ["\\mathfrak{h}"],
+            fraki: ["\\mathfrak{i}"],
+            frakj: ["\\mathfrak{j}"],
+            frakk: ["\\mathfrak{k}"],
+            frakl: ["\\mathfrak{l}"],
+            frakm: ["\\mathfrak{m}"],
+            frakn: ["\\mathfrak{n}"],
+            frako: ["\\mathfrak{o}"],
+            frakp: ["\\mathfrak{p}"],
+            frakq: ["\\mathfrak{q}"],
+            frakr: ["\\mathfrak{r}"],
+            fraks: ["\\mathfrak{s}"],
+            frakt: ["\\mathfrak{t}"],
+            fraku: ["\\mathfrak{u}"],
+            frakv: ["\\mathfrak{v}"],
+            frakx: ["\\mathfrak{x}"],
+            frakw: ["\\mathfrak{w}"],
+            fraky: ["\\mathfrak{y}"],
+            frakz: ["\\mathfrak{z}"],
+            frakA: ["\\mathfrak{A}"],
+            frakB: ["\\mathfrak{B}"],
+            frakC: ["\\mathfrak{C}"],
+            frakD: ["\\mathfrak{D}"],
+            frakE: ["\\mathfrak{E}"],
+            frakF: ["\\mathfrak{F}"],
+            frakG: ["\\mathfrak{G}"],
+            frakH: ["\\mathfrak{H}"],
+            frakI: ["\\mathfrak{I}"],
+            frakJ: ["\\mathfrak{J}"],
+            frakK: ["\\mathfrak{K}"],
+            frakL: ["\\mathfrak{L}"],
+            frakM: ["\\mathfrak{M}"],
+            frakN: ["\\mathfrak{N}"],
+            frakO: ["\\mathfrak{O}"],
+            frakP: ["\\mathfrak{P}"],
+            frakQ: ["\\mathfrak{Q}"],
+            frakR: ["\\mathfrak{R}"],
+            frakS: ["\\mathfrak{S}"],
+            frakT: ["\\mathfrak{T}"],
+            frakU: ["\\mathfrak{U}"],
+            frakV: ["\\mathfrak{V}"],
+            frakX: ["\\mathfrak{X}"],
+            frakW: ["\\mathfrak{W}"],
+            frakY: ["\\mathfrak{Y}"],
+            frakZ: ["\\mathfrak{Z}"],
+            frakgl: ["\\mathfrak{gl}"],
+            fraksl: ["\\mathfrak{sl}"],
+            bba: ["\\mathbb{a}"],
+            bbb: ["\\mathbb{b}"],
+            bbc: ["\\mathbb{c}"],
+            bbd: ["\\mathbb{d}"],
+            bbe: ["\\mathbb{e}"],
+            bbf: ["\\mathbb{f}"],
+            bbg: ["\\mathbb{g}"],
+            bbh: ["\\mathbb{h}"],
+            bbi: ["\\mathbb{i}"],
+            bbj: ["\\mathbb{j}"],
+            bbk: ["\\mathbb{k}"],
+            bbl: ["\\mathbb{l}"],
+            bbm: ["\\mathbb{m}"],
+            bbn: ["\\mathbb{n}"],
+            bbo: ["\\mathbb{o}"],
+            bbp: ["\\mathbb{p}"],
+            bbq: ["\\mathbb{q}"],
+            bbr: ["\\mathbb{r}"],
+            bbs: ["\\mathbb{s}"],
+            bbt: ["\\mathbb{t}"],
+            bbu: ["\\mathbb{u}"],
+            bbv: ["\\mathbb{v}"],
+            bbx: ["\\mathbb{x}"],
+            bbw: ["\\mathbb{w}"],
+            bby: ["\\mathbb{y}"],
+            bbz: ["\\mathbb{z}"],
+            bbA: ["\\mathbb{A}"],
+            bbB: ["\\mathbb{B}"],
+            bbC: ["\\mathbb{C}"],
+            bbD: ["\\mathbb{D}"],
+            bbE: ["\\mathbb{E}"],
+            bbF: ["\\mathbb{F}"],
+            bbG: ["\\mathbb{G}"],
+            bbH: ["\\mathbb{H}"],
+            bbI: ["\\mathbb{I}"],
+            bbJ: ["\\mathbb{J}"],
+            bbK: ["\\mathbb{K}"],
+            bbL: ["\\mathbb{L}"],
+            bbM: ["\\mathbb{M}"],
+            bbN: ["\\mathbb{N}"],
+            bbO: ["\\mathbb{O}"],
+            bbP: ["\\mathbb{P}"],
+            bbQ: ["\\mathbb{Q}"],
+            bbR: ["\\mathbb{R}"],
+            bbS: ["\\mathbb{S}"],
+            bbT: ["\\mathbb{T}"],
+            bbU: ["\\mathbb{U}"],
+            bbV: ["\\mathbb{V}"],
+            bbX: ["\\mathbb{X}"],
+            bbW: ["\\mathbb{W}"],
+            bbY: ["\\mathbb{Y}"],
+            bbZ: ["\\mathbb{Z}"],
+            cala: ["\\mathcal{a}"],
+            calb: ["\\mathcal{b}"],
+            calc: ["\\mathcal{c}"],
+            cald: ["\\mathcal{d}"],
+            cale: ["\\mathcal{e}"],
+            calf: ["\\mathcal{f}"],
+            calg: ["\\mathcal{g}"],
+            calh: ["\\mathcal{h}"],
+            cali: ["\\mathcal{i}"],
+            calj: ["\\mathcal{j}"],
+            calk: ["\\mathcal{k}"],
+            call: ["\\mathcal{l}"],
+            calm: ["\\mathcal{m}"],
+            caln: ["\\mathcal{n}"],
+            calo: ["\\mathcal{o}"],
+            calp: ["\\mathcal{p}"],
+            calq: ["\\mathcal{q}"],
+            calr: ["\\mathcal{r}"],
+            cals: ["\\mathcal{s}"],
+            calt: ["\\mathcal{t}"],
+            calu: ["\\mathcal{u}"],
+            calv: ["\\mathcal{v}"],
+            calx: ["\\mathcal{x}"],
+            calw: ["\\mathcal{w}"],
+            caly: ["\\mathcal{y}"],
+            calz: ["\\mathcal{z}"],
+            calA: ["\\mathcal{A}"],
+            calB: ["\\mathcal{B}"],
+            calC: ["\\mathcal{C}"],
+            calD: ["\\mathcal{D}"],
+            calE: ["\\mathcal{E}"],
+            calF: ["\\mathcal{F}"],
+            calG: ["\\mathcal{G}"],
+            calH: ["\\mathcal{H}"],
+            calI: ["\\mathcal{I}"],
+            calJ: ["\\mathcal{J}"],
+            calK: ["\\mathcal{K}"],
+            calL: ["\\mathcal{L}"],
+            calM: ["\\mathcal{M}"],
+            calN: ["\\mathcal{N}"],
+            calO: ["\\mathcal{O}"],
+            calP: ["\\mathcal{P}"],
+            calQ: ["\\mathcal{Q}"],
+            calR: ["\\mathcal{R}"],
+            calS: ["\\mathcal{S}"],
+            calT: ["\\mathcal{T}"],
+            calU: ["\\mathcal{U}"],
+            calV: ["\\mathcal{V}"],
+            calX: ["\\mathcal{X}"],
+            calW: ["\\mathcal{W}"],
+            calY: ["\\mathcal{Y}"],
+            calZ: ["\\mathcal{Z}"],
+            bfa: ["\\mathbf{a}"],
+            bfb: ["\\mathbf{b}"],
+            bfc: ["\\mathbf{c}"],
+            bfd: ["\\mathbf{d}"],
+            bfe: ["\\mathbf{e}"],
+            bff: ["\\mathbf{f}"],
+            bfg: ["\\mathbf{g}"],
+            bfh: ["\\mathbf{h}"],
+            bfi: ["\\mathbf{i}"],
+            bfj: ["\\mathbf{j}"],
+            bfk: ["\\mathbf{k}"],
+            bfl: ["\\mathbf{l}"],
+            bfm: ["\\mathbf{m}"],
+            bfn: ["\\mathbf{n}"],
+            bfo: ["\\mathbf{o}"],
+            bfp: ["\\mathbf{p}"],
+            bfq: ["\\mathbf{q}"],
+            bfr: ["\\mathbf{r}"],
+            bfs: ["\\mathbf{s}"],
+            bft: ["\\mathbf{t}"],
+            bfu: ["\\mathbf{u}"],
+            bfv: ["\\mathbf{v}"],
+            bfx: ["\\mathbf{x}"],
+            bfw: ["\\mathbf{w}"],
+            bfy: ["\\mathbf{y}"],
+            bfz: ["\\mathbf{z}"],
+            bfA: ["\\mathbf{A}"],
+            bfB: ["\\mathbf{B}"],
+            bfC: ["\\mathbf{C}"],
+            bfD: ["\\mathbf{D}"],
+            bfE: ["\\mathbf{E}"],
+            bfF: ["\\mathbf{F}"],
+            bfG: ["\\mathbf{G}"],
+            bfH: ["\\mathbf{H}"],
+            bfI: ["\\mathbf{I}"],
+            bfJ: ["\\mathbf{J}"],
+            bfK: ["\\mathbf{K}"],
+            bfL: ["\\mathbf{L}"],
+            bfM: ["\\mathbf{M}"],
+            bfN: ["\\mathbf{N}"],
+            bfO: ["\\mathbf{O}"],
+            bfP: ["\\mathbf{P}"],
+            bfQ: ["\\mathbf{Q}"],
+            bfR: ["\\mathbf{R}"],
+            bfS: ["\\mathbf{S}"],
+            bfT: ["\\mathbf{T}"],
+            bfU: ["\\mathbf{U}"],
+            bfV: ["\\mathbf{V}"],
+            bfX: ["\\mathbf{X}"],
+            bfW: ["\\mathbf{W}"],
+            bfY: ["\\mathbf{Y}"],
+            bfZ: ["\\mathbf{Z}"],
+            zero: ["\\{0\\}"],
+            id: ["\\operatorname\{id\}"],
+            sen: ["\\operatorname\{sen\}"],
+            tg: ["\\operatorname\{tg\}"],
+            ad: ["\\operatorname\{ad\}"],
+            mdc: ["\\operatorname\{mdc\}"],
+            im: ["\\operatorname\{im\}"],
+            Quat: ["\\operatorname\{Quat\}"],
+            Aut: ["\\operatorname\{Aut\}"],
+            Inn: ["\\operatorname\{Inn\}"],
+            orb: ["\\operatorname\{orb\}"],
+            stab: ["\\operatorname\{stab\}"],
+            Rep: ["\\operatorname\{Rep\}"],
+            Hom: ["\\operatorname\{Hom\}"],
+            End: ["\\operatorname\{End\}"],
+            Obj: ["\\operatorname\{Obj\}"],
+            tr: ["\\operatorname\{tr\}"],
+            diam: ["\\operatorname\{diam\}"],
+            diag: ["\\operatorname\{diag\}"],
+            Ind: ["\\operatorname\{Ind\}"],
+            Res: ["\\operatorname\{Res\}"],
+            Set: ["\\operatorname\{Set\}"],
+            coker: ["\\operatorname\{coker\}"],
+            supp: ["\\operatorname\{supp\}"],
+            Tor: ["\\operatorname\{Tor\}"],
+            vspan: ["\\operatorname\{vspan\}"],
+            char: ["\\operatorname\{char\}"],
+            Ann: ["\\operatorname\{Ann\}"],
+            pint: ["{ \\langle #1,#2 \\rangle }",2],
+            rfrac: ["{ {}^{#1}\\!/_{#2} }",2],
+            norma: ["{ \\Vert #1 \\Vert }",1],
+          },
+        },
+      });
+    </script>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js"></script>
+    <script src="http://www.w3schools.com/lib/w3data.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../itemParenteses.css" />
+    <link rel="stylesheet" type="text/css" href="../../../ambTeor.css" />
+    
+    <script>
+      function closeDetail(detailsElement) {
+        detailsElement.removeAttribute("open");
+        window.location = '#' + detailsElement.scrollIntoView({block: "nearest", behavior: "smooth"});
+      }
+    </script>
+    
+    <style>
+      body{
+        font-size: 14pt;
+        font-family: "Helvetica", sans-serif;
+        line-height: 1.5;
+        background-color: rgb(233,227,206);
+        counter-reset: contTeor contProp contLema contCoro contObs contDef contExerc contExemplo contSec 17;
+      }
+      
+      h1{
+        background-color: rgb(153,51,153);
+        color: rgb(255,250,250);
+      }
+      
+      h2{
+        color: rgb(153,51,153);
+      }
+      
+      details > summary {
+        font-weight: bold;
+        cursor: pointer;
+        position: relative;
+        transition: 0.15s background linear;
+      }
+      
+      details > summary:hover {
+        background: #d4d1ec;
+      }
+
+      details > p{
+        border: solid;
+      }
+      
+      .equationCenter {
+        width: 100%;
+        overflow-y: hidden;
+        overflow-x: auto;
+      }
+      
+      .buttonDetails {
+        border: none;
+        text-align: center;
+        cursor: pointer;
+        position: absolute;
+        right: 10px;
+      }
+      
+    </style>
+  </head>
+  
+  <body>
+  
+    <div style="text-align:center"><h1>Álgebra Não Comutativa</h1></div>
+    
+    <!-- ###### AULA 17 ###### -->
+    <h2>Aula 17 - Revisão de extensão de corpos</h2>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-" class="obs">
+      Ao longo dessa aula, \(K\) e \(F\) denotarão corpos.
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-extensao" class="def">
+      Dizemos que \(K\) é uma <strong>extensão</strong> de \(F\), se \(F\) é um subcorpo de \(K\).
+    <span class="fim"></span></p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-extensaoFinita" class="obs">
+      Se \(K\) é uma extensão de \(F\), então \(K\) é uma \(F\)-álgebra e \(\dim_F(K) = [K:F]\) é chamado de grau da extensão. A extensão é <strong>finita</strong>, se \([K:F] < \infty\) e infinita, caso contrário.
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-simples" class="def">
+      Se \(K\) é uma extensão de \(F\) e \(\Gamma \subseteq K\), então o <em>subcorpo (subanel) de \(K\) gerado</em> por \(\Gamma\) é a interseção de todos os subcorpos (subanéis) de \(K\) que contêm \(\Gamma\). O subcorpo de \(K\) gerado por \(\Gamma \cup F\) será denotado por \(F(\Gamma)\). Se \(\Gamma = \{\alpha_1, \dots, \alpha_n\}\), então \(F(\Gamma) = F(\alpha_1, \dots, \alpha_n)\) e se \(\Gamma = \{\alpha\}\), então \(F(\Gamma) = F(\alpha)\). Neste caso, dizemos que \(F(\alpha)\) é um <strong>extensão simples</strong> de \(F\).
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-elemAlgebrico" class="def">
+      Se \(K\) é uma extensão de \(F\) e \(u \in K\), então dizemos que \(u\) é <strong>algébrico</strong> sobre \(F\), se existe \(f(x) \in F[x]\) tal que \(f(u) = 0\). Caso contrário, dizemos que \(u\) é <em>transcendente</em>. Se \(u \in K\) é algébrico sobre \(F\), então existe um polinômio mônico irredutível \(g(x) \in F[x]\) tal que \(g(u) = 0\). Chamamos esse polinômio de <em>polinômio minimal</em> de \(u\).
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-extAlgebrica" class="def">
+      Dizemos que \(K\) é uma <strong>extensão algébrica</strong> de \(F\), se todo elemento de \(K\) é algébrico sobre \(F\). Dizemos que \(K\) é uma <em>extensão transcendente</em>, se pelo menos um elemento de \(K\) é transcendente sobre \(F\).
+    <span class="fim"></span></p>
+    
+    <!-- EXEMPLO -->
+    <p id="exemplo-extAlgebrica" class="exemplo">
+      Por exemplo, \(i \in \bbC\) é algébrico sobre \(\bbQ\) e, consequentemente, sobre \(\bbR\). Temos que \(\bbC\) é uma extensão algébrica de \(\bbR\) (\(\bbC = \bbR(i)\), \([\bbC:\bbR] = 2\)). Temos que \(\bbR\) é uma extensão transcendente de \(\bbQ\), pois \(\pi\) e \(e\) são transcendentes sobre \(\bbQ\).
+    <span class="fim"></span></p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-extSimples" class="obs">
+      Se \(K\) é uma extensão de \(F\) e \(u \in K\) é algébrico sobre \(F\), então \(F(u) = F[u]\) (subanel gerado por \(u\)) e \([F(u): F] = n\), onde \(n\) é o grau do polinômio minimal de \(u\). Além disso, \(\{1, u, u^2, \dots, u^{n-1}\}\) de \(F(u)\) sobre \(F\) e se \(f(x)\) é o polinômio minimal de \(u\), então \(F(u) \cong \rfrac{F[x]}{\langle f(x) \rangle}\).
+    <span class="fim"></span></p>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="prop-extFinExtAlg" class="prop">
+      Se \(K\) é uma extensão finita de \(F\), então \(K\) é uma extensão algébrica de \(F\).
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-cinde" class="def">
+      Se \(f(x) \in F[x]\), então dizemos que \(f(x)\) <strong>cinde</strong> sobre \(F\), se \(f(x)\) pode ser escrito na forma \(u_0(x - u_1)\cdots (x - u_n)\), onde \(u_i \in F\).
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-corpoDecomp" class="def">
+      Uma extensão \(K\) de \(F\) é um <strong>corpo de decomposição</strong> de um polinômio \(f(x) \in F[x]\), se \(f(x)\) cinde sobre \(K\) e \(K = F(u_1, \dots, u_n)\), onde \(u_i\) são as raízes de \(f(x)\) em \(K\).
+    <span class="fim"></span></p>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="prop-corpoDecomp" class="prop">
+      Todo polinômio \(f(x) \in F[x]\) de grau \(n \ge 1\) possui um corpo de decomposição \(K\) sobre \(F\) e \([K:F] \le n!\).
+    <span class="fim"></span></p>
+    
+    <!-- EXEMPLO -->
+    <p id="exemplo-corpoDecomp" class="exemplo">
+      <ol class="alfa">
+        <li>As únicas raízes de \(f(x) = x^2 - 7\) são \(\pm \sqrt{7}\). Então, \(f(x) = (x - \sqrt{7})(x + \sqrt{7})\) e \(\bbQ(\sqrt{7}) = \bbQ(\sqrt{7}, -\sqrt{7})\) é corpo de decomposição de \(f(x)\) sobre \(\bbQ\).</li>
+        <li>Considere \(g(x) = x^3 - 7\). Seja \(u\) uma raiz real de \(g\). Então \(\bbQ(u) \subseteq \bbR\) não é um corpo de decomposição de \(g(x)\) sobre \(\bbQ\), pois não contém todas as raízes de \(g(x)\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-separavel" class="def">
+      Seja \(f(x) \in F[x]\) irredutível.
+      <ol class="alfa">
+        <li>Dizemos que \(f(x)\) é um <strong>polinômio separável</strong>, se em algum corpo de decomposição de \(f(x)\) sobre \(F\), toda raiz de \(f(x)\) é simples.</li>
+        <li>Se \(K\) é uma extensão de \(F\) e \(u \in K\) é algébrico sobre \(F\), então dizemos que \(u\) é um <strong>elemento separável</strong> sobre \(F\), se o polinômio minimal de \(u\) é separável.</li>
+        <li>Se todo elemento de \(K\) é separável sobre \(F\), então \(K\) é chamada de uma <strong>extensão separável</strong> de \(F\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- LEMA -->
+    <p id="lema-separavel" class="lema">
+      Sejam \(K\) uma extensão de \(F\), \(f(x) \in F[x]\) e \(u \in K\). Temos que \(u\) é uma raiz múltipla de \(f(x)\) se, e somente se, \(f(u) = 0\) e \(f'(u) = 0\).
+    <span class="fim"></span></p>
+    
+    <!-- COROLÁRIO -->
+    <p id="coro-separavel" class="coro">
+      Um polinômio irredutível \(f(x) \in F[x]\) é separável se, e somente se, \(f'(x) \neq 0\). Em particular, se \(\char(F) = 0\), então todo polinômio irredutível é separável e, portanto, toda extensão algébrica de \(F\) é separável. 
+    <span class="fim"></span></p>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="prop-algbricFechado" class="prop">
+      Se \(F\) é um corpo, então as seguintes afirmações são equivalentes:
+      <ol class="alfa">
+        <li>todo polinômio não constante \(f(x) \in F[x]\) possui uma raiz em \(F\),</li>
+        <li>todo polinômio não constante \(f(x) \in F[x]\) cinde sobre \(F[x]\),</li>
+        <li>todo polinômio irredutível em \(F[x]\) tem grau \(1\),</li>
+        <li>se \(K\) é uma extensão algébrica de \(F\), então \(K = F\),</li>
+        <li>exite um subcorpo \(F'\) de \(F\) tal que \(F\) é uma extensão algébrica de \(F'\) e todo polinômio em \(F'[x]\) cinde sobre \(F\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-algbricFechado" class="def">
+      Um corpo que satisfaz alguma das condições da <a href="#algbricFechado">Proposição </a> é chamado de <strong>algebricamente fechado</strong>.
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-fechoAlg" class="def">
+      Se \(K\) é uma extensão de \(F\), então dizemos que \(K\) é um <strong>fecho algébrico</strong> de \(F\), se \(K\) é uma extensão algébrica de \(F\) e \(K\) é algebricamente fechado. De maneira equivalente, \(K\) é o fecho algébrico de \(F\), se \(K\) é o corpo de decomposição de todos os polinômios de \(F[x]\).
+    <span class="fim"></span></p>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="prop-fechoAlg" class="prop">
+      Todo corpo possui fecho algébrico e quaisquer dois fechos algébricos de \(F\) são isomorfos como espaços vetoriais sobre \(F\).
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-algAlgeb" class="def">
+      Um elemento \(a\) de uma \(F\)-álgebra \(A\) é dito algébrico sobre \(F\), se \(a\) é raiz de algum polinômio em \(F[x]\). Dizemos que \(A\) é uma <strong>álgebra algébrica</strong> sobre \(F\), se todo elemento de \(A\) for algébrico sobre \(F\).
+    <span class="fim"></span></p>
+    
+    <!-- EXEMPLO -->
+    <p id="exemplo-algAlgeb" class="exemplo">
+      Toda \(F\)-álgebra de dimensão finita sobre \(F\) é uma álgebra algébrica. De fato, se \(\dim_F(A) = n\) e \(a \in A\), então \(\{a, a^2, \dots, a^{n+1}\}\) é linearmente dependente. Logo, existem \(\alpha_i \in F\) tais que \(\alpha_1a + \alpha_2a^2 + \cdots + \alpha_{n+1}a^{n+1} = 0\). Assim, \(f(x) = \sum_{i=1}^{n+1}\alpha_ix^i\) é tal que \(f(a) = 0\).
+    <span class="fim"></span></p>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="prop-decomAlgSemis" class="prop">
+      Se \(A\) é uma álgebra semissimples de dimensão finita sobre um corpo algebricamente fechado \(F\), então \(A \cong M_{n_1}(F) \oplus \cdots \oplus M_{n_k}(F)\).
+    <span class="fim"></span></p>
+    
+    <!-- TEOREMA -->
+    <p id="teor-elemPrimitivo" class="teor" text="Elemento primitivo">
+      Se \(K\) é uma extensão finita e separável de \(F\), então exite \(u \in K\) tal que \(K = F(u)\).
+    <span class="fim"></span></p>
+    
+    <!-- EXERCÍCIO -->
+    <p id="exerc-aula17" class="exerc">
+      <ol class="numerico">
+        <li>Mostre que se \(D\) é uma álgebra de divisão algébrica sobre um corpo algebricamente fechado \(K\), então \(D = K\). (<a href="algebraNaoComutativa-exercicios/anc-aula17-exerc/anc-aula17-exerc01.html">Solução</a>)<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+  </body>
+  
+</html>
+
