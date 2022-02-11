@@ -7,7 +7,7 @@
     <title> Aula 14 - Exercício 2 </title>
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
-        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+        extensions: ["https://lomath.in/doc/xyjax/xypic.js","tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
         jax: ["input/TeX", "output/HTML-CSS"],
         tex2jax: {
           inlineMath: [ ['$','$'], ["\\(","\\)"] ],
@@ -256,9 +256,10 @@
             vspan: ["\\operatorname\{vspan\}"],
             char: ["\\operatorname\{char\}"],
             Ann: ["\\operatorname\{Ann\}"],
+            Der: ["\\operatorname\{Der\}"],
             pint: ["{ \\langle #1,#2 \\rangle }",2],
             rfrac: ["{ {}^{#1}\\!/_{#2} }",2],
-            norma: ["{ \\Vert #1 \\Vert }",2],
+            norma: ["{ \\Vert #1 \\Vert }",1],
           },
         },
       });
@@ -269,13 +270,20 @@
     <link rel="stylesheet" type="text/css" href="../../../../../itemParenteses.css" />
     <link rel="stylesheet" type="text/css" href="../../../../../ambTeor.css" />
     
+    <script>
+      function closeDetail(detailsElement) {
+        detailsElement.removeAttribute("open");
+        window.location = '#' + detailsElement.scrollIntoView({block: "nearest", behavior: "smooth"});
+      }
+    </script>
+    
     <style>
       body{
         font-size: 14pt;
         font-family: "Helvetica", sans-serif;
         line-height: 1.5;
         background-color: rgb(233,227,206);
-        counter-reset: contTeor contProp contLema contObs contDef contExerc contExemplo contSec 1;
+        counter-reset: contTeor contProp contLema contCoro contObs contDef contExerc contExemplo;
       }
       
       h1{
@@ -287,34 +295,33 @@
         color: rgb(153,51,153);
       }
       
-      .exerc[text]:before {
+      details > summary {
         font-weight: bold;
-        content: "Exercício " attr(text)". ";
+        cursor: pointer;
+        position: relative;
+        transition: 0.15s background linear;
       }
       
-      .sol:before {
-        font-weight: bold;
-        content: "Solução. ";
+      details > summary:hover {
+        background: #d4d1ec;
+      }
+
+      details > p{
+        border: solid;
       }
       
-      .cqd:after {
-        content: "\25FC";
-        float:right;
+      .equationCenter {
+        width: 100%;
+        overflow-y: hidden;
+        overflow-x: auto;
       }
       
-      .itemAlfaNoIdent:before {
-        counter-increment: contItemANI;
-        content:"(" counter(contItemANI, lower-alpha)") ";
-      }
-      
-      .itemRomanoNoIdent:before {
-        counter-increment: contItemRNI;
-        content:"(" counter(contItemRNI, lower-roman)") ";
-      }
-      
-      .itemNumericoNoIdent:before {
-        counter-increment: contItemNNI;
-        content:"(" counter(contItemNNI)") ";
+      .buttonDetails {
+        border: none;
+        text-align: center;
+        cursor: pointer;
+        position: absolute;
+        right: 10px;
       }
       
     </style>
@@ -335,12 +342,68 @@
       </ol>
     </p>
     
-    <p class="sol">
+    <p class="sol"></p>
+    
+    <p>
+      (a) Temos que mostrar que o produto \([\cdot, \cdot]\) é bilinear, antissimétrico e que satisfaz a identidade de Jacobi. Dados \(a,b,c,d \in A\) e \(\alpha, \beta \in F\), temos que
+      <div class="equationCenter">
+      \[
+        \begin{split}
+          [\alpha a + b, \beta c + d] & = (\alpha a + b)(\beta c + d) - (\beta c + d)(\alpha a + b) \\
+          & = \alpha \beta ac + \alpha ad + \beta bc + bd - \alpha \beta ca - \beta cb - \alpha da - db \\
+          & = \alpha \beta[a,c] + \alpha[a,d] + \beta[b,c] + [b,d].
+        \end{split}
+      \]
+      </div>
+      Logo, \([\cdot,\cdot]\) é bilinear. Note que \([a,a] = aa - aa = 0\), para todo \(a \in A\). Logo, o produto é antissimétrico. Agora, veja que, para todo \(a,b,c \in A\), temos que
+      <div class="equationCenter">
+      \[
+        \begin{split}
+          [a,[b,c]] & + [b,[c,a]] + [c,[a,b]] \; = \; [a, bc - cb] + [b,[ca - ac]] + [c,ab - ba] \\
+          & = \; abc - acb - bca + cba + bca - bac - cab + acb + cab \\ 
+          & \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad  - cba - abc + bac \\
+          &  = \; 0.
+        \end{split}
+      \]
+      </div>
+      Logo, \([\cdot,\cdot]\) satisfaz a identidade de Jacobi. Portanto, o produto \([a, b] = ab - ba\), para todo \(a, b \in A\), dá uma estrutura de álgebra de Lie para \(A\).
+    </p>
       
+    <p>
+      (b) Primeiramente, observe que para definirmos a multiplicação \(\circ\), precisamos que \(\char(F) \neq 2\), pois do contrário, não estaria bem definido o número \(\frac{1}{2}\). Agora, assim como no item anterior, temos que mostrar que \(\circ\) é bilinear, comutativo e que satisfaz \((a^2\circ b) \circ a = a^2\circ (b \circ a)\), para todo \(a,b,c \in A\). A bilinearidade segue da seguinte conta, válida para todo \(a,b,c,d \in A\) e \(\alpha, \beta \in F\):
+      <div class="equationCenter">
+      \[
+        \begin{split}
+          (\alpha a + b)\circ(\beta c + d) &= \frac{1}{2}\big((\alpha a + b)(\beta c + d) + (\beta c + d)(\alpha a + b)\big) \\
+          &= \frac{1}{2}(\alpha\beta ac + \alpha ad + \beta bc + bd + \alpha\beta ca + \beta cb + \alpha da + db) \\
+          &= \frac{1}{2}\big(\alpha\beta(ac + ca) + \alpha(ad + da) + \beta(bc + cb) + bd + db\big) \\
+          &= \alpha\beta(a \circ c) + \alpha(a \circ d) + \beta(b \circ c) + b\circ d.
+        \end{split}
+      \]
+      </div>
+      A comutatividade também é dada pela conta abaixo, com \(a, b \in A\):
+      <div class="equationCenter">
+      \[
+        a \circ b = \frac{1}{2}(ab + ba) = \frac{1}{2}(ba + ab) = b \circ a.
+      \]
+      </div>
+      Finalmente, veja que,
+      <div class="equationCenter">
+      \[
+        \begin{split}
+          (a^2 \circ b)\circ a &= \frac{1}{2}(a^2b + ba^2)\circ a \\
+          &= \frac{1}{2}\big(\frac{1}{2}(a^2b + ba^2)a + a\frac{1}{2}(a^2b + ba^2)\big) \\
+          &= \frac{1}{2}\big(\frac{1}{2}(a^2ba + ba^3 + a^3b + aba^2)\big) \\
+          &= \frac{1}{2}\big(a^2\frac{1}{2}(ba + ab) + \frac{1}{2}(ba + ab)a^2\big) \\
+          &= a^2\circ \big(\frac{1}{2}(ba + ab)\big) \\
+          &= a^2 \circ (b \circ a)
+        \end{split}
+      \]
+      </div>
+      Portanto, o produto \(a \circ b = \frac{1}{2}(ab + ba)\) dá uma estrutura de álgebra de Jordan para \(A\).
     <span class="cqd"></span></p>
     
   </body>
   
 </html>
-
 
