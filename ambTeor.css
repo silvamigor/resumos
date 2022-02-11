@@ -65,8 +65,38 @@
   content: "Exercício " counter(contSec)"."counter(contExerc) ". ";
 }
 
+.exerc[text]:before {
+  font-weight: bold;
+  content: "Exercício " attr(text)". ";
+}
+      
+.sol:before {
+  font-weight: bold;
+  content: "Solução. ";
+}
+      
+.cqd:after {
+  content: "\25FC";
+  float:right;
+}
+
 .exemplo:before{
   counter-increment: contExemplo;
   font-weight: bold;
   content: "Exemplo " counter(contSec)"."counter(contExemplo) ". ";
+}
+
+.itemAlfaNoIdent:before {
+  counter-increment: contItemANI;
+  content:"(" counter(contItemANI, lower-alpha)") ";
+}
+      
+.itemRomanoNoIdent:before {
+  counter-increment: contItemRNI;
+  content:"(" counter(contItemRNI, lower-roman)") ";
+}
+      
+.itemNumericoNoIdent:before {
+  counter-increment: contItemNNI;
+  content:"(" counter(contItemNNI)") ";
 }
