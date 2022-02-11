@@ -7,7 +7,7 @@
     <title> Aula 15 - Exercício 1 </title>
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
-        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+        extensions: ["https://lomath.in/doc/xyjax/xypic.js","tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
         jax: ["input/TeX", "output/HTML-CSS"],
         tex2jax: {
           inlineMath: [ ['$','$'], ["\\(","\\)"] ],
@@ -256,9 +256,10 @@
             vspan: ["\\operatorname\{vspan\}"],
             char: ["\\operatorname\{char\}"],
             Ann: ["\\operatorname\{Ann\}"],
+            Der: ["\\operatorname\{Der\}"],
             pint: ["{ \\langle #1,#2 \\rangle }",2],
             rfrac: ["{ {}^{#1}\\!/_{#2} }",2],
-            norma: ["{ \\Vert #1 \\Vert }",2],
+            norma: ["{ \\Vert #1 \\Vert }",1],
           },
         },
       });
@@ -269,13 +270,20 @@
     <link rel="stylesheet" type="text/css" href="../../../../../itemParenteses.css" />
     <link rel="stylesheet" type="text/css" href="../../../../../ambTeor.css" />
     
+    <script>
+      function closeDetail(detailsElement) {
+        detailsElement.removeAttribute("open");
+        window.location = '#' + detailsElement.scrollIntoView({block: "nearest", behavior: "smooth"});
+      }
+    </script>
+    
     <style>
       body{
         font-size: 14pt;
         font-family: "Helvetica", sans-serif;
         line-height: 1.5;
         background-color: rgb(233,227,206);
-        counter-reset: contTeor contProp contLema contObs contDef contExerc contExemplo contSec 1;
+        counter-reset: contTeor contProp contLema contCoro contObs contDef contExerc contExemplo;
       }
       
       h1{
@@ -287,34 +295,33 @@
         color: rgb(153,51,153);
       }
       
-      .exerc[text]:before {
+      details > summary {
         font-weight: bold;
-        content: "Exercício " attr(text)". ";
+        cursor: pointer;
+        position: relative;
+        transition: 0.15s background linear;
       }
       
-      .sol:before {
-        font-weight: bold;
-        content: "Solução. ";
+      details > summary:hover {
+        background: #d4d1ec;
+      }
+
+      details > p{
+        border: solid;
       }
       
-      .cqd:after {
-        content: "\25FC";
-        float:right;
+      .equationCenter {
+        width: 100%;
+        overflow-y: hidden;
+        overflow-x: auto;
       }
       
-      .itemAlfaNoIdent:before {
-        counter-increment: contItemANI;
-        content:"(" counter(contItemANI, lower-alpha)") ";
-      }
-      
-      .itemRomanoNoIdent:before {
-        counter-increment: contItemRNI;
-        content:"(" counter(contItemRNI, lower-roman)") ";
-      }
-      
-      .itemNumericoNoIdent:before {
-        counter-increment: contItemNNI;
-        content:"(" counter(contItemNNI)") ";
+      .buttonDetails {
+        border: none;
+        text-align: center;
+        cursor: pointer;
+        position: absolute;
+        right: 10px;
       }
       
     </style>
@@ -332,11 +339,23 @@
     </p>
     
     <p class="sol">
-      
+      Sejam \(M\), \(N\) módulos simples sobre a álgebra \(A\) e \(f: M \to N\) um homomorfismo não nulo de módulos sobre a álgebra \(A\). Sabemos que \(\ker(f)\) é um \(A\)-submódulo de \(M\), vendo \(A\) como anel. Uma vez que \(\alpha(am) = a(\alpha m) = (\alpha a)m\), para todo \(\alpha \in F\), \(a \in A\) e \(m \in M\), temos que o mesmo vale, se restringirmos ao conjunto \(\ker(f)\). Portanto, \(\ker(f)\) é um submódulo de \(M\) sobre a álgebra \(A\). O mesmo raciocínio vale para \(\im(f)\) em \(N\). Pela simplicidade de \(M\) e de \(N\) e por \(f\) ser não nulo, temos que \(\ker(f) = \zero\) e \(\im(f) = N\). Logo, \(f\) é um isomorfismo, ou seja, possui um inverso. Lembre-se de que, por definição, que um homomorfismo \(f: M \to N\) de módulos sobre a álgebra \(A\), satisfaz 
+    <ol class="alfa">
+      <li>\(f(m_1 + m_2) = f(m_1) + f(m_2)\),</li>
+      <li>\(f(\lambda m) = \lambda f(m)\),</li>
+      <li>\(f(am) = af(m)\),</li>
+    </ol>
+    para todo \(m_1,m_2, m \in M\), \(\lambda \in F\) e \(a \in A\), ou seja, são aplicações \(F\)-lineares que também são homomorfismo de módulos sobre o anel \(A\). Dessa forma, como inversas de aplicações \(F\)-lineares são aplicações \(F\)-lineares, acontecendo o mesmo para homomorfismo de módulos sobre o anel \(A\), temos que inversos de homomorfismo de módulos sobre a álgebra \(A\) são ainda homomorfismo de módulos sobre a álgebra \(A\). Assim, se \(f \in \End_A(M)\setminus\zero\), então \(f^{-1}\) existe e pertence a \(\End_A(M)\). Para finalizar o exercício, falta observar que \(\End_A(M)\) é uma \(F\)-álgebra. Sabemos que \((\End_A(M), +)\) é um grupo abeliano e que \(\End_A(M)\) é um \(F\)-módulo, com \((\lambda f)(m) := \lambda f(m)\). Além disso, \(\End_A(M)\) é fechado pela composição que é bilinear, quer dizer, se \(f,g,f',g' \in \End_A(M)\) e \(\lambda \in F\), então 
+    <ol class="alfa">
+      <li>\(f \circ g \in \End_A(M)\),</li>
+      <li>\((f + f')\circ g = f \circ g + f' \circ g\),</li>
+      <li>\(f\circ (g + g') = f \circ g + f \circ g'\),</li>
+      <li>\((\lambda f) \circ g = \lambda(f \circ g) = f \circ (\lambda g)\).</li>
+    </ol>
+    Assim, \(\End_A(M)\) é uma \(F\)-álgebra. Uma vez que todo elemento não nulo possui um inverso, \(\End_A(M)\) é uma \(F\)-álgebra de divisão. 
     <span class="cqd"></span></p>
     
   </body>
   
 </html>
-
 
