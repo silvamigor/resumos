@@ -7,7 +7,7 @@
     <title> Aula 17 - Exercício 1 </title>
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
-        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+        extensions: ["https://lomath.in/doc/xyjax/xypic.js","tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
         jax: ["input/TeX", "output/HTML-CSS"],
         tex2jax: {
           inlineMath: [ ['$','$'], ["\\(","\\)"] ],
@@ -256,9 +256,10 @@
             vspan: ["\\operatorname\{vspan\}"],
             char: ["\\operatorname\{char\}"],
             Ann: ["\\operatorname\{Ann\}"],
+            Der: ["\\operatorname\{Der\}"],
             pint: ["{ \\langle #1,#2 \\rangle }",2],
             rfrac: ["{ {}^{#1}\\!/_{#2} }",2],
-            norma: ["{ \\Vert #1 \\Vert }",2],
+            norma: ["{ \\Vert #1 \\Vert }",1],
           },
         },
       });
@@ -282,7 +283,7 @@
         font-family: "Helvetica", sans-serif;
         line-height: 1.5;
         background-color: rgb(233,227,206);
-        counter-reset: contTeor contProp contLema contObs contDef contExerc contExemplo contSec 1;
+        counter-reset: contTeor contProp contLema contCoro contObs contDef contExerc contExemplo;
       }
       
       h1{
@@ -292,36 +293,6 @@
       
       h2{
         color: rgb(153,51,153);
-      }
-      
-      .exerc[text]:before {
-        font-weight: bold;
-        content: "Exercício " attr(text)". ";
-      }
-      
-      .sol:before {
-        font-weight: bold;
-        content: "Solução. ";
-      }
-      
-      .cqd:after {
-        content: "\25FC";
-        float:right;
-      }
-      
-      .itemAlfaNoIdent:before {
-        counter-increment: contItemANI;
-        content:"(" counter(contItemANI, lower-alpha)") ";
-      }
-      
-      .itemRomanoNoIdent:before {
-        counter-increment: contItemRNI;
-        content:"(" counter(contItemRNI, lower-roman)") ";
-      }
-      
-      .itemNumericoNoIdent:before {
-        counter-increment: contItemNNI;
-        content:"(" counter(contItemNNI)") ";
       }
       
       details > summary {
@@ -368,11 +339,10 @@
     </p>
     
     <p class="sol">
-      
+      Como \(D\) é uma álgebra de divisão, então ele possui unidade \(1\). Assim, \(\lambda 1 \in D\), para todo \(\lambda \in K\), o que implica que \(K\) é isomorfo a uma subálgebra de \(D\), ou seja, podemos ver \(K \subseteq D\). Seja \(a \in D\). Como \(a\) é algébrico sobre \(K\), então \(K[a] \cong \rfrac{K[x]}{\langle m_a(x) \rangle}\), onde \(m_a(x)\) é o polinômio mônico irredutível de \(K[x]\) tal que \(m_a(a) = 0\). Assim, \(\langle m_a(x) \rangle\) é um ideal maximal e, por conseguinte, \(K[a]\) é um corpo. Note que \(K[a]\) é uma extensão algébrica de \(K\). Uma vez que \(K\) é algebricamente fechado, então \(K[a] = K\). Em particular, \(a \in K\). Como \(a \in D\), então \(A \subseteq K\). Portanto, \(D = K\).
     <span class="cqd"></span></p>
     
   </body>
   
 </html>
-
 
