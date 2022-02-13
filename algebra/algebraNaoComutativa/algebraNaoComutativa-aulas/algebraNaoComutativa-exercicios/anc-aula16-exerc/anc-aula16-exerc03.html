@@ -7,7 +7,7 @@
     <title> Aula 16 - Exercício 3 </title>
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
-        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+        extensions: ["https://lomath.in/doc/xyjax/xypic.js","tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
         jax: ["input/TeX", "output/HTML-CSS"],
         tex2jax: {
           inlineMath: [ ['$','$'], ["\\(","\\)"] ],
@@ -256,9 +256,10 @@
             vspan: ["\\operatorname\{vspan\}"],
             char: ["\\operatorname\{char\}"],
             Ann: ["\\operatorname\{Ann\}"],
+            Der: ["\\operatorname\{Der\}"],
             pint: ["{ \\langle #1,#2 \\rangle }",2],
             rfrac: ["{ {}^{#1}\\!/_{#2} }",2],
-            norma: ["{ \\Vert #1 \\Vert }",2],
+            norma: ["{ \\Vert #1 \\Vert }",1],
           },
         },
       });
@@ -282,7 +283,7 @@
         font-family: "Helvetica", sans-serif;
         line-height: 1.5;
         background-color: rgb(233,227,206);
-        counter-reset: contTeor contProp contLema contObs contDef contExerc contExemplo contSec 1;
+        counter-reset: contTeor contProp contLema contCoro contObs contDef contExerc contExemplo;
       }
       
       h1{
@@ -292,36 +293,6 @@
       
       h2{
         color: rgb(153,51,153);
-      }
-      
-      .exerc[text]:before {
-        font-weight: bold;
-        content: "Exercício " attr(text)". ";
-      }
-      
-      .sol:before {
-        font-weight: bold;
-        content: "Solução. ";
-      }
-      
-      .cqd:after {
-        content: "\25FC";
-        float:right;
-      }
-      
-      .itemAlfaNoIdent:before {
-        counter-increment: contItemANI;
-        content:"(" counter(contItemANI, lower-alpha)") ";
-      }
-      
-      .itemRomanoNoIdent:before {
-        counter-increment: contItemRNI;
-        content:"(" counter(contItemRNI, lower-roman)") ";
-      }
-      
-      .itemNumericoNoIdent:before {
-        counter-increment: contItemNNI;
-        content:"(" counter(contItemNNI)") ";
       }
       
       details > summary {
@@ -368,11 +339,44 @@
     </p>
     
     <p class="sol">
-      
+      Seja \(\End_{F}(A) = \{f: A \to A \mid f\) é transformação linear\(\}\). Sabemos que tal conjunto é um \(F\)-módulo com soma e produto por escalar conforme definidos usualmente. Além disso, com a composição \(\End_{F}(A)\) é uma \(F\)-álgebra. Dados \(a \in A\) e \(b \in A^{op}\), defina 
+    <div class="equationCenter">
+    \[
+      \begin{array}{ccc}
+        \begin{array}{rcl}
+          \alpha_{a}: A & \to & A \\
+          x & \mapsto & ax
+        \end{array}
+        & \text{ e } &
+        \begin{array}{rcl}
+          \beta_{b}: A & \to & A \\
+          x & \mapsto & xb
+        \end{array}
+      \end{array}
+    \]
+    </div>
+    Observe que \(\alpha_{a}\) e \(\beta_{b}\) são transformações lineares, ou seja, \(\alpha_{a}, \beta_{b} \in \End_{F}(A)\). Logo, \(\alpha_{a} \circ \beta_{b} \in \End_{F}(A)\). Assim, temos que \(A \times A^{op} \to \End_{F}(A)\), \((a,b) \mapsto \alpha_{a} \circ \beta_{b}\) é uma transformação bilinear. Pela propriedade universal, existe única transformação linear
+    <div class="equationCenter">
+    \[
+      \begin{array}{rcl}
+        \varphi: A \otimes_{F} A^{op} & \to & \End_{F}(A) \\
+        a \otimes b & \mapsto & \alpha_{a} \circ \beta_{b}.
+      \end{array}
+    \]
+    </div>
+    Observe que
+    <div class="equationCenter">
+    \[
+      \begin{split}
+        \varphi\big((a \otimes b)(a' \otimes b')\big)\big(x\big) &= \varphi(aa' \otimes \overbrace{b'b}^{\llap{multiplicação }\rlap{em A^{op}}})(x) = (\alpha_{aa'} \circ \beta_{b'b})(x) = aa'xb'b \\
+        &= (\alpha_{a} \circ \beta_{b} \circ \alpha_{a'} \circ \beta_{b'})(x) = \big(\varphi(a \otimes b) \circ \varphi(a' \otimes b')\big)\big(x\big).
+      \end{split}
+    \]
+    </div>
+    Isso significa que \(\varphi\) é um homomorfismo de \(F\)-álgebras. Note que \(\calZ(A) = \calZ(A^{op})\). Logo, por \(A\) ser álgebra central simples, então o mesmo acontece com \(A^{op}\). Pela <a href="../../algebraNaoComutativa-aula16.html#prop-PTACS">Proposição 16.1</a>, temos que \(A \otimes_{F} A^{op}\) é simples, o que implica que \(\varphi\) é injetiva. Por outro lado, tanto o domínio, quanto o contradomínio têm dimensão igual a \(n^2\), portanto, \(\varphi\) é sobrejetiva e, consequentemente, é um isomorfismo entre \(F\)-álgebras. Pelo <a href="../anc-aula14-exerc/anc-aula14-exerc03.html">Exercício 14.3</a>, temos que \(\End_{F}(A) \cong M_n(F)\). Portanto, \(A \otimes_F A^{op} \cong M_n(F)\).
     <span class="cqd"></span></p>
     
   </body>
   
 </html>
-
 
