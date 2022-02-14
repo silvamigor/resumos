@@ -7,7 +7,7 @@
     <title> Aula 19 - Exercício 1 </title>
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
-        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+        extensions: ["https://lomath.in/doc/xyjax/xypic.js","tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
         jax: ["input/TeX", "output/HTML-CSS"],
         tex2jax: {
           inlineMath: [ ['$','$'], ["\\(","\\)"] ],
@@ -256,9 +256,10 @@
             vspan: ["\\operatorname\{vspan\}"],
             char: ["\\operatorname\{char\}"],
             Ann: ["\\operatorname\{Ann\}"],
+            Der: ["\\operatorname\{Der\}"],
             pint: ["{ \\langle #1,#2 \\rangle }",2],
             rfrac: ["{ {}^{#1}\\!/_{#2} }",2],
-            norma: ["{ \\Vert #1 \\Vert }",2],
+            norma: ["{ \\Vert #1 \\Vert }",1],
           },
         },
       });
@@ -282,7 +283,7 @@
         font-family: "Helvetica", sans-serif;
         line-height: 1.5;
         background-color: rgb(233,227,206);
-        counter-reset: contTeor contProp contLema contObs contDef contExerc contExemplo contSec 1;
+        counter-reset: contTeor contProp contLema contCoro contObs contDef contExerc contExemplo;
       }
       
       h1{
@@ -292,36 +293,6 @@
       
       h2{
         color: rgb(153,51,153);
-      }
-      
-      .exerc[text]:before {
-        font-weight: bold;
-        content: "Exercício " attr(text)". ";
-      }
-      
-      .sol:before {
-        font-weight: bold;
-        content: "Solução. ";
-      }
-      
-      .cqd:after {
-        content: "\25FC";
-        float:right;
-      }
-      
-      .itemAlfaNoIdent:before {
-        counter-increment: contItemANI;
-        content:"(" counter(contItemANI, lower-alpha)") ";
-      }
-      
-      .itemRomanoNoIdent:before {
-        counter-increment: contItemRNI;
-        content:"(" counter(contItemRNI, lower-roman)") ";
-      }
-      
-      .itemNumericoNoIdent:before {
-        counter-increment: contItemNNI;
-        content:"(" counter(contItemNNI)") ";
       }
       
       details > summary {
@@ -366,13 +337,59 @@
     <p class="exerc" text="1">
       Sejam \(A\) uma \(F\)-álgebra com unidade e \(B\) uma subálgebra de \(A\). Seja \(R = A \otimes_F B^{op}\). Mostre que
       <ol class="alfa">
-        <li>a ação \(x(a \otimes b) = b \times a\), para todo \(a, x \in A\) e \(b \in B\), dá uma estrutura de \(R\)-módulo à direita a \(A\);</li>
+        <li>a ação \(x(a \otimes b) := bxa\), para todo \(a, x \in A\) e \(b \in B\), dá uma estrutura de \(R\)-módulo à direita a \(A\);</li>
         <li>\(C(B) \cong \End_R(A)\), com a ação definida no item anterior.</li>
       </ol>
     </p>
     
-    <p class="sol">
+    <p class="sol"></p>
+    
+    <p>
+      (a) A definição da ação envolve elementos simples de \(R = A \otimes_F B^{op}\), quer dizer, elementos da forma \(a \otimes b\). Como um elemento geral se escreve como soma finita de elementos simples, devemos estender tal ação por linearidade, isto é, \(x(\sum_{i=1}^{n}(a_i \otimes b_i)) = \sum_{i=1}^{n}b_ixa_i\). Entendido isso, precisamos mostrar que \((x + y)(a \otimes b) = x(a \otimes b) + y(a \otimes b)\) e que \(x\big((a \otimes b)(a' \otimes b')\big) = \big(x(a \otimes b)\big)\big(a' \otimes b'\big)\). Vejamos.
+    <ul>
+      <li>\((x + y)(a \otimes b) = b(x + y)a = bxa + bya = (a \otimes b) + y(a \otimes b)\);</li>
       
+      <li>\(x\big((a \otimes b)(a' \otimes b')\big) = \) \(x(aa' \otimes b'b) = \) \(b'bxaa' = \) \(\big(x(a \otimes b)\big)\big(a' \otimes b'\big)\).</li>
+    </ul>
+    Portanto, \(A\) é um \(R\)-módulo à direita com essa ação.
+    </p>
+    
+    <p>
+      (b) Defina as funções
+      <div class="equationCenter">
+    \[
+      \begin{array}{lcr}
+        \begin{array}{rcl}
+          \varphi: C(B) & \to & \End_{R}(A) \\
+          a & \mapsto & \varphi_{a}(x) = ax
+        \end{array}
+        & \text{ e } &
+        \begin{array}{rcl}
+          \psi: \End_{R}(A) & \to & C(B) \\
+          f & \mapsto & f(1).
+        \end{array}
+      \end{array}
+    \]
+    </div>
+    Observe que \(\varphi_{a}(\lambda x + y) = \) \(a(\lambda x + y) = \) \(\lambda ax + ay = \) \(\varphi_{a}(\lambda x) + \varphi_{a}(y)\) e que \(\varphi_{a}(x(a'\otimes b)) = \) \(\varphi_{a}(bxa') = \) \(abxa' = \) \(baxa' = \) \(\varphi_{a}(x)(a'\otimes b)\). Veja que a penúltima igualdade usamos que \(a \in C(B)\). Com isso, mostramos que \(\varphi\) está bem definida. Note, agora, que
+    <ul>
+      <li>\(\varphi(\lambda a + b)(x) = \) \(\varphi_{\lambda a + b}(x) = \) \((\lambda a + b)x = \) \(\lambda ax + bx = \) \(\big(\lambda\varphi(a) + \varphi(b)\big)(x)\);</li>
+      
+      <li>\(\varphi(ab)(x) = \) \(\varphi_{ab}(x) = \) \(abx = \) \(\varphi_{a}\big(\varphi_{b}(x)\big) = \) \(\big(\varphi(a)\circ\varphi(b)\big)(x)\).</li>
+    </ul>
+    Logo, \(\varphi\) é um homomorfismo de \(F\)-álgebras. Vamos mostrar que \(\psi\) está bem definida, isto é, que \(f(1) \in C(B)\). Uma vez que \(B\) é subálgebra, então \(f(1) \in B\). Assim, dado \(b \in B\) e vendo os elementos de \(B = B^{op}\) (como conjunto eles são iguais) imersos em \(A \otimes_F B^{op}\), temos que \(bf(1) = \) \(b(1 \otimes f(1)) = \) \(f(1)1b = \) \(f(1)b\). Logo, \(f(1) \in C(B)\). Note também que
+    <ul>
+      <li>\(\psi(\lambda f + g) = \) \((\lambda f + g)(1) = \) \(\lambda f(1) + g(1) = \) \(\lambda\psi(f) + \psi(g)\),</li>
+      
+      <li>\(\psi(f\circ g) = \) \((f\circ g)(1) = \) \(f(g(1)) = \) \(f\big(1(g(1) \otimes 1)\big) = \) \(f(1)(g(1) \otimes 1) = \) \(f(1)g(1) = \) \(\psi(f)\psi(g)\),</li>
+    </ul>
+    o que mostra que \(\psi\) também é um homomorfismo de \(F\)-álgebras. Finalmente, 
+    <ul>
+      <li>\(\varphi(\psi(f)) = \) \(\varphi(f(1)) = \) \(\varphi_{f(1)}(x) = \) \(f(1)x = \) \(f(1)(x \otimes 1) = \) \(f(1(x \otimes 1)) = \) \(f(x)\),</li>
+      
+      <li>\(\psi(\varphi(a)) = \) \(\psi(\varphi_a) = \) \(\varphi_a(1)= \) \(a1 = a\).</li>
+    </ul>
+    Portanto, \(C(B) \cong \End_R(A)\).
     <span class="cqd"></span></p>
     
   </body>
