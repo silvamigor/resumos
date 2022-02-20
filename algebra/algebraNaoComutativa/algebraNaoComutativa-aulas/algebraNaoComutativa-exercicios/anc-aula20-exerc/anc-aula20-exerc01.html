@@ -7,7 +7,7 @@
     <title> Aula 20 - Exercício 1 </title>
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
-        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+        extensions: ["https://lomath.in/doc/xyjax/xypic.js","tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
         jax: ["input/TeX", "output/HTML-CSS"],
         tex2jax: {
           inlineMath: [ ['$','$'], ["\\(","\\)"] ],
@@ -256,9 +256,10 @@
             vspan: ["\\operatorname\{vspan\}"],
             char: ["\\operatorname\{char\}"],
             Ann: ["\\operatorname\{Ann\}"],
+            Der: ["\\operatorname\{Der\}"],
             pint: ["{ \\langle #1,#2 \\rangle }",2],
             rfrac: ["{ {}^{#1}\\!/_{#2} }",2],
-            norma: ["{ \\Vert #1 \\Vert }",2],
+            norma: ["{ \\Vert #1 \\Vert }",1],
           },
         },
       });
@@ -282,7 +283,7 @@
         font-family: "Helvetica", sans-serif;
         line-height: 1.5;
         background-color: rgb(233,227,206);
-        counter-reset: contTeor contProp contLema contObs contDef contExerc contExemplo contSec 1;
+        counter-reset: contTeor contProp contLema contCoro contObs contDef contExerc contExemplo;
       }
       
       h1{
@@ -292,36 +293,6 @@
       
       h2{
         color: rgb(153,51,153);
-      }
-      
-      .exerc[text]:before {
-        font-weight: bold;
-        content: "Exercício " attr(text)". ";
-      }
-      
-      .sol:before {
-        font-weight: bold;
-        content: "Solução. ";
-      }
-      
-      .cqd:after {
-        content: "\25FC";
-        float:right;
-      }
-      
-      .itemAlfaNoIdent:before {
-        counter-increment: contItemANI;
-        content:"(" counter(contItemANI, lower-alpha)") ";
-      }
-      
-      .itemRomanoNoIdent:before {
-        counter-increment: contItemRNI;
-        content:"(" counter(contItemRNI, lower-roman)") ";
-      }
-      
-      .itemNumericoNoIdent:before {
-        counter-increment: contItemNNI;
-        content:"(" counter(contItemNNI)") ";
       }
       
       details > summary {
@@ -368,11 +339,16 @@
     </p>
     
     <p class="sol">
-      
+      Uma vez que \(D\) é álgebra de divisão, então ela é simples. Como \(F = \calZ(D)\), então \(D\) é \(F\)-álgebra central simples. Por \(K \subseteq D\) ser um corpo, \(K\) é uma subálgebra simples de \(D\). Pelo Teorema do Centralizador Duplo, \(C_{D}(K)\) é simples e \(\dim_{F}(D) = \dim_{F}(K)\dim_{F}(C_{D}(K))\). Mas \(K\) é maximal, logo \(C_{D}(K) = K\). Assim, \(D \otimes_{F} K = D \otimes_{F} C_{D}(K)\) é simples e \(\dim_{K}(D \otimes_{F} K) = \dim_{F}(D) = \dim_{F}(K)^{2}\). Uma vez que \(\dim_{F}(D) = \dim_{K}(D)\dim_{F}(K)\), então \(\dim_{K}(D) = \dim_{F}(K)\). Analogamente ao que foi feito no <a href="../anc-aula16-exerc/anc-aula16-exerc03.html">Exercício 16.3</a>, podemos definir um homomorfismo de \(K\)-álgebras injetor \(\varphi: C_{D}(K) \otimes_{F} D^{op} \to \End_{K}(D)\), \(\varphi(c \otimes d)(x) = cxd\). Note que \(\End_{K}(D)\) é isomorfo como \(K\)-álgebra a \(M_{n}(K)\), onde \(n = \dim_{K}(D)\). Lembre-se de que \(\dim_{K}(M_{n}(K)) = n^2\). Portanto, \(\varphi\) é um isomorfismo, pois é injetivo e tem domínio e contradomínio de mesma dimensão. Observe que a mesma conclusão pode ser feita tomando-se \(D^{op}\) no lugar de \(D\) no isomorfismo \(\varphi\). Isso significa que 
+    <div class="equationCenter">
+    \[
+      D \otimes_{F} K \cong K \otimes_{F} D = C_{D^{op}}(K) \otimes_{F} (D^{op})^{op} \cong \End_{K}(D^{op}) \cong M_{n}(K),
+    \]
+    </div>
+    o que finaliza a questão.
     <span class="cqd"></span></p>
     
   </body>
   
 </html>
-
 
