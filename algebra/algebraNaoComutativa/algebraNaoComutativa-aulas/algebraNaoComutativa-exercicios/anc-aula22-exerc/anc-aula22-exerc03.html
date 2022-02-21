@@ -7,7 +7,7 @@
     <title> Aula 22 - Exercício 3 </title>
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
-        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+        extensions: ["https://lomath.in/doc/xyjax/xypic.js","tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
         jax: ["input/TeX", "output/HTML-CSS"],
         tex2jax: {
           inlineMath: [ ['$','$'], ["\\(","\\)"] ],
@@ -259,7 +259,7 @@
             Der: ["\\operatorname\{Der\}"],
             pint: ["{ \\langle #1,#2 \\rangle }",2],
             rfrac: ["{ {}^{#1}\\!/_{#2} }",2],
-            norma: ["{ \\Vert #1 \\Vert }",2],
+            norma: ["{ \\Vert #1 \\Vert }",1],
           },
         },
       });
@@ -283,7 +283,7 @@
         font-family: "Helvetica", sans-serif;
         line-height: 1.5;
         background-color: rgb(233,227,206);
-        counter-reset: contTeor contProp contLema contObs contDef contExerc contExemplo contSec 1;
+        counter-reset: contTeor contProp contLema contCoro contObs contDef contExerc contExemplo;
       }
       
       h1{
@@ -293,36 +293,6 @@
       
       h2{
         color: rgb(153,51,153);
-      }
-      
-      .exerc[text]:before {
-        font-weight: bold;
-        content: "Exercício " attr(text)". ";
-      }
-      
-      .sol:before {
-        font-weight: bold;
-        content: "Solução. ";
-      }
-      
-      .cqd:after {
-        content: "\25FC";
-        float:right;
-      }
-      
-      .itemAlfaNoIdent:before {
-        counter-increment: contItemANI;
-        content:"(" counter(contItemANI, lower-alpha)") ";
-      }
-      
-      .itemRomanoNoIdent:before {
-        counter-increment: contItemRNI;
-        content:"(" counter(contItemRNI, lower-roman)") ";
-      }
-      
-      .itemNumericoNoIdent:before {
-        counter-increment: contItemNNI;
-        content:"(" counter(contItemNNI)") ";
       }
       
       details > summary {
@@ -365,15 +335,14 @@
     <h2>Aula 22 - Teorema de Wedderburn-Malcev (parte 2)</h2>
     
     <p class="exerc" text="3">
-      Mostre que o teorema de Wedderburn-Malcev é equivalente ao seguinte afirmação: "seja \(A\) uma \(F\)-álgebra de dimensão finita e \(B'\) uma subálgebra separável de \(\rfrac{A}{J(A)}\). Então \(A\) contém uma subálgebra \(B\) isomorfa a \(B'\)".
+      Mostre que o teorema de Wedderburn-Malcev é equivalente à seguinte afirmação: "seja \(A\) uma \(F\)-álgebra de dimensão finita e \(B'\) uma subálgebra separável de \(\rfrac{A}{J(A)}\). Então \(A\) contém uma subálgebra \(B\) isomorfa a \(B'\)".
     </p>
     
     <p class="sol">
-      
+      Suponha que a afirmação seja verdadeira. Se \(\rfrac{A}{J(A)}\) é separável, então basta tomarmos \(B' = \rfrac{A}{J(A)}\), pois assim \(A = \rfrac{A}{J(A)} \dot+ J(A)\). Observe que \(\rfrac{A}{J(A)}\) é semissimples, porque \(A\) é artiniano (já que é uma \(F\)-álgebra de dimensão finita) e \(J(\rfrac{A}{J(A)}) = \zero\). Portanto, vale o Teorema de Wedderburn-Malcev. Reciprocamente, suponha que valha o Teorema de Wedderburn-Malcev e seja \(B'\) uma subálgebra separável de \(\rfrac{A}{J(A)}\). Então existe uma subálgebra \(C\) de \(A\) contendo \(J(A)\) tal que \(B' = \rfrac{C}{J(A)}\). Daí, podemos escrever \(A = \rfrac{C}{J(A)} \dot+ J(A)\). Pelo Teorema de Wedderburn-Malcev, existe uma subálgebra semissimples \(B\) de \(A\) tal que \(A = B \dot+ J(A)\). Disso, segue que \(\rfrac{C}{J(A)} \dot+ J(A) = B \dot+ J(A)\), o que implica que \(B\) é isomorfo a \(B' = \rfrac{C}{J(A)}\).
     <span class="cqd"></span></p>
     
   </body>
   
 </html>
-
 
