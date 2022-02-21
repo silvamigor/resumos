@@ -7,7 +7,7 @@
     <title> Aula 18 - Exercício 1 </title>
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
-        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+        extensions: ["https://lomath.in/doc/xyjax/xypic.js","tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
         jax: ["input/TeX", "output/HTML-CSS"],
         tex2jax: {
           inlineMath: [ ['$','$'], ["\\(","\\)"] ],
@@ -256,9 +256,10 @@
             vspan: ["\\operatorname\{vspan\}"],
             char: ["\\operatorname\{char\}"],
             Ann: ["\\operatorname\{Ann\}"],
+            Der: ["\\operatorname\{Der\}"],
             pint: ["{ \\langle #1,#2 \\rangle }",2],
             rfrac: ["{ {}^{#1}\\!/_{#2} }",2],
-            norma: ["{ \\Vert #1 \\Vert }",2],
+            norma: ["{ \\Vert #1 \\Vert }",1],
           },
         },
       });
@@ -282,7 +283,7 @@
         font-family: "Helvetica", sans-serif;
         line-height: 1.5;
         background-color: rgb(233,227,206);
-        counter-reset: contTeor contProp contLema contObs contDef contExerc contExemplo contSec 1;
+        counter-reset: contTeor contProp contLema contCoro contObs contDef contExerc contExemplo;
       }
       
       h1{
@@ -292,36 +293,6 @@
       
       h2{
         color: rgb(153,51,153);
-      }
-      
-      .exerc[text]:before {
-        font-weight: bold;
-        content: "Exercício " attr(text)". ";
-      }
-      
-      .sol:before {
-        font-weight: bold;
-        content: "Solução. ";
-      }
-      
-      .cqd:after {
-        content: "\25FC";
-        float:right;
-      }
-      
-      .itemAlfaNoIdent:before {
-        counter-increment: contItemANI;
-        content:"(" counter(contItemANI, lower-alpha)") ";
-      }
-      
-      .itemRomanoNoIdent:before {
-        counter-increment: contItemRNI;
-        content:"(" counter(contItemRNI, lower-roman)") ";
-      }
-      
-      .itemNumericoNoIdent:before {
-        counter-increment: contItemNNI;
-        content:"(" counter(contItemNNI)") ";
       }
       
       details > summary {
@@ -371,12 +342,40 @@
       </ol>
     </p>
     
-    <p class="sol">
-      
+    <p class="sol"></p>
+    
+    <p>
+      (a) Uma vez que \(K\) é uma extensão de \(F\), então \(K\) é um \(F\)-espaço vetorial, com \(F \subseteq K\). Seja \(\{1\} \cup \{e_{i}\}_{i \in I}\) uma base de \(K\), como \(F\)-espaço vetorial. Assim, \(K = F \oplus \big(\bigoplus_{i \in I}Fe_{i}\big)\) e, consequentemente, 
+    <div class="equationCenter">
+    \[
+      \begin{split}
+        A \otimes_{F} K &= A \otimes_{F} \Big(F \oplus \big(\bigoplus_{i \in I}Fe_{i}\big)\Big) = (A \otimes_{F} F) \oplus \Big(A \otimes_{F} \big(\bigoplus_{i \in I}Fe_{i}\big)\Big) \\
+        &= A \oplus \Big(\bigoplus_{i \in I} \big(A \otimes_{F} Fe_{i}\big)\Big) = A \oplus \Big(\bigoplus_{i \in I} \big(A \otimes_{F} e_{i}\big)\Big).
+      \end{split}
+    \]
+    </div>
+    Com isso, decompomos \(A \otimes_{F} K\) em uma soma direta de \(A\)-módulos à esquerda (\(A\) visto como anel). Seja \(a \in J(A \otimes_{F} K) \cap A\). Então para todo \(x + y \in A \oplus \Big(\bigoplus_{i \in I} \big(A \otimes_{F} e_{i}\big)\Big)\), existe \(x' + y' \in A \oplus \Big(\bigoplus_{i \in I} \big(A \otimes_{F} e_{i}\big)\Big)\) tal que
+    <div class="equationCenter">
+    \[
+      \begin{split}
+        (x' + y')\big(1 + (x + y)a\big) &= 1 \\
+        x'\big(1 + (x + y)a\big) + y'\big(1 + (x + y)a\big) &= 1 \\
+        \underbrace{x'\big(1 + xa\big)}_{\in \; A} + \underbrace{x'ya + y'\big(1 + (x + y)a\big)}_{\in \; \bigoplus_{i \in I} \big(A \otimes_{F} e_{i}\big)} &= 1.
+      \end{split}
+    \]
+    </div>
+    Uma vez que \(1 \in A\), então \(x'\big(1 + xa\big) = 1\), ou seja, \(a \in J(A)\). Portanto, \(J(A \otimes_{F} K) \cap A \subseteq J(A)\). Suponha que \(\dim_{F}(A) < \infty\). Então, pelo <a href="../../algebraNaoComutativa-aula12.html#teor-nilpContJR">Teorema 12.1</a>, temos que \(J(A)\) é o maior ideal nilpotente de \(A\). Isso implica que \(J(A) \otimes_{F} K \subseteq A \otimes_{F} K\) também é nilpotente. Logo, \(J(A) \otimes_{F} K \subseteq J(A \otimes_{F} K)\), pois \(J(A \otimes_{F} K)\) é o maior ideal nilpotente de \(A \otimes_{F} K\). Portanto, temos que \(J(A) \subseteq J(A \otimes_{F} K) \cap A\).
+    </p>
+    
+    <p>
+      (b) Como \([K:F] = n\), podemos considerar \(\{e_{i}\}_{i = 1}^{n}\) uma base de \(K\) como \(F\)-espaço~vetorial. Seja \(V\) um \(A\)-módulo à direita simples. Assim como foi feito no item anterior, temos que \(V \otimes_{F} K = \bigoplus_{i = 1}^{n}(V \otimes_{F} e_{i})\) é uma decomposição de \(A\)-módulos.
+    </p>
+    
+    <p>
+    INCOMPLETO.
     <span class="cqd"></span></p>
     
   </body>
   
 </html>
-
 
