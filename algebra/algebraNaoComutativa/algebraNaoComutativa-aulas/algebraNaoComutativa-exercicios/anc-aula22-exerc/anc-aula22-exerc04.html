@@ -7,7 +7,7 @@
     <title> Aula 22 - Exercício 4 </title>
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
-        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+        extensions: ["https://lomath.in/doc/xyjax/xypic.js","tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
         jax: ["input/TeX", "output/HTML-CSS"],
         tex2jax: {
           inlineMath: [ ['$','$'], ["\\(","\\)"] ],
@@ -259,7 +259,7 @@
             Der: ["\\operatorname\{Der\}"],
             pint: ["{ \\langle #1,#2 \\rangle }",2],
             rfrac: ["{ {}^{#1}\\!/_{#2} }",2],
-            norma: ["{ \\Vert #1 \\Vert }",2],
+            norma: ["{ \\Vert #1 \\Vert }",1],
           },
         },
       });
@@ -283,7 +283,7 @@
         font-family: "Helvetica", sans-serif;
         line-height: 1.5;
         background-color: rgb(233,227,206);
-        counter-reset: contTeor contProp contLema contObs contDef contExerc contExemplo contSec 1;
+        counter-reset: contTeor contProp contLema contCoro contObs contDef contExerc contExemplo;
       }
       
       h1{
@@ -293,36 +293,6 @@
       
       h2{
         color: rgb(153,51,153);
-      }
-      
-      .exerc[text]:before {
-        font-weight: bold;
-        content: "Exercício " attr(text)". ";
-      }
-      
-      .sol:before {
-        font-weight: bold;
-        content: "Solução. ";
-      }
-      
-      .cqd:after {
-        content: "\25FC";
-        float:right;
-      }
-      
-      .itemAlfaNoIdent:before {
-        counter-increment: contItemANI;
-        content:"(" counter(contItemANI, lower-alpha)") ";
-      }
-      
-      .itemRomanoNoIdent:before {
-        counter-increment: contItemRNI;
-        content:"(" counter(contItemRNI, lower-roman)") ";
-      }
-      
-      .itemNumericoNoIdent:before {
-        counter-increment: contItemNNI;
-        content:"(" counter(contItemNNI)") ";
       }
       
       details > summary {
@@ -369,11 +339,16 @@
     </p>
     
     <p class="sol">
-      
+      Suponha, inicialmente, que \(A\) é semissimples. Então, em particular, \(A\) é \(J\)-semissimples, isto é, \(J(A) = \zero\) (<a href="../../algebraNaoComutativa-aula12.html#teor-caracSemisArt">Teorema 12.2</a>). Como, por hipótese, \(A = B \dot+ J(A)\), então \(A = B\) e, portanto, \(B\) é semissimples maximal. Agora, considere o caso em que \(A\) não é semissimples. Suponha que exista \(B'\) subálgebra semissimples de \(A\) tal que \(B \subseteq B' \neq A\). Vamos mostrar que \(B' = B\). Para isso, note que
+    <div class="equationCenter">
+    \[
+      B' = B' \cap A = B' \cap (B \dot+ J(A)) = (B' \cap B) \dot+ (B' \cap J(A)) = B \dot+ (B' \cap J(A)).
+    \]
+    </div>
+    Precisamos mostrar que \(B' \cap J(A) = \zero\). Observe que \(J(A)\) é nilpotente, pois \(A\) tem dimensão finita. Logo, \(B' \cap J(A)\) também é nilpotente. Isso implica, pelo <a href="../../algebraNaoComutativa-aula12.html#teor-nilpContJR">Teorema 12.1</a>, que \(B' \cap J(A) \subseteq J(B')\). Como \(B'\) é semissimples, então \(J(B') = \zero\). Daí, concluímos que \(B' \cap J(A) = \zero\) e, por conseguinte, \(B' = B\).
     <span class="cqd"></span></p>
     
   </body>
   
 </html>
-
 
