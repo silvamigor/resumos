@@ -382,12 +382,12 @@
     </p>
     
     <p>
-    A mesma afirmação vale considerando \(\{w_i\}\) linearmente independente. Agora, seja \(z = \sum_{i=1}^{n}a_i \otimes b_i \in \calZ(A \otimes_F B)\). Se \(\{b_i\}\) não é linearmente independente, então podemos escolher o subconjunto linearmente independente maximal e escrever os outros como combinação desses e pela bilinearidade de \(\otimes\) reescrever a soma, onde a segunda entrada do produto tensorial seja composta por elementos linearmente independente. Portanto, podemos supor, sem perda de generalidade, que \(\{b_i\}\) é linearmente independente. Como \(z \in \calZ(A \otimes_F B)\), então, para todo \(a \in A\), temos que \(z(a\otimes 1) = (a\otimes 1)z\). Daí, \(\sum_{i=1}^{n}(a_ia - aa_i) \otimes b_i = 0\). Pela afirmação demonstrada no início, concluímos que \(a_ia - aa_i = 0\), ou seja, \(a_i \in \calZ(A)\), para todo \(i = 1, \dots, n\). Fazendo as mesmas contas, concluímos que \(b_i \in \calZ(B)\), para todo \(i = 1, \dots, n\). Portanto, \(\calZ(A \otimes_F B) \subseteq \calZ(A) \otimes_F \calZ(B)\). Vamos mostrar a inclusão reversa. Sejam \(\sum_{i}a_i \otimes \sum_{j}b_j \in \calZ(A) \otimes_F \calZ(B)\) e \(\sum_{k} a'_k \otimes b'_k \in A \otimes_F B\). Então 
+    A mesma afirmação vale considerando \(\{w_i\}\) linearmente independente, ou seja, se trocarmos \(v_i\) por \(w_i\) no enunciado.. Agora, seja \(z = \sum_{i=1}^{n}a_i \otimes b_i \in \calZ(A \otimes_F B)\). Se \(\{b_i\}\) não é linearmente independente, então podemos escolher o subconjunto linearmente independente maximal e escrever os outros como combinação desses e pela bilinearidade de \(\otimes\) reescrever a soma, onde a segunda entrada do produto tensorial seja composta por elementos linearmente independente. Portanto, podemos supor, sem perda de generalidade, que \(\{b_i\}\) é linearmente independente. Como \(z \in \calZ(A \otimes_F B)\), então, para todo \(a \in A\), temos que \(z(a\otimes 1) = (a\otimes 1)z\). Daí, \(\sum_{i=1}^{n}(a_ia - aa_i) \otimes b_i = 0\). Pela afirmação demonstrada no início, concluímos que \(a_ia - aa_i = 0\), ou seja, \(a_i \in \calZ(A)\), para todo \(i = 1, \dots, n\). Fazendo as mesmas contas, concluímos que \(b_i \in \calZ(B)\), para todo \(i = 1, \dots, n\). Portanto, \(\calZ(A \otimes_F B) \subseteq \calZ(A) \otimes_F \calZ(B)\). Vamos mostrar a inclusão reversa. Sejam \(\sum_{i} a_i \otimes b_i \in \calnZ(A) \otimes_F \calnZ(B)\) e \(\sum_{k} a'_k \otimes b'_k \in A \otimes_F B\). Então
     <div class="equationCenter">
     \[
       \begin{split}
-        \big(\sum_{i}a_i \otimes \sum_{j}b_j\big)\big(\sum_{k} a'_k \otimes b'_k\big) &= \sum_{i,j,k}a_ia'_k \otimes b_jb'_k = \sum_{i,j,k}a'_ka_i \otimes b'_kb_j \\
-        &= \big(\sum_{k} a'_k \otimes b'_k\big)\big(\sum_{i}a_i \otimes \sum_{j}b_j\big).
+        \big(\sum_{i} a_i \otimes b_i\big)\big(\sum_{k} a'_k \otimes b'_k\big) &= \sum_{i,k}a_ia'_k \otimes b_ib'_k = \sum_{i,k}a'_ka_i \otimes b'_kb_i \\
+        &= \big(\sum_{k} a'_k \otimes b'_k\big)\big(\sum_{i}a_i \otimes b_i\big).
       \end{split}
     \]  
     </div>
