@@ -812,8 +812,118 @@
     <!-- %%%%%%%%%%%%  %%%%%%%%%%%% %%%%%%%%%%%% -->
     <h3>2 - Operadores nilpotentes</h3>
     
+    <!-- TEOREMA -->
+    <p id="teor-autovalTransNilp" class="teor" >
+      O único autovalor de uma transformação linear nilpotente é \(\lambda = 0\).
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Teorema 3.2.4, de <a href="#beezer1">[Bee15]</a>.
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- TEOREMA -->
+    <p id="teor-restTransAutoespGen" class="teor" >
+      Se \(\lambda\) é uma autovalor de \(T\), então \((T - \lambda\id_{V})|_{V(\lambda)}\) é nilpotente.
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Teorema 3.2.8, de <a href="#beezer1">[Bee15]</a>.
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-indiceAutovalor" class="obs">
+      Pela <a href="#obs-autoespacoGener2">Observação 5</a>, temos que o índice de nilpotência de \(T - \lambda\id_{V}\) é o expoente de \((x - \lambda)\) no polinômio \(m_{T}(x)\).
+    <span class="fim"></span></p>
+    
     <!-- %%%%%%%%%%%%  %%%%%%%%%%%% %%%%%%%%%%%% -->
     <h3>3 - Forma normal de Jordan</h3>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-blocoJordan" class="def">
+      Dado \(\lambda \in \bbC\), definimos um <strong>bloco de Jordan</strong> de tamanho \(n\) associado à \(\lambda\) como sendo a matriz \(n \times n\)
+      <div class="equationCenter" style="text-align:center">
+        \(
+          J_{n}(\lambda) = 
+          \begin{pmatrix}
+            \lambda & 1 & 0 & \cdots & 0 & 0 \\
+            0 & \lambda & 1 & \cdots & 0 & 0 \\
+            0 & 0 & \lambda & \cdots & 0 & 0 \\
+            \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+            0 & 0 & 0 & \cdots & \lambda & 1 \\
+            0 & 0 & 0 & \cdots & 0 & \lambda \\
+          \end{pmatrix}
+        \)
+      </div>
+    <span class="fim"></span><br></p>
+    
+    <!-- TEOREMA -->
+    <p id="teor-jordanNilp" class="teor" >
+      Se \(T\) é nilpotente com índice de nilpotência \(p\), então existe uma base \(\calB\) de \(V\) tal que \((T)_{\calB,\calB}\) é uma matriz diagonal em blocos, onde 
+      <ol class="alfa">
+        <li>cada bloco é um bloco de Jordan, \(J_{r}(0)\),</li>
+        <li>a quantidade de blocos é igual a \(\dim(V_{0})\),</li>
+        <li>o maior bloco de Jordan é uma matriz \(p \times p\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Teorema 3.3.1, de <a href="#beezer1">[Bee15]</a>.
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-formaNormalJordan" class="def">
+      Uma matriz quadrada está na <strong>forma normal de Jordan</strong>, se satisfaz as seguintes condições
+      <ol class="alfa">
+        <li>é uma matriz diagonal em blocos;</li>
+        <li>cada bloco é um bloco de Jordan;</li>
+        <li>se \(\rho < \lambda\), então o bloco \(J_{k}(\rho)\) ocupa linhas com índices maiores que os índices das linhas ocupadas por \(J_{\ell}(\lambda)\);</li>
+        <li>se \(\rho < \lambda\) e \(k < \ell\), então o bloco \(J_{k}(\rho)\) ocupa linhas com índices maiores que os índices das linhas ocupadas por \(J_{\ell}(\lambda)\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- TEOREMA -->
+    <p id="teor-formaNormalJordan" class="teor" text="Forma normal de Jordan">
+      Existe uma base \(\calB\) de \(V\) tal que \((T)_{\calB,\calB}\) tem as seguintes propriedades
+      <ol class="alfa">
+        <li>\((T)_{\calB,\calB}\) está na forma normal de Jordan,</li>
+        <li>se \(J_{k}(\lambda)\) é um bloco de Jordan, então \(\lambda\) é um autovalor de \(T\),</li>
+        <li>Para cada autovalor \(\lambda\), o maior bloco da forma \(J_{k}(\lambda)\) tem tamanho igual ao expoente de \((x - \lambda)\) no polinômio \(m_{T}(x)\),</li>
+        <li>Para cada autovalor \(\lambda\), o número de blocos da forma \(J_{k}(\lambda)\) é a multiplicidade geométrica de \(\lambda\), \(\mg(\lambda)\),</li>
+        <li>Para cada autovalor \(\lambda\), o número de linhas ocupadas por blocos da forma \(J_{k}(\lambda)\) é a multiplicidade algébrica de \(\lambda\), \(\ma(\lambda)\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Teorema 3.3.5, de <a href="#beezer1">[Bee15]</a>.
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
     
     <!-- %%%%%%%%%%%%  %%%%%%%%%%%% %%%%%%%%%%%% -->
     <h3>Referências bibliográficas</h3>
@@ -827,4 +937,3 @@
   </body>
   
 </html>
-
