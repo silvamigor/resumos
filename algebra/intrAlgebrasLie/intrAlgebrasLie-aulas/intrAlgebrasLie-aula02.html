@@ -270,6 +270,7 @@
             Der: ["\\operatorname\{Der\}"],
             ma: ["\\operatorname\{ma\}"],
             mg: ["\\operatorname\{mg\}"],
+            Rad: ["\\operatorname\{Rad\}"],
             pint: ["{ \\langle #1,#2 \\rangle }",2],
             rfrac: ["{ {}^{#1}\\!/_{#2} }",2],
             norma: ["{ \\Vert #1 \\Vert }",1],
@@ -354,30 +355,292 @@
     <div style="text-align:center"><h1>Introdução às Álgebras de Lie</h1></div>
     
     <!-- ############ -->
-    <h2>Aula 2 - </h2>
+    <h2>Aula 2 - Álgebras nilpotentes e solúveis</h2>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-Linvarian" class="obs">
+      Se \(V\) é \(L\)-módulo e \(W \subseteq V\) é \(L\)-submódulo, então dizemos que \(W\) é <strong>\(\bfL\)-invariante</strong>.
+    <span class="fim"></span></p>
     
     <!-- DEFINIÇÃO -->
     <p id="def-" class="def">
-      
-    <span class="fim"></span></p>
+      Para qualquer álgebra de Lie \(L\), defina a:
+      <ol class="alfa">
+        <li><strong>série central</strong> (cadeia central)</li>
+        <p class="equationCenter" style="text-align:center">
+          \(
+            \begin{array}{ccccc}
+               L^{1} := L, & L^{2} := [L, L^{1}], & L^{3}:= [L, L^{2}], & \cdots, & L^{n} := [L, L^{n-1}];
+            \end{array}
+          \)
+        </p>
+        <li><strong>série derivada</strong> (série derivada)</li>
+        <p class="equationCenter" style="text-align:center">
+          \(
+            \begin{array}{ccccc}
+              L^{(1)} := L, & L^{(2)} := [L^{(1)}, L^{(1)}], & L^{(3)} := [L^{(2)}, L^{(2)}], & \cdots, & L^{(n)} := [L^{(n-1)}, L^{(n-1)}].
+            \end{array}
+          \)
+        <span class="fim"></span></p>
+      </ol>
+    </p>
     
-    <!-- TEOREMA -->
-    <p id="teor-" class="teor" >
-      
+    <!-- DEFINIÇÃO -->
+    <p id="def-abelNilpSolv" class="def">
+      <ol>
+        <li>\(L\) é <strong>abeliano</strong>, se \(L^{2} = 0\) (isto é, colchete de quaisquer dois elementos é nulo).</li>
+        <li>\(L\) é <strong>nilpotente</strong>, se \(L^{n} = 0\), para algum \(n > 0\).</li>
+        <li>\(L\) é <strong>solúvel</strong>, se \(L^{(n)} = 0\), para algum \(n > 0\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- LEMA -->
+    <p id="lema-serieCentral&DerDescen" class="lema">
+      Se \(I, J \unlhd L\), então \([I, J] \unlhd L\).
     <span class="fim"></span></p>
     
     <details>
       <summary>Demonstração</summary>
       <div class="caixa">
         <p>
-        
+          Como \([I, J]\) é o espaço vetorial gerado por elementos da forma [i, j], com \(i \in I\) e \(j \in J\), basta mostrarmos, usando a bilinearidade do colchete de Lie, que \([x, [i, j]] \in [I, J]\), para todo \(x \in L\), \(i \in I\) e \(j \in J\). Vejamos
+        </p>
+        <p class="equationCenter" style="text-align:center">
+          \[
+            [x, [i,j]] = [\underbrace{[x,i]}_{\in I},j] + [i,\underbrace{[x,j]}_{\in J}] \in [I,J]
+          \]
         </p>
       </div>
       <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
       <br>
     </details>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="prop-serieCentral&DerDescen" class="prop">
+      <ol class="alfa">
+        <li>\(L^{n}\) é um ideal de \(L\) e vale
+          <p class="equationCenter" style="text-align:center">
+            \(
+              L = L^{1} \supseteq L^{2} \supseteq L^{3} \supseteq \cdots
+            \)
+          </p>
+        </li>
+        <li>\(L^{(n)}\) é um ideal de \(L\) e vale
+          <p class="equationCenter" style="text-align:center">
+            \(
+              L = L^{(1)} \supseteq L^{(2)} \supseteq L^{(3)} \supseteq \cdots
+            \)
+          <span class="fim"></span></p>
+        </li>
+      </ol>
+    </p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Pela definição das séries central e derivada e pelo <a href="#lema-serieCentral&DerDescen">Lema 2.1</a>, temos que \(L^{n}\) e \(L^{(n)}\) são ideais, para todo \(n \ge 1\). Além disso, temos que se \(H \subseteq K\) são subespaços de \(L\), então \([L, H] \subseteq [L, K]\). Logo, as séries central e derivada são descendentes.
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="prop-NilpImplSol" class="prop">
+      <ol class="alfa">
+        <li>\([L^{m}, L^{n}] \subseteq L^{m+n}\).</li>
+        <li>\(L^{(n)} \subseteq L^{n}\).</li>
+        <li>Se \(L\) é nilpotente, então \(L\) é solúvel.<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          (a) Vamos mostrar por indução sobre \(n\). Se \(n = 1\), então \([L^{m}, L^{1}] = [L^{m}, L] = L^{m+1}\), por definição. Suponha que valha o resultado para \(n = r - 1\). Se \(n = r\), então
+        </p>
+        <p class="equationCenter">
+          \[
+            \begin{split}
+              [L^{m}, L^{r}] &= [L^{m}, [L^{r-1},L]] \\
+              (\text{identidade de Jacobi}) &\subseteq [\underbrace{[L^{m}, L^{r-1}]}_{\subseteq L^{m+r-1}}, L] + [L^{r-1}, \underbrace{[L^{m},L]}_{L^{m+1}}] \\
+              (\text{hipótese de indução}) &\subseteq [L^{m+r-1}, L] + [L^{r-1},L^{m+1}] \subseteq L^{m+r}.
+            \end{split}
+          \]
+        </p>
+        <p>
+          (b) Vamos mostrar, novamente, por indução sobre \(n\). Se \(n = 1\), então \(L^{(1)} = L = L^{1}\). Suponha que valha para \(n = r - 1\). Se \(n = r\), então 
+        </p>
+        <p class="equationCenter">
+          \[
+            \begin{split}
+              L^{(r)} &= [L^{(r-1)},L^{(r-1)}] \\
+              (\text{hipótese de indução}) &\subseteq [L^{r-1}, L^{r-1}] \subseteq [L, L^{r-1}] \\
+              &\subseteq L^{r}
+            \end{split}
+          \]
+        </p>
+        <p>
+          (c) Segue do item (b).
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="prop-idealQuocSol" class="prop">
+      <ol class="alfa">
+        <li>Se \(L\) é solúvel e \(I \unlhd L\), então \(I\) e \(\rfrac{L}{I}\) são solúveis.</li>
+        <li>Se existe \(I \unlhd L\) tal que \(I\) e \(\rfrac{L}{I}\) são solúveis, então \(L\) é solúvel.<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          (a) Note que \(I^{(n)} \subseteq L^{(n)}\). Logo, como \(L\) é solúvel, então \(I\) é solúvel. Agora, se \(L^{(n)} = \zero\), então \((\rfrac{L}{I})^{(n)} = \zero\), pois \([x + I, y + I] = [x, y] + I\).
+        </p>
+        <p>
+          (b) Como \(I\) e \(\rfrac{L}{I}\) são solúveis, então existem \(n, m > 0\) tais que \((\rfrac{L}{I})^{(n)} = \zero\) e \(I^{(m)} = \zero\). Dizer que \((\rfrac{L}{I})^{(n)} = \zero\) significa que \([L^{(n-1)} + I, L^{(n-1)} + I] = \zero\), ou seja, \(L^{(n)} = [L^{(n-1)}, L^{(n-1)}] \subseteq I\). Isso implica que \(L^{(m+n)} \subseteq I^{(m)} = \zero\). Portanto, \(L\) é solúvel.
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-idealSolMax" class="obs">
+      Assuma que \(I, J \unlhd L\) são solúveis. Pela <a href="intrAlgebrasLie-aula01.html#prop-nucleoImagem2">Proposição 1.3 (c)</a>, temos que \(\rfrac{I+J}{I} \cong \rfrac{J}{I \cap J}\). Logo, como \(\rfrac{J}{I \cap J}\) é solúvel, então \(\rfrac{I+J}{I}\) é solúvel. Agora, \(I\) e  \(\rfrac{I+J}{I}\) são solúveis, portanto \(I + J\) é solúvel. Em particular, soma finita de ideais solúveis é solúvel. Dessa forma, se \(L\) tem dimensão finita, então ele admite único ideal solúvel maximal, a saber, 
+      <p class="equationCenter">
+        \[
+          \Rad(L) := \sum_\limits{\;\;I \unlhd L \\ I \text{solúvel}} I
+        \]
+      </p>
+      <p>
+      Tal ideal é dito <strong>radical solúvel</strong> de \(L\).
+    <span class="fim"></span></p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-idealQuocRad" class="obs">
+      Se \(K \unlhd \rfrac{L}{\Rad(L)}\) é solúvel, então existe \(J \unlhd L\), com \(\Rad(L) \subseteq J\), tal que \(K = \rfrac{J}{\Rad(L)}\). Como \(K\) e \(\Rad(L)\) são solúveis, então \(J\) é solúvel. Uma vez que \(\Rad(L)\) é o ideal solúvel maximal, então \(J \subseteq \Rad(L)\). Logo, \(\Rad(L) = J\) e, por conseguinte, \(K = \zero + \Rad(L)\).
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-algSimples" class="def">
+      <ol>
+        <li>Se \(\Rad(L) = \zero\), dizemos que \(L\) é <strong>semissimples</strong>.</li>
+        <li>Dizemos que \(L\) é <strong>simples</strong>, se \(\dim(L) \neq 1\) e se \(L\) não possui ideais próprios não trivial.<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-algSimples" class="obs">
+      Na definição de álgebra de Lie simples, é acrescentado a condição de \(\dim(L) \neq 1\), pois, como veremos na próxima proposição, queremos poder afirmar, sem exceções, que simplicidade implica em semissimplicidade.
+    <span class="fim"></span></p>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="prop-simplesImplSemis" class="prop">
+      Se \(L\) é simples, então \(L\) é semissimples.
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Se \(L\) é simples, então \(\Rad(L) = \zero\) ou \(\Rad(L) = L\). Suponha que \(\Rad(L) = L\). Como \(\Rad(L)\) é solúvel, então \(L\) é solúvel. Isso implica que \(L^{(2)} \neq L\), pois, caso contrário, a série derivada de \(L\) estabilizaria no próprio \(L\), o que seria um absurdo, já que essa álgebra de Lie é solúvel. Como \(L\) é simples, então \(L^{(2)} = \zero\), já que \(L^{(2)} \neq L\). Portanto, \([L,L] = \zero\), ou seja, \(L\) é abeliana. Isso implica que qualquer subespaço de \(L\) é ideal. Dessa forma, temos que, para todo \(x \in L\setminus\zero\), \(\bbK\{x\} \unlhd L\). Novamente, por \(L\) ser simples, temos que \(L = \bbK\{x\}\), ou seja, \(\dim(L) = 1\). Absurdo, pois, por definição, uma álgebra de Lie simples não tem dimensão igual a \(1\). Portanto, \(\Rad(L) = \zero\), ou seja, \(L\) é semissimples.
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- LEMA -->
+    <p id="lema-represDimUm" class="lema">
+      Vale a seguinte equivalência: \(\rho: L \to \frakgl(\bbK) = \bbK\) é representação se, e somente se, \(\rho(L^{(2)}) = \zero\).
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Se \(\rho: L \to \frakgl(\bbK) = \bbK\) é representação, então \(\rho([x,y]) = [\rho(x), \rho(y)] = 0\), pois \(\rho(x), \rho(y) \in \bbK\). Portanto, \(\rho(L^{(2)}) = \zero\). Reciprocamente, suponha que \(\rho(L^{(2)}) = \zero\), isto é, que \(\rho([x,y]) = 0\). Mas \(\rho(x), \rho(y) \in \bbK\), logo, \([\rho(x), \rho(y)] = 0\). Portanto, \(\rho([x,y]) = [\rho(x), \rho(y)]\), ou seja, \(\rho: L \to \frakgl(\bbK) = \bbK\) é representação.
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- TEOREMA -->
+    <p id="teor-teorLie" class="teor" text="Teorema de Lie">
+      Seja \(L\) solúvel. Se \(V\) é \(L\)-módulo irredutível de dimensão finita, então \(\dim(V) = 1\).
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Como \(L\) é solúvel, então \(L^{(2)} \neq L\). Tome \(I \subseteq L\) subespaço contendo \(L^{(2)}\) tal que \(\dim(I) = \dim(L) - 1\) (tal subespaço é obtido acrescentando-se vetores a base de \(L^{(2)}\)). Note que, se \(x \in L\) e \(y \in I\), então \([x,y] \in L^{(2)} \subseteq I\). Logo, \(I\) é um ideal de \(L\). Vamos mostrar esse teorema, usando indução sobre a dimensão de \(L\). Se \(\dim(L) = 1\), então \(L = \bbK\{x\}\). Como \(\bbK\) é algebricamente fechado e de característica zero, existe \(v \in V\), não nulo, autovetor de \(x\) (note que estamos considerando \(x \in L\) como \(\rho(x) \in \End(V)\)). Disso segue que \(\bbK\{v\}\) é \(L\)-invariante, pois \(L \cdot (\bbK\{v\}) \subseteq \bbK\{v\}\). Como \(V\) é irredutível, temos que \(V = \bbK\{v\}\), ou seja, \(\dim(V) = 1\). Suponha que \(\dim(L) > 1\) e que o resultado valha para toda álgebra de Lie com dimensão menor do que a dimensão de \(L\). Considere \(V\) como \(I\)-módulo (em álgebra de Lie, ideais são subálgebras, o que nem sempre é o caso, quando estamos em álgebras associativas ou comutativas, com identidade). Tome \(W \subseteq V\) um \(I\)-submódulo irredutível de \(V\) (tal submódulo existe porque \(V\) tem dimensão finita: se \(V\) é irredutível, não há o que fazer; caso contrário, pela finitude da dimensão de \(V\), basta tomar submódulos de \(V\) até chegar em um irredutível). Como \(I\) é solúvel e \(\dim(I) < \dim(L)\), por indução, temos que \(W = \bbK\{w\}\), onde \(y \cdot w = \lambda(y)w\), para todo \(y \in I\), onde \(\lambda: I \to \frakgl(W)\) é representação de dimensão igual a \(1\). Defina \(U = \{u \in V \mid y \cdot u = \lambda(y)u, \;\forall\, y \in I\}\). Note que \(U \neq \zero\), pois \(W \subseteq U\).
+        </p>
+        <p>
+          Afirmação: \(U\) é submódulo. Vejamos. Sejam \(u \in U\), \(x \in L\) e \(y \in I\). Temos que ver que \(y \cdot (x \cdot u) = \lambda(y) (x \cdot u)\). Observe que
+        </p>
+        <p class="equationCenter">
+          \[
+            \begin{split}
+              y \cdot (x \cdot u) &= \underbrace{[y, x]}_{\in I} \cdot u + x \cdot (y \cdot u) \\
+              (\text{definição de } U) &= \lambda([y,x])\cdot u + \lambda(y)(x \cdot u) \in U
+            \end{split} 
+          \]
+        </p>
+        <p>
+          se, e somente se, \(\lambda([x,y]) = 0\), ou seja, \(U\) é \(L\)-submódulo se, e somente se, \(\lambda([x,y]) = 0\), para todo \(x \in L\) e todo \(y \in I\). Escreva \(L = I \oplus \bbK\{x\}\) (como espaço vetorial), para algum \(x \in L\setminus\zero\). Tome \(u \in U\), não nulo, e considere \(v_{0} = u\), \(v_{1} = x \cdot u\), \(v_{2} = x^{2} \cdot u\), \(\dots\). Como \(\dim(V) < \infty\), temos que existe \(p > 0\) tal que \(\{v_{0}, \dots, v_{p}\}\) é linearmente independente e \(v_{p+k} \in \bbK\{v_{0}, \dots, v_{p}\}\), para todo \(k > 0\). Por construção, \(\bbK\{v_{0}, \dots, v_{p}\}\) é \(x\)-invariante. Seja \(y \in I\). Vamos mostrar que \(y \cdot v_{i} = \lambda(y)v_{i} + \bbK\{v_{0},\dots,v_{i-1}\}\), por indução sobre \(i\). Se \(i = 0\), então \(y \cdot v_{0} = y \cdot u = \lambda(y)v_{0}\). Assuma que vale para \(v_{i-1}\). Então
+        </p>
+        <p class="equationCenter">
+          \begin{split}
+            y \cdot v_{i} &= y \cdot (x \cdot v_{i-1}) = x \cdot (y \cdot v_{i-1}) - \underbrace{[x,y]}_{\in I}v_{i-1} \\
+            &= x \cdot (\lambda(y)v_{i-1} + \bbK\{v_{0},\dots,v_{i-2}\}) - \bbK\{v_{0},\dots,v_{i-1}\} \\
+            &= \lambda(y)v_{i} + \bbK\{v_{0},\dots,v_{i-1}\}
+          \end{split}
+        </p>
+        <p>
+          Disso segue que \(\bbK\{v_{0},\dots,v_{p}\}\) é \(L\)-submódulo de \(V\). Mas \(V\) é irredutível, logo \(V = \bbK\{v_{0},\dots,v_{p}\}\). Denote \(\{v_{0},\dots,v_{p}\}\) por \(\calB\). Note que se \(y \in I\), \(x \in L\), \([x,y] \in I\), temos que 
+        </p>
+        <p class="equationCenter">
+          \[
+            ([x,y])_{\calB} =
+            \begin{pmatrix}
+              \lambda([x,y]) & \cdots & \ast \\
+              \vdots & \ddots & \vdots \\
+              0 & \cdots & \lambda([x,y])
+            \end{pmatrix}
+          \]
+        </p>
+        <p>
+          Observe que, por um lado, \(\tr([x,y]) = 0\), pois \(\tr(xy) = \tr(yx)\). Por outro lado, \(\tr([x,y]) = (p+1)\lambda([x,y])\). Logo, \(\lambda([x,y]) = 0\). Portanto, \(U\) é \(L\)-submódulo de \(V\). Por \(V\) ser irredutível, temos que \(V = U\). Lembre-se de que \(L = I \oplus \bbK\{x\}\). Tome \(u \in V\), não nulo, autovetor de \(x\). Então \(x \cdot u \in \bbK\{u\}\). Mas \(y \cdot u \in \bbK\{u\}\), para todo \(y \in I\). Logo, \(\bbK\{u\}\) é \(L\)-invariante. Portanto, \(V = \bbK\{u\}\), pois \(V\) é irredutível.
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- EXERCÍCIO -->
+    <p id="exerc-aula2" class="exerc">
+      <ol class="numerico">
+        <li>Mostre que o módulo dado pela ação natural (veja o <a href="intrAlgebrasLie-aula01.html#exemplo-modulo">Exemplo 1.2 (a)</a>) é irredutível.</li>
+        <li>
+          <ol class="alfa">
+            <li>Sejam \(\varphi: L_{1} \to L_{2}\) homomorfismo, \(I \unlhd L_{1}\) e \(J \unlhd L_{2}\). Mostre que \(\varphi(I)\) é subálgebra e \(\varphi^{-1}(J)\) é ideal. Quando \(\varphi(I)\) é ideal?</li>
+            <li>Sejam \(I \unlhd L\) e \(\pi: L \to \rfrac{L}{I}\), \(x \mapsto x + I\) a projeção canônica. Prove que existe uma bijeção entre \(\{J \unlhd L \mid I \subseteq J\}\) e \(\{K \unlhd \rfrac{L}{I}\}\). Dica: considere os mapas \(J \mapsto \pi(J) = \rfrac{J}{I}\) e \(K \mapsto \pi^{-1}(K)\).</li>
+          </ol>
+        </li>
+        <li>Mostre que uma álgebra de Lie ser simples equivale a representação adjunta ser irredutível.<span class="fim"></span></li>
+      </ol>
+    </p>
 
   </body>
   
 </html>
-
