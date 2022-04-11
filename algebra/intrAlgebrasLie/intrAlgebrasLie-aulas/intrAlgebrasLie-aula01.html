@@ -354,30 +354,293 @@
     <div style="text-align:center"><h1>Introdução às Álgebras de Lie</h1></div>
     
     <!-- ############ -->
-    <h2>Aula 1 - </h2>
+    <h2>Aula 1 - Noções gerais, representações e módulos</h2>
     
-    <!-- DEFINIÇÃO -->
-    <p id="def-" class="def">
-      
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-refBiblio" class="obs">
+      As referências são:
+      <ol class="alfa">
+        <li>R. Carter - <em>Lie Algebras of Finite and Affine Type</em> - Cambridge University Press, 2005</li>
+        <li>L.A.B. San-Martin - <em>Álgebras de Lie</em> - Unicamp</li>
+        <li>J.E. Humphreys - <em>Introduction to Lie algebras and representation theory</em> - Springer</li>
+        <li>V. Kac - <em>Introduction to Lie Algebras</em> (acesse-as <a href="http://math.mit.edu/classes/18.745/classnotes.html" target="_blank">aqui</a>)<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-algLieCorpos" class="obs">
+      A menos que deixe explícito as álgebras de Lie, neste curso, são sobre corpos algebricamente fechados de característica zero.
     <span class="fim"></span></p>
     
-    <!-- TEOREMA -->
-    <p id="teor-" class="teor" >
-      
+    <!-- DEFINIÇÃO -->
+    <p id="def-algLie" class="def">
+      Uma <strong>álgebra de Lie</strong> é um espaço vetorial (considerando a <a href="#obs-algLieCorpos">Observação 1.2</a> um espaço vetorial é sobre um corpo \(\bbK\) tal que \(\bbK = \overline{\bbK}\) e \(\char(\bbK) = 0\)) \(L\) munido de uma forma bilinear \([\cdot, \cdot]: L \times L \to L\) satisfazendo:
+      <ol class="alfa">
+        <li><em>antissimetria</em>: \([x,y] = -[y,x]\),</li>
+        <li><em>identidade de Jacobi</em>: \([x,[y,z]] = [[x,y],z] + [y,[x,z]]\),</li>
+      </ol>
+      para todo \(x, y, z \in L\).
+    <span class="fim"></span></p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-antissimetria" class="obs">
+      <ol class="alfa">
+        <li>A antissimetria é equivalente à condição de que \([x,x] = 0\), para todo \(x \in L\) (lembre-se de que \(\char(\bbK) = 0\)).</li>
+        <li>\(L\) será usado para denotar uma álgebra de Lie.</li>
+        <li>\(L\) é, em geral, não associativa.<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-espGerColch" class="def">
+      Sejam \(H,K \subseteq L\) subespaços. Definimos \([H,K] := \bbK\{[h,k] \mid h \in H, k \in K\}\), ou seja, é o espaço vetorial gerado pelos colchetes.
+    <span class="fim"></span></p>
+    
+    <!-- EXEMPLO -->
+    <p id="exemplo-algAssocLie" class="exemplo">
+      Se \(A\) é álgebra associativa, o colchete (chamado de <em>comutador</em>), definido como \([\cdot, \cdot]: A \times A \to A\), \([x, y] = xy - yx\), faz de \(A\) uma álgebra de Lie (<a href="#exerc-aula1">Execício 1.1 (2)</a>), o qual é denotado por \([A]\).
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-subalg&Ideal" class="def">
+      <ol class="alfa">
+        <li>Dizemos que \(K \subseteq L\) é uma <strong>subálgebra</strong> (de Lie), se \(K\) é um subespaço de \(L\) e \([K,K] \subseteq K\).</li>
+        <li>Dizemos que \(I \subseteq L\) é um <strong>ideal</strong>, fato denotado por \(I \unlhd L\), se \(I\) é um subespaço de \(L\) e \([L,I] \subseteq I\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="prop-algLieQuoc" class="prop">
+      Se \(I \unlhd L\), então o espaço vetorial \(\rfrac{L}{I}\) é uma álgebra de Lie, onde \([x + I, y + I] := [x, y] + I\).
     <span class="fim"></span></p>
     
     <details>
       <summary>Demonstração</summary>
       <div class="caixa">
         <p>
-        
+          Temos que checar que o produto é bem definido. As propriedades que definem uma álgebra de Lie (<a href="#def-algLie">Definição 1.1</a>), seguem do próprio colchete em \(L\). Sejam \(x + I = x' + I\) e \(y + I = y' + I\). Então
+        </p>
+        <p class="equationCenter">
+          \[
+            \begin{split}
+              [x + I, y + I] &= [x, y] + I = [x' + i_{1}, y' + i_{2}] + I \\
+              &= [x', y'] + \underbrace{[x', i_{2}] + [i_{1}, y'] + [i_{1}, i_{2}]}_{\text{pertence a } I \text{ pois } I \text{ é ideal}} + I \\
+              &= [x', y'] + I = [x' + I, y' + I].
+            \end{split}
+          \] 
         </p>
       </div>
       <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
       <br>
     </details>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-homomorf" class="def">
+      Uma função \(\theta: L_{1} \to L_{2}\) é dita um <strong>homomorfismo de álgebras de Lie</strong>, se
+      <ol class="alfa">
+        <li>\(\theta\) é transformação linear,</li>
+        <li>\(\theta([x,y]) = [\theta(x), \theta(y)]\), para todo \(x,y \in L_{1}\)</li>
+      </ol>
+      Um homomorfismo de álgebras de Lie \(\theta: L_{1} \to L_{2}\) é dito um <strong>isomorfismo</strong>, se \(\theta\) é bijetiva. Neste caso, denotamos por \(L_{1} \cong L_{2}\).
+    <span class="fim"></span></p>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="prop-nucleoImagem" class="prop">
+      Se \(\theta: L_{1} \to L_{2}\) é um homomorfismo, então
+      <ol class="alfa">
+        <li>\(\im(\theta) \subseteq L_{2}\) é uma subálgebra de Lie,</li>
+        <li>\(\ker(\theta) \unlhd L_{1}\)</li>
+        <li>\(\rfrac{L_{1}}{\ker(\theta)} \cong \im(\theta)\)<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Para os itens (a) e (b), veja o <a href="#exerc-aula1">Exercício 1.1 (4)</a>.
+        </p>
+        <p>
+          (c) Denote \(\ker(\theta)\) por \(K\) e defina \(\overline{\theta}: \rfrac{L_{1}}{K} \to \im(\theta)\), \(x + K \mapsto \theta(x)\). De Álgebra Linear, sabemos que \(\overline{\theta}\) é bem definida e é linear. Note que 
+        </p>
+        <p class="equationCenter">
+          \[
+            \begin{split}
+              \overline{\theta}([x + K, y + K]) &= \overline{\theta}([x, y] + K) = \theta([x, y]) = \\
+              &= [\theta(x), \theta(y)] = [\overline{\theta}(x + K), \overline{\theta}(y + K)].
+            \end{split}
+          \]
+        </p>
+        <p>
+          Logo, \(\overline{\theta}\) é homomorfismo de álgebras de Lie.Agora, observe que 
+        </p>
+        <p class="equationCenter">
+          \[
+            \begin{split}
+              \overline{\theta}(x + K) = 0 & \;\Leftrightarrow\; \theta(x) = 0 \;\Leftrightarrow\; x \in K \;\Leftrightarrow\; x + K = 0 + K.
+            \end{split}
+          \]
+        </p>
+        <p>
+          Disso segue que \(\overline{\theta}\) é injetiva. Finalmente, por definição, \(\im(\overline{\theta}) = \im(\theta)\), ou seja, \(\overline{\theta}\) é sobrejetva.
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="prop-nucleoImagem2" class="prop">
+      Sejam \(I \unlhd L\) e \(H \subseteq L\) subálgebra. Então
+      <ol class="alfa">
+        <li>\(I \unlhd I + H\)</li>
+        <li>\(I \cap H \unlhd H\)</li>
+        <li>\(\rfrac{I + H}{I} \cong \rfrac{H}{I \cap H}\)<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Para os itens (a) e (b), veja o <a href="#exerc-aula1">Exercício 1.1 (5)</a>.
+        </p>
+        <p>
+          (c) Defina \(\theta: H \to \rfrac{I + H}{I}\), \(h \mapsto h + I\). Note que \(\theta\) é linear. Note também que
+        </p>
+        <p class="equationCenter">
+          \[
+            \begin{split}
+              \theta([h,h']) = [h, h'] + I = [h + I, h' + I] = [\theta(h), \theta(h')].
+            \end{split}
+          \]
+        </p>
+        <p>
+          ou seja, \(\theta\) é homomorfismo. Veja que \((h + i) + I = h + I = \theta(h)\). Isso significa que \(\theta\) é sobrejetiva. Finalmente, observe que
+        </p>
+        <p class="equationCenter">
+          \[
+            \begin{split}
+              \theta(h) = 0 & \;\Leftrightarrow\; h + I = 0 + I \;\Leftrightarrow\; h \in I \;\Leftrightarrow\; h \in I \cap H \;\Leftrightarrow\; \ker(\theta) = H \cap I
+            \end{split}
+          \]
+        </p>
+        <p>
+          Logo, pela <a href="#prop-nucleoImagem">Proposição 1.2 (c)</a>, temos que \(\rfrac{I + H}{I} \cong \rfrac{H}{I \cap H}\).
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-algLiegln" class="obs">
+      Considere a álgebra associativa \(M_{n}(\bbK)\), das matrizes \(n \times n\) com entradas no corpo \(\bbK\). Pelo <a href="#exemplo-algAssocLie">Exemplo 1.1</a>, temos que \([M_{n}(\bbK)]\) é álgebra de Lie, a qual denotamos por \(\frakgl_{n}\). Em geral, dado um espaço vetorial \(V\), \(\End(V) = \{\varphi: V \to V \mid \varphi \) é linear\(\}\) é álgebra associativa, considerando a composição. Neste caso, denotamos \([\End(V)]\) por \(\frakgl(V)\).
+    <span class="fim"></span></p>
 
+    <!-- DEFINIÇÃO -->
+    <p id="def-representacao" class="def">
+      Uma <strong>representação</strong> de \(L\) em \(V\) é um homomorfismo \(\rho: L \to \frakgl(V)\) ("representamos" os elementos de \(L\) como operadores lineares em \(V\)).
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-modulo" class="def">
+      Um espaço vetorial \(V\) é um <strong>\(\bfL\)-módulo</strong>, se existe uma função, chamada <em>ação</em>, \(\cdot: L \times V \to V\), \((x,v) \mapsto x \cdot v\) satisfazendo:
+      <ol class="alfa">
+        <li>linearidade em \(x\) e em \(v\);</li>
+        <li>\([x,y]\cdot v = x \cdot (y \cdot v) - y \cdot (x \cdot v)\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- EXEMPLO -->
+    <p id="exemplo-modulo" class="exemplo">
+      <ol class="alfa">
+        <li>O espaço vetorial \(\bbK^{n}\) é um \(\frakgl_{n}\)-módulo, com a ação \(\frakgl_{n} \times \bbK^{n} \to \bbK^{n}\), \((x, v) \mapsto xv\). Tal ação é dita <em>ação natural</em>. A representação associada a esse \(\frakgl_{n}\)-módulo é a identidade, \(\id: \frakgl_{n} \to \frakgl(\bbK^{n})\).</li>
+        <li>Toda álgebra de Lie \(L\) é um \(L\)-módulo, onde a ação é \(L \times L \to L\), \((x, y) \mapsto x \cdot y := [x, y]\), pois \([x,y]\) é bilinear e
+        <p class="equationCenter">
+          \[
+            \begin{split}
+              [x, y] \cdot z &= [[x,y],z] = - [z,[x,y]] = -\big([[z,x],y] + [x,[z,y]]\big) = \\
+              &= [y, [z,x]] - [x,[z,y]] = -[y,[x,z]] + [x,[y,z]] = x \cdot (y \cdot z) - y \cdot (x \cdot z).
+            \end{split}
+          \]
+        </p>
+        <p>Tal módulo é dito <em>módulo adjunto</em>.</p>
+        </li>
+        <li>Todo espaço vetorial \(V\) é um \(L\)-módulo, com a ação, chamada <em>ação trivial</em>, \(L \times V \to V\), \((x, v) \mapsto x \cdot v := 0\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-submodulo" class="def">
+      Seja \(V\) um \(L\)-módulo, \(U \subseteq V\) subespaço e \(H \subseteq L\) também um subespaço. Definimos
+      <ol class="alfa">
+        <li>\(H \cdot U = \bbK\{h \cdot u \mid h \in H, u \in U\}\);</li>
+        <li>\(U\) é dito <strong>submódulo</strong> de \(V\), se \(L \cdot U \subseteq U\).</li>
+      </ol>
+    <span class="fim"></span></p>
+    
+    <!-- EXEMPLO -->
+    <p id="exemplo-submodulo" class="exemplo">
+      Os subespaços \(\zero\) e \(V\) são sempre submódulos de \(V\). O submódulo \(\zero\) é dito <em>submódulo trivial</em> e todo submódulo diferente de \(V\) é chamado de <em>submódulo próprio</em>.
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-modIrred" class="def">
+      Um \(L\)-módulo \(V\) é <strong>irredutível</strong> (ou simples), se \(V\) não possui submódulos próprios diferentes do trivial.
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-somaDiretaSubmod" class="def">
+      Se \(\{V_{i}\}_{i \in I}\) é família de \(L\)-módulos, então
+      <p class="equationCenter" style="text-align:center">
+      \(
+        W = \bigoplus_{i \in I}V_{i} := \{\sum v_i \mid v_{i} \in V_{i} \text{ e } v_{i} \neq 0 \text{ só para uma quantidade finita de } i\}
+      \)
+      <span class="fim"></span></p>
+    </p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-completRed" class="def">
+      Um \(L\)-módulo \(V\) é <strong>completamente redutível</strong>, se \(V \cong \bigoplus_{i \in I}V_{i}\), onde \(V_{i}\) é \(L\)-módulo irredutível.
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-indecomp" class="def">
+      Um \(L\)-módulo \(V\) é <strong>indecomponível</strong>, se \(V\) não é soma direta de dois submódulos próprios não triviais.
+    <span class="fim"></span></p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-indecomp" class="obs">
+      Se \(V\) é irredutível, então \(V\) é indecomponível, mas a recíproca não é verdadeira.
+    <span class="fim"></span></p>
+    
+    <!-- EXERCÍCIO -->
+    <p id="exerc-aula1" class="exerc">
+      <ol class="numerico">
+        <li>Mostre que \([H,K] = [K,H]\).</li>
+        <li>Considere o <a href="#algLie">Exemplo 1.1</a>. Mostre que \((A, [\cdot,\cdot])\) é uma álgebra de Lie.</li>
+        <li>
+          Mostre que
+          <ol class="alfa">
+            <li>se \(H, K \subseteq L\) é subálgebra de \(L\), então \(H \cap K\) é subálgebra de \(L\),</li>
+            <li>se \(H, K \unlhd L\), então \(H \cap K \unlhd L\),</li>
+            <li>se \(H \subseteq L\) é subálgebra de \(L\) e \(K \unlhd L\), então \(H + K\) é subálgebra de \(L\),</li>
+            <li>se \(H, K \unlhd L\), então \(H + K \unlhd L\).</li>
+          </ol>
+        </li>
+        <li>Demonstre os itens (a) e (b) da <a href="#prop-nucleoImagem">Proposição 1.2</a>.</li>
+        <li>Demonstre os itens (a) e (b) da <a href="#prop-nucleoImagem2">Proposição 1.3</a>.</li>
+        <li>Considere a <a href="#obs-algLiegln">Observação 1.4</a>. Prove que se \(\dim(V) = n\), então \(\frakgl(V) \cong \frakgl_{n}\).</li>
+        <li>Mostre que
+          <ol class="alfa">
+            <li>se \(\rho: L \to \frakgl(V)\) é uma representação, então \(L \times V \to V\), \((x, v) \mapsto x \cdot v := \rho(x)v\) define uma estrutura de \(L\)-módulo em \(V\);</li>
+            <li>se \(V\) é um \(L\)-módulo, então \(\rho: L \to \frakgl(V)\), \(x \mapsto \rho(x)\), onde \(\rho(x)v := x \cdot v\).<span class="fim"></span></li>
+          </ol>
+        </li>
+      </ol>
+    </p>
+    
   </body>
   
 </html>
-
