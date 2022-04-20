@@ -270,6 +270,7 @@
             Der: ["\\operatorname\{Der\}"],
             ma: ["\\operatorname\{ma\}"],
             mg: ["\\operatorname\{mg\}"],
+            Rad: ["\\operatorname\{Rad\}"],
             pint: ["{ \\langle #1,#2 \\rangle }",2],
             rfrac: ["{ {}^{#1}\\!/_{#2} }",2],
             norma: ["{ \\Vert #1 \\Vert }",1],
@@ -354,30 +355,228 @@
     <div style="text-align:center"><h1>Introdução às Álgebras de Lie</h1></div>
     
     <!-- ############ -->
-    <h2>Aula 3 - </h2>
+    <h2>Aula 3 - Representações de álgebras de Lie nilpotentes</h2>
     
-    <!-- DEFINIÇÃO -->
-    <p id="def-" class="def">
-      
-    <span class="fim"></span></p>
-    
-    <!-- TEOREMA -->
-    <p id="teor-" class="teor" >
-      
+    <!-- COROLÁRIO -->
+    <p id="coro-teorLie" class="coro">
+      Se \(L\) é solúvel e \(V\) é \(L\)-módulo de dimensão finta, então existe base de \(V\) para a qual \(\rho(x)\) é triangular superior, para todo \(x \in L\).
     <span class="fim"></span></p>
     
     <details>
       <summary>Demonstração</summary>
       <div class="caixa">
         <p>
-        
+          Como \(\dim(V) < \infty\), tem que existir um submódulo de \(V\) que seja irredutível. Assim, pelo <a href="intrAlgebrasLie-aula02.html#teor-teorLie">Teorema de Lie</a> tal submódulo tem dimensão igual a \(1\). Vamos denotá-lo por \(V_{1} = \bbK\{v_{1}\}\), com \(v_{1} \neq 0\). Sabemos que \(\rfrac{V}{V_{1}}\) é \(L\)-módulo, com a ação definida como \(x \cdot (v + V_{1}) = x \cdot v + V_{1}\). Como \(\rfrac{V}{V_{1}}\) tem dimensão finita, existe um submódulo de \(\rfrac{V}{V_{1}}\) tal que é irredutível. Novamente, pelo Teorema de Lie, tal submódulo tem dimensão igual a \(1\), logo, gerado por algum vetor \(v_{2} + V_{1} \in \rfrac{V}{V_{1}}\) não nulo, isto é, \(v_{2} \not\in \bbK\{v_{1}\}\). Isso significa que tal submódulo é da forma \(\bbK\{v_{2} + V_{1}\}\). Como submódulos são \(L\)-invariantes, temos que \(x \cdot (v_{2} + V_{1}) = \alpha v_{2} + V_{1}\), com \(\alpha \in \bbK\). Logo, \(x \cdot v_{2} = \alpha v_{2} + \beta v_{1}\), com \(\beta \in \bbK\). Considere \(V_{2} = \bbK\{v_{1}, v_{2}\}\) e repita o argumento até obtermos uma base de \(V\). Para essa base teremos que a matriz de \(\rho(x)\) é da forma
+        </p>
+        <p class="equationCenter">
+          \[
+            \begin{array}{cc}
+              \begin{array}{ccccc} 
+                v_{1} & v_{2} & v_{3} & \cdots & v_{n} 
+              \end{array} & \\[1ex]
+              \left(
+              \begin{array}{ccccc} 
+                \;\ast & \;\ast & \;\ast & \;\cdots & \;\ast \\
+                \;0 & \;\ast & \;\ast & \;\cdots & \;\ast \\
+                \;0 & \;0 & \;\ast & \;\cdots & \;\ast \\
+                \;\vdots & \;\vdots & \;\vdots & \;\ddots & \;\vdots \\
+                \;0 & \;0 & \;0 & \;\cdots & \;\ast
+              \end{array}
+              \right) &
+              \begin{array}{c} 
+                v_{1} \\ 
+                v_{2} \\ 
+                v_{3} \\
+                \vdots \\
+                v_{n}
+              \end{array}
+            \end{array}
+          \]
         </p>
       </div>
       <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
       <br>
     </details>
-
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-teorLie1" class="obs">
+      Note que o <a href="#coro-teorLie">Corolário 3.1</a>, diz que existe uma base de \(V\) tal que todo operador \(\rho(x)\) é uma matriz triangular superior, o que é diferente do que nos diz a <a href="intrAlgebrasLie-apendice-formaJordan.html#teor-formaNormalJordan">Forma Normal de Jordan</a>, onde dado um operador, encontramos uma base para a qual ele é triangular superior.
+    <span class="fim"></span></p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-teorLie1" class="obs">
+      Da demonstração do <a href="#coro-teorLie">Corolário 3.1</a> conseguimos uma cadeia de submódulos
+    </p>
+    <p class="equationCenter">
+      \[
+        V_{0} = \zero \subseteq V_{1} \subseteq V_{2} \subseteq \cdots \subseteq V_{n} = V,
+      \]
+    </p>
+    <p>
+      onde \(\dim(V_{i}) = i\). Portanto, podemos concluir que se \(L\) é solúvel e \(\dim(L) < \infty\), então existe cadeia de ideais \(I_{0} = \zero \subseteq I_{1} \subseteq \cdots \subseteq I_{n} = L\) tal que \(\dim(I_{j}) = j\) (note que um submódulo da representação adjunta é um ideal).
+    <span class="fim"></span></p>
+    
+    <!-- LEMA -->
+    <p id="lema-autoEspSubm" class="lema">
+      Se \(V\) é \(L\)-módulo, \(x, y \in L\), \(v \in V\) e \(\alpha, \beta \in \bbK\), então, para todo \(n \ge 0\), temos que
+    </p>
+    <p class="equationCenter" style="text-align:center">
+      \(
+        \big(\rho(y) - (\alpha + \beta)\id_{V}\big)^{n}\big(\rho(x)v\big) = \displaystyle\sum_{i=0}^{n}\binom{n}{i}\rho\big((\ad(y) - \beta\id_{L})^{i}x\big)\big((\rho(y) - \alpha\id_{V})^{n-i}v\big)
+      \)
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Vamos demonstrar esse resultado por indução sobre \(n\). Antes, defina \(x_{i} = (\ad(y) - \beta\id_{L})^{i}x\). Note que substituindo \(n = 0\) na expressão acima, obtemos \(\rho(x)v = \rho(x)v\). Suponha que o resultado seja válido para \(r\). Então, por indução
+        </p>
+        <p class="equationCenter">
+          \begin{equation} \label{eq-autoEspSubm1}
+            \big(\rho(y) - (\alpha + \beta)\id_{V}\big)^{r+1}\big(\rho(x)v\big) = \big(\rho(y) - (\alpha + \beta)\id_{V}\big)\big(\displaystyle\sum_{i=0}^{r}\binom{r}{i}\rho(x_{i})(\rho(y) - \alpha\id_{V})^{r-i}v\big).
+          \end{equation}
+        </p>
+        <p>
+          Agora, veja que
+        </p>
+        <p class="equationCenter">
+          \[
+            \begin{split}
+              \big(\rho(y) - (\alpha + \beta)\id_{V}\big)\rho(x_{i}) &= \rho(\overbrace{[y,x_{i}]}^{\ad(y)(x_{i})}) + \rho(x_{i})\rho(y) - (\alpha + \beta)\id_{V}\rho(x_{i}) \\
+              &= \rho\big((\ad(y) - \beta\id_{V})x_{i}\big) + \rho(x_{i})\big(\rho(y) - \alpha\id_{V}\big) \\
+              &= \rho(x_{i + 1}) + \rho(x_{i})\big(\rho(y) - \alpha\id_{V}\big).
+            \end{split}
+          \]
+        </p>
+        <p>
+          Substituindo a igualdade acima na Equação \eqref{eq-autoEspSubm1}, obtemos
+        </p>
+        <p class="equationCenter">
+          \[
+            \begin{split}
+              \sum_{i=0}^{r}\binom{r}{i}\rho(x_{i+1})&(\rho(y) - \alpha\id_{V})^{r-i}v + \sum_{i=0}^{r}\binom{r}{i}\rho(x_{i})(\rho(y) - \alpha\id_{V})^{r+1-i}v = \\
+              &= \binom{r}{0}\rho(x_{1})\big(\rho(y) - \alpha\id_{V}\big)^{r}v + \binom{r}{1}\rho(x_{2})\big(\rho(y) - \alpha\id_{V}\big)^{r-1}v + \cdots + \binom{r}{r}\rho(x_{r+1})v + \binom{r}{0}\rho(x_{0})\big(\rho(y) - \alpha\id_{V}\big)^{r+1}v + \binom{r}{1}\rho(x_{1})\big(\rho(y) - \alpha\id_{V}\big)^{r}v + \cdots + \binom{r}{r}\rho(x_{r})\big(\rho(y) - \alpha\id_{V}\big)v \\
+              &= \binom{r}{0}\rho(x_{0})\big(\rho(y) - \alpha\id_{V}\big)^{r+1}v + \big(\binom{r}{0} + \binom{r}{1}\big)\rho(x_{1})\big(\rho(y) - \alpha\id_{V}\big)^{r}v + \cdots + \big(\binom{r}{r-1} + \binom{r}{r}\big)\rho(x_{r})\big(\rho(y) - \alpha\id_{V}\big)v \\
+              &= \sum_{i=0}^{r+1}\binom{r+1}{i}\rho(x_{i})(\rho(y) - \alpha\id_{V})^{r+1-i}v.
+            \end{split}
+          \]
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- TEOREMA -->
+    <p id="teor-autoEspSubm" class="teor" >
+      Se \(L\) é nilpotente, \(V\) é \(L\)-módulo de dimensão finita e \(y \in L\), então os <a href="intrAlgebrasLie-apendice-formaJordan.html#def-autoespacoGener">autoespaços generalizados</a>, com relação ao operador \(\rho: V \to V\), são submódulos.
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Tome \(v \in V(\lambda)\) e \(x \in L\). Queremos mostrar que \(x \cdot v \in V(\lambda)\). Pelo <a href="#lema-autoEspSubm">Lema 3.1</a>, fazendo \(\alpha = \lambda\) e \(\beta = 0\), temos que 
+        </p>
+        <p class="equationCenter">
+          \[
+            (\rho(y) - \lambda\id_{V})^{n}\rho(x)v = \sum_{i=0}^{n}\binom{n}{i}\rho\big(\ad(y)^{i}x\big)\big(\rho(y) - \lambda\id_{V})^{n-i}v\big).
+          \]
+        </p>
+        <p>
+          Como \(v \in V(\lambda)\), existe \(k_{1} \ge 0\) tal que \((\rho(y) - \lambda\id_{V})^{k_{1}}v = 0\). Por outro lado, como \(L\) é nilpotente, existe \(k_{2} \ge 0\) tal que \(\ad(y)^{k_{2}}x = 0\). Assim, tomando \(k = k_{1} + k_{2}\), temos que \((\rho(y) - \lambda\id_{V})^{n}\rho(x)v = 0\), ou seja, \(\rho(x)v \in V(\lambda)\). Portanto, \(V(\lambda)\) é submódulo.
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- COROLÁRIO -->
+    <p id="coro-autoEspSubm" class="coro">
+      Se \(L\) é nilpotente, \(V\) é \(L\)-módulo de dimensão finita e indecomponível, então existe base de \(V\) para a qual
+    </p>
+    <p class="equationCenter">
+      \[
+        \rho(x) =
+        \begin{pmatrix}
+          \lambda(x) & \ast & \cdots & \ast \\
+          0 & \lambda(x) & \cdots & \ast \\
+          \vdots & \vdots & \ddots & \vdots \\
+          0 & 0 & \cdots & \lambda(x)
+        \end{pmatrix}
+      \]
+    </p>
+    <p>
+      para todo \(x \in L\), onde \(\lambda(x)\) é o único autovalor de \(x\) em \(V\).
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Pelo Teorema de Lie, existe uma base de \(V\) tal que \(\rho(x)\) é triangular superior, para \(x \in L\). Como \(V\) é indecomponível, \(\rho(x)\) só tem um autovalor (pois, do contrário, teríamos \(V = \oplus_{i=1}^{n} V(\lambda_{i})\), onde \(V(\lambda_{i})\) são submódulos). Chamando tal autovalor de \(\lambda(x)\), obtemos a matriz conforme o enunciado.
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-autoEspSubm" class="obs">
+      Pela demonstração do Teorema de Lie, o autovalor \(\lambda(x)\) é determinado por sua representação de dimensão \(1\). Logo, a função que associa cada \(x\) ao seu autovalor é linear, já que vem de um operador linear
+    <span class="fim"></span></p>
+    
+    <!-- TEOREMA -->
+    <p id="teor-decomAutoEsp" class="teor" >
+      Seja \(L\) nilpotente, \(V\) um \(L\)-módulo de dimensão finita e, para cada \(\lambda: L \to \bbK\) representação de dimensão igual a \(1\), defina \(V(\lambda)^{L} = \{v \in V \mid \forall \; x \in L \quad \exists \; k \ge 0 \; \text{ tal que } \; (\rho(x) - \lambda(x)\id_{V})^{k}v = 0\}\). Então \(V = \bigoplus_{\lambda \in L^{\ast}}V(\lambda)^{L}\) e cada \(V(\lambda)^{L}\) é um submódulo.
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Como \(V\) tem dimensão finita, temos que \(V = V_{1} \oplus \cdots \oplus V_{n}\), onde \(V_{i}\) é \(L\)-módulo indecomponível. Pelo <a href="#coro-autoEspSubm">Corolário 3.2</a>, temos que \(V_{i} = \{v \in V_{i} \mid \forall \; x \in L \quad \exists \; k \ge 0 \; \text{ tal que } \; (\rho(x) - \lambda_{i}(x)\id_{V_{i}})^{k}v = 0\}\). Considerando a <a href="#obs-autoEspSubm">Observação 3.3</a>, temos que \(\lambda\) é uma representação de dimensão \(1\). Assim, considere a soma direta de todos os \(V_{i}\), para os quais \(\lambda_{i} = \lambda \in L^{\ast}\). Cada soma direta desse tipo é um \(L\)-módulo, pois cada \(V_{i}\) é um \(L\)-módulo. Fixado um funcional linear \(\lambda\), vamos denotar a soma de todos os \(V_{i}\) onde \(\lambda_{i} = \lambda\) por \(W_{\lambda}\). Então, temos que \(V = \bigoplus_{\lambda \in L^{\ast}}W_{\lambda}\). Vamos mostrar que \(W_{\lambda} = V(\lambda)^{L}\). Por construção, \(W_{\lambda} \subseteq V(\lambda)^{L}\). Suponha que \(V(\lambda)^{L} \not\subseteq W_{\lambda}\) e seja \(\tilde{v} \in V(\lambda)^{L}\setminus W_{\lambda}\). Como \(\tilde{v} \in V\), então
+        </p>
+        <p class="equationCenter">
+          \[
+            \tilde{v} = \underbrace{w_{\mu_{1}}}_{\in W_{\mu_{1}}} + \dots + \underbrace{w_{\lambda}}_{\in W_{\lambda}} + \dots + \underbrace{w_{\mu_{n}}}_{\in W_{\mu_{n}}}.
+          \]
+        </p>
+        <p>
+           Como \(\tilde{v} \not\in W_{\lambda}\), temos que \(v := \tilde{v} - w_{\lambda} = \sum_{\mu_{i} \in S}w_{\mu_{i}} \neq 0\), onde \(S = \{\mu_{1}, \dots, \mu_{n}\}\), com \(\mu_{i} \neq \lambda\), para todo \(i\). Uma vez que \(w_{\mu} \in W_{\mu}\), então existe \(k_{\mu} \ge 0\) tal que \((\rho(x) - \mu(x))^{k_{\mu}}v_{\mu} = 0\). Disso, segue que
+        </p>
+        <p class="equationCenter">
+          \begin{equation}
+            \label{eq-decomAutoEsp1}
+            \tag{1}
+            \prod_{\mu \in S}(\rho(x) - \mu(x))^{k_{\mu}}v = 0
+          \end{equation}
+        </p>
+        <p>
+          e
+        </p>
+        <p class="equationCenter">
+          \begin{equation}
+            \label{eq-decomAutoEsp2}
+            \tag{2}
+            (\rho(x) - \lambda(x))^{k_{\lambda}}v = 0
+          \end{equation}
+        </p>
+        <p>
+          Como \(S\) é finito, existem somente finitos subespaços da forma \(\ker(\lambda - \mu)\), com \(\mu \in S\). Logo, \(L \neq \cup_{\mu \in S}\ker(\lambda - \mu)\) (prove isso!). Daí, existe \(x \in L\) tal que \(\lambda(x) \neq \mu(x)\), para todo \(\mu \in S\). Assim, os polinômios \(f(t) := \prod_{\mu \in S}(t - \mu(x))^{k_{\mu}}\) e \(g(t) := (t - \lambda(x))^{k_{\lambda}}\) são coprimos, pois do contrário, \(g(t) \mid f(t)\), ou seja, \(g(t) \mid (t - \mu(x))^{k_{\mu}}\), o que implica que \(\lambda(x) = \mu(x)\), já que \(g(t)\) e \((t - \mu(x))^{k_{\mu}}\) são mônicos. Isso significa que existem \(a(t)\) e \(b(t)\) polinômios tais que \(a(t)f(t) + b(t)g(t) = 1\). Logo, \(\big(a(t)f(t) + b(t)g(t)\big)v = v\). Pelas Equações \eqref{eq-decomAutoEsp1} e \eqref{eq-decomAutoEsp2}, temos que \(v = 0\), o que é um absurdo. Logo, \(V(\lambda)^{L} \subseteq W_{\lambda}\).
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- EXERCÍCIO -->
+    <p id="exerc-aula3" class="exerc">
+      <ol class="numerico">
+        <li>Veja que o <a href="intrAlgebrasLie-aula02.html#teor-teorLie">Teorema de Lie</a> vale para \(L\) solúvel de dimensão infinita.</li>
+      </ol>
+    </p>
+    
   </body>
   
 </html>
-
