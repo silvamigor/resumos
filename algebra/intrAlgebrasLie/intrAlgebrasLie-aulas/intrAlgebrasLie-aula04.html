@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Introdução às Álgebras de Lie </title>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Register.StartupHook("TeX Jax Ready",function (){
+         MathJax.Hub.Insert(MathJax.InputJax.TeX.Definitions.macros,{
+          cancel: ["Extension","cancel"],
+          bcancel: ["Extension","cancel"],
+          xcancel: ["Extension","cancel"],
+          cancelto: ["Extension","cancel"]
+        });
+      });
+      MathJax.Hub.Config({
+        extensions: ["https://lomath.in/doc/xyjax/xypic.js","tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+          processEscapes: true
+        },
+        "HTML-CSS": { fonts: ["TeX"] },
+        TeX: {
+          equationNumbers: { autoNumber: "AMS" },
+          Macros: {
+            fraka: ["\\mathfrak{a}"],
+            frakb: ["\\mathfrak{b}"],
+            frakc: ["\\mathfrak{c}"],
+            frakd: ["\\mathfrak{d}"],
+            frake: ["\\mathfrak{e}"],
+            frakf: ["\\mathfrak{f}"],
+            frakg: ["\\mathfrak{g}"],
+            frakh: ["\\mathfrak{h}"],
+            fraki: ["\\mathfrak{i}"],
+            frakj: ["\\mathfrak{j}"],
+            frakk: ["\\mathfrak{k}"],
+            frakl: ["\\mathfrak{l}"],
+            frakm: ["\\mathfrak{m}"],
+            frakn: ["\\mathfrak{n}"],
+            frako: ["\\mathfrak{o}"],
+            frakp: ["\\mathfrak{p}"],
+            frakq: ["\\mathfrak{q}"],
+            frakr: ["\\mathfrak{r}"],
+            fraks: ["\\mathfrak{s}"],
+            frakt: ["\\mathfrak{t}"],
+            fraku: ["\\mathfrak{u}"],
+            frakv: ["\\mathfrak{v}"],
+            frakx: ["\\mathfrak{x}"],
+            frakw: ["\\mathfrak{w}"],
+            fraky: ["\\mathfrak{y}"],
+            frakz: ["\\mathfrak{z}"],
+            frakA: ["\\mathfrak{A}"],
+            frakB: ["\\mathfrak{B}"],
+            frakC: ["\\mathfrak{C}"],
+            frakD: ["\\mathfrak{D}"],
+            frakE: ["\\mathfrak{E}"],
+            frakF: ["\\mathfrak{F}"],
+            frakG: ["\\mathfrak{G}"],
+            frakH: ["\\mathfrak{H}"],
+            frakI: ["\\mathfrak{I}"],
+            frakJ: ["\\mathfrak{J}"],
+            frakK: ["\\mathfrak{K}"],
+            frakL: ["\\mathfrak{L}"],
+            frakM: ["\\mathfrak{M}"],
+            frakN: ["\\mathfrak{N}"],
+            frakO: ["\\mathfrak{O}"],
+            frakP: ["\\mathfrak{P}"],
+            frakQ: ["\\mathfrak{Q}"],
+            frakR: ["\\mathfrak{R}"],
+            frakS: ["\\mathfrak{S}"],
+            frakT: ["\\mathfrak{T}"],
+            frakU: ["\\mathfrak{U}"],
+            frakV: ["\\mathfrak{V}"],
+            frakX: ["\\mathfrak{X}"],
+            frakW: ["\\mathfrak{W}"],
+            frakY: ["\\mathfrak{Y}"],
+            frakZ: ["\\mathfrak{Z}"],
+            frakgl: ["\\mathfrak{gl}"],
+            fraksl: ["\\mathfrak{sl}"],
+            frakso: ["\\mathfrak{so}"],
+            fraksp: ["\\mathfrak{sp}"],
+            bba: ["\\mathbb{a}"],
+            bbb: ["\\mathbb{b}"],
+            bbc: ["\\mathbb{c}"],
+            bbd: ["\\mathbb{d}"],
+            bbe: ["\\mathbb{e}"],
+            bbf: ["\\mathbb{f}"],
+            bbg: ["\\mathbb{g}"],
+            bbh: ["\\mathbb{h}"],
+            bbi: ["\\mathbb{i}"],
+            bbj: ["\\mathbb{j}"],
+            bbk: ["\\mathbb{k}"],
+            bbl: ["\\mathbb{l}"],
+            bbm: ["\\mathbb{m}"],
+            bbn: ["\\mathbb{n}"],
+            bbo: ["\\mathbb{o}"],
+            bbp: ["\\mathbb{p}"],
+            bbq: ["\\mathbb{q}"],
+            bbr: ["\\mathbb{r}"],
+            bbs: ["\\mathbb{s}"],
+            bbt: ["\\mathbb{t}"],
+            bbu: ["\\mathbb{u}"],
+            bbv: ["\\mathbb{v}"],
+            bbx: ["\\mathbb{x}"],
+            bbw: ["\\mathbb{w}"],
+            bby: ["\\mathbb{y}"],
+            bbz: ["\\mathbb{z}"],
+            bbA: ["\\mathbb{A}"],
+            bbB: ["\\mathbb{B}"],
+            bbC: ["\\mathbb{C}"],
+            bbD: ["\\mathbb{D}"],
+            bbE: ["\\mathbb{E}"],
+            bbF: ["\\mathbb{F}"],
+            bbG: ["\\mathbb{G}"],
+            bbH: ["\\mathbb{H}"],
+            bbI: ["\\mathbb{I}"],
+            bbJ: ["\\mathbb{J}"],
+            bbK: ["\\mathbb{K}"],
+            bbL: ["\\mathbb{L}"],
+            bbM: ["\\mathbb{M}"],
+            bbN: ["\\mathbb{N}"],
+            bbO: ["\\mathbb{O}"],
+            bbP: ["\\mathbb{P}"],
+            bbQ: ["\\mathbb{Q}"],
+            bbR: ["\\mathbb{R}"],
+            bbS: ["\\mathbb{S}"],
+            bbT: ["\\mathbb{T}"],
+            bbU: ["\\mathbb{U}"],
+            bbV: ["\\mathbb{V}"],
+            bbX: ["\\mathbb{X}"],
+            bbW: ["\\mathbb{W}"],
+            bbY: ["\\mathbb{Y}"],
+            bbZ: ["\\mathbb{Z}"],
+            cala: ["\\mathcal{a}"],
+            calb: ["\\mathcal{b}"],
+            calc: ["\\mathcal{c}"],
+            cald: ["\\mathcal{d}"],
+            cale: ["\\mathcal{e}"],
+            calf: ["\\mathcal{f}"],
+            calg: ["\\mathcal{g}"],
+            calh: ["\\mathcal{h}"],
+            cali: ["\\mathcal{i}"],
+            calj: ["\\mathcal{j}"],
+            calk: ["\\mathcal{k}"],
+            call: ["\\mathcal{l}"],
+            calm: ["\\mathcal{m}"],
+            caln: ["\\mathcal{n}"],
+            calo: ["\\mathcal{o}"],
+            calp: ["\\mathcal{p}"],
+            calq: ["\\mathcal{q}"],
+            calr: ["\\mathcal{r}"],
+            cals: ["\\mathcal{s}"],
+            calt: ["\\mathcal{t}"],
+            calu: ["\\mathcal{u}"],
+            calv: ["\\mathcal{v}"],
+            calx: ["\\mathcal{x}"],
+            calw: ["\\mathcal{w}"],
+            caly: ["\\mathcal{y}"],
+            calz: ["\\mathcal{z}"],
+            calA: ["\\mathcal{A}"],
+            calB: ["\\mathcal{B}"],
+            calC: ["\\mathcal{C}"],
+            calD: ["\\mathcal{D}"],
+            calE: ["\\mathcal{E}"],
+            calF: ["\\mathcal{F}"],
+            calG: ["\\mathcal{G}"],
+            calH: ["\\mathcal{H}"],
+            calI: ["\\mathcal{I}"],
+            calJ: ["\\mathcal{J}"],
+            calK: ["\\mathcal{K}"],
+            calL: ["\\mathcal{L}"],
+            calM: ["\\mathcal{M}"],
+            calN: ["\\mathcal{N}"],
+            calO: ["\\mathcal{O}"],
+            calP: ["\\mathcal{P}"],
+            calQ: ["\\mathcal{Q}"],
+            calR: ["\\mathcal{R}"],
+            calS: ["\\mathcal{S}"],
+            calT: ["\\mathcal{T}"],
+            calU: ["\\mathcal{U}"],
+            calV: ["\\mathcal{V}"],
+            calX: ["\\mathcal{X}"],
+            calW: ["\\mathcal{W}"],
+            calY: ["\\mathcal{Y}"],
+            calZ: ["\\mathcal{Z}"],
+            bfa: ["\\mathbf{a}"],
+            bfb: ["\\mathbf{b}"],
+            bfc: ["\\mathbf{c}"],
+            bfd: ["\\mathbf{d}"],
+            bfe: ["\\mathbf{e}"],
+            bff: ["\\mathbf{f}"],
+            bfg: ["\\mathbf{g}"],
+            bfh: ["\\mathbf{h}"],
+            bfi: ["\\mathbf{i}"],
+            bfj: ["\\mathbf{j}"],
+            bfk: ["\\mathbf{k}"],
+            bfl: ["\\mathbf{l}"],
+            bfm: ["\\mathbf{m}"],
+            bfn: ["\\mathbf{n}"],
+            bfo: ["\\mathbf{o}"],
+            bfp: ["\\mathbf{p}"],
+            bfq: ["\\mathbf{q}"],
+            bfr: ["\\mathbf{r}"],
+            bfs: ["\\mathbf{s}"],
+            bft: ["\\mathbf{t}"],
+            bfu: ["\\mathbf{u}"],
+            bfv: ["\\mathbf{v}"],
+            bfx: ["\\mathbf{x}"],
+            bfw: ["\\mathbf{w}"],
+            bfy: ["\\mathbf{y}"],
+            bfz: ["\\mathbf{z}"],
+            bfA: ["\\mathbf{A}"],
+            bfB: ["\\mathbf{B}"],
+            bfC: ["\\mathbf{C}"],
+            bfD: ["\\mathbf{D}"],
+            bfE: ["\\mathbf{E}"],
+            bfF: ["\\mathbf{F}"],
+            bfG: ["\\mathbf{G}"],
+            bfH: ["\\mathbf{H}"],
+            bfI: ["\\mathbf{I}"],
+            bfJ: ["\\mathbf{J}"],
+            bfK: ["\\mathbf{K}"],
+            bfL: ["\\mathbf{L}"],
+            bfM: ["\\mathbf{M}"],
+            bfN: ["\\mathbf{N}"],
+            bfO: ["\\mathbf{O}"],
+            bfP: ["\\mathbf{P}"],
+            bfQ: ["\\mathbf{Q}"],
+            bfR: ["\\mathbf{R}"],
+            bfS: ["\\mathbf{S}"],
+            bfT: ["\\mathbf{T}"],
+            bfU: ["\\mathbf{U}"],
+            bfV: ["\\mathbf{V}"],
+            bfX: ["\\mathbf{X}"],
+            bfW: ["\\mathbf{W}"],
+            bfY: ["\\mathbf{Y}"],
+            bfZ: ["\\mathbf{Z}"],
+            bfad: ["\\mathbf{ad}"],
+            zero: ["\\{0\\}"],
+            id: ["\\operatorname\{id\}"],
+            sen: ["\\operatorname\{sen\}"],
+            tg: ["\\operatorname\{tg\}"],
+            ad: ["\\operatorname\{ad\}"],
+            mdc: ["\\operatorname\{mdc\}"],
+            im: ["\\operatorname\{im\}"],
+            Quat: ["\\operatorname\{Quat\}"],
+            Aut: ["\\operatorname\{Aut\}"],
+            Inn: ["\\operatorname\{Inn\}"],
+            orb: ["\\operatorname\{orb\}"],
+            stab: ["\\operatorname\{stab\}"],
+            Rep: ["\\operatorname\{Rep\}"],
+            Hom: ["\\operatorname\{Hom\}"],
+            End: ["\\operatorname\{End\}"],
+            Obj: ["\\operatorname\{Obj\}"],
+            tr: ["\\operatorname\{tr\}"],
+            diam: ["\\operatorname\{diam\}"],
+            diag: ["\\operatorname\{diag\}"],
+            Ind: ["\\operatorname\{Ind\}"],
+            Res: ["\\operatorname\{Res\}"],
+            Set: ["\\operatorname\{Set\}"],
+            coker: ["\\operatorname\{coker\}"],
+            supp: ["\\operatorname\{supp\}"],
+            Tor: ["\\operatorname\{Tor\}"],
+            vspan: ["\\operatorname\{vspan\}"],
+            char: ["\\operatorname\{char\}"],
+            Ann: ["\\operatorname\{Ann\}"],
+            Der: ["\\operatorname\{Der\}"],
+            ma: ["\\operatorname\{ma\}"],
+            mg: ["\\operatorname\{mg\}"],
+            Rad: ["\\operatorname\{Rad\}"],
+            pint: ["{ \\langle #1,#2 \\rangle }",2],
+            rfrac: ["{ {}^{#1}\\!/_{#2} }",2],
+            norma: ["{ \\Vert #1 \\Vert }",1],
+          },
+        },
+      });
+    </script>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js"></script>
+    <script src="http://www.w3schools.com/lib/w3data.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../itemParenteses.css" />
+    <link rel="stylesheet" type="text/css" href="../../../ambTeor.css" />
+    
+    <script>
+      function closeDetail(detailsElement) {
+        detailsElement.removeAttribute("open");
+        window.location = '#' + detailsElement.scrollIntoView({block: "nearest", behavior: "smooth"});
+      }
+    </script>
+    
+    <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+
+    <style>
+      body{
+        font-size: 16pt;
+        font-family: "Helvetica", sans-serif;
+        line-height: 1.5;
+        background-color: rgb(233,227,206);
+        counter-reset: contTeor contProp contLema contCoro contObs contDef contExerc contExemplo contSec 4;
+      }
+      
+      h1{
+        background-color: rgb(153,51,153);
+        color: rgb(255,250,250);
+      }
+      
+      h2{
+        color: rgb(153,51,153);
+      }
+      
+      h3{
+        color: rgb(153,51,153);
+      }
+      
+      details > summary {
+        font-style: italic;
+        color: blue;
+        cursor: pointer;
+        position: relative;
+        transition: 0.15s background linear;
+      }
+      
+      details > summary:hover {
+        background: #d4d1ec;
+      }
+
+      details > .caixa{
+        border: solid;
+      }
+      
+      .equationCenter {
+        width: 100%;
+        overflow-y: hidden;
+        overflow-x: auto;
+      }
+      
+      .buttonDetails {
+        border: none;
+        text-align: center;
+        cursor: pointer;
+        position: absolute;
+        right: 10px;
+      }
+      
+    </style>
+
+  </head>
+  
+  <body>
+
+    <div style="text-align:center"><h1>Introdução às Álgebras de Lie</h1></div>
+    
+    <!-- ############ -->
+    <h2>Aula 4 - Teorema de Engel e subálgebra de Cartan</h2>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-espPesoGener" class="def">
+      Considere os submódulos \(V(\lambda)^{L} = \{v \in V \mid \forall \; x \in L \; \exists \; k \ge 0 \; \text{ tal que } \; (\rho(x) - \lambda(x)\id_{V})^{k}v = 0\}\), definidos no <a href="intrAlgebrasLie-aula03.html#teor-decomAutoEsp">Teorema 3.2</a>. Se \(V(\lambda)^{L} \neq \zero\), então tal conjunto é chamado de <strong>espaço de peso generalizado</strong>, \(\lambda\) é dito <strong>peso</strong> de \(V\) e a decomposição \(V = \bigoplus_{\lambda \in L^{\ast}}V(\lambda)^{L}\) é chamada de <strong>decomposição em espaços de pesos generalizados</strong>.
+    <span class="fim"></span></p>
+    
+    <!-- COROLÁRIO -->
+    <p id="coro-decomAutoEsp" class="coro">
+      Se \(L\) é nilpotente e \(V\) é \(L\)-módulo de dimensão finita, então existe base de \(V\) tal que
+    </p>
+    <p class="equationCenter">
+      \[
+        B = \left(
+          \begin{array}{ccc}
+            \begin{pmatrix}
+              \lambda_{1}(x) & \cdots & \ast \\
+              \vdots & \ddots & \vdots \\
+              0 & \cdots & \lambda_{1}(x)
+            \end{pmatrix}
+            & \cdots & 0 \\
+            \vdots & \ddots & \vdots \\
+            0 & \cdots &
+            \begin{pmatrix}
+              \lambda_{\ell}(x) & \cdots & \ast \\
+              \vdots & \ddots & \vdots \\
+              0 & \cdots & \lambda_{\ell}(x)
+            \end{pmatrix}
+          \end{array}
+        \right)
+      \]
+    </p>
+    <p>
+      para todo \(x \in L\).
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Segue do <a href="intrAlgebrasLie-aula03.html#teor-decomAutoEsp">Teorema 3.2</a>.
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- TEOREMA -->
+    <p id="teor-engel" class="teor" text="Teorema de Engel">
+      \(L\) é nilpotente se, e somente se, \(\ad(x): L \to L\) é nilpotente, para todo \(x \in L\).
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Suponha que \(L\) é nilpotente. Dado \(x \in L\), observe que \(\ad(x)(L) \subseteq [L, L] = L^{2}\), \((\ad(x))^{2}(L) \subseteq [L, L^{2}] = L^{3}\) e, mais geralmente, \((\ad(x))^{n}(L) \subseteq L^{n + 1}\). Como \(L\) é nilpotente, então \(L^{k} = \zero\), para algum \(k\). Logo, \((\ad(x))^{k-1} = \zero\), ou seja, \(\ad(x): L \to L\) é nilpotente, para todo \(x \in L\). Reciprocamente, suponha que \(\ad(x)\) é nilpotente, para todo \(x \in L\). Suponha, por absurdo, que \(L\) não é nilpotente. Tome \(H \subseteq L\) uma subálgebra nilpotente maximal, isto é, uma subálgebra \(H\) tal que se \(H \subseteq K\), com \(K\) sendo também subálgebra, \(K\) não é nilpotente. Observe que tal subálgebra nilpotente maximal existe, pois \(L\) tem dimensão finita (\(\bbK\{x\}\) é nilpotente, para qualquer \(x \in L\); se for maximal, pronto!; se não for, tome uma subálgebra nilpotente que a contém; se for maximal, pronto!; se não for, prossiga assim até encontrar a maximal; ela vai existir pois \(\dim(L) < \infty\)). Note que \(H \neq L\), pois \(H\) é nilpotente e \(L\) não é. Temos também que \(L\) é \(H\)-módulo, via ação adjunta (\(\ad: H \to \frakgl(L)\)). Como \(H\) é subálgebra de \(L\), então \(H\) é \(H\)-submódulo de \(L\). Tome \(M \subseteq L\) um \(H\)-submódulo minimal diferente de \(H\) contendo \(H\) (como \(H\) é submódulo de \(L\), então \(\rfrac{L}{H}\) é \(H\)-módulo; tome \(0 \neq \overline{M} \subseteq \rfrac{L}{H}\) irredutível; definindo \(M\) como sendo a pré-imagem de \(\overline{M}\), quer dizer, \(M = \pi^{-1}(\overline{M})\), temos que \(M\) é minimal contendo \(H\)). Pela minimalidade de \(M\), temos que \(\rfrac{M}{H}\) é \(H\)-módulo irredutível. Pelo Teorema de Lie, \(\dim(\rfrac{M}{H}) = 1\), ou seja, \(\rfrac{M}{H} = \bbK\{\overline{m}\}\), onde \(h \cdot \overline{m} = \mu(h)m + H\), com \(\mu \in (\rfrac{M}{H})^{\ast}\). Por outro lado,
+        </p>
+        <p class="equationCenter">
+          \[
+            h \cdot \overline{m} = h \cdot (m + H) = [h,m] + H = \ad(h)(m) + H.
+          \]
+        </p>
+        <p>
+          Disso, segue que \(\ad(h)(\overline{m}) = \mu(h)\overline{m}\). Como \(\ad(h)\) é nilpotente, seu único autovalor é zero, logo, \(\mu(h) = 0\). Isso significa que \(H \cdot \rfrac{M}{H} = \zero\), ou seja, \([H,M] \subseteq H\). Logo, \(H \unlhd M\). Tome \(x \in M\) tal que \(M = H \oplus \bbK\{x\}\). Note que \([M,M] = [H + \bbK\{x\}, H + \bbK\{x\}] \subseteq H\). Com tudo feito até agora, concluímos que \(H \subseteq M \subseteq L\) é uma cadeia de subálgebras, \(H \unlhd M\) e \([M,M] \subseteq H\). Vamos mostrar, agora, por indução, que para todo \(i > 0\), existe \(e(i) > 0\) tal que \(M^{e(i)} \subseteq H^{i}\). Para \(i = 1\), temos que a fórmula é válida, pois \([M,M] \subseteq H\). Suponha que \(M^{e(r)} \subseteq H^{r}\). Assim,
+        </p>
+        <p class="equationCenter">
+          \[
+            M^{e(r) + 1} = [M^{e(r)}, M] = [M^{e(r)}, H + \bbK\{x\}] \subseteq [\underbrace{M^{e(r)}}_{\subseteq H^{r}}, H] + [M^{e(r)}, \bbK\{x\}] \subseteq H^{r+1} + \ad(x)M^{e(r)}.
+          \]
+        </p>
+        <p>
+          Isso implica que \(M^{e(r) + 1} \subseteq H^{r+1} + \ad(x)M^{e(r)}\). Vamos mostrar que
+        </p>
+        <p class="equationCenter">
+          \begin{equation}
+            \label{eq-engel} \tag{1}
+            M^{e(r) + j} \subseteq H^{r+1} + \ad(x)^{j}M^{e(r)}, \; \forall \; j \ge 1.
+          \end{equation}
+        </p>
+        <p>
+          Para \(j = 1\), é verdade, já que \(M^{e(r) + 1} \subseteq H^{r+1} + \ad(x)M^{e(r)}\). Suponha que valha para \(j\) arbitrário. Veja que
+        </p>
+        <p class="equationCenter">
+          \[
+            \begin{split}
+              M^{e(r) + j + 1} &= [M^{e(r) + j}, M] \\
+              (\text{hipótese de indução}) &\subseteq [H^{r+1} + \ad(x)^{j}M^{e(r)}, M] \\
+              (H\unlhd M \Rightarrow H^{i} \unlhd M) &\subseteq H^{r+1} + [\underbrace{\ad(x)^{j}M^{e(r)}}_{\subseteq H^{r}, \text{ pois } M^{e(r)} \subseteq H^{r} \text{ e } H^{i} \unlhd M}, H + \bbK\{x\}] \\
+              &\subseteq H^{r+1} + [H^{r}, H + \bbK\{x\}] \subseteq H^{r+1} + [H^{r},H] + \underbrace{[\ad(x)^{j}M^{e(r)}, \bbK\{x\}]}_{-[\bbK\{x\}, \ad(x)^{j}M^{e(r)}]} \\
+              &\subseteq H^{r+1} + \ad(x)^{j+1}M^{e(r)}
+            \end{split}
+          \]
+        </p>
+        <p>
+          o que demonstra a Equação \eqref{eq-engel}. Agora, se \(j\) for grande o suficiente, então \(\ad(x)^{j} = 0\). Daí, pela Equação \eqref{eq-engel}, temos que \(M^{e(r)+j} \subseteq H^{r+1}\). Assim, tomando \(e(r+1) = e(r) + j\), segue que \(M^{e(r+1)} \subseteq H^{r+1}\). Portanto, mostramos que, para todo \(i > 0\), existe \(e(i) > 0\) tal que \(M^{e(i)} \subseteq H^{i}\). Como \(H\) é nilpotente, existe \(i\) tal que \(H^{i} = \zero\). Logo, \(M^{e(i)} \subseteq H^{i} = \zero\), o que implica que \(M^{e(i)} = \zero\). Isso é um absurdo, pois \(H\) é nilpotente maximal. Portanto, \(L\) é nilpotente.
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- COROLÁRIO -->
+    <p id="coro-engel" class="coro">
+      \(L\) é nilpotente se, e somente se, existe base de \(L\) tal que 
+      \(
+        \ad(x) = 
+        \begin{pmatrix}
+          0 & \cdots & \ast \\
+          \vdots & \ddots & \vdots \\
+          0 & \cdots & 0
+        \end{pmatrix}
+      \)
+      para todo \(x \in L\).
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Suponha que \(L\) é nilpotente. Pelo Teorema de Lie, existe base de \(V\) tal que
+          \(
+        \ad(x) = 
+        \begin{pmatrix}
+          \ast & \cdots & \ast \\
+          \vdots & \ddots & \vdots \\
+          0 & \cdots & \ast
+        \end{pmatrix}
+      \)
+      para todo \(x \in L\). Como \(\ad(x)\) é nilpotente, os autovalores são iguais a zero. Logo, a diagonal principal é zero. Reciprocamente, se \(\ad(x)\) tem a forma do enunciado, ela é nilpotente, para todo \(x \in L\). Logo, pelo <a href="#teor-engel">Teorema de Engel</a>, \(L\) é nilpotente.
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-normalizador" class="def">
+      Se \(H \subseteq L\) é subálgebra, definimos o <strong>normalizador</strong> de \(H\) em \(L\), como sendo \(N(H) = \{x \in L \mid [x, H] \subseteq H\}\).
+    <span class="fim"></span></p>
+    
+    <!-- LEMA -->
+    <p id="lema-normalizador" class="lema">
+      <ol class="alfa">
+        <li>\(N(H)\) é subálgebra.</li>
+        <li>\(H \unlhd N(H)\).</li>
+        <li>Se \(K \subseteq L\) é subálgebra tal que \(H \unlhd K\), então \(K \subseteq N(H)\) (isto é, \(N(H)\) é a maior subálgebra de \(L\) contendo \(H\) como ideal).</li>
+      </ol>
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          (a) Sejam \(x, y \in N(H)\) e \(h \in H\). Então, pela identidade de Jacobi,
+        </p>
+        <p class="equationCenter">
+          \[
+            [[x, y], h] = \underbrace{[x, \overbrace{[y, h]}^{\in H}]}_{\in H} - \underbrace{[y, \overbrace{[x, h]}^{\in H}]}_{\in H} \in H.
+          \]
+        </p>
+        <p>
+          Portanto, \([N(H),N(H)] \subseteq N(H)\), ou seja, \(N(H)\) é subálgebra.
+        </p>
+        <p>
+          (b) Como \([H,H] = \zero\), temos que \(H \subseteq N(H)\). Agora, note que, por definição de normalizador, \([N(H), H] \subseteq H]\). Logo, \(H \unlhd N(H)\).
+        </p>
+        <p>
+          (c) Pela definição de ideal, \(H \unlhd K\) significa que \([K, H] \subseteq H\). Agora, pela definição de normalizador, \(K \subseteq N(H)\).
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-sac" class="def">
+      Dizemos que uma subálgebra \(H \subseteq L\) é uma <strong>subálgebra de Cartan</strong>, se
+      <ol class="alfa">
+        <li>\(H\) é nilpotente e</li>
+        <li>\(H = N(H)\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-sac" class="obs">
+      Subálgebras de Cartan são essenciais ao estudo de álgebra de Lie semissimples.
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-elemReg" class="def">
+      Para cada \(x \in L\), defina \(L(0)_{x} = \{y \in L \mid \exists \; n \ge 0 \; \ad(x)^{n}y = 0\}\). Dizemos que \(x \in L\) é um <strong>elemento regular</strong>, se \(\dim(L(0)_{x})\) é o menor valor no conjunto \(\{\dim(L(0)_{x}) \mid y \in L\}\). 
+    <span class="fim"></span></p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-elemReg" class="obs">
+      Elementos regulares existem: note que \(0 \in L(0)_{x}\), para todo \(x \in L\). Logo, tais subespaços não são triviais. Se \(L(0)_{x} = V\), para todo \(x \in L\), então qualquer elemento de \(L\) é regular. Suponha que existe \(x \in L\) tal que \(L(0)_{x} \neq V\). Se \(\dim(L(0)_{x}) < \dim(L(0)_{y})\), para todo \(y \neq x\), então \(x\) é um elemento regular. Caso contrário, existe \(y \in L\) tal que \(\dim(L(0)_{y}) < \dim(L(0)_{x})\). Repetindo esse procedimento, como a dimensão de \(L\) é finita, chegamos a um \(x \in L\) tal que \(\dim(L(0)_{x})\) é o menor valor no conjunto \(\{\dim(L(0)_{x}) \mid y \in L\}\).
+    <span class="fim"></span></p>
+    
+    <!-- TEOREMA -->
+    <p id="teor-elemReg" class="teor">
+      Se \(x \in L\) é regular, então \(L(0)_{x}\) é subálgebra de Cartan.
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Defina \(H = L(0)_{x}\). Precisamos mostrar \(3\) afirmações: (a) \(H\) é subálgebra, (b) \(H\) é nilpotente e (c) \(H = N(H)\). Vejamos.
+        </p>
+        <p>
+          (a) Sejam \(y, z \in H\). Pelo <a href="intrAlgebrasLie-aula03.html#lema-autoEspSubm">Lema 3.1</a> (fazendo \(\alpha = \beta = 0\), \(V = L\) e \(\rho = \ad\)), temos que \(\ad(x)^{n}[y,z] = \sum_{i=0}^{n}\binom{n}{i}[\ad(x)^{i}y, \ad(x)^{n-i}z]\). Como \(y, z \in H\), existem \(n_{1}, n_{2} \ge 0\) tais que \(\ad(x)^{n_{1}}y = 0\) e \(\ad(x)^{n_{2}}z = 0\). Assim, \(\ad(x)^{n_{1}+n_{2}}[y,z] = 0\), o que significa que \([y,z] \in H\).
+        </p>
+        <p>
+          (b) Vamos mostrar que \(\ad(y): H \to H\) é nilpotente, para todo \(y \in L\). Seja \(\calB = \{b^{1}, \dots, b^{\ell}\}\) base de \(H\) (em particular, isso implica que \(\dim(H) = \ell\)). Então, dado \(y \in H\), temos que \(y = z_{1}b^{1} + \cdots + z_{\ell}b^{\ell}\), onde \(z_{i} \in \bbK\). Considere o homomorfismo \(\ad(y): L \to L\). Como \(H\) é um subálgebra, podemos considerar também \(\ad(y)|_{H}: H \to H\). Completando a base \(\calB\) de \(H\) para uma base \(\calC\) de \(L\), obtemos \(\calC = \calB \cup \calB'\), onde \(\calB'\) é base de um subespaço \(H'\) de \(L\). Assim, \(L = H \oplus H'\) (como espaço vetorial). Logo, 
+          \(
+            (\ad(y))_{\calC} =
+            \begin{pmatrix}
+              (\ad(y)|_{H})_{\calB} & \ast \\
+              0 & (\ad(y)|_{H'})_{\calB'}
+            \end{pmatrix}.
+          \)
+          Observe que \(H' \cong \rfrac{L}{H}\) (também como espaço vetorial). Além disso, a transformação linear \(\rfrac{L}{H} \to L\), \(x + H \mapsto \ad(y)(x)\) está bem definida. Fazendo a composição com a projeção, podemos considerar a transformação \(\ad(y)|_{\rfrac{L}{H}}: \rfrac{L}{H} \to \rfrac{L}{H}\). Assim,
+        </p>
+        <p class="equationCenter">
+          \[
+            (\ad(y))_{\calC} =
+            \begin{pmatrix}
+              (\ad(y)|_{H})_{\calB} & \ast \\
+              0 & (\ad(y)|_{\rfrac{L}{H}})_{\calB'}
+            \end{pmatrix}
+          \]
+        </p>
+        <p>
+          Sejam \(\chi_{L}(t)\), \(\chi_{H}(t)\) e \(\chi_{\rfrac{L}{H}}(t)\) os polinômios característicos de \(\ad(y)\), \(\ad(y)|_{H}\) e \(\ad(y)|_{\rfrac{L}{H}}\), respectivamente. Então \(\chi_{L}(t) = \chi_{H}(t)\chi_{\rfrac{L}{H}}(t)\). Note que tais polinômios característicos dependem de \(y\) que, por sua vez, depende de \(z_{1}, \dots, z_{\ell}\). Assim, podemos denotar tais polinômios acrescentando essas variáveis, quer dizer, podemos escrever \(\chi_{L}(t, z_{1}, \dots, z_{\ell})\), \(\chi_{H}(t, z_{1}, \dots, z_{\ell})\) e \(\chi_{\rfrac{L}{H}}(t, z_{1}, \dots, z_{\ell})\). Por definição de polinômio característico, temos que
+        </p>
+        <p class="equationCenter">
+          \[
+            \begin{split}
+              \chi_{L}(t, z_{1}, \dots, z_{\ell}) &= \det(t - \ad(y)) = \det(t - z_{1}\ad(b^{1}) - \cdots - z_{\ell}\ad(b^{\ell})) \\
+              &= \det
+              \begin{pmatrix}
+                t - z_{1}b_{11}^{1} - \cdots - z_{\ell}b_{11}^{\ell} & \cdots \\
+                \vdots & \vdots
+              \end{pmatrix}
+            \end{split}
+          \]
+        </p>
+        <p>
+          Assim, os coeficientes de \(t\) em \(\chi_{L}(t, z_{1}, \dots, z_{\ell})\) são polinômios em \(z_{1}, \dots, z_{\ell}\). O mesmo vale para \(\chi_{H}\) e \(\chi_{\rfrac{L}{H}}\). Escreva \(\chi_{\rfrac{L}{H}} = d_{0}(z_{1}, \dots, z_{\ell}) + td_{1}(z_{1}, \dots, z_{\ell}) + \cdots\). Como os autovalores de \(\ad(x)_{\rfrac{L}{H}}\) são diferentes de zero (tudo que tem autovalor nulo está em \(H\), por definição de \(H\)), temos que \(t \not\mid \chi_{\rfrac{L}{H}}(t,x)\). Isso implica que \(d_{0}(z_{1},\dots, z_{\ell}) \neq 0\), ou seja, \(d_{0}(z_{1},\dots, z_{\ell})\) é um polinômio não nulo. Escreva \(\chi_{H} = t^{m}\big(c_{0}(z_{1}, \dots, z_{\ell}) + tc_{1}(z_{1}, \dots, z_{\ell}) + \cdots\big)\), onde \(m \ge 0\) e \(c_{0}(z_{1}, \dots, z_{\ell}) \neq 0\). Note que \(m \le \deg(\chi_{H}(t)) = \ell = \dim(H)\). Logo, \(\chi_{L}(t) = \chi_{H}(t)\chi_{\rfrac{L}{H}}(t) = t^{m}\big(c_{0}(z_{1}, \dots, z_{\ell})d_{0}(z_{1}, \dots, z_{\ell}) + t\ast \big)\), com \(c_{0}(z_{1}, \dots, z_{\ell})d_{0}(z_{1}, \dots, z_{\ell}) \neq 0\) (o anel de polinômios é um domínio). Para cada \(y = (\lambda_{1}, \dots, \lambda_{\ell}) \in H\) tal que \(c_{0}(y)d_{0}(y) \neq 0\), temos que \(\dim(L(0)_{y}) = m\) (como \(\chi_{L}(t,y) = t^{m}(c_{0}(y)d_{0}(y) + t\ast)\), \(0\) tem multiplicidade \(m\)). Como \(x\) é regular, então \(m \ge \ell = \dim(H) = \dim(L(0)_{x})\). Daí, concluímos que \(m = \ell\). Assim, \(\deg(\chi_{H}(t,y)) = \ell = m\). Como \(t^{\ell} \mid \chi_{H}(t,y)\), temos que \(\chi_{H}(t,y) = t^{\ell}\). Dessa forma, provamos que para todo \(y \in H\) tal que \(c_{0}(y)d_{0}(y) \neq 0\), temos que \(\chi_{H}(t,y) = t^{\ell}\), o que implica que \(\ad(y)\) é nilpotente. Observe que considerando o isomorfismo de \(H\) com \(\bbK^{\ell}\) (como espaços vetoriais), podemos dizer que para todo \((\lambda_{1}, \dots, \lambda_{\ell}) \in \bbK^{\ell}\) tal que \((c_{0}d_{0})(\lambda_{1}, \dots, \lambda_{\ell}) \neq 0\), temos que \(\chi_{H}(t,z_{1}, \dots, z_{\ell}) = t^{\ell}\). Agora, observe que o conjunto \(\{X \in \bbK^{\ell} \mid (c_{0}d_{0})(X) \neq 0\}\) é um aberto na topologia de Zariski (que por propriedades dessa topologia, é também um denso). Assim, como os polinômios \(\chi_{H}(t,y)\) e \(t^{\ell}\) coincidem em um conjunto denso, eles tem que ser iguais para todo \(y \in \bbK^{\ell}\). Portanto, \(\ad(y): H \to H\) é nilpotente, para todo \(y \in H\), e, pelo <a href="#teor-engel">Teorema de Engel</a>, \(H\) é nilpotente.
+        </p>
+        <p>
+          (c) Por definição de normalizador, \(H \subseteq N(H)\). Seja \(y \in N(H)\). Como \(x \in H\), então \([y,x] \in H = L(0)_{x}\). Daí, existe \(n \ge 0\) tal que \(\ad(x)^{n}([y,x]) = 0\). Mas note que \(\ad(x)^{n}([y,x]) = \ad(x)^{n+1}(y)\). Logo, \(y \in H\), ou seja, \(N(H) \subseteq H\).
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+  </body>
+  
+</html>
+
