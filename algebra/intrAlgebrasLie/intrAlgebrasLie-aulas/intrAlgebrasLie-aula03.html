@@ -528,14 +528,14 @@
     
     <!-- TEOREMA -->
     <p id="teor-decomAutoEsp" class="teor" >
-      Seja \(L\) nilpotente, \(V\) um \(L\)-módulo de dimensão finita e, para cada \(\lambda: L \to \bbK\) representação de dimensão igual a \(1\), defina \(V(\lambda)^{L} = \{v \in V \mid \forall \; x \in L \quad \exists \; k \ge 0 \; \text{ tal que } \; (\rho(x) - \lambda(x)\id_{V})^{k}v = 0\}\). Então \(V = \bigoplus_{\lambda \in L^{\ast}}V(\lambda)^{L}\) e cada \(V(\lambda)^{L}\) é um submódulo.
+      Seja \(L\) nilpotente, \(V\) um \(L\)-módulo de dimensão finita e, para cada \(\lambda: L \to \bbK\) representação de dimensão igual a \(1\), defina \(V(\lambda)^{L} = \{v \in V \mid \forall \; x \in L \; \exists \; k \ge 0 \; \text{ tal que } \; (\rho(x) - \lambda(x)\id_{V})^{k}v = 0\}\). Então \(V = \bigoplus_{\lambda \in L^{\ast}}V(\lambda)^{L}\) e cada \(V(\lambda)^{L}\) é um submódulo.
     <span class="fim"></span></p>
     
     <details>
       <summary>Demonstração</summary>
       <div class="caixa">
         <p>
-          Como \(V\) tem dimensão finita, temos que \(V = V_{1} \oplus \cdots \oplus V_{n}\), onde \(V_{i}\) é \(L\)-módulo indecomponível. Pelo <a href="#coro-autoEspSubm">Corolário 3.2</a>, temos que \(V_{i} = \{v \in V_{i} \mid \forall \; x \in L \quad \exists \; k \ge 0 \; \text{ tal que } \; (\rho(x) - \lambda_{i}(x)\id_{V_{i}})^{k}v = 0\}\). Considerando a <a href="#obs-autoEspSubm">Observação 3.3</a>, temos que \(\lambda\) é uma representação de dimensão \(1\). Assim, considere a soma direta de todos os \(V_{i}\), para os quais \(\lambda_{i} = \lambda \in L^{\ast}\). Cada soma direta desse tipo é um \(L\)-módulo, pois cada \(V_{i}\) é um \(L\)-módulo. Fixado um funcional linear \(\lambda\), vamos denotar a soma de todos os \(V_{i}\) onde \(\lambda_{i} = \lambda\) por \(W_{\lambda}\). Então, temos que \(V = \bigoplus_{\lambda \in L^{\ast}}W_{\lambda}\). Vamos mostrar que \(W_{\lambda} = V(\lambda)^{L}\). Por construção, \(W_{\lambda} \subseteq V(\lambda)^{L}\). Suponha que \(V(\lambda)^{L} \not\subseteq W_{\lambda}\) e seja \(\tilde{v} \in V(\lambda)^{L}\setminus W_{\lambda}\). Como \(\tilde{v} \in V\), então
+          Como \(V\) tem dimensão finita, temos que \(V = V_{1} \oplus \cdots \oplus V_{n}\), onde \(V_{i}\) é \(L\)-módulo indecomponível. Pelo <a href="#coro-autoEspSubm">Corolário 3.2</a>, temos que \(V_{i} = \{v \in V_{i} \mid \forall \; x \in L \; \exists \; k \ge 0 \; \text{ tal que } \; (\rho(x) - \lambda_{i}(x)\id_{V_{i}})^{k}v = 0\}\). Considerando a <a href="#obs-autoEspSubm">Observação 3.3</a>, temos que \(\lambda\) é uma representação de dimensão \(1\). Assim, considere a soma direta de todos os \(V_{i}\), para os quais \(\lambda_{i} = \lambda \in L^{\ast}\). Cada soma direta desse tipo é um \(L\)-módulo, pois cada \(V_{i}\) é um \(L\)-módulo. Fixado um funcional linear \(\lambda\), vamos denotar a soma de todos os \(V_{i}\) onde \(\lambda_{i} = \lambda\) por \(W_{\lambda}\). Então, temos que \(V = \bigoplus_{\lambda \in L^{\ast}}W_{\lambda}\). Vamos mostrar que \(W_{\lambda} = V(\lambda)^{L}\). Por construção, \(W_{\lambda} \subseteq V(\lambda)^{L}\). Suponha que \(V(\lambda)^{L} \not\subseteq W_{\lambda}\) e seja \(\tilde{v} \in V(\lambda)^{L}\setminus W_{\lambda}\). Como \(\tilde{v} \in V\), então
         </p>
         <p class="equationCenter">
           \[
