@@ -563,7 +563,7 @@
           \end{equation}
         </p>
         <p>
-          Como \(S\) é finito, existem somente finitos subespaços da forma \(\ker(\lambda - \mu)\), com \(\mu \in S\). Logo, \(L \neq \cup_{\mu \in S}\ker(\lambda - \mu)\) (prove isso!). Daí, existe \(x \in L\) tal que \(\lambda(x) \neq \mu(x)\), para todo \(\mu \in S\). Assim, os polinômios \(f(t) := \prod_{\mu \in S}(t - \mu(x))^{k_{\mu}}\) e \(g(t) := (t - \lambda(x))^{k_{\lambda}}\) são coprimos, pois do contrário, \(g(t) \mid f(t)\), ou seja, \(g(t) \mid (t - \mu(x))^{k_{\mu}}\), o que implica que \(\lambda(x) = \mu(x)\), já que \(g(t)\) e \((t - \mu(x))^{k_{\mu}}\) são mônicos. Isso significa que existem \(a(t)\) e \(b(t)\) polinômios tais que \(a(t)f(t) + b(t)g(t) = 1\). Logo, \(\big(a(t)f(t) + b(t)g(t)\big)v = v\). Pelas Equações \eqref{eq-decomAutoEsp1} e \eqref{eq-decomAutoEsp2}, temos que \(v = 0\), o que é um absurdo. Logo, \(V(\lambda)^{L} \subseteq W_{\lambda}\).
+          Como \(S\) é finito, existem somente finitos subespaços da forma \(\ker(\lambda - \mu)\), com \(\mu \in S\). Logo, \(L \neq \cup_{\mu \in S}\ker(\lambda - \mu)\) (veja <a href="#exerc-aula3">Exercício 3.1 (2)</a>). Daí, existe \(x \in L\) tal que \(\lambda(x) \neq \mu(x)\), para todo \(\mu \in S\). Assim, os polinômios \(f(t) := \prod_{\mu \in S}(t - \mu(x))^{k_{\mu}}\) e \(g(t) := (t - \lambda(x))^{k_{\lambda}}\) são coprimos, pois do contrário, \(g(t) \mid f(t)\), ou seja, \(g(t) \mid (t - \mu(x))^{k_{\mu}}\), o que implica que \(\lambda(x) = \mu(x)\), já que \(g(t)\) e \((t - \mu(x))^{k_{\mu}}\) são mônicos. Isso significa que existem \(a(t)\) e \(b(t)\) polinômios tais que \(a(t)f(t) + b(t)g(t) = 1\). Logo, \(\big(a(t)f(t) + b(t)g(t)\big)v = v\). Pelas Equações \eqref{eq-decomAutoEsp1} e \eqref{eq-decomAutoEsp2}, temos que \(v = 0\), o que é um absurdo. Logo, \(V(\lambda)^{L} \subseteq W_{\lambda}\).
         </p>
       </div>
       <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
@@ -574,6 +574,7 @@
     <p id="exerc-aula3" class="exerc">
       <ol class="numerico">
         <li>Veja que o <a href="intrAlgebrasLie-aula02.html#teor-teorLie">Teorema de Lie</a> vale para \(L\) solúvel de dimensão infinita.</li>
+        <li>Sejam \(V\) um espaço vetorial de dimensão finita e \(\lambda, \mu_{1}, \mu_{2}, \dots, \mu_{r} \in V^{\ast}\). Mostre que \(V \neq \cup_{i = 1}^{r}\ker(\lambda - \mu_{i}).\)<span class="fim"></span></li>
       </ol>
     </p>
     
