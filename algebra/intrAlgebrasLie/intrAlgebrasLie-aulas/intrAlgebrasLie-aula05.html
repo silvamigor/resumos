@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Introdução às Álgebras de Lie </title>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Register.StartupHook("TeX Jax Ready",function (){
+         MathJax.Hub.Insert(MathJax.InputJax.TeX.Definitions.macros,{
+          cancel: ["Extension","cancel"],
+          bcancel: ["Extension","cancel"],
+          xcancel: ["Extension","cancel"],
+          cancelto: ["Extension","cancel"]
+        });
+      });
+      MathJax.Hub.Config({
+        extensions: ["https://lomath.in/doc/xyjax/xypic.js","tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+          processEscapes: true
+        },
+        "HTML-CSS": { fonts: ["TeX"] },
+        TeX: {
+          equationNumbers: { autoNumber: "AMS" },
+          Macros: {
+            fraka: ["\\mathfrak{a}"],
+            frakb: ["\\mathfrak{b}"],
+            frakc: ["\\mathfrak{c}"],
+            frakd: ["\\mathfrak{d}"],
+            frake: ["\\mathfrak{e}"],
+            frakf: ["\\mathfrak{f}"],
+            frakg: ["\\mathfrak{g}"],
+            frakh: ["\\mathfrak{h}"],
+            fraki: ["\\mathfrak{i}"],
+            frakj: ["\\mathfrak{j}"],
+            frakk: ["\\mathfrak{k}"],
+            frakl: ["\\mathfrak{l}"],
+            frakm: ["\\mathfrak{m}"],
+            frakn: ["\\mathfrak{n}"],
+            frako: ["\\mathfrak{o}"],
+            frakp: ["\\mathfrak{p}"],
+            frakq: ["\\mathfrak{q}"],
+            frakr: ["\\mathfrak{r}"],
+            fraks: ["\\mathfrak{s}"],
+            frakt: ["\\mathfrak{t}"],
+            fraku: ["\\mathfrak{u}"],
+            frakv: ["\\mathfrak{v}"],
+            frakx: ["\\mathfrak{x}"],
+            frakw: ["\\mathfrak{w}"],
+            fraky: ["\\mathfrak{y}"],
+            frakz: ["\\mathfrak{z}"],
+            frakA: ["\\mathfrak{A}"],
+            frakB: ["\\mathfrak{B}"],
+            frakC: ["\\mathfrak{C}"],
+            frakD: ["\\mathfrak{D}"],
+            frakE: ["\\mathfrak{E}"],
+            frakF: ["\\mathfrak{F}"],
+            frakG: ["\\mathfrak{G}"],
+            frakH: ["\\mathfrak{H}"],
+            frakI: ["\\mathfrak{I}"],
+            frakJ: ["\\mathfrak{J}"],
+            frakK: ["\\mathfrak{K}"],
+            frakL: ["\\mathfrak{L}"],
+            frakM: ["\\mathfrak{M}"],
+            frakN: ["\\mathfrak{N}"],
+            frakO: ["\\mathfrak{O}"],
+            frakP: ["\\mathfrak{P}"],
+            frakQ: ["\\mathfrak{Q}"],
+            frakR: ["\\mathfrak{R}"],
+            frakS: ["\\mathfrak{S}"],
+            frakT: ["\\mathfrak{T}"],
+            frakU: ["\\mathfrak{U}"],
+            frakV: ["\\mathfrak{V}"],
+            frakX: ["\\mathfrak{X}"],
+            frakW: ["\\mathfrak{W}"],
+            frakY: ["\\mathfrak{Y}"],
+            frakZ: ["\\mathfrak{Z}"],
+            frakgl: ["\\mathfrak{gl}"],
+            fraksl: ["\\mathfrak{sl}"],
+            frakso: ["\\mathfrak{so}"],
+            fraksp: ["\\mathfrak{sp}"],
+            bba: ["\\mathbb{a}"],
+            bbb: ["\\mathbb{b}"],
+            bbc: ["\\mathbb{c}"],
+            bbd: ["\\mathbb{d}"],
+            bbe: ["\\mathbb{e}"],
+            bbf: ["\\mathbb{f}"],
+            bbg: ["\\mathbb{g}"],
+            bbh: ["\\mathbb{h}"],
+            bbi: ["\\mathbb{i}"],
+            bbj: ["\\mathbb{j}"],
+            bbk: ["\\mathbb{k}"],
+            bbl: ["\\mathbb{l}"],
+            bbm: ["\\mathbb{m}"],
+            bbn: ["\\mathbb{n}"],
+            bbo: ["\\mathbb{o}"],
+            bbp: ["\\mathbb{p}"],
+            bbq: ["\\mathbb{q}"],
+            bbr: ["\\mathbb{r}"],
+            bbs: ["\\mathbb{s}"],
+            bbt: ["\\mathbb{t}"],
+            bbu: ["\\mathbb{u}"],
+            bbv: ["\\mathbb{v}"],
+            bbx: ["\\mathbb{x}"],
+            bbw: ["\\mathbb{w}"],
+            bby: ["\\mathbb{y}"],
+            bbz: ["\\mathbb{z}"],
+            bbA: ["\\mathbb{A}"],
+            bbB: ["\\mathbb{B}"],
+            bbC: ["\\mathbb{C}"],
+            bbD: ["\\mathbb{D}"],
+            bbE: ["\\mathbb{E}"],
+            bbF: ["\\mathbb{F}"],
+            bbG: ["\\mathbb{G}"],
+            bbH: ["\\mathbb{H}"],
+            bbI: ["\\mathbb{I}"],
+            bbJ: ["\\mathbb{J}"],
+            bbK: ["\\mathbb{K}"],
+            bbL: ["\\mathbb{L}"],
+            bbM: ["\\mathbb{M}"],
+            bbN: ["\\mathbb{N}"],
+            bbO: ["\\mathbb{O}"],
+            bbP: ["\\mathbb{P}"],
+            bbQ: ["\\mathbb{Q}"],
+            bbR: ["\\mathbb{R}"],
+            bbS: ["\\mathbb{S}"],
+            bbT: ["\\mathbb{T}"],
+            bbU: ["\\mathbb{U}"],
+            bbV: ["\\mathbb{V}"],
+            bbX: ["\\mathbb{X}"],
+            bbW: ["\\mathbb{W}"],
+            bbY: ["\\mathbb{Y}"],
+            bbZ: ["\\mathbb{Z}"],
+            cala: ["\\mathcal{a}"],
+            calb: ["\\mathcal{b}"],
+            calc: ["\\mathcal{c}"],
+            cald: ["\\mathcal{d}"],
+            cale: ["\\mathcal{e}"],
+            calf: ["\\mathcal{f}"],
+            calg: ["\\mathcal{g}"],
+            calh: ["\\mathcal{h}"],
+            cali: ["\\mathcal{i}"],
+            calj: ["\\mathcal{j}"],
+            calk: ["\\mathcal{k}"],
+            call: ["\\mathcal{l}"],
+            calm: ["\\mathcal{m}"],
+            caln: ["\\mathcal{n}"],
+            calo: ["\\mathcal{o}"],
+            calp: ["\\mathcal{p}"],
+            calq: ["\\mathcal{q}"],
+            calr: ["\\mathcal{r}"],
+            cals: ["\\mathcal{s}"],
+            calt: ["\\mathcal{t}"],
+            calu: ["\\mathcal{u}"],
+            calv: ["\\mathcal{v}"],
+            calx: ["\\mathcal{x}"],
+            calw: ["\\mathcal{w}"],
+            caly: ["\\mathcal{y}"],
+            calz: ["\\mathcal{z}"],
+            calA: ["\\mathcal{A}"],
+            calB: ["\\mathcal{B}"],
+            calC: ["\\mathcal{C}"],
+            calD: ["\\mathcal{D}"],
+            calE: ["\\mathcal{E}"],
+            calF: ["\\mathcal{F}"],
+            calG: ["\\mathcal{G}"],
+            calH: ["\\mathcal{H}"],
+            calI: ["\\mathcal{I}"],
+            calJ: ["\\mathcal{J}"],
+            calK: ["\\mathcal{K}"],
+            calL: ["\\mathcal{L}"],
+            calM: ["\\mathcal{M}"],
+            calN: ["\\mathcal{N}"],
+            calO: ["\\mathcal{O}"],
+            calP: ["\\mathcal{P}"],
+            calQ: ["\\mathcal{Q}"],
+            calR: ["\\mathcal{R}"],
+            calS: ["\\mathcal{S}"],
+            calT: ["\\mathcal{T}"],
+            calU: ["\\mathcal{U}"],
+            calV: ["\\mathcal{V}"],
+            calX: ["\\mathcal{X}"],
+            calW: ["\\mathcal{W}"],
+            calY: ["\\mathcal{Y}"],
+            calZ: ["\\mathcal{Z}"],
+            bfa: ["\\mathbf{a}"],
+            bfb: ["\\mathbf{b}"],
+            bfc: ["\\mathbf{c}"],
+            bfd: ["\\mathbf{d}"],
+            bfe: ["\\mathbf{e}"],
+            bff: ["\\mathbf{f}"],
+            bfg: ["\\mathbf{g}"],
+            bfh: ["\\mathbf{h}"],
+            bfi: ["\\mathbf{i}"],
+            bfj: ["\\mathbf{j}"],
+            bfk: ["\\mathbf{k}"],
+            bfl: ["\\mathbf{l}"],
+            bfm: ["\\mathbf{m}"],
+            bfn: ["\\mathbf{n}"],
+            bfo: ["\\mathbf{o}"],
+            bfp: ["\\mathbf{p}"],
+            bfq: ["\\mathbf{q}"],
+            bfr: ["\\mathbf{r}"],
+            bfs: ["\\mathbf{s}"],
+            bft: ["\\mathbf{t}"],
+            bfu: ["\\mathbf{u}"],
+            bfv: ["\\mathbf{v}"],
+            bfx: ["\\mathbf{x}"],
+            bfw: ["\\mathbf{w}"],
+            bfy: ["\\mathbf{y}"],
+            bfz: ["\\mathbf{z}"],
+            bfA: ["\\mathbf{A}"],
+            bfB: ["\\mathbf{B}"],
+            bfC: ["\\mathbf{C}"],
+            bfD: ["\\mathbf{D}"],
+            bfE: ["\\mathbf{E}"],
+            bfF: ["\\mathbf{F}"],
+            bfG: ["\\mathbf{G}"],
+            bfH: ["\\mathbf{H}"],
+            bfI: ["\\mathbf{I}"],
+            bfJ: ["\\mathbf{J}"],
+            bfK: ["\\mathbf{K}"],
+            bfL: ["\\mathbf{L}"],
+            bfM: ["\\mathbf{M}"],
+            bfN: ["\\mathbf{N}"],
+            bfO: ["\\mathbf{O}"],
+            bfP: ["\\mathbf{P}"],
+            bfQ: ["\\mathbf{Q}"],
+            bfR: ["\\mathbf{R}"],
+            bfS: ["\\mathbf{S}"],
+            bfT: ["\\mathbf{T}"],
+            bfU: ["\\mathbf{U}"],
+            bfV: ["\\mathbf{V}"],
+            bfX: ["\\mathbf{X}"],
+            bfW: ["\\mathbf{W}"],
+            bfY: ["\\mathbf{Y}"],
+            bfZ: ["\\mathbf{Z}"],
+            bfad: ["\\mathbf{ad}"],
+            zero: ["\\{0\\}"],
+            id: ["\\operatorname\{id\}"],
+            sen: ["\\operatorname\{sen\}"],
+            tg: ["\\operatorname\{tg\}"],
+            ad: ["\\operatorname\{ad\}"],
+            mdc: ["\\operatorname\{mdc\}"],
+            im: ["\\operatorname\{im\}"],
+            Quat: ["\\operatorname\{Quat\}"],
+            Aut: ["\\operatorname\{Aut\}"],
+            Inn: ["\\operatorname\{Inn\}"],
+            orb: ["\\operatorname\{orb\}"],
+            stab: ["\\operatorname\{stab\}"],
+            Rep: ["\\operatorname\{Rep\}"],
+            Hom: ["\\operatorname\{Hom\}"],
+            End: ["\\operatorname\{End\}"],
+            Obj: ["\\operatorname\{Obj\}"],
+            tr: ["\\operatorname\{tr\}"],
+            diam: ["\\operatorname\{diam\}"],
+            diag: ["\\operatorname\{diag\}"],
+            Ind: ["\\operatorname\{Ind\}"],
+            Res: ["\\operatorname\{Res\}"],
+            Set: ["\\operatorname\{Set\}"],
+            coker: ["\\operatorname\{coker\}"],
+            supp: ["\\operatorname\{supp\}"],
+            Tor: ["\\operatorname\{Tor\}"],
+            vspan: ["\\operatorname\{vspan\}"],
+            char: ["\\operatorname\{char\}"],
+            Ann: ["\\operatorname\{Ann\}"],
+            Der: ["\\operatorname\{Der\}"],
+            ma: ["\\operatorname\{ma\}"],
+            mg: ["\\operatorname\{mg\}"],
+            Rad: ["\\operatorname\{Rad\}"],
+            pint: ["{ \\langle #1,#2 \\rangle }",2],
+            rfrac: ["{ {}^{#1}\\!/_{#2} }",2],
+            norma: ["{ \\Vert #1 \\Vert }",1],
+          },
+        },
+      });
+    </script>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js"></script>
+    <script src="http://www.w3schools.com/lib/w3data.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../itemParenteses.css" />
+    <link rel="stylesheet" type="text/css" href="../../../ambTeor.css" />
+    
+    <script>
+      function closeDetail(detailsElement) {
+        detailsElement.removeAttribute("open");
+        window.location = '#' + detailsElement.scrollIntoView({block: "nearest", behavior: "smooth"});
+      }
+    </script>
+    
+    <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+
+    <style>
+      body{
+        font-size: 16pt;
+        font-family: "Helvetica", sans-serif;
+        line-height: 1.5;
+        background-color: rgb(233,227,206);
+        counter-reset: contTeor contProp contLema contCoro contObs contDef contExerc contExemplo contSec 5;
+      }
+      
+      h1{
+        background-color: rgb(153,51,153);
+        color: rgb(255,250,250);
+      }
+      
+      h2{
+        color: rgb(153,51,153);
+      }
+      
+      h3{
+        color: rgb(153,51,153);
+      }
+      
+      details > summary {
+        font-style: italic;
+        color: blue;
+        cursor: pointer;
+        position: relative;
+        transition: 0.15s background linear;
+      }
+      
+      details > summary:hover {
+        background: #d4d1ec;
+      }
+
+      details > .caixa{
+        border: solid;
+      }
+      
+      .equationCenter {
+        width: 100%;
+        overflow-y: hidden;
+        overflow-x: auto;
+      }
+      
+      .buttonDetails {
+        border: none;
+        text-align: center;
+        cursor: pointer;
+        position: absolute;
+        right: 10px;
+      }
+      
+    </style>
+
+  </head>
+  
+  <body>
+
+    <div style="text-align:center"><h1>Introdução às Álgebras de Lie</h1></div>
+    
+    <!-- ############ -->
+    <h2>Aula 5 - Derivações e automorfismos</h2>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-derivacao" class="def">
+      Uma <strong>derivação</strong> é uma transformação linear \(\delta: L \to L\) tal que \(\delta([x,y]) = [\delta(x), y] + [x, \delta(y)]\), para todo \(x, y \in L\).
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-automorfismo" class="def">
+      Um <strong>automorfismo</strong> é um isomorfismo de álgebras de Lie com domínio coincidindo com contra domínio, \(\theta: L \to L\). 
+    <span class="fim"></span></p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-automorfismo" class="obs">
+      O conjunto \(\Aut(L) := \{\theta: L \to L \mid \theta\) é automorfismo\(\}\) é um grupo com a composição.
+    <span class="fim"></span></p>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="prop-expDerNilEhAut" class="prop">
+      Se \(\delta: L \to L\) é uma derivação nilpotente, então \(e^{\delta} := \sum_{k \ge 0}\frac{\delta^{k}}{k!} \in \Aut(L)\).
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Como \(\delta\) é nilpotente, existe \(n \ge 0\) tal que \(\delta^{n+1} = 0\). Assim, \(e^{\delta} = \sum_{k = 0}^{n}\frac{\delta^{k}}{k!}\) é uma transformação linear bem definida. Se \(x, y \in L\), temos que \(\delta^{r}([x,y]) = \sum_{i=0}^{r}\binom{r}{i}[\delta^{i}(x), \delta^{r-i}(y)]\) (veja <a href="#exerc-aula5">Exercício 5.1 (2)</a>). Assim,
+        </p>
+        <p class="equationCenter">
+          \[
+            \begin{split}
+              e^{\delta}([x,y]) &= \sum_{k \ge 0}\frac{\delta^{k}([x,y])}{k!} \\
+              &= \sum_{k \ge 0}\sum_{i=0}^{k}\underbrace{\frac{1}{k!}\binom{k}{i}}_{\frac{1}{i!(k-i)!}}[\delta^{i}(x),\delta^{k-i}(y)] \\
+              (\text{abrindo a soma}) &= [\sum_{r\ge 0}\frac{1}{r!}\delta^{r}(x), \sum_{s\ge 0}\frac{1}{s!}\delta^{s}(x)] \\
+              &= [e^{\delta}(x), e^{\delta}(y)].
+            \end{split}
+          \]
+        </p>
+        <p>
+          Isso implica que \(e^{\delta}\) é homomorfismo de álgebras de Lie. Analogamente, \(e^{-\delta}\) é um homomorfismo. Além disso, temos que \(e^{\delta}\circ e^{-\delta} = e^{-\delta}\circ e^{\delta} = e^{0} = \id_{L}\). Portanto, \(e^{\delta} \in \Aut(L)\).
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-deriInterna" class="def">
+      Uma derivação da forma \(\ad(x)\) (veja o <a href="#exerc-aula5">Exercício 5.1 (1)</a>) é chamada de <strong>derivação interna</strong>.
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-grupoAutInt" class="def">
+      O subgrupo de \(\Aut(L)\) gerado por todos os automorfismo da forma \(e^{\ad(x)}\), com \(x \in L\) e \(\ad(x)\) nilpotente, isto é, \(\Inn(L) := \langle e^{\ad(x)} \mid x \in L\) e \(\ad(x)\) é nilpotente\(\rangle\), é chamado de <strong>grupo de automorfismos internos</strong>.
+    <span class="fim"></span></p>
+    
+    <!-- LEMA -->
+    <p id="lema-derIntIdealAut" class="lema">
+      \(\Inn(L) \unlhd \Aut(L)\).
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Um elemento geral de \(\Inn(L)\) é da forma \(\ad(x_{1})\circ \cdots \circ \ad(x_{n})\). Se provarmos que \(\theta\circ e^{\ad(x)}\circ \theta^{-1} \in \Inn(L)\), para todo \(x \in L\), com \(\ad(x)\) nilpotente, e todo \(\theta \in \Aut(L)\), então teremos que \(\theta\ad(x_{1})\circ \cdots \circ \ad(x_{n})\theta^{-1} \in \Inn(L)\), pois
+        </p>
+        <p class="equationCenter">
+          \[
+            \theta\ad(x_{1})\circ \cdots \circ \ad(x_{n})\theta^{-1} = \overbrace{\theta\ad(x_{1})\theta^{-1}}^{\in \Inn(L)}\theta\circ \cdots \circ \theta^{-1}\overbrace{\theta\ad(x_{n})\theta^{-1}}^{\in \Inn(L)}
+          \]
+        </p>
+        <p>
+          Vamos mostrar, então, que \(\theta\circ e^{\ad(x)}\circ \theta^{-1} \in \Inn(L)\), conforme dito acima. Note que, para todo \(y \in L\), 
+        </p>
+        <p class="equationCenter">
+          \[
+            \big(\theta\ad(x)\theta^{-1}\big)\big(y\big) = \theta([x, \theta^{-1}(y)]) = [\theta(x), y] = \ad(\theta(x))(y).
+          \]
+        </p>
+        <p>
+          Isso implica que \(\theta\ad(x)\theta^{-1} = \ad(\theta(x))\). Assim,
+        </p>
+        <p class="equationCenter">
+          \[
+            \theta e^{\ad(x)}\theta^{-1} = \sum_{k \ge 0}\frac{1}{k!}\theta\ad(x)^{k}\theta^{-1} = \sum_{k \ge 0}\frac{1}{k!}\ad(\theta(x))^{k} = e^{\ad(\theta(x))} \in \Inn(L)
+          \]
+        </p>
+        <p>
+          Portanto, \(\Inn(L) \unlhd \Aut(L)\).
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-subalgConj" class="def">
+      Duas subálgebras \(M_{1}, M_{2} \subseteq L\) são <strong>conjugadas</strong>, se existe \(\theta \in \Inn(L)\) tal que \(\theta(M_{1}) = M_{2}\).
+    <span class="fim"></span></p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-espPesoZeroSAC" class="obs">
+      Seja \(H \subseteq L\) uma subálgebra de Cartan e considere \(L\) como \(H\)-módulo, via adjunta. Considere a decomposição em espaços de pesos generalizados \(L = \bigoplus_{\lambda \in H^{\ast}} L(\lambda)^{H}\), onde \(L(\lambda)^{H} = \{x \in L \mid \forall \; h \in H \;\; \exists \; n \ge 0 \;\; (\ad(h) - \lambda(h)\id_{L})^{n}(x) = 0\}\), conforme visto no <a href="intrAlgebrasLie-aula03.html#teor-decomAutoEsp">Teorema 3.2</a>. Seja \(h \in H\). Como \(H\) é nilpotente, pelo Teorema de Engel, \(\ad(x)\) é nilpotente e, pelo <a href="intrAlgebrasLie-aula04.html#coro-engel">Corolário 4.2</a>. Assim, existe uma base de \(L\) tal que
+      \(
+        \ad(x) = 
+        \begin{pmatrix}
+          0 & \cdots & \ast \\
+          \vdots & \ddots & \vdots \\
+          0 & \cdots & 0
+        \end{pmatrix}.
+      \)
+      Isso implica que \(H \subseteq L(0)^{H}\). Agora, sejam \(\ell \in L(0)^{H}\) e \(h \in H\). Então \([\ell, h] \in H\) (???). Disso, segue que \(L(0)^{H} \subseteq N(H) = H\). Portanto, \(H = L(0)^{H}\). Isso significa que na decomposição em espaços de pesos generalizados, tomando \(L\) como \(H\)-módulo, sendo \(H\) uma subálgebra de Cartan, o espaço de peso zero é a subálgebra de Cartan. Assim, escrevendo \(L = H \oplus L(\lambda_{1})^{H} \oplus \cdots \oplus L(\lambda_{r})^{H}\), com \(\lambda_{i} \neq 0\), podemos escrever qualquer \(x \in L\), <em>unicamente</em>, como
+    </p>
+    <p class="equationCenter" style="text-align:center">
+      \(
+        x = \underbrace{x_{0}}_{\in H} + \underbrace{x_{1}}_{\in L(\lambda_{1})^{H}} + \cdots + \underbrace{x_{r}}_{\in L(\lambda_{r})^{H}}
+      \)
+    <span class="fim"></span></p>
+    
+    <!-- LEMA -->
+    <p id="lema-andarPeso" class="lema">
+      Considerando a decomposição da <a href="#obs-espPesoZeroSAC">Observação 5.2</a>, temos que \(\ad(x_{i})(L(\lambda_{k})^{H}) \subseteq L(\lambda_{k} + \lambda_{i})^{H}\), para todo \(i = 0, \dots, r\).
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Se \(y \in L(\mu)^{H}\), onde \(\mu = \lambda_{0}, \dots, \lambda_{r}\), então, para todo \(h \in H\), usando o <a href="intrAlgebrasLie-aula03.html#lema-autoEspSubm">Lema 3.1</a>, temos que
+        </p>
+        <p class="equationCenter">
+          \[
+            (\ad(h) - (\mu(h) - \lambda_{i}(h)))^{n}([x_{i},y]) = \sum_{j=0}^{n}\binom{n}{j}[(\ad(h) - \lambda_{i}(h))^{j}x_{i},(\ad(h) - \mu(h))^{n-j}y].
+          \]
+        </p>
+        <p>
+          Como \(x_{i} \in L(\lambda_{i})\) e \(y \in L(\mu)^{H}\), existem \(n_{1}, n_{2} \ge 0\) tais que \((\ad(h) - \lambda_{i}(h))^{n_{1}}x_{i} = 0\) e \((\ad(h) - \mu(h))^{n_{2}}y\). Portanto, fazendo \(n = n_{1} + n_{2}\), temos que \((\ad(h) - (\mu(h) - \lambda_{i}(h)))^{n}([x_{i},y]) = 0\). Logo, \([x_{i},y] \in L(\lambda_{i} + \mu)^{H}\).
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-expAdjInn" class="obs">
+      O <a href="#lema-andarPeso">Lema 5.2</a> implica que \(\ad(x_{i}): L \to L\) é nilpotente, se \(i > 0\), pois \(\ad(x_{i})^{n}(L(\mu)^{H}) \subseteq L(\mu + n\lambda_{i})^{H}\) e \(\dim(L) < \infty\), o que significa que \(L(\mu + n\lambda_{i})^{H} \neq \zero\) só para finitos \(n\). Assim, \(e^{\ad(x_{i})} \in \Inn(L)\), para todo \(i > 0\).
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-funcaoImportanteF" class="def">
+      Defina
+    </p>
+    <p class="equationCenter" style="text-align:center">
+      \[
+        \begin{array}{rcl}
+          f: \;\; L & \to & L \\
+          x = x_{0} + x_{1} + \cdots + x_{r} & \mapsto & (e^{\ad(x_{1})}\circ\cdots\circ e^{\ad(x_{r})})(x_{0})
+        \end{array}.
+      \]
+    <span class="fim"></span></p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-funcaoImportanteF" class="obs">
+      A função \(f\) vista na <a href="#def-funcaoImportanteF">Definição 5.6</a> será tratada nos próximos dois resultados. Para isso, vamos tomar uma base
+    </p>
+    <p class="equationCenter">
+      \[
+        \{\underbrace{b_{00}, \dots, b_{0k_{0}}}_{\text{base de } L(0)^{H}}, \dots, \underbrace{b_{r0}, \dots, b_{rk_{r}}}_{\text{base de } L(\lambda_{r})^{H}}\}
+      \]
+    </p>
+    <p>
+      de \(L\) tal que
+    </p>
+    <p class="equationCenter">
+      \[
+        \ad(h) = \left(
+        \begin{array}{cccc}
+          \begin{pmatrix}
+            0 & \cdots & \ast \\
+            \vdots & \ddots & \vdots \\
+            0 & \cdots & 0
+          \end{pmatrix}
+          & 0 & 0 & 0 \\
+          0 & 
+          \begin{pmatrix}
+            \lambda_{1}(h) & \cdots & \ast \\
+            \vdots & \ddots & \vdots \\
+            0 & \cdots & \lambda_{1}(h)
+          \end{pmatrix}
+          & 0 & 0 \\
+          \vdots & \vdots & \ddots & \vdots \\
+          0 & 0 & 0 &
+          \begin{pmatrix}
+            \lambda_{k}(h) & \cdots & \ast \\
+            \vdots & \ddots & \vdots \\
+            0 & \cdots & \lambda_{k}(h)
+          \end{pmatrix}
+        \end{array}
+        \right)
+      \]
+    </p>
+    <p>
+      Note que \([h, b_{i0}] = \lambda_{i}(h)b_{i0}\), para todo \(i\).
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-funçãoPolinomial" class="def">
+      Dizemos que uma função 
+    </p>
+    <p class="equationCenter">
+      \[
+        \begin{array}{rcl}
+          g: \bbK^{\ell} & \to & \bbK^{r} \\
+          (z_{1}, \dots, z_{\ell}) & \mapsto & (g_{1}(z_{1}, \dots, z_{\ell}), \dots, g_{r}(z_{1}, \dots, z_{\ell}))
+        \end{array}
+      \]
+    </p>
+    <p>
+      é <strong>polinomial</strong>, se, para todo \(i = 1, \dots, r\), \(g_{i}(z_{1}, \dots, z_{\ell})\) é um polinômio nas variáveis \(z_{1}, \dots, z_{\ell}\).
+    <span class="fim"></span></p>
+    
+    <!-- LEMA -->
+    <p id="lema-fEhPolinomial" class="lema">
+      A função \(f\) vista na <a href="#def-funcaoImportanteF">Definição 5.6</a> é uma função polinomial.
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Observe que
+        </p>
+        <p class="equationCenter">
+          \[
+            \begin{split}
+              \ad(x_{p})(\sum_{i,j} z_{ij}b_{ij}) &= \sum_{i,j} z_{ij}\ad(x_{p})(b_{ij}) = \sum_{i,j} z_{ij}\sum_{r,s}c_{r,s}^{i,j,p}b_{rs} = \sum_{i,j}\sum_{r,s}c_{r,s}^{i,j,p}z_{ij}b_{rs} = \\
+              &= (\text{polinômio linear em } z_{ij})b_{00} + \cdots + (\text{polinômio linear em } z_{ij})b_{rk_{r}}.
+            \end{split}
+          \]
+        </p>
+        <p>
+          Logo, \(\ad(x_{p}): L \to L\) é uma função polinomial. O mesmo raciocínio mostra que 
+        </p>
+        </p>
+        <p class="equationCenter">
+          \[
+            \ad(x_{p})^{2}(\sum_{i,j} z_{ij}b_{ij}) = (\text{polinômio de segundo grau em } z_{ij})b_{00} + \cdots + (\text{polinômio de segundo grau em } z_{ij})b_{rk_{r}}.
+          \]
+        </p>
+        <p>
+          Mais geralmente, \(\ad(x_{p})^{n}\) terá polinômios de grau \(n\). Portanto, \(e^{\ad(x_{p})}\) é uma função polinomial e, consequentemente, \(f\) é polinomial.
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-jacobianaF" class="obs">
+      Considere a matriz jacobiana de \(f\), \(J(f) = \left(\dfrac{\partial f_{ij}}{\partial z_{k\ell}}\right)\). Note que \(\det(J(f)) \in \bbK[z_{ij}]\), quer dizer, \(\det(J(f))\) é um polinômio nas variáveis \(z_{ij}\).
+    <span class="fim"></span></p>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="prop-detFNaoNulo" class="prop">
+      \(\det(J(f)) \neq 0\) (como polinômio).
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Vamos encontrar um elemento \(h \in H\) tal que \(\det(J(f))(h) \neq 0\). Se \(k \neq 0\), temos que
+        </p>
+        <p class="equationCenter">
+          \[
+            \begin{split}
+              \left(\frac{\partial f}{\partial z_{k\ell}}\right)\bigg|_{h} &= \lim_{t \to 0}\frac{f(h + tb_{k\ell}) - f(h)}{t} = \\
+              ({\scriptsize f(x_{0} + \cdots x_{r}) = (e^{\ad(x_{1})\dots \ad(x_{r})})(x_{0})})&= \lim_{t \to 0} \frac{e^{t\ad(b_{k\ell})(h)} - h}{t} = \\
+              &= \lim_{t \to 0} \frac{h + t[b_{k\ell}, h] + \cdots - h}{t} =\\
+              &= [b_{k\ell}, h] = -[h, b_{k\ell}] = \\
+              &= -\lambda_{k}(h)b_{k\ell} + \text{combinação linear de } b_{kj}, \text{ com } j = 0, \dots, \ell - 1.
+            \end{split}
+          \]
+        </p>
+        <p>
+          Agora, para \(k = 0\), temos que
+        </p>
+        <p class="equationCenter">
+          \[
+            \begin{split}
+              \left(\frac{\partial f}{\partial z_{0\ell}}\right)\bigg|_{h} &= \lim_{t \to 0}\frac{f(\overbrace{h + tb_{0\ell}}^{\in H}) - f(h)}{t} = \\
+              &=\lim_{t \to 0}\frac{e^{0}(h + tb_{0\ell}) - e^{0}(h)}{t} = b_{0\ell}.
+            \end{split}
+          \]
+        </p>
+        <p>
+          Assim,
+        </p>
+        <p class="equationCenter">
+          \[
+            J(f)(h) = \left(
+            \begin{array}{cccc}
+              \begin{pmatrix}
+                1 & \cdots & \ast \\
+                \vdots & \ddots & \vdots \\
+                0 & \cdots & 1
+              \end{pmatrix}
+              & 0 & 0 & 0 \\
+              0 & 
+              \begin{pmatrix}
+                -\lambda_{1}(h) & \cdots & \ast \\
+                \vdots & \ddots & \vdots \\
+                0 & \cdots & -\lambda_{1}(h)
+              \end{pmatrix}
+              & 0 & 0 \\
+              \vdots & \vdots & \ddots & \vdots \\
+              0 & 0 & 0 &
+              \begin{pmatrix}
+                -\lambda_{k}(h) & \cdots & \ast \\
+                \vdots & \ddots & \vdots \\
+                0 & \cdots & -\lambda_{k}(h)
+              \end{pmatrix}
+            \end{array}
+            \right)
+          \]
+        </p>
+        <p>
+          Disso, segue que \(\det(J(f)(h)) = \pm \prod \lambda_{i}^{d_{i}}\), onde \(d_{i} = \dim(L(\lambda_{i}^{H}))\). Uma que temos finitos \(\lambda_{1}, \dots, \lambda_{r}\), podemos tomar \(h \in H\) tal que \(\lambda_{i}(h) \neq 0\), para todo \(i\) (consequência do <a href="intrAlgebrasLie-aula03.html#exerc-aula3">Exercício 3.1 (2)</a>). Portanto, \(\det(J(f)(h) \neq 0)\).
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- EXERCÍCIO -->
+    <p id="exerc-aula5" class="exerc">
+      <ol class="numerico">
+        <li>Prove que \(\ad(x)\) é uma derivação, para qualquer \(x \in L\).</li>
+        <li>Sejam \(\delta: L \to L\) uma derivação nilpotente e \(x, y \in L\). Prove, usando indução, que \(\delta^{r}([x,y]) = \sum_{i=0}^{r}\binom{r}{i}[\delta^{i}(x), \delta^{r-i}(y)]\), para todo \(r\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+  </body>
+  
+</html>
+
