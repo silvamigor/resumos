@@ -569,16 +569,7 @@
           (a) Sejam \(y, z \in H\). Pelo <a href="intrAlgebrasLie-aula03.html#lema-autoEspSubm">Lema 3.1</a> (fazendo \(\alpha = \beta = 0\), \(V = L\) e \(\rho = \ad\)), temos que \(\ad(x)^{n}[y,z] = \sum_{i=0}^{n}\binom{n}{i}[\ad(x)^{i}y, \ad(x)^{n-i}z]\). Como \(y, z \in H\), existem \(n_{1}, n_{2} \ge 0\) tais que \(\ad(x)^{n_{1}}y = 0\) e \(\ad(x)^{n_{2}}z = 0\). Assim, \(\ad(x)^{n_{1}+n_{2}}[y,z] = 0\), o que significa que \([y,z] \in H\).
         </p>
         <p>
-          (b) Vamos mostrar que \(\ad(y): H \to H\) é nilpotente, para todo \(y \in L\). Seja \(\calB = \{b^{1}, \dots, b^{\ell}\}\) base de \(H\) (em particular, isso implica que \(\dim(H) = \ell\)). Então, dado \(y \in H\), temos que \(y = z_{1}b^{1} + \cdots + z_{\ell}b^{\ell}\), onde \(z_{i} \in \bbK\). Considere o homomorfismo \(\ad(y): L \to L\). Como \(H\) é um subálgebra, podemos considerar também \(\ad(y)|_{H}: H \to H\). Completando a base \(\calB\) de \(H\) para uma base \(\calC\) de \(L\), obtemos \(\calC = \calB \cup \calB'\), onde \(\calB'\) é base de um subespaço \(H'\) de \(L\). Assim, \(L = H \oplus H'\) (como espaço vetorial). Logo, 
-          \(
-            (\ad(y))_{\calC} =
-            \begin{pmatrix}
-              (\ad(y)|_{H})_{\calB} & \ast \\
-              0 & (\ad(y)|_{H'})_{\calB'}
-            \end{pmatrix}.
-          \)
-          Observe que \(H' \cong \rfrac{L}{H}\) (também como espaço vetorial). Além disso, a transformação linear \(\rfrac{L}{H} \to L\), \(x + H \mapsto \ad(y)(x)\) está bem definida. Fazendo a composição com a projeção, podemos considerar a transformação \(\ad(y)|_{\rfrac{L}{H}}: \rfrac{L}{H} \to \rfrac{L}{H}\). Assim,
-        </p>
+          (b) Vamos mostrar que \(\ad(y): H \to H\) é nilpotente, para todo \(y \in L\). Seja \(\calB = \{b^{1}, \dots, b^{\ell}\}\) base de \(H\) (em particular, isso implica que \(\dim(H) = \ell\)). Então, dado \(y \in H\), temos que \(y = z_{1}b^{1} + \cdots + z_{\ell}b^{\ell}\), onde \(z_{i} \in \bbK\). Considere o homomorfismo \(\ad(y): L \to L\). Como \(H\) é um subálgebra, podemos considerar também \(\ad(y)|_{H}: H \to H\). Completando a base \(\calB\) de \(H\) para uma base \(\calC\) de \(L\), obtemos \(\calC = \calB \cup \calB'\), onde \(\calB'\) é base de um subespaço \(H'\) de \(L\). Assim, \(L = H \oplus H'\) (como espaço vetorial). Observe que \(H' \cong \rfrac{L}{H}\) (também como espaço vetorial). Além disso, a transformação linear \(\rfrac{L}{H} \to L\), \(x + H \mapsto \ad(y)(x)\) está bem definida. Fazendo a composição com a projeção, podemos considerar a transformação \(\ad(y)|_{\rfrac{L}{H}}: \rfrac{L}{H} \to \rfrac{L}{H}\). Assim,
         <p class="equationCenter">
           \[
             (\ad(y))_{\calC} =
