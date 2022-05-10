@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Introdução às Álgebras de Lie </title>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Register.StartupHook("TeX Jax Ready",function (){
+         MathJax.Hub.Insert(MathJax.InputJax.TeX.Definitions.macros,{
+          cancel: ["Extension","cancel"],
+          bcancel: ["Extension","cancel"],
+          xcancel: ["Extension","cancel"],
+          cancelto: ["Extension","cancel"]
+        });
+      });
+      MathJax.Hub.Config({
+        extensions: ["https://lomath.in/doc/xyjax/xypic.js","tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+          processEscapes: true
+        },
+        "HTML-CSS": { fonts: ["TeX"] },
+        TeX: {
+          equationNumbers: { autoNumber: "AMS" },
+          Macros: {
+            fraka: ["\\mathfrak{a}"],
+            frakb: ["\\mathfrak{b}"],
+            frakc: ["\\mathfrak{c}"],
+            frakd: ["\\mathfrak{d}"],
+            frake: ["\\mathfrak{e}"],
+            frakf: ["\\mathfrak{f}"],
+            frakg: ["\\mathfrak{g}"],
+            frakh: ["\\mathfrak{h}"],
+            fraki: ["\\mathfrak{i}"],
+            frakj: ["\\mathfrak{j}"],
+            frakk: ["\\mathfrak{k}"],
+            frakl: ["\\mathfrak{l}"],
+            frakm: ["\\mathfrak{m}"],
+            frakn: ["\\mathfrak{n}"],
+            frako: ["\\mathfrak{o}"],
+            frakp: ["\\mathfrak{p}"],
+            frakq: ["\\mathfrak{q}"],
+            frakr: ["\\mathfrak{r}"],
+            fraks: ["\\mathfrak{s}"],
+            frakt: ["\\mathfrak{t}"],
+            fraku: ["\\mathfrak{u}"],
+            frakv: ["\\mathfrak{v}"],
+            frakx: ["\\mathfrak{x}"],
+            frakw: ["\\mathfrak{w}"],
+            fraky: ["\\mathfrak{y}"],
+            frakz: ["\\mathfrak{z}"],
+            frakA: ["\\mathfrak{A}"],
+            frakB: ["\\mathfrak{B}"],
+            frakC: ["\\mathfrak{C}"],
+            frakD: ["\\mathfrak{D}"],
+            frakE: ["\\mathfrak{E}"],
+            frakF: ["\\mathfrak{F}"],
+            frakG: ["\\mathfrak{G}"],
+            frakH: ["\\mathfrak{H}"],
+            frakI: ["\\mathfrak{I}"],
+            frakJ: ["\\mathfrak{J}"],
+            frakK: ["\\mathfrak{K}"],
+            frakL: ["\\mathfrak{L}"],
+            frakM: ["\\mathfrak{M}"],
+            frakN: ["\\mathfrak{N}"],
+            frakO: ["\\mathfrak{O}"],
+            frakP: ["\\mathfrak{P}"],
+            frakQ: ["\\mathfrak{Q}"],
+            frakR: ["\\mathfrak{R}"],
+            frakS: ["\\mathfrak{S}"],
+            frakT: ["\\mathfrak{T}"],
+            frakU: ["\\mathfrak{U}"],
+            frakV: ["\\mathfrak{V}"],
+            frakX: ["\\mathfrak{X}"],
+            frakW: ["\\mathfrak{W}"],
+            frakY: ["\\mathfrak{Y}"],
+            frakZ: ["\\mathfrak{Z}"],
+            frakgl: ["\\mathfrak{gl}"],
+            fraksl: ["\\mathfrak{sl}"],
+            frakso: ["\\mathfrak{so}"],
+            fraksp: ["\\mathfrak{sp}"],
+            bba: ["\\mathbb{a}"],
+            bbb: ["\\mathbb{b}"],
+            bbc: ["\\mathbb{c}"],
+            bbd: ["\\mathbb{d}"],
+            bbe: ["\\mathbb{e}"],
+            bbf: ["\\mathbb{f}"],
+            bbg: ["\\mathbb{g}"],
+            bbh: ["\\mathbb{h}"],
+            bbi: ["\\mathbb{i}"],
+            bbj: ["\\mathbb{j}"],
+            bbk: ["\\mathbb{k}"],
+            bbl: ["\\mathbb{l}"],
+            bbm: ["\\mathbb{m}"],
+            bbn: ["\\mathbb{n}"],
+            bbo: ["\\mathbb{o}"],
+            bbp: ["\\mathbb{p}"],
+            bbq: ["\\mathbb{q}"],
+            bbr: ["\\mathbb{r}"],
+            bbs: ["\\mathbb{s}"],
+            bbt: ["\\mathbb{t}"],
+            bbu: ["\\mathbb{u}"],
+            bbv: ["\\mathbb{v}"],
+            bbx: ["\\mathbb{x}"],
+            bbw: ["\\mathbb{w}"],
+            bby: ["\\mathbb{y}"],
+            bbz: ["\\mathbb{z}"],
+            bbA: ["\\mathbb{A}"],
+            bbB: ["\\mathbb{B}"],
+            bbC: ["\\mathbb{C}"],
+            bbD: ["\\mathbb{D}"],
+            bbE: ["\\mathbb{E}"],
+            bbF: ["\\mathbb{F}"],
+            bbG: ["\\mathbb{G}"],
+            bbH: ["\\mathbb{H}"],
+            bbI: ["\\mathbb{I}"],
+            bbJ: ["\\mathbb{J}"],
+            bbK: ["\\mathbb{K}"],
+            bbL: ["\\mathbb{L}"],
+            bbM: ["\\mathbb{M}"],
+            bbN: ["\\mathbb{N}"],
+            bbO: ["\\mathbb{O}"],
+            bbP: ["\\mathbb{P}"],
+            bbQ: ["\\mathbb{Q}"],
+            bbR: ["\\mathbb{R}"],
+            bbS: ["\\mathbb{S}"],
+            bbT: ["\\mathbb{T}"],
+            bbU: ["\\mathbb{U}"],
+            bbV: ["\\mathbb{V}"],
+            bbX: ["\\mathbb{X}"],
+            bbW: ["\\mathbb{W}"],
+            bbY: ["\\mathbb{Y}"],
+            bbZ: ["\\mathbb{Z}"],
+            cala: ["\\mathcal{a}"],
+            calb: ["\\mathcal{b}"],
+            calc: ["\\mathcal{c}"],
+            cald: ["\\mathcal{d}"],
+            cale: ["\\mathcal{e}"],
+            calf: ["\\mathcal{f}"],
+            calg: ["\\mathcal{g}"],
+            calh: ["\\mathcal{h}"],
+            cali: ["\\mathcal{i}"],
+            calj: ["\\mathcal{j}"],
+            calk: ["\\mathcal{k}"],
+            call: ["\\mathcal{l}"],
+            calm: ["\\mathcal{m}"],
+            caln: ["\\mathcal{n}"],
+            calo: ["\\mathcal{o}"],
+            calp: ["\\mathcal{p}"],
+            calq: ["\\mathcal{q}"],
+            calr: ["\\mathcal{r}"],
+            cals: ["\\mathcal{s}"],
+            calt: ["\\mathcal{t}"],
+            calu: ["\\mathcal{u}"],
+            calv: ["\\mathcal{v}"],
+            calx: ["\\mathcal{x}"],
+            calw: ["\\mathcal{w}"],
+            caly: ["\\mathcal{y}"],
+            calz: ["\\mathcal{z}"],
+            calA: ["\\mathcal{A}"],
+            calB: ["\\mathcal{B}"],
+            calC: ["\\mathcal{C}"],
+            calD: ["\\mathcal{D}"],
+            calE: ["\\mathcal{E}"],
+            calF: ["\\mathcal{F}"],
+            calG: ["\\mathcal{G}"],
+            calH: ["\\mathcal{H}"],
+            calI: ["\\mathcal{I}"],
+            calJ: ["\\mathcal{J}"],
+            calK: ["\\mathcal{K}"],
+            calL: ["\\mathcal{L}"],
+            calM: ["\\mathcal{M}"],
+            calN: ["\\mathcal{N}"],
+            calO: ["\\mathcal{O}"],
+            calP: ["\\mathcal{P}"],
+            calQ: ["\\mathcal{Q}"],
+            calR: ["\\mathcal{R}"],
+            calS: ["\\mathcal{S}"],
+            calT: ["\\mathcal{T}"],
+            calU: ["\\mathcal{U}"],
+            calV: ["\\mathcal{V}"],
+            calX: ["\\mathcal{X}"],
+            calW: ["\\mathcal{W}"],
+            calY: ["\\mathcal{Y}"],
+            calZ: ["\\mathcal{Z}"],
+            bfa: ["\\mathbf{a}"],
+            bfb: ["\\mathbf{b}"],
+            bfc: ["\\mathbf{c}"],
+            bfd: ["\\mathbf{d}"],
+            bfe: ["\\mathbf{e}"],
+            bff: ["\\mathbf{f}"],
+            bfg: ["\\mathbf{g}"],
+            bfh: ["\\mathbf{h}"],
+            bfi: ["\\mathbf{i}"],
+            bfj: ["\\mathbf{j}"],
+            bfk: ["\\mathbf{k}"],
+            bfl: ["\\mathbf{l}"],
+            bfm: ["\\mathbf{m}"],
+            bfn: ["\\mathbf{n}"],
+            bfo: ["\\mathbf{o}"],
+            bfp: ["\\mathbf{p}"],
+            bfq: ["\\mathbf{q}"],
+            bfr: ["\\mathbf{r}"],
+            bfs: ["\\mathbf{s}"],
+            bft: ["\\mathbf{t}"],
+            bfu: ["\\mathbf{u}"],
+            bfv: ["\\mathbf{v}"],
+            bfx: ["\\mathbf{x}"],
+            bfw: ["\\mathbf{w}"],
+            bfy: ["\\mathbf{y}"],
+            bfz: ["\\mathbf{z}"],
+            bfA: ["\\mathbf{A}"],
+            bfB: ["\\mathbf{B}"],
+            bfC: ["\\mathbf{C}"],
+            bfD: ["\\mathbf{D}"],
+            bfE: ["\\mathbf{E}"],
+            bfF: ["\\mathbf{F}"],
+            bfG: ["\\mathbf{G}"],
+            bfH: ["\\mathbf{H}"],
+            bfI: ["\\mathbf{I}"],
+            bfJ: ["\\mathbf{J}"],
+            bfK: ["\\mathbf{K}"],
+            bfL: ["\\mathbf{L}"],
+            bfM: ["\\mathbf{M}"],
+            bfN: ["\\mathbf{N}"],
+            bfO: ["\\mathbf{O}"],
+            bfP: ["\\mathbf{P}"],
+            bfQ: ["\\mathbf{Q}"],
+            bfR: ["\\mathbf{R}"],
+            bfS: ["\\mathbf{S}"],
+            bfT: ["\\mathbf{T}"],
+            bfU: ["\\mathbf{U}"],
+            bfV: ["\\mathbf{V}"],
+            bfX: ["\\mathbf{X}"],
+            bfW: ["\\mathbf{W}"],
+            bfY: ["\\mathbf{Y}"],
+            bfZ: ["\\mathbf{Z}"],
+            bfad: ["\\mathbf{ad}"],
+            zero: ["\\{0\\}"],
+            id: ["\\operatorname\{id\}"],
+            sen: ["\\operatorname\{sen\}"],
+            tg: ["\\operatorname\{tg\}"],
+            ad: ["\\operatorname\{ad\}"],
+            mdc: ["\\operatorname\{mdc\}"],
+            im: ["\\operatorname\{im\}"],
+            Quat: ["\\operatorname\{Quat\}"],
+            Aut: ["\\operatorname\{Aut\}"],
+            Inn: ["\\operatorname\{Inn\}"],
+            orb: ["\\operatorname\{orb\}"],
+            stab: ["\\operatorname\{stab\}"],
+            Rep: ["\\operatorname\{Rep\}"],
+            Hom: ["\\operatorname\{Hom\}"],
+            End: ["\\operatorname\{End\}"],
+            Obj: ["\\operatorname\{Obj\}"],
+            tr: ["\\operatorname\{tr\}"],
+            diam: ["\\operatorname\{diam\}"],
+            diag: ["\\operatorname\{diag\}"],
+            Ind: ["\\operatorname\{Ind\}"],
+            Res: ["\\operatorname\{Res\}"],
+            Set: ["\\operatorname\{Set\}"],
+            coker: ["\\operatorname\{coker\}"],
+            supp: ["\\operatorname\{supp\}"],
+            Tor: ["\\operatorname\{Tor\}"],
+            vspan: ["\\operatorname\{vspan\}"],
+            char: ["\\operatorname\{char\}"],
+            Ann: ["\\operatorname\{Ann\}"],
+            Der: ["\\operatorname\{Der\}"],
+            ma: ["\\operatorname\{ma\}"],
+            mg: ["\\operatorname\{mg\}"],
+            Rad: ["\\operatorname\{Rad\}"],
+            pint: ["{ \\langle #1,#2 \\rangle }",2],
+            rfrac: ["{ {}^{#1}\\!/_{#2} }",2],
+            norma: ["{ \\Vert #1 \\Vert }",1],
+          },
+        },
+      });
+    </script>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js"></script>
+    <script src="http://www.w3schools.com/lib/w3data.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../itemParenteses.css" />
+    <link rel="stylesheet" type="text/css" href="../../../ambTeor.css" />
+    
+    <script>
+      function closeDetail(detailsElement) {
+        detailsElement.removeAttribute("open");
+        window.location = '#' + detailsElement.scrollIntoView({block: "nearest", behavior: "smooth"});
+      }
+    </script>
+    
+    <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+
+    <style>
+      body{
+        font-size: 16pt;
+        font-family: "Helvetica", sans-serif;
+        line-height: 1.5;
+        background-color: rgb(233,227,206);
+        counter-reset: contTeor contProp contLema contCoro contObs contDef contExerc contExemplo contSec 7;
+      }
+      
+      h1{
+        background-color: rgb(153,51,153);
+        color: rgb(255,250,250);
+      }
+      
+      h2{
+        color: rgb(153,51,153);
+      }
+      
+      h3{
+        color: rgb(153,51,153);
+      }
+      
+      details > summary {
+        font-style: italic;
+        color: blue;
+        cursor: pointer;
+        position: relative;
+        transition: 0.15s background linear;
+      }
+      
+      details > summary:hover {
+        background: #d4d1ec;
+      }
+
+      details > .caixa{
+        border: solid;
+      }
+      
+      .equationCenter {
+        width: 100%;
+        overflow-y: hidden;
+        overflow-x: auto;
+      }
+      
+      .buttonDetails {
+        border: none;
+        text-align: center;
+        cursor: pointer;
+        position: absolute;
+        right: 10px;
+      }
+      
+    </style>
+
+  </head>
+  
+  <body>
+
+    <div style="text-align:center"><h1>Introdução às Álgebras de Lie</h1></div>
+    
+    <!-- ############ -->
+    <h2>Aula 7 - Raízes e forma de Killing</h2>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-espRaizes" class="def">
+      Considere a decomposição \(L = H + \oplus L(\lambda_{1})^{H} \oplus \cdots \oplus L(\lambda_{r})^{H}\), conforme visto na <a href="intrAlgebrasLie-aula05.html#obs-espPesoZeroSAC">Observação 5.2</a>.
+      <ol class="alfa">
+        <li>Se \(\alpha \in H^{\ast}\setminus\zero\) é tal que \(L(\alpha)^{H} \neq \zero\), então o chamamos de <strong>raiz</strong> de \(L\).</li>
+        <li>Se \(\alpha\) é raiz, então o espaço \(L(\alpha)^{H}\) é dito <strong>espaço de raiz</strong>.</li>
+        <li>Denotamos o conjunto das raízes de \(L\), por \(\Phi\), isto é,
+          <div class="equationCenter">
+            \[
+              \Phi = \{\alpha \in H^{\ast}\setminus\zero \mid L(\alpha)^{H} \neq \zero\}
+            \]
+          </div>
+        </li>
+        <li>A decomposição \(L = H \oplus L(\lambda_{1})^{H} \oplus \cdots \oplus L(\lambda_{r})^{H}\) é chamada de <strong>decomposição de Cartan</strong> de \(L\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-conjRaizesFinito" class="obs">
+      Uma vez que \(\dim(L) < \infty\), então \(|\Phi| < \infty\).
+    <span class="fim"></span></p>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="prop-relConchEspRaizes" class="prop">
+      Se \(\alpha, \beta \in \Phi\), então
+      <ol class="alfa">
+        <li>\([L(\alpha)^{H}, L(\beta)^{H}] \subseteq L(\alpha + \beta)^{H}\), se \(\alpha + \beta \in \Phi\),</li>
+        <li>\([L(\alpha)^{H}, L(\beta)^{H}] \subseteq H\), se \(\beta = -\alpha\),</li>
+        <li>\([L(\alpha)^{H}, L(\beta)^{H}] = \zero\), se \(\alpha + \beta \neq 0\) e \(\alpha + \beta \not\in \Phi\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Segue do <a href="intrAlgebrasLie-aula05.html#lema-andarPeso">Lema 5.2</a>.
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="prop-restrRaizRacional" class="prop">
+      Seja \(\alpha \in \Phi\) e considere \([L(\alpha), L(-\alpha)] \subseteq H\). Então, para todo \(\beta \in \Phi\), existe \(r \in \bbQ\) tal que \(\beta|_{[L(\alpha), L(-\alpha)]} = r\alpha|_{[L(\alpha), L(-\alpha)]}\).
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Se \(-\alpha \not\in \Phi\), então \([L(\alpha)^{H}, L(-\alpha)^{H}] = \zero\). Assim, basta tomar \(r = 0\). Suponha que \(-\alpha \in \Phi\). Como \(|\Phi| < \infty\), então existem \(p \ge 0\) e \(q \ge 0\) tais que \(\{\beta + i\alpha \mid i \in \bbZ\} \cap \Phi \subseteq \{\beta -p\alpha, \cdots, \beta + q\alpha\}\). Isso implica que \(\beta - (p+1)\alpha, \beta + (q+1)\alpha \not\in \Phi\). Se \(\beta - (p+1)\alpha = 0\) ou \(\beta + (q+1)\alpha = 0\), então \(\beta\) será um múltiplo inteiro de \(\alpha\). Suponha que \(\beta - (p+1)\alpha \neq 0\) e \(\beta + (q+1)\alpha \neq 0\). Note que eles não são raízes. Tome \(M = L(\beta - p\alpha)^{H} \oplus \cdots \oplus L(\beta + q\alpha)^{H}\). Se \(y \in L(\alpha)^{H}\), \(z \in L(-\alpha)^{H}\) e \(x = [y,z]\), então
+        </p>
+        <p class="equationCenter">
+          \[
+            \ad(x)(M) = \ad([y,z])(M) = \big(\ad(y)\ad(z) - \ad(z)\ad(y)\big)\big(M\big) \subseteq M.
+          \]
+        </p>
+        <p>
+          Note que , por um lado
+        </p>
+        <p class="equationCenter">
+          \[
+            \begin{split}
+              \tr_{M}(\ad(x)) &= \sum_{i=-p}^{q}\tr_{L(\beta + i\alpha)^{H}}\ad(x) = \sum_{i=-p}^{q}\big(\dim(L(\beta + i\alpha)^{H})\big)\big(\beta + i\alpha\big)\big(x\big) = \\
+              &= \sum_{i=-p}^{q}\big(\dim(L(\beta + i\alpha)^{H})\big)\beta\big(x\big) + \sum_{i=-p}^{q}i\big(\dim(L(\beta + i\alpha)^{H})\big)\alpha\big(x\big)
+            \end{split}
+          \]
+        </p>
+        <p>
+          Por outro, \(\tr_{M}(\ad(x)) = 0\), porque é um comutador. Assim, \(\beta(x) = -\frac{\sum_{i=-p}^{q}i\dim(L(\beta + i\alpha)^{H})}{\sum_{i=-p}^{q}\dim(L(\beta + i\alpha)^{H})}\alpha(x)\). Note que esse quociente está bem definido, pois \(L(\beta)^{H} \neq \zero\), já que \(\beta \in \Phi\).
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-formaKilling" class="def">
+      A <strong>forma de Killing</strong> de uma álgebra de Lie \(L\) é definida como sendo a função
+    </p>
+    <p class="equationCenter">
+      \[
+        \begin{array}{rcl}
+          \pint{\cdot}{\cdot}: \; L \times L & \to & \bbK \\
+          (x, y) & \mapsto & \tr(\ad(x) \circ \ad(y))
+        \end{array}
+      \]
+    <span class="fim"></span></p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-formaKilling" class="obs">
+      Pode-se provar que a forma de Killing é uma forma bilinear e simétrica.
+    <span class="fim"></span></p>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="prop-formaKillingInvar" class="prop">
+      A forma de Killing é invariante, isto é, \(\pint{[x,y]}{z} = \pint{x}{[y,z]}\).
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p class="equationCenter">
+          \[
+            \begin{split}
+              \pint{[x,y]}{z} &= \tr(\ad([x,y])\ad(z)) \\
+              &= \tr([\ad(x),\ad(y)]\ad(z)) \\
+              &= \tr((\ad(x)\ad(y) - \ad(y)\ad(x))\ad(z)) = \\
+              &= \tr((\ad(x)\ad(y)\ad(z) - \ad(y)\ad(x)\ad(z)) \\
+              &= \pint{x}{[y,z]}.
+            \end{split}
+          \]
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="prop-formaKillingRestIdeal" class="prop">
+      Se \(I \unlhd L\), então 
+      <div class="equationCenter">
+        \[
+          \pint{\cdot}{\cdot}_{I} = \pint{\cdot}{\cdot}_{L}|_{I},
+        \]
+      </div>
+      isto é, se \(x, y \in I\), então \(\pint{x}{y}_{I} = \pint{x}{y}_{L}\).
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Estenda a base \(\calB = \{x_{1}, \dots, x_{k}\}\) de \(I\) a uma base \(\calB \cup \{x_{k+1}, \dots, x_{n}\}\) de \(L\). Então, para todo \(x \in I\), 
+          \(
+            \ad(x) = 
+            \begin{pmatrix}
+              (\ad(x)|_{I})_{\calB} & A_{x} \\
+              0 & 0
+            \end{pmatrix}.
+          \)
+          Assim, se \(x, y \in I\), então
+        </p>
+        <p class="equationCenter">
+          \[
+            \ad(x)\ad(y) = 
+            \begin{pmatrix}
+              (\ad(x)|_{I})_{\calB}(\ad(y)|_{I})_{\calB} & (\ad(x)|_{I})_{\calB}A_{y} \\
+              0 & 0
+            \end{pmatrix}.
+          \]
+        </p>
+        <p>
+          Portanto, \(\tr_{L}(\ad(x)\ad(y)) = \tr_{I}(\ad(x)\ad(y))\), ou seja, \(\pint{x}{y}_{L} = \pint{x}{y}_{I}\).
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-espOrtogonal" class="obs">
+      Se \(M \subseteq L\) é subespaço, definimos \(M^{\perp} = \{x \in L \mid \pint{x}{M} = \zero\}\). Tal conjunto é um subespaço de \(L\).
+    <span class="fim"></span></p>
+    
+    <!-- LEMA -->
+    <p id="lema-espOrtogonalIdeal" class="lema">
+      Se \(I \unlhd L\), então \(I^{\perp} \unlhd L\).
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Sejam \(x \in I^{\perp}\) e \(y \in L\). Temos que mostrar que \([y,x] \in I^{\perp}\). Assim, se \(z \in I\), então, pela <a href="#prop-formaKillingInvar">Proposição 7.3</a> e pela antissimetria, \(\pint{[y,x]}{z} = - \pint{x}{\underbrace{[y,z]}_{\in I}} = 0\). Logo, \([y,x] \in I^{\perp}\).
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-formaKillingNaoDeg&Nula" class="def">
+      A forma de Killing é dita 
+      <ol class="alfa">
+        <li><strong>não degenerada</strong>, se \(L^{\perp} = \zero\)</li>
+        <li><strong>nula</strong>, se \(L^{\perp} = L\)<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="prop-formaKillingDifZeroElemSAC" class="prop">
+      Suponha que \(L \neq \zero\) e que \(L^{2} = L\). Se \(H \subseteq L\) é uma subálgebra de Cartan, então existe \(x \in H\) tal que \(\pint{x}{x} \neq 0\).
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Considere a decomposição de Cartan, \(L = H \oplus L(\lambda_{1})^{H} \oplus \cdots \oplus L(\lambda_{r})^{H}\). Por hipótese, \(L = [L,L] = \sum_{\lambda, \mu}[L(\lambda)^{H}, L(\mu)^{H}]\). Assim, \(H = \sum_{\alpha \in \Phi}[L(\alpha)^{H}, L(-\alpha)^{H}] + [H,H]\). Como \(L = L^{2}\), então \(L\) não é nilpotente, o que implica que \(H \neq L\). Disso, segue que existe \(\beta \in \Phi\). Note que \(\beta([H,H]) = \zero\), porque \(\beta\) é representação de dimensão \(1\). Como \(\beta \neq 0\), então existe \(x \in [L(\alpha)^{H},L(-\alpha)^{H}]\), para algum \(\alpha \in \Phi\), tal que \(\beta(x) \neq 0\). Note que \(\pint{x}{x} = \sum_{\lambda \in \Phi}\dim(L(\lambda)^{H})\lambda(x)^{2}\). Pela <a href="#prop-restrRaizRacional">Proposição 7.2</a>, tome \(r_{\lambda\alpha} \in \bbQ\) para o qual vale \(\lambda(x) = r_{\lambda\alpha}\alpha(x)\), para todo \(\lambda\). Daí, \(\pint{x}{x} = \big(\sum_{\lambda \in \Phi}\dim(L(\lambda)^{H})r_{\lambda\alpha}\big)\alpha(x)^{2}\). Como \(\beta(x) \neq 0\), então \(r_{\beta\alpha} \neq 0\) e \(\alpha(x) \neq 0\). Isso implica que \(\sum_{\lambda \in \Phi}\dim(L(\lambda)^{H})r_{\lambda\alpha}^{2} \gneq 0\) e \(\alpha(x)^{2} \neq 0\). Logo, por conseguinte, \(\pint{x}{x} \neq 0\).
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- TEOREMA -->
+    <p id="teor-FKNulaImplSol" class="teor">
+      Se a forma de Killing é nula, então \(L\) é solúvel.
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Vamos demonstrar por indução sobre a dimensão de \(L\). Se \(\dim(L) = 1\), então \(L\) é abeliana e, portanto, é solúvel. Além disso, para esse caso vale que a forma de Killing é nula. Seja \(L\) uma álgebra de Lie de dimensão igual a \(n > 1\) e suponha que o resultado valha para toda álgebra de Lie de dimensão menor do que \(n\). Como a forma de Killing é nula, então, pela <a href="#prop-formaKillingDifZeroElemSAC">Proposição 7.5</a>, \(L \neq L^{2}\). Como \(L^{2} \unlhd L\), então,  pela <a href="#prop-formaKillingRestIdeal">Proposição 7.4</a>, \(\pint{\cdot}{\cdot}_{L^{2}} = \pint{\cdot}{\cdot}_{L}|_{L^{2}} = 0\). Por hipótese de indução, \(L^{2}\) é solúvel. Agora, observe que \(\rfrac{L}{L^{2}}\) é abeliano, logo, solúvel. Assim, pela <a href="intrAlgebrasLie-aula02.html#prop-idealQuocSol">Proposição 2.3 (b)</a>, \(L\) é solúvel.
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- TEOREMA -->
+    <p id="teor-FKNDEquivSemiss" class="teor">
+      A forma de Killing é não degenerada se, e somente se, \(L\) é semissimples.
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Suponha que a forma de Killing é degenerada. Então \(\zero \neq L^{\perp} \unlhd L\). Observe que \(\pint{\cdot}{\cdot}_{L^{\perp}} = 0\) (se \(x \in L^{\perp}\), então \(\pint{x}{y} = 0\), para todo \(y \in L\); logo, como \(L^{\perp} \unlhd L\), então \(\pint{x}{z} = 0\), para todo \(z \in L^{\perp}\)). Assim, pelo <a href="#teor-FKNulaImplSol">Teorema 7.1</a>, \(L^{\perp}\) é solúvel. Logo, \(L\) não é semissimples. Reciprocamente, suponha que \(L\) não é semissimples. Tome \(R \unlhd L\) radical solúvel e considere
+        </p>
+        <p class="equationCenter">
+          \[
+            R \supseteq R^{(2)} \supseteq \cdots \supseteq \underbrace{R^{(k-1)}}_{\neq \zero} \supseteq R^{(k)} = \zero
+          \]
+        </p>
+        <p>
+          Vamos mostrar que \(R^{(k-1)} \subseteq L^{\perp}\). Note que \((R^{(k-1)})^{2} = \zero\) e que \(R^{(k-1)} \unlhd L\). Estenda a base \(\calB = \{x_{1}, \dots, x_{k}\}\) de \(R^{(k-1)}\) a uma base \(\calB \cup \{x_{k+1}, \dots, x_{n}\}\) de \(L\). Tome \(x \in I\) e \(y \in L\). Então 
+          \(
+            \ad(x) = 
+            \begin{pmatrix}
+              0 & A \\
+              0 & 0
+            \end{pmatrix}
+          \)
+          e
+          \(
+            \ad(y) = 
+            \begin{pmatrix}
+              B & C \\
+              0 & D
+            \end{pmatrix}.
+          \)
+          Assim,
+          \(
+            \ad(x)\ad(y) = 
+            \begin{pmatrix}
+              0 & AD \\
+              0 & 0
+            \end{pmatrix}
+          \)
+          e, portanto, \(\pint{x}{y} = \tr(\ad(x)\ad(y)) = 0\). Dessa forma, \(R^{(k-1)} \subseteq L^{\perp}\), o que mostra que a forma de Killing é degenerada.
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="prop-idealSemissEhSemiss" class="prop">
+      Se \(L\) é semissimples e \(I \unlhd L\), então \(\pint{\cdot}{\cdot}_{I}\) é não degenerada.
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Suponha, por absurdo, que \(\pint{\cdot}{\cdot}_{I}\) é degenerada. Então \(I^{\perp} \neq \zero\). Observe que \(\pint{I^{\perp}}{I^{\perp}}_{I} = \zero\). Logo, \(I^{\perp}\) é solúvel. Assim, \(\Rad(L) \neq \zero\), o que implica que \(L\) não é semissimples. Absurdo. Portanto, \(\pint{\cdot}{\cdot}_{I}\) é não degenerada.
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-somaDirOrto" class="obs">
+      Se \(V\) é espaço vetorial de dimensão finita, \((\cdot, \cdot)\) é forma bilinear simétrica em \(V\) e \(U \subseteq V\) subespaço tal que \((\cdot,\cdot)|_{U}\) é não degenerada, então \(V \cong U \oplus U^{\perp}\).
+    <span class="fim"></span></p>
+    
+    <!-- LEMA -->
+    <p id="lema-somaDirOrto" class="lema">
+      Se \(I \unlhd L\) e \(L\) é semissimples, então \(L \cong I \oplus I^{\perp}\) como álgebras de Lie.
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Se \(L\) é semissimples, a <a href="#prop-idealSemissEhSemiss">Proposição 7.6</a> nos diz que \(\pint{\cdot}{\cdot}_{I}\) é não degenerada. Sabemos, da <a href="#obs-somaDirOrto">Observação 7.4</a> que \(L \cong I \oplus I^{\perp}\) como espaço vetorial. Logo, se \(x, y \in L\), existem únicos \(x_{1}, y_{1} \in I\) e \(x_{2}, y_{2} \in I^{\perp}\) tais que \(x = x_{1} + x_{2}\) e \(y = y_{1} + y_{2}\). Veja que se \(x \in I\), \(y \in I^{\perp}\), então \([x,y] \in I \cap I^{\perp} = \zero\).  Assim,
+        </p>
+        <p class="equationCenter">
+          \[
+            [x, y] = [x_{1} + x_{2}, y_{1} + y_{2}] = [x_{1}, y_{1}] + [x_{2}, y_{2}].
+          \]
+        </p>
+        <p>
+          Usando esse fato, concluímos, pelo <a href="#exerc-aula7">Exercício 7.1 (1)</a>, temos que \(L \cong I \oplus I^{\perp}\).
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- EXERCÍCIO -->
+    <p id="exerc-aula7" class="exerc">
+      <ol class="numerico">
+        <li>Mostre que a função \(I \oplus I^{\perp} \to L\), \((x_{1}, x_{2}) \mapsto x_{1} + x_{2}\) é um isomorfismo de álgebras de Lie.<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+  </body>
+  
+</html>
+

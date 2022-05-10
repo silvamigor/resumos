@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Introdução às Álgebras de Lie </title>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Register.StartupHook("TeX Jax Ready",function (){
+         MathJax.Hub.Insert(MathJax.InputJax.TeX.Definitions.macros,{
+          cancel: ["Extension","cancel"],
+          bcancel: ["Extension","cancel"],
+          xcancel: ["Extension","cancel"],
+          cancelto: ["Extension","cancel"]
+        });
+      });
+      MathJax.Hub.Config({
+        extensions: ["https://lomath.in/doc/xyjax/xypic.js","tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+          processEscapes: true
+        },
+        "HTML-CSS": { fonts: ["TeX"] },
+        TeX: {
+          equationNumbers: { autoNumber: "AMS" },
+          Macros: {
+            fraka: ["\\mathfrak{a}"],
+            frakb: ["\\mathfrak{b}"],
+            frakc: ["\\mathfrak{c}"],
+            frakd: ["\\mathfrak{d}"],
+            frake: ["\\mathfrak{e}"],
+            frakf: ["\\mathfrak{f}"],
+            frakg: ["\\mathfrak{g}"],
+            frakh: ["\\mathfrak{h}"],
+            fraki: ["\\mathfrak{i}"],
+            frakj: ["\\mathfrak{j}"],
+            frakk: ["\\mathfrak{k}"],
+            frakl: ["\\mathfrak{l}"],
+            frakm: ["\\mathfrak{m}"],
+            frakn: ["\\mathfrak{n}"],
+            frako: ["\\mathfrak{o}"],
+            frakp: ["\\mathfrak{p}"],
+            frakq: ["\\mathfrak{q}"],
+            frakr: ["\\mathfrak{r}"],
+            fraks: ["\\mathfrak{s}"],
+            frakt: ["\\mathfrak{t}"],
+            fraku: ["\\mathfrak{u}"],
+            frakv: ["\\mathfrak{v}"],
+            frakx: ["\\mathfrak{x}"],
+            frakw: ["\\mathfrak{w}"],
+            fraky: ["\\mathfrak{y}"],
+            frakz: ["\\mathfrak{z}"],
+            frakA: ["\\mathfrak{A}"],
+            frakB: ["\\mathfrak{B}"],
+            frakC: ["\\mathfrak{C}"],
+            frakD: ["\\mathfrak{D}"],
+            frakE: ["\\mathfrak{E}"],
+            frakF: ["\\mathfrak{F}"],
+            frakG: ["\\mathfrak{G}"],
+            frakH: ["\\mathfrak{H}"],
+            frakI: ["\\mathfrak{I}"],
+            frakJ: ["\\mathfrak{J}"],
+            frakK: ["\\mathfrak{K}"],
+            frakL: ["\\mathfrak{L}"],
+            frakM: ["\\mathfrak{M}"],
+            frakN: ["\\mathfrak{N}"],
+            frakO: ["\\mathfrak{O}"],
+            frakP: ["\\mathfrak{P}"],
+            frakQ: ["\\mathfrak{Q}"],
+            frakR: ["\\mathfrak{R}"],
+            frakS: ["\\mathfrak{S}"],
+            frakT: ["\\mathfrak{T}"],
+            frakU: ["\\mathfrak{U}"],
+            frakV: ["\\mathfrak{V}"],
+            frakX: ["\\mathfrak{X}"],
+            frakW: ["\\mathfrak{W}"],
+            frakY: ["\\mathfrak{Y}"],
+            frakZ: ["\\mathfrak{Z}"],
+            frakgl: ["\\mathfrak{gl}"],
+            fraksl: ["\\mathfrak{sl}"],
+            frakso: ["\\mathfrak{so}"],
+            fraksp: ["\\mathfrak{sp}"],
+            bba: ["\\mathbb{a}"],
+            bbb: ["\\mathbb{b}"],
+            bbc: ["\\mathbb{c}"],
+            bbd: ["\\mathbb{d}"],
+            bbe: ["\\mathbb{e}"],
+            bbf: ["\\mathbb{f}"],
+            bbg: ["\\mathbb{g}"],
+            bbh: ["\\mathbb{h}"],
+            bbi: ["\\mathbb{i}"],
+            bbj: ["\\mathbb{j}"],
+            bbk: ["\\mathbb{k}"],
+            bbl: ["\\mathbb{l}"],
+            bbm: ["\\mathbb{m}"],
+            bbn: ["\\mathbb{n}"],
+            bbo: ["\\mathbb{o}"],
+            bbp: ["\\mathbb{p}"],
+            bbq: ["\\mathbb{q}"],
+            bbr: ["\\mathbb{r}"],
+            bbs: ["\\mathbb{s}"],
+            bbt: ["\\mathbb{t}"],
+            bbu: ["\\mathbb{u}"],
+            bbv: ["\\mathbb{v}"],
+            bbx: ["\\mathbb{x}"],
+            bbw: ["\\mathbb{w}"],
+            bby: ["\\mathbb{y}"],
+            bbz: ["\\mathbb{z}"],
+            bbA: ["\\mathbb{A}"],
+            bbB: ["\\mathbb{B}"],
+            bbC: ["\\mathbb{C}"],
+            bbD: ["\\mathbb{D}"],
+            bbE: ["\\mathbb{E}"],
+            bbF: ["\\mathbb{F}"],
+            bbG: ["\\mathbb{G}"],
+            bbH: ["\\mathbb{H}"],
+            bbI: ["\\mathbb{I}"],
+            bbJ: ["\\mathbb{J}"],
+            bbK: ["\\mathbb{K}"],
+            bbL: ["\\mathbb{L}"],
+            bbM: ["\\mathbb{M}"],
+            bbN: ["\\mathbb{N}"],
+            bbO: ["\\mathbb{O}"],
+            bbP: ["\\mathbb{P}"],
+            bbQ: ["\\mathbb{Q}"],
+            bbR: ["\\mathbb{R}"],
+            bbS: ["\\mathbb{S}"],
+            bbT: ["\\mathbb{T}"],
+            bbU: ["\\mathbb{U}"],
+            bbV: ["\\mathbb{V}"],
+            bbX: ["\\mathbb{X}"],
+            bbW: ["\\mathbb{W}"],
+            bbY: ["\\mathbb{Y}"],
+            bbZ: ["\\mathbb{Z}"],
+            cala: ["\\mathcal{a}"],
+            calb: ["\\mathcal{b}"],
+            calc: ["\\mathcal{c}"],
+            cald: ["\\mathcal{d}"],
+            cale: ["\\mathcal{e}"],
+            calf: ["\\mathcal{f}"],
+            calg: ["\\mathcal{g}"],
+            calh: ["\\mathcal{h}"],
+            cali: ["\\mathcal{i}"],
+            calj: ["\\mathcal{j}"],
+            calk: ["\\mathcal{k}"],
+            call: ["\\mathcal{l}"],
+            calm: ["\\mathcal{m}"],
+            caln: ["\\mathcal{n}"],
+            calo: ["\\mathcal{o}"],
+            calp: ["\\mathcal{p}"],
+            calq: ["\\mathcal{q}"],
+            calr: ["\\mathcal{r}"],
+            cals: ["\\mathcal{s}"],
+            calt: ["\\mathcal{t}"],
+            calu: ["\\mathcal{u}"],
+            calv: ["\\mathcal{v}"],
+            calx: ["\\mathcal{x}"],
+            calw: ["\\mathcal{w}"],
+            caly: ["\\mathcal{y}"],
+            calz: ["\\mathcal{z}"],
+            calA: ["\\mathcal{A}"],
+            calB: ["\\mathcal{B}"],
+            calC: ["\\mathcal{C}"],
+            calD: ["\\mathcal{D}"],
+            calE: ["\\mathcal{E}"],
+            calF: ["\\mathcal{F}"],
+            calG: ["\\mathcal{G}"],
+            calH: ["\\mathcal{H}"],
+            calI: ["\\mathcal{I}"],
+            calJ: ["\\mathcal{J}"],
+            calK: ["\\mathcal{K}"],
+            calL: ["\\mathcal{L}"],
+            calM: ["\\mathcal{M}"],
+            calN: ["\\mathcal{N}"],
+            calO: ["\\mathcal{O}"],
+            calP: ["\\mathcal{P}"],
+            calQ: ["\\mathcal{Q}"],
+            calR: ["\\mathcal{R}"],
+            calS: ["\\mathcal{S}"],
+            calT: ["\\mathcal{T}"],
+            calU: ["\\mathcal{U}"],
+            calV: ["\\mathcal{V}"],
+            calX: ["\\mathcal{X}"],
+            calW: ["\\mathcal{W}"],
+            calY: ["\\mathcal{Y}"],
+            calZ: ["\\mathcal{Z}"],
+            bfa: ["\\mathbf{a}"],
+            bfb: ["\\mathbf{b}"],
+            bfc: ["\\mathbf{c}"],
+            bfd: ["\\mathbf{d}"],
+            bfe: ["\\mathbf{e}"],
+            bff: ["\\mathbf{f}"],
+            bfg: ["\\mathbf{g}"],
+            bfh: ["\\mathbf{h}"],
+            bfi: ["\\mathbf{i}"],
+            bfj: ["\\mathbf{j}"],
+            bfk: ["\\mathbf{k}"],
+            bfl: ["\\mathbf{l}"],
+            bfm: ["\\mathbf{m}"],
+            bfn: ["\\mathbf{n}"],
+            bfo: ["\\mathbf{o}"],
+            bfp: ["\\mathbf{p}"],
+            bfq: ["\\mathbf{q}"],
+            bfr: ["\\mathbf{r}"],
+            bfs: ["\\mathbf{s}"],
+            bft: ["\\mathbf{t}"],
+            bfu: ["\\mathbf{u}"],
+            bfv: ["\\mathbf{v}"],
+            bfx: ["\\mathbf{x}"],
+            bfw: ["\\mathbf{w}"],
+            bfy: ["\\mathbf{y}"],
+            bfz: ["\\mathbf{z}"],
+            bfA: ["\\mathbf{A}"],
+            bfB: ["\\mathbf{B}"],
+            bfC: ["\\mathbf{C}"],
+            bfD: ["\\mathbf{D}"],
+            bfE: ["\\mathbf{E}"],
+            bfF: ["\\mathbf{F}"],
+            bfG: ["\\mathbf{G}"],
+            bfH: ["\\mathbf{H}"],
+            bfI: ["\\mathbf{I}"],
+            bfJ: ["\\mathbf{J}"],
+            bfK: ["\\mathbf{K}"],
+            bfL: ["\\mathbf{L}"],
+            bfM: ["\\mathbf{M}"],
+            bfN: ["\\mathbf{N}"],
+            bfO: ["\\mathbf{O}"],
+            bfP: ["\\mathbf{P}"],
+            bfQ: ["\\mathbf{Q}"],
+            bfR: ["\\mathbf{R}"],
+            bfS: ["\\mathbf{S}"],
+            bfT: ["\\mathbf{T}"],
+            bfU: ["\\mathbf{U}"],
+            bfV: ["\\mathbf{V}"],
+            bfX: ["\\mathbf{X}"],
+            bfW: ["\\mathbf{W}"],
+            bfY: ["\\mathbf{Y}"],
+            bfZ: ["\\mathbf{Z}"],
+            bfad: ["\\mathbf{ad}"],
+            zero: ["\\{0\\}"],
+            id: ["\\operatorname\{id\}"],
+            sen: ["\\operatorname\{sen\}"],
+            tg: ["\\operatorname\{tg\}"],
+            ad: ["\\operatorname\{ad\}"],
+            mdc: ["\\operatorname\{mdc\}"],
+            im: ["\\operatorname\{im\}"],
+            Quat: ["\\operatorname\{Quat\}"],
+            Aut: ["\\operatorname\{Aut\}"],
+            Inn: ["\\operatorname\{Inn\}"],
+            orb: ["\\operatorname\{orb\}"],
+            stab: ["\\operatorname\{stab\}"],
+            Rep: ["\\operatorname\{Rep\}"],
+            Hom: ["\\operatorname\{Hom\}"],
+            End: ["\\operatorname\{End\}"],
+            Obj: ["\\operatorname\{Obj\}"],
+            tr: ["\\operatorname\{tr\}"],
+            diam: ["\\operatorname\{diam\}"],
+            diag: ["\\operatorname\{diag\}"],
+            Ind: ["\\operatorname\{Ind\}"],
+            Res: ["\\operatorname\{Res\}"],
+            Set: ["\\operatorname\{Set\}"],
+            coker: ["\\operatorname\{coker\}"],
+            supp: ["\\operatorname\{supp\}"],
+            Tor: ["\\operatorname\{Tor\}"],
+            vspan: ["\\operatorname\{vspan\}"],
+            char: ["\\operatorname\{char\}"],
+            Ann: ["\\operatorname\{Ann\}"],
+            Der: ["\\operatorname\{Der\}"],
+            ma: ["\\operatorname\{ma\}"],
+            mg: ["\\operatorname\{mg\}"],
+            Rad: ["\\operatorname\{Rad\}"],
+            pint: ["{ \\langle #1,#2 \\rangle }",2],
+            rfrac: ["{ {}^{#1}\\!/_{#2} }",2],
+            norma: ["{ \\Vert #1 \\Vert }",1],
+          },
+        },
+      });
+    </script>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js"></script>
+    <script src="http://www.w3schools.com/lib/w3data.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../itemParenteses.css" />
+    <link rel="stylesheet" type="text/css" href="../../../ambTeor.css" />
+    
+    <script>
+      function closeDetail(detailsElement) {
+        detailsElement.removeAttribute("open");
+        window.location = '#' + detailsElement.scrollIntoView({block: "nearest", behavior: "smooth"});
+      }
+    </script>
+    
+    <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+
+    <style>
+      body{
+        font-size: 16pt;
+        font-family: "Helvetica", sans-serif;
+        line-height: 1.5;
+        background-color: rgb(233,227,206);
+        counter-reset: contTeor contProp contLema contCoro contObs contDef contExerc contExemplo contSec 6;
+      }
+      
+      h1{
+        background-color: rgb(153,51,153);
+        color: rgb(255,250,250);
+      }
+      
+      h2{
+        color: rgb(153,51,153);
+      }
+      
+      h3{
+        color: rgb(153,51,153);
+      }
+      
+      details > summary {
+        font-style: italic;
+        color: blue;
+        cursor: pointer;
+        position: relative;
+        transition: 0.15s background linear;
+      }
+      
+      details > summary:hover {
+        background: #d4d1ec;
+      }
+
+      details > .caixa{
+        border: solid;
+      }
+      
+      .equationCenter {
+        width: 100%;
+        overflow-y: hidden;
+        overflow-x: auto;
+      }
+      
+      .buttonDetails {
+        border: none;
+        text-align: center;
+        cursor: pointer;
+        position: absolute;
+        right: 10px;
+      }
+      
+    </style>
+
+  </head>
+  
+  <body>
+
+    <div style="text-align:center"><h1>Introdução às Álgebras de Lie</h1></div>
+    
+    <!-- ############ -->
+    <h2>Aula 6 - Caracterização de subálgebras de Cartan</h2>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="prop-funcoesCoordFAlgebInd" class="prop">
+      Considere a função \(f\) da <a href="intrAlgebrasLie-aula05.html#def-funcaoImportanteF">Definição 5.6</a>. As funções coordenadas de \(f\), \(f_{ij}\), são algebricamente independentes em \(\bbK[z_{k\ell}]\).
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Conforme vimos no <a href="intrAlgebrasLie-aula05.html#lema-fEhPolinomial">Lema 5.3</a>, as funções \(f_{ij}\) são polinômios nas variáveis
+        </p>
+        <p class="equationCenter">
+          \[
+            \{z_{00}, \dots, z_{0k_{0}}, \dots, z_{r0}, \dots, z_{rk_{r}}\}
+          \]
+        </p>
+        <p>
+          Temos que provar que não existe \(F(x_{ij}) \in \bbK[x_{ij}]\), polinômio não nulo, tal que \(F(f_{ij}) = 0\). Tome \(F \in \bbK[x_{ij}]\) de menor grau total tal que \(F(f_{ij}) = 0\). Então \(\frac{\partial F(f_{ij})}{\partial z_{k\ell}} = 0\), já que \(F(f_{ij})\) é o polinômio nulo. Pela regra da cadeia,
+        </p>
+        <p class="equationCenter">
+          \begin{equation} \label{eq-prop-funcoesCoordFAlgebInd1}
+            \sum_{i,j}\frac{\partial F}{\partial f_{ij}}\frac{\partial f_{ij}}{\partial z_{k\ell}} = 0
+          \end{equation}
+        </p>
+        <p>
+          Tome \(v = (\frac{\partial F}{\partial f_{00}}, \dots, \frac{\partial F}{\partial f_{rk_{r}}})\). Então, observando a Equação \eqref{eq-prop-funcoesCoordFAlgebInd1}, concluímos que \(vJ(f) = (0, \dots, 0)\) (note que cada entrada de \(vJ(f)\) é \(\sum_{i,j}\frac{\partial F}{\partial f_{ij}}\frac{\partial f_{ij}}{\partial z_{k\ell}}\)). Isso implica que \(v = 0\), porque, pela <a href="intrAlgebrasLie-aula05.html#prop-detFNaoNulo">Proposição 5.2</a>, \(\det(J(f)) \neq 0\). Logo, \(\frac{\partial F}{\partial f_{ij}} = 0\), para todo \(f_{ij}\). Assim, \(\frac{\partial F}{\partial x_{ij}}\) é um polinômio em \(\bbK[x_{ij}]\) de grau total menor do que \(F\) e que se anula em \(f_{ij}\). Pela minimalidade de \(F\), temos que \(\frac{\partial F}{\partial x_{ij}} = 0\), para todo \(i, j\), o que significa que \(F\) não tem depende das variáveis \(x_{ij}\). Isso acontece somente quando \(F\) é constante. Mas como \(F(f_{ij}) = 0\), então \(F = 0\).
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-GeomAlgebMorfDom" class="obs">
+      Algumas considerações sobre geometria algébrica.
+      <ol class="alfa">
+        <li>Dizemos que \(X \subseteq \bbK^{n}\) é uma <strong>variedade afim</strong>, se existe \(S \subseteq K[x_{1},\dots,x_{n}]\) tal que 
+          <div class="equationCenter">
+          \[
+            X = \calV(S) := \{(\xi_{1},\dots,\xi_{n}) \in \bbK^{n} \mid f(\xi_{1},\dots,\xi_{n}) = 0, \; \forall \; f \in S\}.
+          \]
+          </div>
+        </li>
+        <li>Dado \(X \subseteq \bbK^{n}\), definimos 
+          <div class="equationCenter">
+            \[
+              \calI(X) := \{f \in \bbK[x_{1},\dots,x_{n}] \mid f(\xi) = 0, \; \forall \; \xi \in X\}.
+            \]
+           </div>
+        </li>
+        <li>Sejam \(X \subseteq \bbK^{m}\) e \(Y \subseteq \bbK^{n}\) variedades afins. Uma função \(f: X \to Y\) é um <strong>morfismo de variedades</strong>, se existem \(f_{1}, \dots, f_{n} \in \bbK[x_{1},\dots,x_{m}]\) tais que \(f(P) = (f_{1}(P),\dots,f_{n}(P))\), para todo \(P \in X\).</li>
+        <li>Sejam \(X \subseteq \bbK^{m}\) e \(Y \subseteq K^{n}\) variedades afins. Considere os anéis de coordenada associados a \(X\) e a \(Y\), \(K[X] = \rfrac{\bbK[x_{1},\dots,x_{m}]}{\calI(X)}\) e \(\bbK[Y] = \rfrac{\bbK[y_{1},\dots,y_{n}]}{\calI(Y)}\), respectivamente.
+          <ul>
+            <li>Seja \(f: X \to Y\) é morfismo, isto é, \(f = (f_{1},\dots,f_{n})\), com \(f_{i} \in \bbK[x_{1},\dots,x_{m}]\). Então \(f\) induz um homomorfismo de álgebras \(\varphi_{f}: \bbK[Y] \to \bbK[X]\), \(y_{i} + \mathcal{I}(Y) \mapsto f_{i} + \calI(X)\).</li>
+            <li>Seja \(\varphi: \bbK[Y] \to \bbK[X]\) um homomorfismo de álgebras, onde \(y_{i} + \calI(Y) \mapsto f_{i} + \calI(X)\), para \(f_{1}, \dots,f_{n} \in K[x_{1},\dots,x_{m}]\). Então \(\varphi\) induz um morfismo de variedades afins \(f_{\varphi}:X \to Y\), onde \(f_{\varphi} = (f_{1},\dots,f_{n})\).</li>
+          </ul>
+        </li>
+        <li>Sejam \(X\) e \(Y\) variedades afim. Dizemos que \(f: X \to Y\) é um <strong>morfismo dominante</strong>, se \(f\) é um morfismo de variedades e se \(f(X)\) é denso em \(Y\).</li>
+        <li>Seja \(f: X \to \bbK^{n}\) um morfismo de variedades. Então \(f\) é um morfismos dominante se, e somente se, \(\varphi_{f}: \bbK[x_{1},\dots,x_{n}] \to \bbK[X]\) é injetivo, onde \(\varphi_{f}\) é o homomorfismo de álgebra induzido por \(f\).</li>
+      </ol>
+      Para mais detalhes, veja "KEMPER, G. <em>A Course in Commutative Algebra</em>. Springer, 2009", capítulos 3 e 4.
+    <span class="fim"></span></p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-fEhDominante" class="obs">
+      Defina
+      <div class="equationCenter">
+        \[
+          \begin{array}{rcl}
+            \theta: \; \bbK[f_{ij}] & \to & \bbK[z_{k\ell}] \\
+            f_{ij} & \mapsto & f_{ij}(z_{k\ell})
+          \end{array}
+        \]
+      </div>
+      Se \(F(f_{ij}) \in \bbK[f_{ij}]\) é tal que \(F(f_{ij}(z_{k\ell})) = 0\), então \(F = 0\), pois \(\{f_{ij}\}\) são algebricamente independentes. Portanto, \(\theta\) é injetiva. Pode-se mostrar que \(\theta\) é o homomorfismo de álgebras induzido pela função \(f: L \to L\) da <a href="intrAlgebrasLie-aula05.html#def-funcaoImportanteF">Definição 5.6</a> (veja <a href="#obs-GeomAlgebMorfDom">Observação 6.1</a>). Aqui, estamos vendo \(L\) como sendo a variedade afim \(\bbK^{d}\), onde \(d = \dim(L)\). Uma vez que \(\theta\) é injetivo, temos que \(f\) é dominante. Assim, podemos concluir que, para todo \(p \in \bbK[x_{ij}]\) não nulo, existe \(q \in \bbK[x_{ij}]\) não nulo tal que \(L_{q} \subseteq f(L_{p})\), onde \(L_{p} = \{v \in L \mid p(v) \neq 0\}\) e \(L_{q}\) é definido analogamente.
+    <span class="fim"></span></p>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="prop-SACimplEleReg" class="prop">
+      Se \(H\) é subálgebra de Cartan, então existe \(x_{0} \in L\) tal que \(H = L(0)_{x_{0}}\).
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Considerando a <a href="intrAlgebrasLie-aula05.html#obs-espPesoZeroSAC">Observação 5.2</a>, escreva \(L = H + \oplus L(\lambda_{1})^{H} \oplus \cdots \oplus L(\lambda_{r})^{H}\). Seja
+        </p>
+        <p class="equationCenter">
+          \[
+            \{\underbrace{b_{00}, \dots, b_{0k_{0}}}_{\text{base de } H}, \dots, \underbrace{b_{r0}, \dots, b_{rk_{r}}}_{\text{base de } L(\lambda_{r})^{H}}\}
+          \]
+        </p>
+        <p>
+          base de \(L\). Considere \(f\) da <a href="intrAlgebrasLie-aula05.html#def-funcaoImportanteF">Definição 5.6</a> e seja \(p: L \to \bbK\), \(x = x_{0} + \cdots + x_{r} \mapsto \lambda_{1}(x_{0})\cdots \lambda_{r}(x_{0})\). Escrevendo \(\lambda_{i}(b_{0j}) = c_{ij}\) e \(x_{0} = z_{00}b_{00} + \cdots + z_{0k_{0}}b_{0k_{0}}\), temos que \(p(x) = (\sum z_{0i}c_{1i})\cdots(\sum z_{0i}c_{ri})\). Logo, \(p(x)\) é um polinômio em \(\bbK[z_{ij}]\). Além disso, \(p\) é um polinômio não nulo (veja <a href="intrAlgebrasLie-aula03.html#exerc-aula3">Exercício 3.1 (2)</a>). Pela <a href="#obs-fEhDominante">Observação 6.2</a>, existe \(q: L \to \bbK\) não nulo tal que \(L_{q} \subseteq f(L_{p})\). Considere \(R = \{x \in L \mid x\) é regular\(\}\). Vamos descrever \(R\). Para isso, tome \(z \in L\) e considere seu polinômio característico \(\chi(z) = \det(t - \ad(z)) = t^{d} + \mu_{1}(z)t^{d-1} + \cdots + \mu_{d}(z)\), onde \(\mu_{j}(z)\) são polinômios. Observe que se \(\mu_{d} \neq 0\), então teríamos que \(0\) não é raiz de \(\chi(z)\). Isso é um absurdo, pois \([z,z] = 0\), ou seja, todo elemento tem ele próprio como autovetor associado ao autovalor nulo. Assim, existe \(i > 0\) tal que \(\mu_{d - i}(z) \neq 0\). Seja \(k > 0\) tal que \(\mu_{d-k} \neq 0\) e \(\mu_{d-k+1} = \cdots = \mu_{d} = 0\). Note que \(\dim(L(0)_{y})\) é a multiplicidade do autovalor zero. Logo, \(\dim(L(0)_{y}) = k\) se, e somente se, \(\mu_{d-k}(y) \neq 0\). Temos também que se \(\mu_{n-k}(y) = 0\), então \(\dim(L(0)_{y}) > k\). Dessa forma, \(y\) é regular se, e somente se, \(\mu_{d-k}(y) \neq 0\). Assim, \(R = \{y \in L \mid \mu_{d-k}(y) \neq 0\}\) (note que \(R\) é um aberto na topologia de Zariski, logo é denso). Tome \(y \in R \cap L_{q}\). Então \((q\mu_{d-k})(y) = 0\). Como \(L_{q} \subseteq f(L_{p})\), existe \(x \in L_{p}\) tal que \(y = f(x) = (e^{\ad(x_{1})}\cdots e^{\ad(x_{r})})(x_{0})\). Portanto, \(x_{0}\) e \(y\) são conjugados. Uma vez que \(y\) é regular, pelo <a href="#exerc-aula6">Exercício 6.1 (1)</a>, \(x_{0}\) também é regular. Assim, pelo <a href="intrAlgebrasLie-aula04.html#teor-elemReg">Teorema 4.2</a>, \(L(0)_{x_{0}}\) é uma subálgebra de Cartan. Como \(x_{0} \in H\), então \(H \subseteq L(0)_{x_{0}}\). Pelo <a href="#exerc-aula6">Exercício 6.1 (2)</a>, temos que \(H = L(0)_{x_{0}}\).
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- TEOREMA -->
+    <p id="teor-SACconj" class="teor">
+      Se \(H\) e \(H'\) são subálgebras de Cartan, então \(H\) e \(H'\) são conjugadas.
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Decomponha \(L = H + \oplus L(\lambda_{1})^{H} \oplus \cdots \oplus L(\lambda_{r})^{H}\), onde \(\lambda_{i} \neq 0\). Note que se \(x_{0} \in H\), então \(H = L(0)_{x_{0}}\) se, e somente se, \(x_{0}\) é regular. Vamos mostrar que \(H = L(0)_{x_{0}}\) se, e somente se, \(\lambda_{1}(x_{0})\cdots \lambda_{r}(x_{0}) \neq 0\). Suponha que \(H = L(0)_{x_{0}}\) e que \(\lambda_{i}(x_{0}) = 0\), para todo \(i\). Então \(H \subsetneq L(0)_{x_{0}}\). Absurdo. Logo, \(\lambda_{1}(x_{0})\cdots \lambda_{r}(x_{0}) \neq 0\). Reciprocamente, suponha que \(\lambda_{1}(x_{0})\cdots \lambda_{r}(x_{0}) \neq 0\). Se \(H \subsetneq L(0)_{x_{0}}\), então a multiplicidade do zero como autovalor de \(\ad(x_{0})\) é maior do que \(\dim(H)\). Assim, existe \(i\) tal que \(\lambda_{i}(x_{0}) = 0\), o que é absurdo. Logo, \(H = L(0)_{x_{0}}\). Dessa forma mostramos que \(x_{0} \in H\) é regular se, e somente se, \(\lambda_{1}(x_{0})\cdots \lambda_{r}(x_{0}) \neq 0\). Considere a \(f\) da <a href="intrAlgebrasLie-aula05.html#def-funcaoImportanteF">Definição 5.6</a> e seja \(p(x) = \lambda_{1}(x_{0})\cdots \lambda_{r}(x_{0})\). Pela <a href="#obs-fEhDominante">Observação 6.2</a>, existe \(q \neq 0\) tal que \(L_{q} \subseteq f(L_{p})\). Fazendo o mesmo raciocínio com \(H'\), obtemos funções \(f'\), \(p'\) e \(q'\) tais que \(L_{q'} \subseteq f'(L_{p'})\). Denote por \(\theta_{f} = e^{\ad(x_{1})}\cdots e^{\ad(x_{r})}\) e \(\theta_{f'} = e^{\ad(x'_{1})}\cdots e^{\ad(x'_{r})}\) (note que \(H\) e \(H'\) dão decomposições diferentes de \(L\)). Tome \(z \in L_{q} \cap L_{q'}\). Então \(z \in f(L_{p}) \cap f'(L_{p'})\). Logo, existem \(x \in L_{p}\) e \(x' \in L_{p'}\) tais que \(z = f(x)\) e \(z = f'(x')\). Assim, \(z = \theta_{f}(x_{0})\) e \(z = \theta_{f'}(x_{0}')\), onde \(x_{0} \in H\) e \(x_{0}' \in H'\). Como \(x_{0} \in L_{p}\), então \(\lambda_{1}(x_{0})\cdots \lambda_{r}(x_{0}) = p(x_{0}) \neq 0\). Isso implica que \(x_{0}\) é regular. Defina \(\varphi = \theta_{f} \circ \theta_{f'}^{-1}\). Então \(x_{0}\) e \(x_{0}'\) são conjugados. Isso, implica que \(\varphi(H) = H'\), o que encerra a demonstração.
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-postoAlgLie" class="def">
+      O <strong>posto</strong> \(L\) é igual a dimensão de \(H\), onde \(H\) é uma subálgebra de Cartan qualquer.
+    <span class="fim"></span></p>
+    
+    <!-- EXERCÍCIO -->
+    <p id="exerc-aula6" class="exerc">
+      <ol class="numerico">
+        <li>Se \(x, y \in L\) são conjugados e \(y\) é regular, então \(x\) é regular.</li>
+        <li>Se \(H\) é subálgebra de Cartan de \(L\), então ela é a subálgebra nilpotente maximal de \(L\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+  </body>
+  
+</html>
+
