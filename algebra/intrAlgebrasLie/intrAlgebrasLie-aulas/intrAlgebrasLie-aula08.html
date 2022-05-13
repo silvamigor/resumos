@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Introdução às Álgebras de Lie </title>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Register.StartupHook("TeX Jax Ready",function (){
+         MathJax.Hub.Insert(MathJax.InputJax.TeX.Definitions.macros,{
+          cancel: ["Extension","cancel"],
+          bcancel: ["Extension","cancel"],
+          xcancel: ["Extension","cancel"],
+          cancelto: ["Extension","cancel"]
+        });
+      });
+      MathJax.Hub.Config({
+        extensions: ["https://lomath.in/doc/xyjax/xypic.js","tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+          processEscapes: true
+        },
+        "HTML-CSS": { fonts: ["TeX"] },
+        TeX: {
+          equationNumbers: { autoNumber: "AMS" },
+          Macros: {
+            fraka: ["\\mathfrak{a}"],
+            frakb: ["\\mathfrak{b}"],
+            frakc: ["\\mathfrak{c}"],
+            frakd: ["\\mathfrak{d}"],
+            frake: ["\\mathfrak{e}"],
+            frakf: ["\\mathfrak{f}"],
+            frakg: ["\\mathfrak{g}"],
+            frakh: ["\\mathfrak{h}"],
+            fraki: ["\\mathfrak{i}"],
+            frakj: ["\\mathfrak{j}"],
+            frakk: ["\\mathfrak{k}"],
+            frakl: ["\\mathfrak{l}"],
+            frakm: ["\\mathfrak{m}"],
+            frakn: ["\\mathfrak{n}"],
+            frako: ["\\mathfrak{o}"],
+            frakp: ["\\mathfrak{p}"],
+            frakq: ["\\mathfrak{q}"],
+            frakr: ["\\mathfrak{r}"],
+            fraks: ["\\mathfrak{s}"],
+            frakt: ["\\mathfrak{t}"],
+            fraku: ["\\mathfrak{u}"],
+            frakv: ["\\mathfrak{v}"],
+            frakx: ["\\mathfrak{x}"],
+            frakw: ["\\mathfrak{w}"],
+            fraky: ["\\mathfrak{y}"],
+            frakz: ["\\mathfrak{z}"],
+            frakA: ["\\mathfrak{A}"],
+            frakB: ["\\mathfrak{B}"],
+            frakC: ["\\mathfrak{C}"],
+            frakD: ["\\mathfrak{D}"],
+            frakE: ["\\mathfrak{E}"],
+            frakF: ["\\mathfrak{F}"],
+            frakG: ["\\mathfrak{G}"],
+            frakH: ["\\mathfrak{H}"],
+            frakI: ["\\mathfrak{I}"],
+            frakJ: ["\\mathfrak{J}"],
+            frakK: ["\\mathfrak{K}"],
+            frakL: ["\\mathfrak{L}"],
+            frakM: ["\\mathfrak{M}"],
+            frakN: ["\\mathfrak{N}"],
+            frakO: ["\\mathfrak{O}"],
+            frakP: ["\\mathfrak{P}"],
+            frakQ: ["\\mathfrak{Q}"],
+            frakR: ["\\mathfrak{R}"],
+            frakS: ["\\mathfrak{S}"],
+            frakT: ["\\mathfrak{T}"],
+            frakU: ["\\mathfrak{U}"],
+            frakV: ["\\mathfrak{V}"],
+            frakX: ["\\mathfrak{X}"],
+            frakW: ["\\mathfrak{W}"],
+            frakY: ["\\mathfrak{Y}"],
+            frakZ: ["\\mathfrak{Z}"],
+            frakgl: ["\\mathfrak{gl}"],
+            fraksl: ["\\mathfrak{sl}"],
+            frakso: ["\\mathfrak{so}"],
+            fraksp: ["\\mathfrak{sp}"],
+            bba: ["\\mathbb{a}"],
+            bbb: ["\\mathbb{b}"],
+            bbc: ["\\mathbb{c}"],
+            bbd: ["\\mathbb{d}"],
+            bbe: ["\\mathbb{e}"],
+            bbf: ["\\mathbb{f}"],
+            bbg: ["\\mathbb{g}"],
+            bbh: ["\\mathbb{h}"],
+            bbi: ["\\mathbb{i}"],
+            bbj: ["\\mathbb{j}"],
+            bbk: ["\\mathbb{k}"],
+            bbl: ["\\mathbb{l}"],
+            bbm: ["\\mathbb{m}"],
+            bbn: ["\\mathbb{n}"],
+            bbo: ["\\mathbb{o}"],
+            bbp: ["\\mathbb{p}"],
+            bbq: ["\\mathbb{q}"],
+            bbr: ["\\mathbb{r}"],
+            bbs: ["\\mathbb{s}"],
+            bbt: ["\\mathbb{t}"],
+            bbu: ["\\mathbb{u}"],
+            bbv: ["\\mathbb{v}"],
+            bbx: ["\\mathbb{x}"],
+            bbw: ["\\mathbb{w}"],
+            bby: ["\\mathbb{y}"],
+            bbz: ["\\mathbb{z}"],
+            bbA: ["\\mathbb{A}"],
+            bbB: ["\\mathbb{B}"],
+            bbC: ["\\mathbb{C}"],
+            bbD: ["\\mathbb{D}"],
+            bbE: ["\\mathbb{E}"],
+            bbF: ["\\mathbb{F}"],
+            bbG: ["\\mathbb{G}"],
+            bbH: ["\\mathbb{H}"],
+            bbI: ["\\mathbb{I}"],
+            bbJ: ["\\mathbb{J}"],
+            bbK: ["\\mathbb{K}"],
+            bbL: ["\\mathbb{L}"],
+            bbM: ["\\mathbb{M}"],
+            bbN: ["\\mathbb{N}"],
+            bbO: ["\\mathbb{O}"],
+            bbP: ["\\mathbb{P}"],
+            bbQ: ["\\mathbb{Q}"],
+            bbR: ["\\mathbb{R}"],
+            bbS: ["\\mathbb{S}"],
+            bbT: ["\\mathbb{T}"],
+            bbU: ["\\mathbb{U}"],
+            bbV: ["\\mathbb{V}"],
+            bbX: ["\\mathbb{X}"],
+            bbW: ["\\mathbb{W}"],
+            bbY: ["\\mathbb{Y}"],
+            bbZ: ["\\mathbb{Z}"],
+            cala: ["\\mathcal{a}"],
+            calb: ["\\mathcal{b}"],
+            calc: ["\\mathcal{c}"],
+            cald: ["\\mathcal{d}"],
+            cale: ["\\mathcal{e}"],
+            calf: ["\\mathcal{f}"],
+            calg: ["\\mathcal{g}"],
+            calh: ["\\mathcal{h}"],
+            cali: ["\\mathcal{i}"],
+            calj: ["\\mathcal{j}"],
+            calk: ["\\mathcal{k}"],
+            call: ["\\mathcal{l}"],
+            calm: ["\\mathcal{m}"],
+            caln: ["\\mathcal{n}"],
+            calo: ["\\mathcal{o}"],
+            calp: ["\\mathcal{p}"],
+            calq: ["\\mathcal{q}"],
+            calr: ["\\mathcal{r}"],
+            cals: ["\\mathcal{s}"],
+            calt: ["\\mathcal{t}"],
+            calu: ["\\mathcal{u}"],
+            calv: ["\\mathcal{v}"],
+            calx: ["\\mathcal{x}"],
+            calw: ["\\mathcal{w}"],
+            caly: ["\\mathcal{y}"],
+            calz: ["\\mathcal{z}"],
+            calA: ["\\mathcal{A}"],
+            calB: ["\\mathcal{B}"],
+            calC: ["\\mathcal{C}"],
+            calD: ["\\mathcal{D}"],
+            calE: ["\\mathcal{E}"],
+            calF: ["\\mathcal{F}"],
+            calG: ["\\mathcal{G}"],
+            calH: ["\\mathcal{H}"],
+            calI: ["\\mathcal{I}"],
+            calJ: ["\\mathcal{J}"],
+            calK: ["\\mathcal{K}"],
+            calL: ["\\mathcal{L}"],
+            calM: ["\\mathcal{M}"],
+            calN: ["\\mathcal{N}"],
+            calO: ["\\mathcal{O}"],
+            calP: ["\\mathcal{P}"],
+            calQ: ["\\mathcal{Q}"],
+            calR: ["\\mathcal{R}"],
+            calS: ["\\mathcal{S}"],
+            calT: ["\\mathcal{T}"],
+            calU: ["\\mathcal{U}"],
+            calV: ["\\mathcal{V}"],
+            calX: ["\\mathcal{X}"],
+            calW: ["\\mathcal{W}"],
+            calY: ["\\mathcal{Y}"],
+            calZ: ["\\mathcal{Z}"],
+            bfa: ["\\mathbf{a}"],
+            bfb: ["\\mathbf{b}"],
+            bfc: ["\\mathbf{c}"],
+            bfd: ["\\mathbf{d}"],
+            bfe: ["\\mathbf{e}"],
+            bff: ["\\mathbf{f}"],
+            bfg: ["\\mathbf{g}"],
+            bfh: ["\\mathbf{h}"],
+            bfi: ["\\mathbf{i}"],
+            bfj: ["\\mathbf{j}"],
+            bfk: ["\\mathbf{k}"],
+            bfl: ["\\mathbf{l}"],
+            bfm: ["\\mathbf{m}"],
+            bfn: ["\\mathbf{n}"],
+            bfo: ["\\mathbf{o}"],
+            bfp: ["\\mathbf{p}"],
+            bfq: ["\\mathbf{q}"],
+            bfr: ["\\mathbf{r}"],
+            bfs: ["\\mathbf{s}"],
+            bft: ["\\mathbf{t}"],
+            bfu: ["\\mathbf{u}"],
+            bfv: ["\\mathbf{v}"],
+            bfx: ["\\mathbf{x}"],
+            bfw: ["\\mathbf{w}"],
+            bfy: ["\\mathbf{y}"],
+            bfz: ["\\mathbf{z}"],
+            bfA: ["\\mathbf{A}"],
+            bfB: ["\\mathbf{B}"],
+            bfC: ["\\mathbf{C}"],
+            bfD: ["\\mathbf{D}"],
+            bfE: ["\\mathbf{E}"],
+            bfF: ["\\mathbf{F}"],
+            bfG: ["\\mathbf{G}"],
+            bfH: ["\\mathbf{H}"],
+            bfI: ["\\mathbf{I}"],
+            bfJ: ["\\mathbf{J}"],
+            bfK: ["\\mathbf{K}"],
+            bfL: ["\\mathbf{L}"],
+            bfM: ["\\mathbf{M}"],
+            bfN: ["\\mathbf{N}"],
+            bfO: ["\\mathbf{O}"],
+            bfP: ["\\mathbf{P}"],
+            bfQ: ["\\mathbf{Q}"],
+            bfR: ["\\mathbf{R}"],
+            bfS: ["\\mathbf{S}"],
+            bfT: ["\\mathbf{T}"],
+            bfU: ["\\mathbf{U}"],
+            bfV: ["\\mathbf{V}"],
+            bfX: ["\\mathbf{X}"],
+            bfW: ["\\mathbf{W}"],
+            bfY: ["\\mathbf{Y}"],
+            bfZ: ["\\mathbf{Z}"],
+            bfad: ["\\mathbf{ad}"],
+            zero: ["\\{0\\}"],
+            id: ["\\operatorname\{id\}"],
+            sen: ["\\operatorname\{sen\}"],
+            tg: ["\\operatorname\{tg\}"],
+            ad: ["\\operatorname\{ad\}"],
+            mdc: ["\\operatorname\{mdc\}"],
+            im: ["\\operatorname\{im\}"],
+            Quat: ["\\operatorname\{Quat\}"],
+            Aut: ["\\operatorname\{Aut\}"],
+            Inn: ["\\operatorname\{Inn\}"],
+            orb: ["\\operatorname\{orb\}"],
+            stab: ["\\operatorname\{stab\}"],
+            Rep: ["\\operatorname\{Rep\}"],
+            Hom: ["\\operatorname\{Hom\}"],
+            End: ["\\operatorname\{End\}"],
+            Obj: ["\\operatorname\{Obj\}"],
+            tr: ["\\operatorname\{tr\}"],
+            diam: ["\\operatorname\{diam\}"],
+            diag: ["\\operatorname\{diag\}"],
+            Ind: ["\\operatorname\{Ind\}"],
+            Res: ["\\operatorname\{Res\}"],
+            Set: ["\\operatorname\{Set\}"],
+            coker: ["\\operatorname\{coker\}"],
+            supp: ["\\operatorname\{supp\}"],
+            Tor: ["\\operatorname\{Tor\}"],
+            vspan: ["\\operatorname\{vspan\}"],
+            char: ["\\operatorname\{char\}"],
+            Ann: ["\\operatorname\{Ann\}"],
+            Der: ["\\operatorname\{Der\}"],
+            ma: ["\\operatorname\{ma\}"],
+            mg: ["\\operatorname\{mg\}"],
+            Rad: ["\\operatorname\{Rad\}"],
+            pint: ["{ \\langle #1,#2 \\rangle }",2],
+            rfrac: ["{ {}^{#1}\\!/_{#2} }",2],
+            norma: ["{ \\Vert #1 \\Vert }",1],
+          },
+        },
+      });
+    </script>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js"></script>
+    <script src="http://www.w3schools.com/lib/w3data.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../itemParenteses.css" />
+    <link rel="stylesheet" type="text/css" href="../../../ambTeor.css" />
+    
+    <script>
+      function closeDetail(detailsElement) {
+        detailsElement.removeAttribute("open");
+        window.location = '#' + detailsElement.scrollIntoView({block: "nearest", behavior: "smooth"});
+      }
+    </script>
+    
+    <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+
+    <style>
+      body{
+        font-size: 16pt;
+        font-family: "Helvetica", sans-serif;
+        line-height: 1.5;
+        background-color: rgb(233,227,206);
+        counter-reset: contTeor contProp contLema contCoro contObs contDef contExerc contExemplo contSec 8;
+      }
+      
+      h1{
+        background-color: rgb(153,51,153);
+        color: rgb(255,250,250);
+      }
+      
+      h2{
+        color: rgb(153,51,153);
+      }
+      
+      h3{
+        color: rgb(153,51,153);
+      }
+      
+      details > summary {
+        font-style: italic;
+        color: blue;
+        cursor: pointer;
+        position: relative;
+        transition: 0.15s background linear;
+      }
+      
+      details > summary:hover {
+        background: #d4d1ec;
+      }
+
+      details > .caixa{
+        border: solid;
+      }
+      
+      .equationCenter {
+        width: 100%;
+        overflow-y: hidden;
+        overflow-x: auto;
+      }
+      
+      .buttonDetails {
+        border: none;
+        text-align: center;
+        cursor: pointer;
+        position: absolute;
+        right: 10px;
+      }
+      
+    </style>
+
+  </head>
+  
+  <body>
+
+    <div style="text-align:center"><h1>Introdução às Álgebras de Lie</h1></div>
+    
+    <!-- ############ -->
+    <h2>Aula 8 - Decomposição de Cartan para álgebras de Lie semissimples</h2>
+    
+    <!-- COROLÁRIO -->
+    <p id="coro-somaDirOrto" class="coro">
+      \(L\) é semissimples se, e somente se, \(L = L_{1} \oplus \cdots \oplus L_{n}\) como álgebra de Lie, onde \(L_{i}\) é simples, para todo \(i\).
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Suponha que \(L\) é semissimples. Se \(L\) for simples, então \(L = L\) e não há o que provar. Se \(L\) não é simples, tome \(I \unlhd L\). Pelo <a href="intrAlgebrasLie-aula07.html#lema-somaDirOrto">Lema 7.2</a>, \(L = I \oplus I^{\perp}\). Se \(I\) e \(I^{\perp}\) são simples, temos o que queremos. Caso contrário, repita o argumento para \(I\) e \(I^{\perp}\), pois, pela <a href="intrAlgebrasLie-aula07.html#prop-idealSemissEhSemiss">Proposição 7.6</a>, \(\pint{\cdot}{\cdot}_{I}\) e \(\pint{\cdot}{\cdot}_{I^{\perp}}\) são não degeneradas e, pelo <a href="intrAlgebrasLie-aula07.html#teor-FKNDEquivSemiss">Teorema 7.2</a> \(I\) e \(I^{\perp}\) são semissimples. Reciprocamente, suponha que \(L = L_{1} \oplus \cdots \oplus L_{n}\) como álgebra de Lie, onde \(L_{i}\) é simples, para todo \(i\). Vamos mostrar que \(L^{\perp} = \zero\) e, concluir, pelo <a href="intrAlgebrasLie-aula07.html#teor-FKNDEquivSemiss">Teorema 7.2</a> que \(L\) é semissimples. Se \(x \in L_{i}\) e \(y \in L_{j}\), com \(i \neq j\), então \(\ad(x)\ad(y)(z) \in L_{i} \cap L_{j} = \zero\), para todo \(z \in L\). Daí, \(\pint{L_{i}}{L_{j}} = \zero\). Seja \(x = \underbrace{x_{1}}_{\in L_{1}} + \cdots + \underbrace{x_{n}}_{\in L_{n}} \in L^{\perp}\). Então, para todo \(y \in L_{i}\), temos que \(0 = \pint{x}{y} = \pint{x_{i}}{y}\). Logo, \(x_{i} \in L_{i}^{\perp}\). Uma vez que \(L_{i}\) é simples e \(L_{i}^{\perp} \unlhd L_{i}\), então \(L_{i}^{\perp} = \zero\). Assim, \(x_{i} = 0\), para todo \(i\), o que implica que \(x = 0\), ou seja, \(L^{\perp} = \zero\).
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-decoCartan" class="obs">
+      Para os próximos resultados, vamos considerar a decomposição de Cartan, conforme visto na <a href="intrAlgebrasLie-aula07.html#def-espRaizes">Definição 7.1</a>, isto é, \(L = H \oplus \displaystyle\bigoplus_{\alpha \in \Phi}L(\alpha)^{H}\), onde \(H = L(0)^{H}\) é uma subálgebra de Cartan.
+    <span class="fim"></span></p>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="prop-killingEPG" class="prop">
+      Se \(\alpha + \beta \neq 0\), então \(\pint{L(\alpha)^{H}}{L(\beta)^{H}} = 0\).
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Sejam \(x \in L(\alpha)^{H}\) e \(y \in L(\beta)^{H}\) e considere \(\varphi = \ad(x)\ad(y)\). Temos que mostrar que \(\pint{x}{y} = 0\) ou, equivalentemente, que \(\tr(\varphi) = 0\). Seja \(\calB = \{\)base de \(H\} \cup \{\)base de \(L(\alpha_{1})^{H}\} \cup \cdots \cup \{\)base de \(L(\alpha_{n})^{H}\}\) uma base de \(L\). Pelo <a href="intrAlgebrasLie-aula05.html#lema-andarPeso">Lema 5.2</a>, temos que \(\varphi(L(\lambda)^{H}) \subseteq L(\lambda + \alpha + \beta)^{H}\), para todo \(\lambda \in H^{\ast}\). Assim, por exemplo, temos que \(\varphi\) leva os elementos da base de \(H\) em \(L(\alpha + \beta)^{H}\), os elementos da base de \(L(\alpha_{1})^{H}\) em \(L(\alpha_{1} + \alpha + \beta)^{H}\). Dessa forma, a matriz de \(\varphi\) nessa base só tem zeros na diagonal principal. Logo, \(\tr(\varphi) = 0\).
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-LAlgLieSemis" class="obs">
+      Daqui para frente, \(L\) é uma álgebra de Lie semissimples.
+    <span class="fim"></span></p>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="prop-simetEhRaiz" class="prop">
+      Se \(\alpha \in \Phi\), então \(-\alpha \in \Phi\).
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Se \(-\alpha \not\in \Phi\), então \(L(-\alpha)^{H} = \zero\). Assim, pela <a href="#prop-killingEPG">Proposição 8.1</a>, \(\pint{L(\alpha)^{H}}{L(\beta)^{H}} = \zero\), para todo \(L(\beta)^{H}\) (aqui estamos considerando \(L(0)^{H} = H\)). Isso implica que \(\zero \neq L(\alpha)^{H} \subseteq L^{\perp}\). Absurdo, pois \(L^{\perp} = \zero\), já que \(L\) é semissimples.
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-algLinearFBND" class="obs">
+      De Álgebra Linear, sabemos que se \((\cdot, \cdot): V \times W \to \bbK\) é uma forma bilinear não degenerada, então a função \(V \to W^{\ast}\), \(v \mapsto (v, \cdot)\) é injetiva. O mesmo vale para a função \(W \to V^{\ast}\), \(w \mapsto (\cdot, w)\). Assim, se \(\dim(V), \dim(W) < \infty\), então \(\dim(V) = \dim(W)\).
+    <span class="fim"></span></p>
+    
+    <!-- COROLÁRIO -->
+    <p id="coro-dimSimEhIgual" class="coro">
+      \(\dim(L(\alpha)^{H}) = \dim(L(-\alpha)^{H})\), para todo \(\alpha \in \Phi\).
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Como a forma de Killing para \(L\) é não degenerada, então \(\pint{\cdot}{\cdot}: L(\alpha)^{H} \times L(-\alpha)^{H} \to \bbK\) também é não degenerada. Assim, pela <a href="#obs-algLinearFBND">Observação 8.3</a>, \(\dim(L(\alpha)^{H}) = \dim(L(-\alpha)^{H})\).
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- COROLÁRIO -->
+    <p id="coro-killingRestSACEhNaoDeg" class="coro">
+      \(\pint{\cdot}{\cdot}_{L}|_{H}\) é não degenerada.
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Seja \(x \in H\) e suponha que \(\pint{x}{y} = 0\), para todo \(y \in H\). Pela <a href="#prop-killingEPG">Proposição 8.1</a>, \(\pint{x}{z} = \zero\), para todo \(z \in L(\alpha)^{H}\), com \(\alpha \in \Phi\). Então \(\pint{x}{y} = 0\), para todo \(y \in L\), ou seja, \(x \in L^{\perp}\). Como \(L\) é semissimples, então \(L^{\perp} = \zero\). Assim, \(x = 0\), isto é, \(\pint{\cdot}{\cdot}_{L}|_{H}\) é não degenerada.
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-killingRestSACEhNaoDeg" class="obs">
+      Como \(L\) é semissimples, pelo <a href="#exerc-aula8">Exercício 8.1 (1)</a>, temos que \(H\) também é semissimples. Logo, pelo <a href="intrAlgebrasLie-aula07.html#teor-FKNDEquivSemiss">Teorema 7.2</a>, \(\pint{\cdot}{\cdot}_{H}\) é degenerada. Contudo, pelo <a href="#coro-killingRestSACEhNaoDeg">Corolário 8.3</a>, \(\pint{\cdot}{\cdot}_{L}|_{H}\) é não degenerada. Assim, \(\pint{\cdot}{\cdot}_{H} \neq \pint{\cdot}{\cdot}_{L}|_{H}\).
+    <span class="fim"></span></p>
+    
+    <!-- TEOREMA -->
+    <p id="teor-SACEhAbeliana" class="teor">
+      \(H\) é abeliana, ou seja, \([H,H] = \zero\).
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Seja \(z \in H\), então
+        </p>
+        <p class="equationCenter">
+        \[
+          \ad(z) = \left(
+          \begin{array}{cccc}
+            \begin{pmatrix}
+              0 & \cdots & \ast \\
+              \vdots & \ddots & \vdots \\
+              0 & \cdots & 0
+            \end{pmatrix}
+            & 0 & 0 & 0 \\
+            0 & 
+            \begin{pmatrix}
+              \alpha_{1}(z) & \cdots & \ast \\
+              \vdots & \ddots & \vdots \\
+              0 & \cdots & \alpha_{1}(z)
+            \end{pmatrix}
+            & 0 & 0 \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & 0 &
+            \begin{pmatrix}
+              \alpha_{n}(z) & \cdots & \ast \\
+              \vdots & \ddots & \vdots \\
+              0 & \cdots & \alpha_{n}(z)
+            \end{pmatrix}
+          \end{array}
+          \right)
+        \]
+      </p>
+      <p>
+        Dessa forma, se \(x \in [H,H]\), então \(x = [y,z]\), com \(y,z \in H\), e \(\ad(x) = \ad(y)\ad(z) - \ad(z)\ad(y)\). Assim, a diagonal principal de \(\ad(x)\) é formada só por zeros. Portanto, para todo \(y \in H\), temos que \(\pint{x}{y} = \tr(\ad(x)\ad(y)) = 0\). Pelo <a href="#coro-killingRestSACEhNaoDeg">Corolário 8.3</a>, \(x = 0\).
+      </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-geradoresSAC" class="obs">
+      Vimos no <a href="#coro-killingRestSACEhNaoDeg">Corolário 8.3</a>, \(\pint{\cdot}{\cdot}_{L}|_{H}: H \times H \to \bbK\) é não degenerada. Logo, a função \(H \to H^{\ast}\), \(h \mapsto h^{\ast} = \pint{h}{\cdot}_{L}\) é injetiva. Uma vez que \(\dim(H) = \dim(H^{\ast})\), temos que essa função é sobrejetora e, portanto, é um isomorfismo entre os espaços vetoriais \(H\) e \(H^{\ast}\). Assim, defina, para cada \(\alpha \in \Phi\), \(h_{\alpha}' \in H\) tal que \(\alpha(h) = \pint{h_{\alpha}'}{h}\), para todo \(h \in H\). Note que, por \(|\Phi| < \infty\), então \(\{h_{\alpha}'\} \subseteq H\) é um conjunto finito.
+    <span class="fim"></span></p>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="prop-geradoresSAC" class="prop">
+      \(\{h_{\alpha}' \mid \alpha \in \Phi\}\) gera \(H\).
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Suponha que \(\bbK\{h_{\alpha}' \mid \alpha \in \Phi\} \neq H\). Então existe \(x \in H\setminus\zero\) tal que \(\pint{h_{\alpha}'}{x} = 0\), para todo \(\alpha \in \Phi\) (achar a solução de um sistema com mais incógnitas do que equações). Logo, para todo \(y \in H\), \(\pint{x}{y} = \tr(\ad(x)\ad(y)) = \sum_{\alpha \in \Phi}\dim(L(\alpha)^{H})\alpha(x)\alpha(y) = 0\), porque \(0 = \pint{h_{\alpha}'}{x} = \alpha(x)\). Isso implica que \(x \in H^{\perp}\). Absurdo, pois, pelo <a href="#coro-killingRestSACEhNaoDeg">Corolário 8.3</a>, \(\pint{\cdot}{\cdot}_{L}|_{H}\) é não degenerada. Logo, \(\bbK\{h_{\alpha}' \mid \alpha \in \Phi\} = H\).
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="prop-gerSACColchSimet" class="prop">
+      \(h_{\alpha}' \in [L(\alpha)^{H},L(-\alpha)^{H}]\), para todo \(\alpha \in \Phi\).
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Tome \(e_{\alpha} \in L(\alpha)^{H}\) não nulo tal que \([x, e_{\alpha}] = \alpha(x)e_{\alpha}\), para todo \(x \in H\) (basta pegar o primeiro vetor da base de \(L(\alpha)^{H}\), pois 
+          \(
+            \ad(x)|_{L(\alpha)^{H}} =
+            \begin{pmatrix}
+              \alpha(x) & \cdots & \ast \\
+              \vdots & \ddots & \vdots \\
+              0 & \cdots & \alpha(x)
+            \end{pmatrix},
+          \)
+          para todo \(x \in H\)). Seja \(y \in L(-\alpha)^{H}\). Então \([e_{\alpha}, y] \in [L(\alpha)^{H}, L(-\alpha)^{H}]\). Vamos ver que \([e_{\alpha}, y] = \pint{e_{\alpha}}{y}h_{\alpha}'\). Tome \(z = [e_{\alpha}, y] - \pint{e_{\alpha}}{y}h_{\alpha}'\). Então, para todo \(x \in H\), temos que
+        </p>
+        <p class="equationCenter">
+          \[
+            \begin{split}
+              \pint{x}{z} &= \pint{x}{[e_{\alpha}, y] - \pint{e_{\alpha}}{y}h_{\alpha}'} = \pint{\underbrace{[x, e_{\alpha}]}_{\alpha(x)e_{\alpha}}}{y} - \pint{e_{\alpha}}{y}\underbrace{\pint{x}{h_{\alpha}'}}_{\alpha(x)} = 0.
+            \end{split}
+          \]
+        </p>
+        <p>
+          Logo, \(z \in H^{\perp} = \zero\), ou seja, \([e_{\alpha}, y] = \pint{e_{\alpha}}{y}h_{\alpha}'\), para todo \(y \in H\). Sabemos que \(\pint{L(\alpha)^{H}}{L(\lambda)^{H}} = \zero\), para todo \(\lambda \neq -\alpha\). Logo, existe \(y \in L(-\alpha)^{H}\) tal que \(\pint{e_{\alpha}}{y} \neq 0\). Portanto, \(h_{\alpha}' = \frac{1}{\pint{e_{\alpha}}{y}}[e_{\alpha},y] \in [L(\alpha)^{H},L(-\alpha)^{H}]\).
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="prop-killingGeradorSAC" class="prop">
+      \(\pint{h_{\alpha}'}{h_{\alpha}'} \neq 0\), para todo \(\alpha \in \Phi\).
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Suponha que \(\pint{h_{\alpha}'}{h_{\alpha}'} = 0\), para algum \(\alpha \in \Phi\). Para todo \(\beta \in \Phi\), temos, pela <a href="intrAlgebrasLie-aula07.html#prop-restrRaizRacional">Proposição 7.2</a>, que existe \(r_{\alpha\beta} \in \bbQ\) tal que \(\beta|_{[L(\alpha)^{H},L(-\alpha)^{H}]} = r_{\alpha\beta}\alpha_{[L(\alpha)^{H},L(-\alpha)^{H}]}\). Assim,
+        </p>
+        <p>
+          \[
+            \pint{h_{\beta}'}{h_{\alpha}'} = \beta(h_{\alpha}') = r_{\alpha\beta}\alpha(h_{\alpha}') = r_{\alpha\beta}\pint{h_{\alpha}'}{h_{\alpha}'} = 0.
+          \]
+        </p>
+        <p>
+          Como \(\{h_{\beta}' \mid \beta \in \Phi\}\) gera \(H\), então \(h_{\alpha}' \in H^{\perp}\). Absurdo, pois \(H^{\perp} = \zero\). Logo, \(\pint{h_{\alpha}'}{h_{\alpha}'} \neq 0\), para todo \(\alpha \in \Phi\).
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- TEOREMA -->
+    <p id="teor-dimEPGRaizEh1" class="teor">
+      \(\dim(L(\alpha)^{H}) = 1\), para todo \(\alpha \in \Phi\).
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Tome \(e_{\alpha} \in L(\alpha)^{H}\) não nulo tal que \([x, e_{\alpha}] = \alpha(x)e_{\alpha}\), para todo \(x \in H\), como na demonstração da <a href="#prop-gerSACColchSimet">Proposição 8.4</a>, e \(e_{-\alpha} \in L(-\alpha)^{H}\) tal que \([e_{\alpha},e_{-\alpha}] = h_{\alpha}'\) (na demonstração da proposição já mencionada, \(e_{-\alpha} = y\frac{1}{\pint{e_{\alpha}}{y}}\)). Considere
+        </p>
+        <p class="equationCenter">
+          \[
+            M = \bbK\{e_{\alpha}\} \oplus \bbK\{h_{\alpha}'\} \oplus L(-\alpha)^{H} \oplus L(-2\alpha)^{H} \oplus \cdots.
+          \]
+        </p>
+        <p>
+          Note que,
+          <ol class="alfa">
+            <li>\([e_{\alpha}, e_{\alpha}] = 0\),</li>
+            <li>por definição de \(e_{\alpha}\), \([e_{\alpha}, h_{\alpha'}] = -\alpha(h_{\alpha}')e_{\alpha}\),</li>
+            <li>\([e_{\alpha},y] = \pint{e_{\alpha}}{y}h_{\alpha}'\), para todo \(y \in L(-\alpha)^{H}\), conforme demonstrado na <a href="#prop-gerSACColchSimet">Proposição 8.4</a>,</li>
+            <li>\([e_{\alpha},L(-r\alpha)^{H}] \subseteq L(-(r-1)\alpha)^{H}\), para todo \(r \ge 2\), pela <a href="intrAlgebrasLie-aula07.html#prop-relConchEspRaizes">Proposição 7.1</a>.</li>
+          </ol>
+          Logo, \(\ad(e_{\alpha})M \subseteq M\). Similarmente,
+          <ol class="alfa">
+            <li>\([e_{-\alpha}, e_{\alpha}] = -h_{\alpha}'\),</li>
+            <li>\([e_{-\alpha}, h_{\alpha'}] = \alpha(h_{\alpha}')e_{-\alpha}\) (???),</li>
+            <li>\([e_{-\alpha},L(-r\alpha)^{H}] \subseteq L(-(r+1)\alpha)^{H}\), para todo \(r \ge 1\), pela <a href="intrAlgebrasLie-aula07.html#prop-relConchEspRaizes">Proposição 7.1</a>.</li>
+          </ol>
+          Logo, \(\ad(e_{-\alpha})M \subseteq M\). Uma vez que \(\ad(h_{\alpha}') = \ad(e_{\alpha})\ad(e_{-\alpha}) - \ad(e_{-\alpha})\ad(e_{\alpha})\), temos que \(\ad(h_{\alpha}')M \subseteq M\). Assim, por um lado,
+        </p>
+        <p class="equationCenter">
+          \[
+            \begin{split}
+              \tr(\ad(h_{\alpha}')|_{M}) &= \alpha(h_{\alpha}') + \sum_{k > 0}\dim(L(-k\alpha)^{H})(-k\alpha)(h_{\alpha}') \\
+              &= \alpha(h_{\alpha}')(1 - \sum_{k > 0}k\dim(L(-k\alpha)^{H}))
+            \end{split}
+          \]
+        </p>
+        <p>
+          e, por outro, \(\tr(\ad(h_{\alpha}')|_{M}) = 0\) (já que ele é um comutador). Uma vez que \(\alpha(h_{\alpha}') = \pint{h_{\alpha}'}{h_{\alpha}'} = 0\), pela <a href="#prop-killingGeradorSAC">Proposição 8.5</a>, então \(\sum_{k > 0}k\dim(L(-k\alpha)^{H}) = 1\). Isso acontece somente se \(\dim(L(-\alpha)^{H}) = 1\) e \(\dim(L(-k\alpha)^{H}) = 0\), para todo \(k > 1\). Assim, provamos que, para todo \(\alpha \in \Phi\), \(\dim(L(-\alpha)^{H}) = 1\). Portanto, para \(-\alpha \in \Phi\), temos que \(\dim(L(\alpha)^{H}) = 1\).
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-adjhEhDiag" class="obs">
+      Do <a href="#teor-teor-SACEhAbeliana">Teorema 8.1</a> e do <a href="#teor-dimEPGRaizEh1">Teorema 8.2</a>, temos que
+    </p>
+    <p class="equationCenter">
+      \[
+        \ad(h) =
+        \begin{pmatrix}
+          \begin{pmatrix}
+            0 & \cdots & 0 \\
+            \vdots & \ddots & \vdots \\
+            0 & \cdots & 0
+          \end{pmatrix}
+          &
+          0 & \cdots & 0 \\
+          0 &
+          \begin{pmatrix}
+            \alpha_{1}(h)
+          \end{pmatrix}
+          & \cdots & 0 \\
+          \vdots & \vdots & \ddots & \vdots \\
+          0 & 0 & \cdots &
+          \begin{pmatrix}
+            \alpha_{n}(h)
+          \end{pmatrix}
+        \end{pmatrix}
+      \]
+    </p>
+    <p>
+      para todo \(h \in H\). Isso quer dizer que a base tomada na decomposição de Cartan, para um álgebra de Lie semissimples, diagonaliza \(\ad(h)\), para todo \(h \in H\).
+    <span class="fim"></span></p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-dimSAC" class="obs">
+      O <a href="#teor-dimEPGRaizEh1">Teorema 8.2</a> não afirma que \(\dim(H) = 1\).
+    <span class="fim"></span></p>
+    
+    <!-- EXERCÍCIO -->
+    <p id="exerc-aula8" class="exerc">
+      <ol class="numerico">
+        <li>Mostre que se \(L\) é semissimples, então qualquer subálgebra de Cartan de \(L\) também é semissimples.<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+  </body>
+  
+</html>
+
