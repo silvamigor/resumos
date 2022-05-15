@@ -611,7 +611,7 @@
           Logo, \(\ad(e_{\alpha})M \subseteq M\). Similarmente,
           <ol class="alfa">
             <li>\([e_{-\alpha}, e_{\alpha}] = -h_{\alpha}'\),</li>
-            <li>\([e_{-\alpha}, h_{\alpha'}] = \alpha(h_{\alpha}')e_{-\alpha}\) (???),</li>
+            <li>\([e_{-\alpha}, h_{\alpha}'] \subseteq L(-\alpha)^{H}\), pois \(L(-\alpha)^{H}\) é invariante pela ação de \(H\),</li>
             <li>\([e_{-\alpha},L(-r\alpha)^{H}] \subseteq L(-(r+1)\alpha)^{H}\), para todo \(r \ge 1\), pela <a href="intrAlgebrasLie-aula07.html#prop-relConchEspRaizes">Proposição 7.1</a>.</li>
           </ol>
           Logo, \(\ad(e_{-\alpha})M \subseteq M\). Uma vez que \(\ad(h_{\alpha}') = \ad(e_{\alpha})\ad(e_{-\alpha}) - \ad(e_{-\alpha})\ad(e_{\alpha})\), temos que \(\ad(h_{\alpha}')M \subseteq M\). Assim, por um lado,
@@ -633,8 +633,13 @@
     </details>
     
     <!-- OBSERVAÇÃO -->
+    <p id="obs-espacoPeso" class="obs">
+      Do <a href="#teor-dimEPGRaizEh1">Teorema 8.2</a>, concluímos que o espaço de peso generalizado (ver <a href="intrAlgebrasLie-aula04.html#def-espPesoGener">Definição 4.1</a>) \(L(\alpha)^{H}\) é igual ao <strong>espaço de peso</strong> \(L_{\alpha}^{H} = \{x \in L \mid \ad(x)(h) = \alpha(h)x, \; \forall \; h \in H\}\). Para simplificar a notação, vamos omitir o sobrescrito \(H\), quando considerarmos a decomposição de Cartan (ver <a href="intrAlgebrasLie-aula07.html#def-espRaizes">Definição 7.1</a>). Assim, escreveremos o espaço de peso generalizado \(L(\alpha)^{H}\) como \(L(\alpha)\) e o espaço de peso \(L_{\alpha}^{H}\) como \(L_{\alpha}\). Portanto, o caso em que estamos trabalhando, isto é, \(L\) nilpotente, semissimples de dimensão finita, temos que \(L(\alpha) = L_{\alpha}\).
+    <span class="fim"></span></p>
+    
+    <!-- OBSERVAÇÃO -->
     <p id="obs-adjhEhDiag" class="obs">
-      Do <a href="#teor-teor-SACEhAbeliana">Teorema 8.1</a> e do <a href="#teor-dimEPGRaizEh1">Teorema 8.2</a>, temos que
+      Do <a href="#teor-SACEhAbeliana">Teorema 8.1</a> e do <a href="#teor-dimEPGRaizEh1">Teorema 8.2</a>, temos que
     </p>
     <p class="equationCenter">
       \[
