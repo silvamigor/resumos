@@ -375,7 +375,7 @@
     
     <!-- OBSERVAÇÃO -->
     <p id="obs-sl2EmL" class="obs">
-      Vimos, na demonstração da <a href="intrAlgebrasLie-aula08.html#prop-gerSACColchSimet">Proposição 8.4</a>, que dado \(x \in L_{\alpha}\setminus\zero\), existe \(y \in L_{-\alpha}\) tal que \(\pint{x}{y} \neq 0\). Assim, podemos tomar \(e \in L_{\alpha}\) e \(f \in L_{-\alpha}\) não nulos tais que \(\pint{e}{f} = \frac{2}{\pint{\alpha}{\alpha}}\). Note que, pela <a href="#obs-formaKillingDual">Observação 9.1</a> \(\pint{\alpha}{\alpha} = \pint{h_{\alpha}'}{h_{\alpha}'}\) e, pela <a href="intrAlgebrasLie-aula08.html#prop-killingGeradorSAC">Proposição 8.5</a> \(\pint{h_{\alpha}'}{h_{\alpha}'} \neq 0\).
+      Vimos, na demonstração da <a href="intrAlgebrasLie-aula08.html#prop-gerSACColchSimet">Proposição 8.4</a>, que dado \(x \in L_{\alpha}\setminus\zero\), existe \(y \in L_{-\alpha}\) tal que \(\pint{x}{y} \neq 0\). Assim, podemos tomar \(e \in L_{\alpha}\) e \(f \in L_{-\alpha}\) não nulos tais que \(\pint{e}{f} = \frac{2}{\pint{\alpha}{\alpha}}\). Note que, pela <a href="#obs-formaKillingDual">Observação 9.1</a> \(\pint{\alpha}{\alpha} = \pint{h_{\alpha}'}{h_{\alpha}'}\) e, pela <a href="intrAlgebrasLie-aula08.html#prop-killingGeradorSAC">Proposição 8.5</a> \(\pint{h_{\alpha}'}{h_{\alpha}'} \neq 0\). Defina \(h = \pint{e}{f}h_{\alpha}' \in H\), ou seja, \(h = \frac{2h_{\alpha}'}{\pint{\alpha}{\alpha}}\).
     <span class="fim"></span></p>
     
     <!-- OBSERVAÇÃO -->
@@ -385,11 +385,11 @@
     
     <!-- LEMA -->
     <p id="lema-sl2ModAcaoVetorPesoMax" class="lema">
-      Sejam \(V\) um \(\fraksl_{2}\)-módulo e \(v \in V\setminus\zero\) tal que \(e \cdot v = 0\) e \(h \cdot v = \lambda v\), para algum \(\lambda \in \bbK\). Então
+      Sejam \(V\) um \(\fraksl_{2}\)-módulo e \(v \in V\setminus\zero\) tal que \(e v = 0\) e \(h v = \lambda v\), para algum \(\lambda \in \bbK\). Então
       <ol class="alfa">
-        <li>\(h \cdot f^{n} \cdot v = (\lambda - 2n)f^{n} \cdot v\), para todo \(n \ge 0\),</li>
-        <li>\(e \cdot f^{n} \cdot v = n(\lambda - n + 1)f^{n} \cdot v\), para todo \(n \ge 1\),</li>
-        <li>se \(\dim(V) < \infty\), então \(\lambda \in \bbZ_{\ge 0}\), \(\{v, f \cdot v, \cdots, f^{\lambda} \cdot v\}\) é linearmente independente e \(f^{\lambda + 1} \cdot v = 0\).<span class="fim"></span></li>
+        <li>\(h f^{n} v = (\lambda - 2n)f^{n} v\), para todo \(n \ge 0\),</li>
+        <li>\(e f^{n} v = n(\lambda - n + 1)f^{n-1} v\), para todo \(n \ge 1\),</li>
+        <li>se \(\dim(V) < \infty\), então \(\lambda \in \bbZ_{\ge 0}\), \(\{v, f v, \cdots, f^{\lambda} v\}\) é linearmente independente e \(f^{\lambda + 1} v = 0\).<span class="fim"></span></li>
       </ol>
     </p>
     
@@ -397,13 +397,43 @@
       <summary>Demonstração</summary>
       <div class="caixa">
         <p>
-          (a) 
+          (a) Por hipótese, temos que \(h v = \lambda v\), ou seja, \(h f^{n} v = (\lambda - 2n)f^{n} v\) vale para \(n = 0\). Suponha que a igualdade valha para \(n-1\), então
+        </p>
+        <p class="equationCenter">
+          \[
+            \begin{split}
+              h f^{n} v &= (h f) f^{n-1} v = (\overbrace{-2f}^{[h,f]} + f h) f^{n-1} v = -2f^{n} v + f(\lambda - 2(n-1))f^{n-1} v = \\
+              &= (-2 + \lambda - 2(n-1))f^{n}v = (\lambda - 2n)f^{n}v.
+            \end{split}
+          \]
         </p>
         <p>
-          (b) 
+          (b) Observe que
+        </p>
+        <p class="equationCenter">
+          \[
+            efv = (h + fe)v = hv = \lambda v
+          \]
         </p>
         <p>
-          (c) 
+          Logo, \(e f^{n} v = n(\lambda - n + 1)f^{n-1} v\), vale para \(n = 1\). Suponha que a igualdade valha para \(n-1\), então
+        </p>
+        <p class="equationCenter">
+          \[
+            \begin{split}
+              ef^{n}v &= (ef)f^{n-1}v = (h + fe)f^{n-1}v = (\lambda - 2(n-1))f^{n-1}v + f(n-1)(\lambda - (n-1) + 1)f^{n-2}v \\
+              &= (\lambda - 2(n-1) + (n-1)(\lambda - (n-1) + 1))f^{n - 1}v = n(\lambda - n + 1)f^{n - 1}v
+            \end{split}
+          \]
+        </p>
+        <p>
+          (c) Suponha que \(\lambda \not\in \bbZ_{\ge 0}\). Defina \(a_{n} = n(\lambda - n + 1)\). Então \(a_{n} \neq 0\), para todo \(n \in \bbZ_{\ge 1}\). Seja \(v \in V\) não nulo. Se \(fv = 0\), então \(0 = efv = a_{1}v \neq 0\). Absurdo. Logo, \(fv \neq 0\). Se \(f^{2}v = 0\), então \(0 = ef^{2}v = a_{2}fv \neq 0\). Absurdo. Logo, \(f^{2}v \neq 0\). Seguindo, indutivamente, temos que \(f^{n}v \neq 0\), para todo \(\bbZ_{\ge 0}\). Uma vez que \(f^{n}v\) são autovetores de \(h\) com autovalores distintos (pelo item (a)), concluímos que \(\{f^{n}v \mid n \ge 0\}\) é linearmente independente. Isso implica que \(\dim(V) = \infty\). Assim, se \(\dim(V) < \infty\), então \(\lambda \in \bbZ_{\ge 0}\).
+        </p>
+        <p>
+          Suponha que \(\dim(V) < \infty\). Então, pelo parágrafo anterior, já sabemos que \(\lambda \in \bbZ_{\ge 0}\). Vamos mostrar que \(f^{\lambda + 1} v = 0\). Suponha que \(f^{\lambda + 1} v \neq 0\). Se \(f^{\lambda + 2} v = 0\), então \(0 = ef^{\lambda + 2}v = a_{\lambda + 2}f^{\lambda + 1}v \neq 0\). Absurdo. Logo, \(f^{\lambda + 2} v \neq 0\). Indutivamente, temos que \(f^{\lambda + k} v \neq 0\), para todo \(k \ge 1\). Isso implica que \(\dim(V) = \infty\), o que é absurdo. Logo, \(f^{\lambda + 1} v = 0\).
+        </p>
+        <p>
+          Finalmente, se \(\dim(V) < \infty\), então temos que \(\lambda \in \bbZ_{\ge 0}\) e, por conseguinte, \(a_{n} \neq 0\), para todo \(n \in \{1, \dots, \lambda\}\). Isso implica, conforme vimos a dois parágrafos acima, que \(\{v, f v, \cdots, f^{\lambda} v\}\) é linearmente independente.
         </p>
       </div>
       <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
@@ -431,7 +461,43 @@
       <summary>Demonstração</summary>
       <div class="caixa">
         <p>
-          (a) 
+          (a) Tome \(q \in \bbZ_{\ge 0}\) o maior inteiro tal que \(\beta + q\alpha \in \Phi \cup \zero\) e tome \(v \in L_{\beta + q\alpha}\) não nulo. Considere \(\fraksl_{\alpha} = \bbK\{\underbrace{e}_{\in L_{\alpha}},\underbrace{f}_{\in L_{-\alpha}},\underbrace{h}_{\in H}\}\), conforme <a href="#exerc-aula9">Exercício 9.1 (1)</a>, e veja \(L\) como \(\fraksl_{\alpha}\)-módulo via ação adjunta. Note que \(ev = 0\), pois \(ev \in L_{\beta + (q+1)\alpha} = \zero\), pelo <a href="intrAlgebrasLie-aula05.html#lema-andarPeso">Lema 5.2</a> e pela maximalidade de \(q\). Como \(v \in L_{\beta + q\alpha}\), então \(hv = (\beta + q\alpha)hv\). Por definição, \(h = \frac{2h_{\alpha}'}{\pint{\alpha}{\alpha}}\). Logo, \(hv = \big(\frac{2\beta h_{\alpha}'}{\pint{\alpha}{\alpha}} + \frac{2q\alpha h_{\alpha}'}{\pint{\alpha}{\alpha}}\big)v = \big(\frac{2\pint{\beta}{\alpha}}{\pint{\alpha}{\alpha}} + 2q\big)v\), onde a última igualdade é devido a <a href="#obs-formaKillingDual">Observação 9.1</a>. Defina \(\lambda = \frac{2\pint{\beta}{\alpha}}{\pint{\alpha}{\alpha}} + 2q\). Pelo <a href="#lema-sl2ModAcaoVetorPesoMax">Lema 9.1</a>, temos que \(\lambda \in \bbZ_{\ge 0}\) e que \(\{\underbrace{v}_{L_{\beta + q\alpha}}, \underbrace{fv}_{L_{\beta + (q-1)\alpha}}, \dots, \underbrace{f^{\lambda}v}_{L_{\beta + (q-\lambda)\alpha}}\}\) é linearmente independente. Logo, \(L_{\beta + q\alpha}, L_{\beta + (q-1)\alpha}, \dots, L_{\beta + (q - \lambda)\alpha}\) não são vazios, o que significa que \(\beta + q\alpha, \beta + (q-1)\alpha, \dots, \beta + (q - \lambda)\alpha \in \Phi \cup \zero\). Defina \(p = -(q - \lambda)\). Substituindo pelo valor de \(\lambda\), temos que \(p = \frac{2\pint{\beta}{\alpha}}{\pint{\alpha}{\alpha}} + q\). Tome, agora, \(p' \in \bbZ_{\ge 0}\) o maior inteiro tal que \(\beta -p'\alpha \in \Phi \cup \zero\) e tome \(v' \in L_{\beta -p'\alpha}\) não nulo. Note que \(fv' = 0\) e \(hv' = (\beta - p'\alpha)hv' = (\beta - p'\alpha)\frac{2h_{\alpha}'}{\pint{\alpha}{\alpha}}v' = \big(\frac{2\pint{\alpha}{\beta}}{\pint{\alpha}{\alpha}} - 2p'\big)v'\). Defina \(\lambda' = \frac{2\pint{\alpha}{\beta}}{\pint{\alpha}{\alpha}} - 2p'\). Pelo <a href="exerc-aula9">Exercício 9.1 (2)</a>, temos que \(-\lambda' \in \bbZ_{\ge 0}\) e que \(\{v', ev', \dots, e^{-\lambda'}v'\}\) é linearmente independente. Assim, \(L_{\beta -p'\alpha}, L_{\beta - (p'+1)\alpha}, \dots, L_{\beta - (p' + \lambda')\alpha}\) não são vazios, o que significa que \(\beta - p'\alpha, \beta - (p'+1)\alpha, \dots, \beta - (p' + \lambda')\alpha \in \Phi \cup \zero\). Defina \(q' = -(p' + \lambda')\). Substituindo pelo valor de \(\lambda'\), temos que \(q' = p' -  \frac{2\pint{\beta}{\alpha}}{\pint{\alpha}{\alpha}}\). Por construção, \(q \ge q'\) e \(p' \ge p\). Dessa forma, 
+        </p>
+        <p class="equationCenter">
+          \[
+            \frac{2\pint{\beta}{\alpha}}{\pint{\alpha}{\alpha}} = p - q \le p' - q \le p' - q'= \frac{2\pint{\beta}{\alpha}}{\pint{\alpha}{\alpha}}.
+          \]
+        </p>
+        <p>
+          Portanto, \(p - q = p' - q = p' - q'\), ou seja, \(p = p'\) e \(q = q'\). Note que a cadeia máxima é, por definição,
+        </p>
+        <p class="equationCenter">
+          \[
+            \begin{array}{ccccc}
+              \beta - p'\alpha \quad & \beta - (p'+1)\alpha & \cdots \quad & \beta + (q-1)\alpha \quad & \beta + q\alpha 
+            \end{array}
+          \]
+        </p>
+        <p>
+          que coincide com a cadeia 
+        </p>
+        <p class="equationCenter">
+          \[
+            \begin{array}{ccccc}
+              \beta - p\alpha \quad & \beta - (p-1)\alpha & \cdots \quad & \beta + (q-1)\alpha \quad & \beta + q\alpha 
+            \end{array}
+          \]
+        </p>
+        <p>
+          que foi a primeira que construímos e que não tem pulos. Logo, 
+        </p>
+        <p style="equationCenter">
+          \[
+            \{\beta + n\alpha \mid n \in \bbZ\} \cap (\Phi \cup \zero) = \{\beta - p\alpha, \cdots, \beta + q\alpha\},
+          \]
+        </p>
+        <p>
+          é um intervalo conexo (isto é, sem pulos). Além disso, conforme feito ao longo da demonstração \(p,q \in \bbZ_{\ge 0}\) são tais que \(p-q = \frac{2\pint{\alpha}{\beta}}{\pint{\alpha}{\alpha}}\).
         </p>
         <p>
           (b) 
@@ -444,10 +510,31 @@
       <br>
     </details>
     
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-cadeiaConexa" class="obs">
+      <ol class="alfa">
+        <li>O conjunto \(\{\beta + n\alpha \mid n \in \bbZ\} \cap (\Phi \cup \zero)\) é chamado de \(\beta\) <strong>cadeia passando por</strong> \(\alpha\). O <a href="#teor-cadeiaConexa">Teorema 9.1</a> diz que a \(\beta\) cadeia passando por \(\alpha\) é um conjunto que não tem saltos.</li>
+        <li>Considere o submódulo \(M = L_{\beta -p\alpha} \oplus \cdots \oplus L_{\beta +q\alpha} \subseteq L\). Denote \(\beta +q\alpha\) por \(\lambda\) e tome \(v \in L_{\lambda}\). A ações de \(e, f\) e \(h\) podem ser descritos conforme visto no diagrama abaixo.
+        <div class="equationCenter">
+          \[
+            \xymatrix{
+              f^{\lambda}v \ar@{.>}@(lu,ru)[]^-{-\lambda} \ar@/^/@<1pt>[r]^-{a_{\lambda}}
+              & f^{\lambda-1}v \ar@{.>}@(lu,ru)[]^-{-\lambda+2} \ar@/^/@<1pt>[r]^-{a_{\lambda-1}} \ar@{=>}@/^/@<1pt>[l]^-{1}
+              & \cdots \ar@/^/@<1pt>[r]^-{a_3} \ar@{=>}@/^/@<1pt>[l]^-{1}
+              & f^{2}v \ar@{.>}@(lu,ru)[]^-{\lambda-4} \ar@/^/@<1pt>[r]^-{a_2} \ar@{=>}@/^/@<1pt>[l]^-{1}
+              & fv \ar@{.>}@(lu,ru)[]^-{\lambda-2} \ar@/^/@<1pt>[r]^-{a_1} \ar@{=>}@/^/@<1pt>[l]^-{1} 
+              & v \ar@{.>}@(lu,ru)[]^-{\lambda} \ar@{=>}@/^/@<1pt>[l]^-{1}
+            }
+          \]
+        </div>
+        onde \(\xymatrix{ \ar@{=>}[r] & }\) indica a ação de \(f\), \(\xymatrix{ \ar@{->}[r] & }\) indica a ação de \(e\), \(\xymatrix{ \ar@{.>}[r] & }\) indica a ação de \(h\) e \(a_{n} = n(\lambda - n + 1)\), para todo \(n \in \{1, \dots, n - 1\}\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
     <!-- EXERCÍCIO -->
     <p id="exerc-aula9" class="exerc">
       <ol class="numerico">
-        <li>Sejam \(e \in L(\alpha)^{H}\), \(f \in L(-\alpha)^{H}\) e \(h \in H\), conforme <a href="#obs-sl2EmL">Observação 9.2</a>. Cheque que
+        <li>Sejam \(e \in L_{\alpha}\), \(f \in L_{-\alpha}\) e \(h \in H\), conforme <a href="#obs-sl2EmL">Observação 9.2</a>. Cheque que
         <div style="equationCenter">
           \[
             \begin{array}{ccc}
@@ -494,4 +581,3 @@
   </body>
   
 </html>
-
