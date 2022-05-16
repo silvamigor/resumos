@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Introdução às Álgebras de Lie </title>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Register.StartupHook("TeX Jax Ready",function (){
+         MathJax.Hub.Insert(MathJax.InputJax.TeX.Definitions.macros,{
+          cancel: ["Extension","cancel"],
+          bcancel: ["Extension","cancel"],
+          xcancel: ["Extension","cancel"],
+          cancelto: ["Extension","cancel"]
+        });
+      });
+      MathJax.Hub.Config({
+        extensions: ["https://lomath.in/doc/xyjax/xypic.js","tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+          processEscapes: true
+        },
+        "HTML-CSS": { fonts: ["TeX"] },
+        TeX: {
+          equationNumbers: { autoNumber: "AMS" },
+          Macros: {
+            fraka: ["\\mathfrak{a}"],
+            frakb: ["\\mathfrak{b}"],
+            frakc: ["\\mathfrak{c}"],
+            frakd: ["\\mathfrak{d}"],
+            frake: ["\\mathfrak{e}"],
+            frakf: ["\\mathfrak{f}"],
+            frakg: ["\\mathfrak{g}"],
+            frakh: ["\\mathfrak{h}"],
+            fraki: ["\\mathfrak{i}"],
+            frakj: ["\\mathfrak{j}"],
+            frakk: ["\\mathfrak{k}"],
+            frakl: ["\\mathfrak{l}"],
+            frakm: ["\\mathfrak{m}"],
+            frakn: ["\\mathfrak{n}"],
+            frako: ["\\mathfrak{o}"],
+            frakp: ["\\mathfrak{p}"],
+            frakq: ["\\mathfrak{q}"],
+            frakr: ["\\mathfrak{r}"],
+            fraks: ["\\mathfrak{s}"],
+            frakt: ["\\mathfrak{t}"],
+            fraku: ["\\mathfrak{u}"],
+            frakv: ["\\mathfrak{v}"],
+            frakx: ["\\mathfrak{x}"],
+            frakw: ["\\mathfrak{w}"],
+            fraky: ["\\mathfrak{y}"],
+            frakz: ["\\mathfrak{z}"],
+            frakA: ["\\mathfrak{A}"],
+            frakB: ["\\mathfrak{B}"],
+            frakC: ["\\mathfrak{C}"],
+            frakD: ["\\mathfrak{D}"],
+            frakE: ["\\mathfrak{E}"],
+            frakF: ["\\mathfrak{F}"],
+            frakG: ["\\mathfrak{G}"],
+            frakH: ["\\mathfrak{H}"],
+            frakI: ["\\mathfrak{I}"],
+            frakJ: ["\\mathfrak{J}"],
+            frakK: ["\\mathfrak{K}"],
+            frakL: ["\\mathfrak{L}"],
+            frakM: ["\\mathfrak{M}"],
+            frakN: ["\\mathfrak{N}"],
+            frakO: ["\\mathfrak{O}"],
+            frakP: ["\\mathfrak{P}"],
+            frakQ: ["\\mathfrak{Q}"],
+            frakR: ["\\mathfrak{R}"],
+            frakS: ["\\mathfrak{S}"],
+            frakT: ["\\mathfrak{T}"],
+            frakU: ["\\mathfrak{U}"],
+            frakV: ["\\mathfrak{V}"],
+            frakX: ["\\mathfrak{X}"],
+            frakW: ["\\mathfrak{W}"],
+            frakY: ["\\mathfrak{Y}"],
+            frakZ: ["\\mathfrak{Z}"],
+            frakgl: ["\\mathfrak{gl}"],
+            fraksl: ["\\mathfrak{sl}"],
+            frakso: ["\\mathfrak{so}"],
+            fraksp: ["\\mathfrak{sp}"],
+            bba: ["\\mathbb{a}"],
+            bbb: ["\\mathbb{b}"],
+            bbc: ["\\mathbb{c}"],
+            bbd: ["\\mathbb{d}"],
+            bbe: ["\\mathbb{e}"],
+            bbf: ["\\mathbb{f}"],
+            bbg: ["\\mathbb{g}"],
+            bbh: ["\\mathbb{h}"],
+            bbi: ["\\mathbb{i}"],
+            bbj: ["\\mathbb{j}"],
+            bbk: ["\\mathbb{k}"],
+            bbl: ["\\mathbb{l}"],
+            bbm: ["\\mathbb{m}"],
+            bbn: ["\\mathbb{n}"],
+            bbo: ["\\mathbb{o}"],
+            bbp: ["\\mathbb{p}"],
+            bbq: ["\\mathbb{q}"],
+            bbr: ["\\mathbb{r}"],
+            bbs: ["\\mathbb{s}"],
+            bbt: ["\\mathbb{t}"],
+            bbu: ["\\mathbb{u}"],
+            bbv: ["\\mathbb{v}"],
+            bbx: ["\\mathbb{x}"],
+            bbw: ["\\mathbb{w}"],
+            bby: ["\\mathbb{y}"],
+            bbz: ["\\mathbb{z}"],
+            bbA: ["\\mathbb{A}"],
+            bbB: ["\\mathbb{B}"],
+            bbC: ["\\mathbb{C}"],
+            bbD: ["\\mathbb{D}"],
+            bbE: ["\\mathbb{E}"],
+            bbF: ["\\mathbb{F}"],
+            bbG: ["\\mathbb{G}"],
+            bbH: ["\\mathbb{H}"],
+            bbI: ["\\mathbb{I}"],
+            bbJ: ["\\mathbb{J}"],
+            bbK: ["\\mathbb{K}"],
+            bbL: ["\\mathbb{L}"],
+            bbM: ["\\mathbb{M}"],
+            bbN: ["\\mathbb{N}"],
+            bbO: ["\\mathbb{O}"],
+            bbP: ["\\mathbb{P}"],
+            bbQ: ["\\mathbb{Q}"],
+            bbR: ["\\mathbb{R}"],
+            bbS: ["\\mathbb{S}"],
+            bbT: ["\\mathbb{T}"],
+            bbU: ["\\mathbb{U}"],
+            bbV: ["\\mathbb{V}"],
+            bbX: ["\\mathbb{X}"],
+            bbW: ["\\mathbb{W}"],
+            bbY: ["\\mathbb{Y}"],
+            bbZ: ["\\mathbb{Z}"],
+            cala: ["\\mathcal{a}"],
+            calb: ["\\mathcal{b}"],
+            calc: ["\\mathcal{c}"],
+            cald: ["\\mathcal{d}"],
+            cale: ["\\mathcal{e}"],
+            calf: ["\\mathcal{f}"],
+            calg: ["\\mathcal{g}"],
+            calh: ["\\mathcal{h}"],
+            cali: ["\\mathcal{i}"],
+            calj: ["\\mathcal{j}"],
+            calk: ["\\mathcal{k}"],
+            call: ["\\mathcal{l}"],
+            calm: ["\\mathcal{m}"],
+            caln: ["\\mathcal{n}"],
+            calo: ["\\mathcal{o}"],
+            calp: ["\\mathcal{p}"],
+            calq: ["\\mathcal{q}"],
+            calr: ["\\mathcal{r}"],
+            cals: ["\\mathcal{s}"],
+            calt: ["\\mathcal{t}"],
+            calu: ["\\mathcal{u}"],
+            calv: ["\\mathcal{v}"],
+            calx: ["\\mathcal{x}"],
+            calw: ["\\mathcal{w}"],
+            caly: ["\\mathcal{y}"],
+            calz: ["\\mathcal{z}"],
+            calA: ["\\mathcal{A}"],
+            calB: ["\\mathcal{B}"],
+            calC: ["\\mathcal{C}"],
+            calD: ["\\mathcal{D}"],
+            calE: ["\\mathcal{E}"],
+            calF: ["\\mathcal{F}"],
+            calG: ["\\mathcal{G}"],
+            calH: ["\\mathcal{H}"],
+            calI: ["\\mathcal{I}"],
+            calJ: ["\\mathcal{J}"],
+            calK: ["\\mathcal{K}"],
+            calL: ["\\mathcal{L}"],
+            calM: ["\\mathcal{M}"],
+            calN: ["\\mathcal{N}"],
+            calO: ["\\mathcal{O}"],
+            calP: ["\\mathcal{P}"],
+            calQ: ["\\mathcal{Q}"],
+            calR: ["\\mathcal{R}"],
+            calS: ["\\mathcal{S}"],
+            calT: ["\\mathcal{T}"],
+            calU: ["\\mathcal{U}"],
+            calV: ["\\mathcal{V}"],
+            calX: ["\\mathcal{X}"],
+            calW: ["\\mathcal{W}"],
+            calY: ["\\mathcal{Y}"],
+            calZ: ["\\mathcal{Z}"],
+            bfa: ["\\mathbf{a}"],
+            bfb: ["\\mathbf{b}"],
+            bfc: ["\\mathbf{c}"],
+            bfd: ["\\mathbf{d}"],
+            bfe: ["\\mathbf{e}"],
+            bff: ["\\mathbf{f}"],
+            bfg: ["\\mathbf{g}"],
+            bfh: ["\\mathbf{h}"],
+            bfi: ["\\mathbf{i}"],
+            bfj: ["\\mathbf{j}"],
+            bfk: ["\\mathbf{k}"],
+            bfl: ["\\mathbf{l}"],
+            bfm: ["\\mathbf{m}"],
+            bfn: ["\\mathbf{n}"],
+            bfo: ["\\mathbf{o}"],
+            bfp: ["\\mathbf{p}"],
+            bfq: ["\\mathbf{q}"],
+            bfr: ["\\mathbf{r}"],
+            bfs: ["\\mathbf{s}"],
+            bft: ["\\mathbf{t}"],
+            bfu: ["\\mathbf{u}"],
+            bfv: ["\\mathbf{v}"],
+            bfx: ["\\mathbf{x}"],
+            bfw: ["\\mathbf{w}"],
+            bfy: ["\\mathbf{y}"],
+            bfz: ["\\mathbf{z}"],
+            bfA: ["\\mathbf{A}"],
+            bfB: ["\\mathbf{B}"],
+            bfC: ["\\mathbf{C}"],
+            bfD: ["\\mathbf{D}"],
+            bfE: ["\\mathbf{E}"],
+            bfF: ["\\mathbf{F}"],
+            bfG: ["\\mathbf{G}"],
+            bfH: ["\\mathbf{H}"],
+            bfI: ["\\mathbf{I}"],
+            bfJ: ["\\mathbf{J}"],
+            bfK: ["\\mathbf{K}"],
+            bfL: ["\\mathbf{L}"],
+            bfM: ["\\mathbf{M}"],
+            bfN: ["\\mathbf{N}"],
+            bfO: ["\\mathbf{O}"],
+            bfP: ["\\mathbf{P}"],
+            bfQ: ["\\mathbf{Q}"],
+            bfR: ["\\mathbf{R}"],
+            bfS: ["\\mathbf{S}"],
+            bfT: ["\\mathbf{T}"],
+            bfU: ["\\mathbf{U}"],
+            bfV: ["\\mathbf{V}"],
+            bfX: ["\\mathbf{X}"],
+            bfW: ["\\mathbf{W}"],
+            bfY: ["\\mathbf{Y}"],
+            bfZ: ["\\mathbf{Z}"],
+            bfad: ["\\mathbf{ad}"],
+            zero: ["\\{0\\}"],
+            id: ["\\operatorname\{id\}"],
+            sen: ["\\operatorname\{sen\}"],
+            tg: ["\\operatorname\{tg\}"],
+            ad: ["\\operatorname\{ad\}"],
+            mdc: ["\\operatorname\{mdc\}"],
+            im: ["\\operatorname\{im\}"],
+            Quat: ["\\operatorname\{Quat\}"],
+            Aut: ["\\operatorname\{Aut\}"],
+            Inn: ["\\operatorname\{Inn\}"],
+            orb: ["\\operatorname\{orb\}"],
+            stab: ["\\operatorname\{stab\}"],
+            Rep: ["\\operatorname\{Rep\}"],
+            Hom: ["\\operatorname\{Hom\}"],
+            End: ["\\operatorname\{End\}"],
+            Obj: ["\\operatorname\{Obj\}"],
+            tr: ["\\operatorname\{tr\}"],
+            diam: ["\\operatorname\{diam\}"],
+            diag: ["\\operatorname\{diag\}"],
+            Ind: ["\\operatorname\{Ind\}"],
+            Res: ["\\operatorname\{Res\}"],
+            Set: ["\\operatorname\{Set\}"],
+            coker: ["\\operatorname\{coker\}"],
+            supp: ["\\operatorname\{supp\}"],
+            Tor: ["\\operatorname\{Tor\}"],
+            vspan: ["\\operatorname\{vspan\}"],
+            char: ["\\operatorname\{char\}"],
+            Ann: ["\\operatorname\{Ann\}"],
+            Der: ["\\operatorname\{Der\}"],
+            ma: ["\\operatorname\{ma\}"],
+            mg: ["\\operatorname\{mg\}"],
+            Rad: ["\\operatorname\{Rad\}"],
+            pint: ["{ \\langle #1,#2 \\rangle }",2],
+            rfrac: ["{ {}^{#1}\\!/_{#2} }",2],
+            norma: ["{ \\Vert #1 \\Vert }",1],
+          },
+        },
+      });
+    </script>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js"></script>
+    <script src="http://www.w3schools.com/lib/w3data.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../itemParenteses.css" />
+    <link rel="stylesheet" type="text/css" href="../../../ambTeor.css" />
+    
+    <script>
+      function closeDetail(detailsElement) {
+        detailsElement.removeAttribute("open");
+        window.location = '#' + detailsElement.scrollIntoView({block: "nearest", behavior: "smooth"});
+      }
+    </script>
+    
+    <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+
+    <style>
+      body{
+        font-size: 16pt;
+        font-family: "Helvetica", sans-serif;
+        line-height: 1.5;
+        background-color: rgb(233,227,206);
+        counter-reset: contTeor contProp contLema contCoro contObs contDef contExerc contExemplo contSec 9;
+      }
+      
+      h1{
+        background-color: rgb(153,51,153);
+        color: rgb(255,250,250);
+      }
+      
+      h2{
+        color: rgb(153,51,153);
+      }
+      
+      h3{
+        color: rgb(153,51,153);
+      }
+      
+      details > summary {
+        font-style: italic;
+        color: blue;
+        cursor: pointer;
+        position: relative;
+        transition: 0.15s background linear;
+      }
+      
+      details > summary:hover {
+        background: #d4d1ec;
+      }
+
+      details > .caixa{
+        border: solid;
+      }
+      
+      .equationCenter {
+        width: 100%;
+        overflow-y: hidden;
+        overflow-x: auto;
+      }
+      
+      .buttonDetails {
+        border: none;
+        text-align: center;
+        cursor: pointer;
+        position: absolute;
+        right: 10px;
+      }
+      
+    </style>
+
+  </head>
+  
+  <body>
+
+    <div style="text-align:center"><h1>Introdução às Álgebras de Lie</h1></div>
+    
+    <!-- ############ -->
+    <h2>Aula 9 - Módulos sobre álgebra de Lie semissimples vistos como \(\fraksl_{2}\)-módulos</h2>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-formaKillingDual" class="obs">
+      Pela <a href="intrAlgebrasLie-aula08.html#obs-geradoresSAC">Observação 8.5</a>, \(H^{\ast} \cong H\), segundo a função \(\lambda \mapsto h_{\lambda}'\), onde \(\pint{h_{\lambda}'}{\cdot} = \lambda\). Assim, podemos definir a função (vamos usar o mesmo símbolo usado para a forma de Killing)
+    </p>
+    <p class="equationCenter">
+      \[
+        \begin{array}{rcl}
+          \pint{\cdot}{\cdot}: \; H^{\ast} \times H^{\ast} & \to & \bbK \\
+          (\lambda, \mu) & \mapsto & \pint{h_{\lambda}'}{h_{\mu}'}
+        \end{array}
+      \]
+    </p>
+    <p>
+      Tal função é bilinear e, por definição, \(\pint{h_{\lambda}'}{h_{\mu}'} = \lambda(h_{\mu}') = \mu(h_{\lambda}')\).
+    <span class="fim"></span></p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-sl2EmL" class="obs">
+      Vimos, na demonstração da <a href="intrAlgebrasLie-aula08.html#prop-gerSACColchSimet">Proposição 8.4</a>, que dado \(x \in L_{\alpha}\setminus\zero\), existe \(y \in L_{-\alpha}\) tal que \(\pint{x}{y} \neq 0\). Assim, podemos tomar \(e \in L_{\alpha}\) e \(f \in L_{-\alpha}\) não nulos tais que \(\pint{e}{f} = \frac{2}{\pint{\alpha}{\alpha}}\). Note que, pela <a href="#obs-formaKillingDual">Observação 9.1</a> \(\pint{\alpha}{\alpha} = \pint{h_{\alpha}'}{h_{\alpha}'}\) e, pela <a href="intrAlgebrasLie-aula08.html#prop-killingGeradorSAC">Proposição 8.5</a> \(\pint{h_{\alpha}'}{h_{\alpha}'} \neq 0\).
+    <span class="fim"></span></p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-sl2EmL2" class="obs">
+      Considerando o <a href="#exerc-aula9">Exercício 9.1 (1)</a>, temos que a subálgebra \(\bbK\{e,f,h\} \subseteq L\) é isomorfa a \(\fraksl_{2}\). Assim, todo \(L\)-módulo, pode visto como \(\fraksl_{2}\)-módulo, considerando a restrição da ação de \(L\) a \(\fraksl_{2} \cong \bbK\{e,f,h\} \subseteq L\).
+    <span class="fim"></span></p>
+    
+    <!-- LEMA -->
+    <p id="lema-sl2ModAcaoVetorPesoMax" class="lema">
+      Sejam \(V\) um \(\fraksl_{2}\)-módulo e \(v \in V\setminus\zero\) tal que \(e \cdot v = 0\) e \(h \cdot v = \lambda v\), para algum \(\lambda \in \bbK\). Então
+      <ol class="alfa">
+        <li>\(h \cdot f^{n} \cdot v = (\lambda - 2n)f^{n} \cdot v\), para todo \(n \ge 0\),</li>
+        <li>\(e \cdot f^{n} \cdot v = n(\lambda - n + 1)f^{n} \cdot v\), para todo \(n \ge 1\),</li>
+        <li>se \(\dim(V) < \infty\), então \(\lambda \in \bbZ_{\ge 0}\), \(\{v, f \cdot v, \cdots, f^{\lambda} \cdot v\}\) é linearmente independente e \(f^{\lambda + 1} \cdot v = 0\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          (a) 
+        </p>
+        <p>
+          (b) 
+        </p>
+        <p>
+          (c) 
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- TEOREMA -->
+    <p id="teor-cadeiaConexa" class="teor">
+      Considere a decomposição de Cartan de \(L\), \(L = H \oplus \displaystyle\bigoplus_{\alpha \in \Phi}L_{\alpha}\). Então
+      <ol class="alfa">
+        <li>se \(\alpha, \beta \in \Phi\), então
+          <div style="equationCenter">
+            \[
+              \{\beta + n\alpha \mid n \in \bbZ\} \cap (\Phi \cup \zero) = \{\beta - p\alpha, \cdots, \beta + q\alpha\},
+            \]
+          </div>
+          onde \(p,q \in \bbZ_{\ge 0}\) são tais que \(p-q = \frac{2\pint{\alpha}{\beta}}{\pint{\alpha}{\alpha}}\),
+        </li>
+        <li>se \(\alpha, \beta, \alpha + \beta \in \Phi\), então \([L_{\alpha}, L_{\beta}] = L_{\alpha + \beta}\),</li>
+        <li>se \(\alpha \in \Phi\), então \(z\alpha \in \Phi\) se, e somente se, \(z = \pm 1\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          (a) 
+        </p>
+        <p>
+          (b) 
+        </p>
+        <p>
+          (c) 
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- EXERCÍCIO -->
+    <p id="exerc-aula9" class="exerc">
+      <ol class="numerico">
+        <li>Sejam \(e \in L(\alpha)^{H}\), \(f \in L(-\alpha)^{H}\) e \(h \in H\), conforme <a href="#obs-sl2EmL">Observação 9.2</a>. Cheque que
+        <div style="equationCenter">
+          \[
+            \begin{array}{ccc}
+              [h,e] = 2e, \; & [h,f] = -2f\; & \text{e } \quad [e,f] = h.
+            \end{array}
+          \]
+        </div>
+        Em particular, \(\bbK\{e,f,h\}\) é subálgebra de Lie isomorfa a \(\fraksl_{2} = \{x \in \frakgl_{2} \mid \tr(x) = 0\}\) (dica: considere a função 
+        \(
+          e \mapsto
+          \begin{pmatrix}
+            0 & 1 \\
+            0 & 0
+          \end{pmatrix}
+        \),
+        \(
+          f \mapsto
+          \begin{pmatrix}
+            0 & 0 \\
+            1 & 0
+          \end{pmatrix}
+        \) e
+        \(
+          h \mapsto
+          \begin{pmatrix}
+            1 & 0 \\
+            0 & -1
+          \end{pmatrix}
+        \)
+        ).
+        Denote \(\bbK\{e, f, h\}\) por \(\fraksl_{\alpha}\).
+        </li>
+        <li>Sejam \(V\) um \(\fraksl_{2}\)-módulo e \(v \in V\setminus\zero\) tal que \(f \cdot v = 0\) e \(h \cdot v = \lambda v\), para algum \(\lambda \in \bbK\). Então
+          <ol class="alfa">
+            <li>\(h \cdot e^{n} \cdot v = (\lambda + 2n)e^{n} \cdot v\), para todo \(n \ge 0\),</li>
+            <li>\(f \cdot e^{n} \cdot v = -n(\lambda + n - 1)e^{n} \cdot v\), para todo \(n \ge 1\),</li>
+            <li>se \(\dim(V) < \infty\), então \(-\lambda \in \bbZ_{\ge 0}\), \(\{v, e \cdot v, \cdots, e^{-\lambda} \cdot v\}\) é linearmente independente e \(e^{-\lambda + 1} \cdot v = 0\).</li>
+          </ol>
+          Dica: considere a função \(\varphi: \fraksl_{2} \to \fraksl_{2}\), \(e \mapsto f\), \(f \mapsto e\), \(h \mapsto -h\) e considere também o \(\fraksl_{2}\)-módulo \(V^{\varphi}\) com a ação \(x \cdot v = \varphi(x) \cdot v\).
+        <span class="fim"></span></li>
+      </ol>
+    </p>
+    
+  </body>
+  
+</html>
+
