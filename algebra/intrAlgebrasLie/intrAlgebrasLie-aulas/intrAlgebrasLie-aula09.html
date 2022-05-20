@@ -500,10 +500,10 @@
           é um intervalo conexo (isto é, sem pulos). Além disso, conforme feito ao longo da demonstração \(p,q \in \bbZ_{\ge 0}\) são tais que \(p-q = \frac{2\pint{\alpha}{\beta}}{\pint{\alpha}{\alpha}}\).
         </p>
         <p>
-          (b) 
+          (b) Considere o submódulo \(M = L_{\beta -p\alpha} \oplus \cdots \oplus L_{\beta +q\alpha} \subseteq L\) e pense nele com as ações de \(e, f\) e \(h\) dadas conforme o diagrama \eqref{eq-aula09-modM2}. Tome \(v' \in L_{\beta -p\alpha}\). Uma vez que \(\alpha + \beta \in \Phi\), então existe algum \(i\) tal que \(e^{i}v' \in L_{\alpha + \beta}\). Como \(\dim(L_{\alpha + \beta}) = 1\), então \(L_{\alpha + \beta} = \bbK\{e^{i}v'\}\). Por construção \(L_{\alpha} = \bbK\{e\}\). Além disso, como estamos considerando a \(\beta\) cadeia passando por \(\alpha\) (veja a <a href="#obs-cadeiaConexa">Observação 9.4 (a)</a>), temos que \(e^{i-1}v' \in L_{\beta}\). Assim, temos que \(e^{i}v' = e(e^{i-1}v') = [\underbrace{e}_{\in L_{\alpha}}, \underbrace{e^{i-1}v'}_{\in L_{\beta}}]\). Portanto, \(L_{\alpha+\beta} \subseteq [L_{\alpha}, L_{\beta}]\). Como a outra inclusão já temos, concluímos que \(L_{\alpha+\beta} = [L_{\alpha}, L_{\beta}]\).
         </p>
         <p>
-          (c) 
+          (c) Tome \(\beta = z\alpha\), com \(z \neq 0\). Então, considerando a \(\alpha\) cadeia passando por \(\beta\), temos que \(p - q = \frac{2\pint{\alpha}{\beta}}{\pint{\beta}{\beta}} = \frac{2\pint{\alpha}{\beta}}{z\pint{\alpha}{\alpha}} = \frac{2}{z}\). Logo, \(\frac{2}{z} \in \bbZ\). Isso implica que \(z = \pm 1, \pm 2\). Como \(\dim(L_{\alpha}) = \dim(L_{-\alpha}) = 1\), temos que \(L_{2\alpha} = [L_{\alpha},L_{\alpha}] = \zero\) e \(L_{-2\alpha} = [L_{-\alpha},L_{-\alpha}] = \zero\). Assim, \(\pm 2\) não pode ser raiz. Portanto, \(z = \pm 1\).
         </p>
       </div>
       <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
@@ -517,17 +517,36 @@
         <li>Considere o submódulo \(M = L_{\beta -p\alpha} \oplus \cdots \oplus L_{\beta +q\alpha} \subseteq L\). Denote \(\beta +q\alpha\) por \(\lambda\) e tome \(v \in L_{\lambda}\). A ações de \(e, f\) e \(h\) podem ser descritos conforme visto no diagrama abaixo.
         <div class="equationCenter">
           \[
-            \xymatrix{
-              f^{\lambda}v \ar@{.>}@(lu,ru)[]^-{-\lambda} \ar@/^/@<1pt>[r]^-{a_{\lambda}}
-              & f^{\lambda-1}v \ar@{.>}@(lu,ru)[]^-{-\lambda+2} \ar@/^/@<1pt>[r]^-{a_{\lambda-1}} \ar@{=>}@/^/@<1pt>[l]^-{1}
-              & \cdots \ar@/^/@<1pt>[r]^-{a_3} \ar@{=>}@/^/@<1pt>[l]^-{1}
-              & f^{2}v \ar@{.>}@(lu,ru)[]^-{\lambda-4} \ar@/^/@<1pt>[r]^-{a_2} \ar@{=>}@/^/@<1pt>[l]^-{1}
-              & fv \ar@{.>}@(lu,ru)[]^-{\lambda-2} \ar@/^/@<1pt>[r]^-{a_1} \ar@{=>}@/^/@<1pt>[l]^-{1} 
-              & v \ar@{.>}@(lu,ru)[]^-{\lambda} \ar@{=>}@/^/@<1pt>[l]^-{1}
-            }
+            \begin{equation} \label{eq-aula09-modM1}
+              \xymatrix{
+                & f^{\lambda}v \ar@{.>}@(lu,ru)[]^-{-\lambda} \ar@/^/@<1pt>[r]^-{a_{\lambda}} \ar@{=>}@/^/@<1pt>[l]^-{0}
+                & f^{\lambda-1}v \ar@{.>}@(lu,ru)[]^-{-\lambda+2} \ar@/^/@<1pt>[r]^-{a_{\lambda-1}} \ar@{=>}@/^/@<1pt>[l]^-{1}
+                & \cdots \ar@/^/@<1pt>[r]^-{a_3} \ar@{=>}@/^/@<1pt>[l]^-{1}
+                & f^{2}v \ar@{.>}@(lu,ru)[]^-{\lambda-4} \ar@/^/@<1pt>[r]^-{a_2} \ar@{=>}@/^/@<1pt>[l]^-{1}
+                & fv \ar@{.>}@(lu,ru)[]^-{\lambda-2} \ar@/^/@<1pt>[r]^-{a_1} \ar@{=>}@/^/@<1pt>[l]^-{1} 
+                & v \ar@{.>}@(lu,ru)[]^-{\lambda} \ar@/^/@<1pt>[r]^-{0} \ar@{=>}@/^/@<1pt>[l]^-{1}
+                &
+              }
+            \end{equation}
           \]
         </div>
-        onde \(\xymatrix{ \ar@{=>}[r] & }\) indica a ação de \(f\), \(\xymatrix{ \ar@{->}[r] & }\) indica a ação de \(e\), \(\xymatrix{ \ar@{.>}[r] & }\) indica a ação de \(h\) e \(a_{n} = n(\lambda - n + 1)\), para todo \(n \in \{1, \dots, n - 1\}\).<span class="fim"></span></li>
+        onde \(\xymatrix{ \ar@{=>}[r] & }\) indica a ação de \(f\), \(\xymatrix{ \ar@{->}[r] & }\) indica a ação de \(e\), \(\xymatrix{ \ar@{.>}[r] & }\) indica a ação de \(h\) e \(a_{n} = n(\lambda - n + 1)\), para todo \(n \in \{1, \dots, n - 1\}\). Analogamente, escrevendo \(\beta -p\alpha\) por \(-\lambda\) e tomando \(v' \in L_{-\lambda}\), temos, usando o <a href="#exerc-aula9">Exercício 9.1 (2)</a>, que as ações de \(e, f\) e \(h\) podem ser descritos conforme visto no diagrama abaixo.
+        <div class="equationCenter">
+          \[
+            \begin{equation} \label{eq-aula09-modM2}
+              \xymatrix{
+                & v' \ar@{.>}@(lu,ru)[]^-{-\lambda} \ar@/^/@<1pt>[r]^-{1} \ar@{=>}@/^/@<1pt>[l]^-{0}
+                & ev' \ar@{.>}@(lu,ru)[]^-{-\lambda+2} \ar@/^/@<1pt>[r]^-{1} \ar@{=>}@/^/@<1pt>[l]^-{b_{1}}
+                & e^{2}v' \ar@{.>}@(lu,ru)[]^-{-\lambda+4} \ar@/^/@<1pt>[r]^-{1} \ar@{=>}@/^/@<1pt>[l]^-{b_{2}}
+                & \cdots \ar@/^/@<1pt>[r]^-{1} \ar@{=>}@/^/@<1pt>[l]^-{b_{3}}
+                & e^{\lambda -1}v' \ar@{.>}@(lu,ru)[]^-{\lambda-2} \ar@/^/@<1pt>[r]^-{1} \ar@{=>}@/^/@<1pt>[l]^-{b_{\lambda-1}} 
+                & e^{\lambda}v' \ar@{.>}@(lu,ru)[]^-{\lambda} \ar@/^/@<1pt>[r]^-{0} \ar@{=>}@/^/@<1pt>[l]^-{b_{\lambda}}
+                & 
+              }
+            \end{equation}
+          \]
+        </div>
+        <span class="fim"></span></li>
       </ol>
     </p>
     
@@ -570,7 +589,7 @@
         <li>Sejam \(V\) um \(\fraksl_{2}\)-módulo e \(v \in V\setminus\zero\) tal que \(f \cdot v = 0\) e \(h \cdot v = \lambda v\), para algum \(\lambda \in \bbK\). Então
           <ol class="alfa">
             <li>\(h \cdot e^{n} \cdot v = (\lambda + 2n)e^{n} \cdot v\), para todo \(n \ge 0\),</li>
-            <li>\(f \cdot e^{n} \cdot v = -n(\lambda + n - 1)e^{n} \cdot v\), para todo \(n \ge 1\),</li>
+            <li>\(f \cdot e^{n} \cdot v = -n(\lambda + n - 1)e^{n-1} \cdot v\), para todo \(n \ge 1\),</li>
             <li>se \(\dim(V) < \infty\), então \(-\lambda \in \bbZ_{\ge 0}\), \(\{v, e \cdot v, \cdots, e^{-\lambda} \cdot v\}\) é linearmente independente e \(e^{-\lambda + 1} \cdot v = 0\).</li>
           </ol>
           Dica: considere a função \(\varphi: \fraksl_{2} \to \fraksl_{2}\), \(e \mapsto f\), \(f \mapsto e\), \(h \mapsto -h\) e considere também o \(\fraksl_{2}\)-módulo \(V^{\varphi}\) com a ação \(x \cdot v = \varphi(x) \cdot v\).
