@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Introdução às Álgebras de Lie </title>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Register.StartupHook("TeX Jax Ready",function (){
+         MathJax.Hub.Insert(MathJax.InputJax.TeX.Definitions.macros,{
+          cancel: ["Extension","cancel"],
+          bcancel: ["Extension","cancel"],
+          xcancel: ["Extension","cancel"],
+          cancelto: ["Extension","cancel"]
+        });
+      });
+      MathJax.Hub.Config({
+        extensions: ["https://lomath.in/doc/xyjax/xypic.js","tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+          processEscapes: true
+        },
+        "HTML-CSS": { fonts: ["TeX"] },
+        TeX: {
+          equationNumbers: { autoNumber: "AMS" },
+          Macros: {
+            fraka: ["\\mathfrak{a}"],
+            frakb: ["\\mathfrak{b}"],
+            frakc: ["\\mathfrak{c}"],
+            frakd: ["\\mathfrak{d}"],
+            frake: ["\\mathfrak{e}"],
+            frakf: ["\\mathfrak{f}"],
+            frakg: ["\\mathfrak{g}"],
+            frakh: ["\\mathfrak{h}"],
+            fraki: ["\\mathfrak{i}"],
+            frakj: ["\\mathfrak{j}"],
+            frakk: ["\\mathfrak{k}"],
+            frakl: ["\\mathfrak{l}"],
+            frakm: ["\\mathfrak{m}"],
+            frakn: ["\\mathfrak{n}"],
+            frako: ["\\mathfrak{o}"],
+            frakp: ["\\mathfrak{p}"],
+            frakq: ["\\mathfrak{q}"],
+            frakr: ["\\mathfrak{r}"],
+            fraks: ["\\mathfrak{s}"],
+            frakt: ["\\mathfrak{t}"],
+            fraku: ["\\mathfrak{u}"],
+            frakv: ["\\mathfrak{v}"],
+            frakx: ["\\mathfrak{x}"],
+            frakw: ["\\mathfrak{w}"],
+            fraky: ["\\mathfrak{y}"],
+            frakz: ["\\mathfrak{z}"],
+            frakA: ["\\mathfrak{A}"],
+            frakB: ["\\mathfrak{B}"],
+            frakC: ["\\mathfrak{C}"],
+            frakD: ["\\mathfrak{D}"],
+            frakE: ["\\mathfrak{E}"],
+            frakF: ["\\mathfrak{F}"],
+            frakG: ["\\mathfrak{G}"],
+            frakH: ["\\mathfrak{H}"],
+            frakI: ["\\mathfrak{I}"],
+            frakJ: ["\\mathfrak{J}"],
+            frakK: ["\\mathfrak{K}"],
+            frakL: ["\\mathfrak{L}"],
+            frakM: ["\\mathfrak{M}"],
+            frakN: ["\\mathfrak{N}"],
+            frakO: ["\\mathfrak{O}"],
+            frakP: ["\\mathfrak{P}"],
+            frakQ: ["\\mathfrak{Q}"],
+            frakR: ["\\mathfrak{R}"],
+            frakS: ["\\mathfrak{S}"],
+            frakT: ["\\mathfrak{T}"],
+            frakU: ["\\mathfrak{U}"],
+            frakV: ["\\mathfrak{V}"],
+            frakX: ["\\mathfrak{X}"],
+            frakW: ["\\mathfrak{W}"],
+            frakY: ["\\mathfrak{Y}"],
+            frakZ: ["\\mathfrak{Z}"],
+            frakgl: ["\\mathfrak{gl}"],
+            fraksl: ["\\mathfrak{sl}"],
+            frakso: ["\\mathfrak{so}"],
+            fraksp: ["\\mathfrak{sp}"],
+            bba: ["\\mathbb{a}"],
+            bbb: ["\\mathbb{b}"],
+            bbc: ["\\mathbb{c}"],
+            bbd: ["\\mathbb{d}"],
+            bbe: ["\\mathbb{e}"],
+            bbf: ["\\mathbb{f}"],
+            bbg: ["\\mathbb{g}"],
+            bbh: ["\\mathbb{h}"],
+            bbi: ["\\mathbb{i}"],
+            bbj: ["\\mathbb{j}"],
+            bbk: ["\\mathbb{k}"],
+            bbl: ["\\mathbb{l}"],
+            bbm: ["\\mathbb{m}"],
+            bbn: ["\\mathbb{n}"],
+            bbo: ["\\mathbb{o}"],
+            bbp: ["\\mathbb{p}"],
+            bbq: ["\\mathbb{q}"],
+            bbr: ["\\mathbb{r}"],
+            bbs: ["\\mathbb{s}"],
+            bbt: ["\\mathbb{t}"],
+            bbu: ["\\mathbb{u}"],
+            bbv: ["\\mathbb{v}"],
+            bbx: ["\\mathbb{x}"],
+            bbw: ["\\mathbb{w}"],
+            bby: ["\\mathbb{y}"],
+            bbz: ["\\mathbb{z}"],
+            bbA: ["\\mathbb{A}"],
+            bbB: ["\\mathbb{B}"],
+            bbC: ["\\mathbb{C}"],
+            bbD: ["\\mathbb{D}"],
+            bbE: ["\\mathbb{E}"],
+            bbF: ["\\mathbb{F}"],
+            bbG: ["\\mathbb{G}"],
+            bbH: ["\\mathbb{H}"],
+            bbI: ["\\mathbb{I}"],
+            bbJ: ["\\mathbb{J}"],
+            bbK: ["\\mathbb{K}"],
+            bbL: ["\\mathbb{L}"],
+            bbM: ["\\mathbb{M}"],
+            bbN: ["\\mathbb{N}"],
+            bbO: ["\\mathbb{O}"],
+            bbP: ["\\mathbb{P}"],
+            bbQ: ["\\mathbb{Q}"],
+            bbR: ["\\mathbb{R}"],
+            bbS: ["\\mathbb{S}"],
+            bbT: ["\\mathbb{T}"],
+            bbU: ["\\mathbb{U}"],
+            bbV: ["\\mathbb{V}"],
+            bbX: ["\\mathbb{X}"],
+            bbW: ["\\mathbb{W}"],
+            bbY: ["\\mathbb{Y}"],
+            bbZ: ["\\mathbb{Z}"],
+            cala: ["\\mathcal{a}"],
+            calb: ["\\mathcal{b}"],
+            calc: ["\\mathcal{c}"],
+            cald: ["\\mathcal{d}"],
+            cale: ["\\mathcal{e}"],
+            calf: ["\\mathcal{f}"],
+            calg: ["\\mathcal{g}"],
+            calh: ["\\mathcal{h}"],
+            cali: ["\\mathcal{i}"],
+            calj: ["\\mathcal{j}"],
+            calk: ["\\mathcal{k}"],
+            call: ["\\mathcal{l}"],
+            calm: ["\\mathcal{m}"],
+            caln: ["\\mathcal{n}"],
+            calo: ["\\mathcal{o}"],
+            calp: ["\\mathcal{p}"],
+            calq: ["\\mathcal{q}"],
+            calr: ["\\mathcal{r}"],
+            cals: ["\\mathcal{s}"],
+            calt: ["\\mathcal{t}"],
+            calu: ["\\mathcal{u}"],
+            calv: ["\\mathcal{v}"],
+            calx: ["\\mathcal{x}"],
+            calw: ["\\mathcal{w}"],
+            caly: ["\\mathcal{y}"],
+            calz: ["\\mathcal{z}"],
+            calA: ["\\mathcal{A}"],
+            calB: ["\\mathcal{B}"],
+            calC: ["\\mathcal{C}"],
+            calD: ["\\mathcal{D}"],
+            calE: ["\\mathcal{E}"],
+            calF: ["\\mathcal{F}"],
+            calG: ["\\mathcal{G}"],
+            calH: ["\\mathcal{H}"],
+            calI: ["\\mathcal{I}"],
+            calJ: ["\\mathcal{J}"],
+            calK: ["\\mathcal{K}"],
+            calL: ["\\mathcal{L}"],
+            calM: ["\\mathcal{M}"],
+            calN: ["\\mathcal{N}"],
+            calO: ["\\mathcal{O}"],
+            calP: ["\\mathcal{P}"],
+            calQ: ["\\mathcal{Q}"],
+            calR: ["\\mathcal{R}"],
+            calS: ["\\mathcal{S}"],
+            calT: ["\\mathcal{T}"],
+            calU: ["\\mathcal{U}"],
+            calV: ["\\mathcal{V}"],
+            calX: ["\\mathcal{X}"],
+            calW: ["\\mathcal{W}"],
+            calY: ["\\mathcal{Y}"],
+            calZ: ["\\mathcal{Z}"],
+            bfa: ["\\mathbf{a}"],
+            bfb: ["\\mathbf{b}"],
+            bfc: ["\\mathbf{c}"],
+            bfd: ["\\mathbf{d}"],
+            bfe: ["\\mathbf{e}"],
+            bff: ["\\mathbf{f}"],
+            bfg: ["\\mathbf{g}"],
+            bfh: ["\\mathbf{h}"],
+            bfi: ["\\mathbf{i}"],
+            bfj: ["\\mathbf{j}"],
+            bfk: ["\\mathbf{k}"],
+            bfl: ["\\mathbf{l}"],
+            bfm: ["\\mathbf{m}"],
+            bfn: ["\\mathbf{n}"],
+            bfo: ["\\mathbf{o}"],
+            bfp: ["\\mathbf{p}"],
+            bfq: ["\\mathbf{q}"],
+            bfr: ["\\mathbf{r}"],
+            bfs: ["\\mathbf{s}"],
+            bft: ["\\mathbf{t}"],
+            bfu: ["\\mathbf{u}"],
+            bfv: ["\\mathbf{v}"],
+            bfx: ["\\mathbf{x}"],
+            bfw: ["\\mathbf{w}"],
+            bfy: ["\\mathbf{y}"],
+            bfz: ["\\mathbf{z}"],
+            bfA: ["\\mathbf{A}"],
+            bfB: ["\\mathbf{B}"],
+            bfC: ["\\mathbf{C}"],
+            bfD: ["\\mathbf{D}"],
+            bfE: ["\\mathbf{E}"],
+            bfF: ["\\mathbf{F}"],
+            bfG: ["\\mathbf{G}"],
+            bfH: ["\\mathbf{H}"],
+            bfI: ["\\mathbf{I}"],
+            bfJ: ["\\mathbf{J}"],
+            bfK: ["\\mathbf{K}"],
+            bfL: ["\\mathbf{L}"],
+            bfM: ["\\mathbf{M}"],
+            bfN: ["\\mathbf{N}"],
+            bfO: ["\\mathbf{O}"],
+            bfP: ["\\mathbf{P}"],
+            bfQ: ["\\mathbf{Q}"],
+            bfR: ["\\mathbf{R}"],
+            bfS: ["\\mathbf{S}"],
+            bfT: ["\\mathbf{T}"],
+            bfU: ["\\mathbf{U}"],
+            bfV: ["\\mathbf{V}"],
+            bfX: ["\\mathbf{X}"],
+            bfW: ["\\mathbf{W}"],
+            bfY: ["\\mathbf{Y}"],
+            bfZ: ["\\mathbf{Z}"],
+            bfad: ["\\mathbf{ad}"],
+            zero: ["\\{0\\}"],
+            id: ["\\operatorname\{id\}"],
+            sen: ["\\operatorname\{sen\}"],
+            tg: ["\\operatorname\{tg\}"],
+            ad: ["\\operatorname\{ad\}"],
+            mdc: ["\\operatorname\{mdc\}"],
+            im: ["\\operatorname\{im\}"],
+            Quat: ["\\operatorname\{Quat\}"],
+            Aut: ["\\operatorname\{Aut\}"],
+            Inn: ["\\operatorname\{Inn\}"],
+            orb: ["\\operatorname\{orb\}"],
+            stab: ["\\operatorname\{stab\}"],
+            Rep: ["\\operatorname\{Rep\}"],
+            Hom: ["\\operatorname\{Hom\}"],
+            End: ["\\operatorname\{End\}"],
+            Obj: ["\\operatorname\{Obj\}"],
+            tr: ["\\operatorname\{tr\}"],
+            diam: ["\\operatorname\{diam\}"],
+            diag: ["\\operatorname\{diag\}"],
+            Ind: ["\\operatorname\{Ind\}"],
+            Res: ["\\operatorname\{Res\}"],
+            Set: ["\\operatorname\{Set\}"],
+            coker: ["\\operatorname\{coker\}"],
+            supp: ["\\operatorname\{supp\}"],
+            Tor: ["\\operatorname\{Tor\}"],
+            vspan: ["\\operatorname\{vspan\}"],
+            char: ["\\operatorname\{char\}"],
+            Ann: ["\\operatorname\{Ann\}"],
+            Der: ["\\operatorname\{Der\}"],
+            ma: ["\\operatorname\{ma\}"],
+            mg: ["\\operatorname\{mg\}"],
+            Rad: ["\\operatorname\{Rad\}"],
+            pint: ["{ \\langle #1,#2 \\rangle }",2],
+            rfrac: ["{ {}^{#1}\\!/_{#2} }",2],
+            norma: ["{ \\Vert #1 \\Vert }",1],
+          },
+        },
+      });
+    </script>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js"></script>
+    <script src="http://www.w3schools.com/lib/w3data.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../itemParenteses.css" />
+    <link rel="stylesheet" type="text/css" href="../../../ambTeor.css" />
+    
+    <script>
+      function closeDetail(detailsElement) {
+        detailsElement.removeAttribute("open");
+        window.location = '#' + detailsElement.scrollIntoView({block: "nearest", behavior: "smooth"});
+      }
+    </script>
+    
+    <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+
+    <style>
+      body{
+        font-size: 16pt;
+        font-family: "Helvetica", sans-serif;
+        line-height: 1.5;
+        background-color: rgb(233,227,206);
+        counter-reset: contTeor contProp contLema contCoro contObs contDef contExerc contExemplo contSec 10;
+      }
+      
+      h1{
+        background-color: rgb(153,51,153);
+        color: rgb(255,250,250);
+      }
+      
+      h2{
+        color: rgb(153,51,153);
+      }
+      
+      h3{
+        color: rgb(153,51,153);
+      }
+      
+      details > summary {
+        font-style: italic;
+        color: blue;
+        cursor: pointer;
+        position: relative;
+        transition: 0.15s background linear;
+      }
+      
+      details > summary:hover {
+        background: #d4d1ec;
+      }
+
+      details > .caixa{
+        border: solid;
+      }
+      
+      .equationCenter {
+        width: 100%;
+        overflow-y: hidden;
+        overflow-x: auto;
+      }
+      
+      .buttonDetails {
+        border: none;
+        text-align: center;
+        cursor: pointer;
+        position: absolute;
+        right: 10px;
+      }
+      
+    </style>
+
+  </head>
+  
+  <body>
+
+    <div style="text-align:center"><h1>Introdução às Álgebras de Lie</h1></div>
+    
+    <!-- ############ -->
+    <h2>Aula 10 - Condições necessárias e suficientes para semissimplicidade</h2>
+    
+    <!-- TEOREMA -->
+    <p id="teor-formaKillPosDef" class="teor">
+      <ol class="alfa">
+        <li>\(\pint{\alpha}{\beta} \in \bbQ\), para todo \(\alpha, \beta \in \Phi\).</li>
+        <li>\(\pint{\cdot}{\cdot}|_{H_{\bbQ}^{\ast} \times H_{\bbQ}^{\ast}}\) é positiva definida, onde \(H_{\bbQ}^{\ast} = \bbQ\{\Phi\} \subseteq H^{\ast}\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+           (a) Para todo \(h_{1}, h_{2} \in H\), temos que \(\pint{h_{1}}{h_{2}} = \sum_{\alpha \in \Phi}\alpha(h_{1})\alpha(h_{2})\). Assim,
+        </p>
+        <p class="equationCenter">
+          \[
+            \pint{\alpha}{\beta} = \pint{h_{\alpha}'}{h_{\beta}'} = \sum_{\gamma \in \Phi}\gamma(h_{\alpha}')\gamma(h_{\beta}') = \sum_{\gamma \in \Phi}\pint{\gamma}{\alpha}\pint{\gamma}{\beta},
+          \]
+        </p>
+        <p>
+           para todo \(\alpha, \beta \in H^{\ast}\). Isso implica que \(\pint{\lambda}{\lambda} = \sum_{\gamma \in \Phi} \pint{\lambda}{\gamma}^{2}\), para todo \(\lambda \in H^{\ast}\). Assim,
+        </p>
+        <p class="equationCenter">
+          \[
+            \sum_{\gamma \in \Phi}\left(\frac{2\pint{\gamma}{\alpha}}{\pint{\alpha}{\alpha}}\right)^{2} = \frac{4}{\pint{\alpha}{\alpha}^{2}}\sum_{\gamma \in \Phi}\pint{\gamma}{\alpha}^{2} = \frac{4}{\pint{\alpha}{\alpha}^{2}}\pint{\alpha}{\alpha} = \frac{4}{\pint{\alpha}{\alpha}}.
+          \]
+        </p>
+        <p>
+           Se \(\alpha \in \Phi\), então \(\frac{2\pint{\gamma}{\alpha}}{\pint{\alpha}{\alpha}} \in \bbZ\). Logo, \(\frac{4}{\pint{\alpha}{\alpha}} \in \bbZ\). Isso implica que \(\pint{\alpha}{\alpha} \in \bbQ\), para todo \(\alpha \in \Phi\). Uma vez que \(\frac{2\pint{\gamma}{\alpha}}{\pint{\alpha}{\alpha}} \in \bbZ\), então \(\pint{\gamma}{\alpha} \in \bbQ\), para todo \(\alpha, \gamma \in \Phi\).
+        </p>
+        <p>
+           (b) Pelo item anterior, \(\pint{\lambda}{\mu} \in \bbQ\), para todo \(\lambda, \mu \in H_{\bbQ}^{\ast}\). Como \(H^{\ast} = \bbK\{\Phi\}\), então \(\pint{\cdot}{\cdot}|_{H_{\bbQ}^{\ast} \times H_{\bbQ}^{\ast}}\) é não degenerada, pois caso contrário existiria um elemento que se anularia com todas as raízes, logo seria zero em todo \(H^{\ast}\), o que é absurdo, já que \(\pint{\cdot}{\cdot}|_{H^{\ast} \times H^{\ast}}\) é não degenerada. Como vimos no item anterior, \(\pint{\lambda}{\lambda} = \sum_{\gamma \in \Phi} \pint{\lambda}{\gamma}^{2}\), onde \(\pint{\lambda}{\gamma} \in \bbQ\). Por ser não degenerado \(\pint{\lambda}{\gamma} \neq 0\), para algum \(\gamma \in \Phi\), pois do contrário, \(\lambda\) se anularia em todas as raízes. Assim, \(\pint{\lambda}{\lambda} > 0\).
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-conjIndecomp" class="obs">
+      Suponha que \(L = L_{1} \oplus L_{2}\), onde \(L_{i}\) é semissimples. Então \(L_{i} = H_{i} \oplus \displaystyle\bigoplus_{\alpha \in \Phi_{i}} (L_{i})_{\alpha}\) e \(L = H \oplus \displaystyle\bigoplus_{\alpha \in \Phi} L_{\alpha}\), onde \(H = H_{1} \oplus H_{2}\) e \(\Phi = \Phi_{1} \cup \Phi_{2}\). Por definição de soma direita de álgebras de Lie, \([L_{1},L_{2}] = \zero\). Logo, \([L_{\alpha},L_{\beta}] = \zero\), se \(\alpha \in \Phi_{1}\) e \(\beta \in \Phi_{2}\). Assim, \(\alpha + \beta \not\in \Phi \cup \zero\). Portanto, nesse caso, temos que \(\Phi = \Phi_{1} \cup \Phi_{2}\) e se \(\alpha \in \Phi_{1}\) e \(\beta \in \Phi_{2}\), então \(\alpha + \beta \not\in \Phi \cup \zero\).
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-conjIndecomp" class="def">
+      Seja \(V\) um espaço vetorial. Dizemos que um conjunto \(\Phi \subseteq V\) é <strong>decomponível</strong>, se 
+      <ol class="alfa">
+        <li>\(\Phi = \Phi_{1} \cup \Phi_{2}\) e </li>
+        <li>se \(\alpha \in \Phi_{1}\) e \(\beta \in \Phi_{2}\), então \(\alpha + \beta \not\in \Phi \cup \zero\).</li>
+      </ol>
+      O conjunto \(\Phi\) é <strong>indecomponível</strong>, se não for decomponível.
+    <span class="fim"></span></p>
+    
+    <!-- LEMA -->
+    <p id="lema-conjIndecomp" class="lema">
+      Seja \(H\) uma álgebra de Lie abeliana e \(V\) um \(H\)-módulo tal que \(V = \displaystyle\bigoplus_{\lambda \in H^{\ast}}V_{\lambda}\), onde \(V_{\lambda} = \{v \in V \mid \forall \; h \in H \quad hv = \lambda(h)v\}\). Se \(U \subseteq V\) é submódulo, então \(U = \displaystyle\bigoplus_{\lambda \in H^{\ast}}U_{\lambda}\), onde \(U_{\lambda} := U \cap V_{\lambda}\).
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+           Como \(U_{\lambda} \subseteq U\), temos que \(\displaystyle\bigoplus_{\lambda \in H^{\ast}}U_{\lambda} \subseteq U\). Tome \(u \in U\). Então, \(u = v_{1} + v_{2} + \cdots + v_{n}\), onde \(v_{i} \in V_{\lambda_{i}}\). Vamos mostrar a inclusão recíproca, por indução em \(n\). Se \(n = 1\), então \(u = v_{1}\) e \(v_{1} \in U_{\lambda_{1}}\). Agora, para todo \(h \in H\), temos que \(hu = \lambda_{1}(h)v_{1} + \cdots + \lambda_{n}(h)v_{n}\). Tome \(h\) tal que \(\lambda_{i}(h) \neq \lambda_{j}(h)\), para todo \(i \neq j\). Daí, \(U \ni hu - \lambda_{1}(h)u = (\lambda_{2}(h) - \lambda_{1}(h))v_{2} + \cdots + (\lambda_{n}(h) - \lambda_{1}(h))v_{n}\). Por indução, \(v_{2}, \dots, v_{n} \in U\). Logo, \(v_{1} = u - v_{2} - \cdots - v_{n} \in U\).
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- TEOREMA -->
+    <p id="teor-CondNecesSuficSemissimp" class="teor">
+      Seja \(L\) uma álgebra de Lie que admite uma decomposição \(L = H \oplus \displaystyle\bigoplus_{\alpha \in \Phi \\ \Phi \subseteq H^{\ast}}L_{\alpha}\) (como espaço vetorial). Então \(L\) é semissimples se, e somente se, 
+      <ol class="alfa">
+        <li>\(H\) é subálgebra abeliana e, para todo \(\alpha \in \Phi\), \(L_{\alpha} = \{x \in L \mid \forall \; h \in H \quad [h,x] = \alpha(h)x\}\) tem dimensão \(1\),</li>
+        <li>\([L_{\alpha},L_{-\alpha}] = \bbK\{h_{\alpha}\}\), onde \(h_{\alpha} \in H\) tal que \(\alpha(h_{\alpha}) \neq 0\),</li>
+        <li>\(H^{\ast} = \bbK\{\Phi\}\).</li>
+      </ol>
+      Além disso, se \(\Phi\) é indecomponível, então \(L\) é simples.
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+           (a) 
+        </p>
+        <p>
+           (b) 
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- EXEMPLO -->
+    <p id="exemplo-slnSimples" class="exemplo">
+      Vamos usar o <a href="#teor-CondNecesSuficSemissimp">Teorema 10.2</a> para mostrar que \(\fraksl_{n} = \{x \in \frakgl_{n} \mid \tr(x) = 0\}\) é simples.
+    </p>
+    <p>Primeiramente, vamos mostrar que \(H = \{\diag(a_{1},\dots,a_{n}) \in \fraksl_{n}\}\) é subálgebra de Cartan de \(\fraksl_{n}\), onde 
+        \(
+          \diag(a_{1},\dots,a_{n}) = 
+          \begin{pmatrix}
+            a_{1} & 0 & \cdots & 0 \\
+            0 & a_{2} & \cdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & \cdots & a_{n} \\
+          \end{pmatrix}.
+        \)
+        Para isso, vamos mostrar um fato mais geral. Afirmação: se \(\frakg \subseteq \frakgl_{n}\) é subálgebra contendo uma matriz \(a = \diag(a_{1},\dots,a_{n})\), com \(a_{i} \neq a_{j}\), para todo \(i \neq j\), então \(H = \{\diag(a_{1},\dots,a_{n}) \in \frakg\}\) é subálgebra de Cartan. Vejamos. Note que \(H\) é abeliana. Logo, \(H\) é nilpotente. Seja \(b = \sum b_{ij}e_{ij} \in \frakg\) tal que \([b,H] \subseteq H\), onde \(e_{ij}\) é a matriz com entrada \(1\) na posição \(i,j\) e zero nas demais. Observe que \([a,b] \in H\) e que \([a,b] = \)\(\sum b_{ij}e_{ij}[a,e_{ij}] = \)\(\sum b_{ij}(a_{i} - a_{j})e_{ij}\). Como \(H = \bbK\{e_{ii} \mid i = 1, \dots, n\}\) e, por hipótese, \(a_{i} - a_{j} \neq 0\), temos que \(b_{ij} = 0\), para todo \(i \neq j\). Portanto, \(b \in H\), ou seja, \(N(H) \subseteq H\). Isso demonstra que \(H\) é subálgebra de Cartan. De posse dessa afirmação e observando que \(\diag(1,2,3,\dots,n-1,-1-2-\dots -n+1) \in \fraksl_{n}\), concluímos que \(H = \{\diag(a_{1},\dots,a_{n}) \in \fraksl_{n}\}\) é subálgebra de Cartan de \(\fraksl_{n}\). Agora, note que, como espaço vetorial, \(\fraksl_{n} = H \oplus \displaystyle\bigoplus_{i\neq j} \bbK\{e_{ij}\}\). Vamos mostrar que as três condições do <a href="#teor-CondNecesSuficSemissimp">Teorema 10.2</a> são satisfeitas.
+    </p>
+    <p>
+      <ol class="alfa">
+        <li>Defina \(\epsilon_{i}: H \to \bbK\), \(\diag(a_{1},\dots,a_{n}) \mapsto a_{i}\). Seja \(a = \diag(a_{1},\dots,a_{n})\). Então, \([a,e_{ij}] = (a_{i} - a_{j})e_{ij} = (\epsilon_{i} - \epsilon_{j})(a)e_{ij}\). Isso implica que \(e_{ij} \in (\fraksl_{n})_{\epsilon_{i} - \epsilon_{j}}\). Seja \(b = \sum b_{k\ell}e_{k\ell} \in (\fraksl_{n})_{\epsilon_{i} - \epsilon_{j}}\). Então, por um lado, \([a,b] = (\epsilon_{i} - \epsilon_{j})(a)b = \sum (a_{i} - a_{j})b_{k\ell}e_{k\ell}\) e, por outro, \([a,b] = \sum (a_{k} - a_{\ell})b_{k\ell}e_{k\ell}\). Logo, \(\sum ((a_{k} - a_{\ell}) - (a_{i} - a_{j}))b_{k\ell}e_{k\ell} = 0\). Escolhendo matrizes \(a \in H\) adequadas, concluímos que \(b_{k\ell} = 0\), se \(k \neq i\) e \(\ell \neq j\). Portanto, \(\bbK\{e_{ij}\} = (\fraksl_{n})_{\epsilon_{i} - \epsilon_{j}}\). Disso, segue que \(\fraksl_{n} = H \oplus \displaystyle\bigoplus_{i\neq j} (\fraksl_{n})_{\epsilon_{i} - \epsilon_{j}}\), onde \(H\) é abeliano e \(\dim((\fraksl_{n})_{\epsilon_{i} - \epsilon_{j}}) = 1\).</li>
+        <li>Note que \(e_{ij}\) gera \((\fraksl_{n})_{\epsilon_{i} - \epsilon_{j}}\). Assim, \([(\fraksl_{n})_{\epsilon_{i} - \epsilon_{j}}, (\fraksl_{n})_{\epsilon_{j} - \epsilon_{i}}] = \bbK\{[e_{ij}, e_{ji}]\} = \bbK\{e_{ii} - e_{jj}\}\). Fazendo \(\alpha = \epsilon_{i} - \epsilon_{j}\), defina \(h_{\alpha} = e_{ii} - e_{jj}\). Então \(\alpha(h_{\alpha}) = (\epsilon_{i} - \epsilon_{j})(e_{ii} - e_{jj}) = 2\).</li>
+        <li>Observe que \(\epsilon_{1} - \epsilon_{2}, \epsilon_{2} - \epsilon_{3}, \cdots, \epsilon_{n-1} - \epsilon_{n}\) é base de \(H^{\ast}\), pois é um conjunto linearmente independente e tem mesma dimensão que \(H\).</li>
+      </ol>
+      Portanto, \(\fraksl_{n}\) é semissimples. Vamos mostrar, agora, que \(\fraksl_{n}\) é simples. Considere as raízes \(\alpha = \epsilon_{i} - \epsilon_{j}\) e \(\beta = \epsilon_{k} - \epsilon_{\ell}\). Então a sequência de raízes \(\epsilon_{i} - \epsilon_{j}, \epsilon_{j} - \epsilon_{k}, \epsilon_{k} - \epsilon_{\ell}\) começa em \(\alpha\), termina em \(\beta\) e as somas consecutivas também são raízes. Pelo <a href="#exerc-aula10">Exercício 10.1 (2)</a>, temos que \(\Phi\) é indecomponível. Portanto, pelo <a href="#teor-CondNecesSuficSemissimp">Teorema 10.2</a>, \(\fraksl_{n}\) é simples.
+    <span class="fim"></span></p>
+    
+    <!-- EXERCÍCIO -->
+    <p id="exerc-aula10" class="exerc">
+      <ol class="numerico">
+        <li>Se \(L\) é semissimples e \(L = S_{1} \oplus \cdots \oplus S_{k} = S_{1}' \oplus \cdots \oplus S_{m}'\), onde \(S_{i}\) e \(S_{j}'\) são ideais simples, então \(k = m\) e \(\{S_{1}, \dots, S_{k}\} = \{S_{1}', \dots, S_{k}'\}\).</li>
+        <li>Seja \(V\) um espaço vetorial. Um conjunto finito \(\Phi \subseteq V\) é indecomponível se, e somente se, para todo \(\alpha, \beta \in \Phi\), existe uma sequência \(\gamma_{0}, \dots, \gamma_{k} \in \Phi\), onde \(\gamma_{0} = \alpha\), \(\gamma_{k} = \beta\) e \(\gamma_{i} + \gamma_{i+1} \in \Phi\), para todo \(i\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+  </body>
+  
+</html>
+
