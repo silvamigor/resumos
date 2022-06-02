@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Introdução às Álgebras de Lie </title>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Register.StartupHook("TeX Jax Ready",function (){
+         MathJax.Hub.Insert(MathJax.InputJax.TeX.Definitions.macros,{
+          cancel: ["Extension","cancel"],
+          bcancel: ["Extension","cancel"],
+          xcancel: ["Extension","cancel"],
+          cancelto: ["Extension","cancel"]
+        });
+      });
+      MathJax.Hub.Config({
+        extensions: ["https://lomath.in/doc/xyjax/xypic.js","tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+          processEscapes: true
+        },
+        "HTML-CSS": { fonts: ["TeX"] },
+        TeX: {
+          equationNumbers: { autoNumber: "AMS" },
+          Macros: {
+            fraka: ["\\mathfrak{a}"],
+            frakb: ["\\mathfrak{b}"],
+            frakc: ["\\mathfrak{c}"],
+            frakd: ["\\mathfrak{d}"],
+            frake: ["\\mathfrak{e}"],
+            frakf: ["\\mathfrak{f}"],
+            frakg: ["\\mathfrak{g}"],
+            frakh: ["\\mathfrak{h}"],
+            fraki: ["\\mathfrak{i}"],
+            frakj: ["\\mathfrak{j}"],
+            frakk: ["\\mathfrak{k}"],
+            frakl: ["\\mathfrak{l}"],
+            frakm: ["\\mathfrak{m}"],
+            frakn: ["\\mathfrak{n}"],
+            frako: ["\\mathfrak{o}"],
+            frakp: ["\\mathfrak{p}"],
+            frakq: ["\\mathfrak{q}"],
+            frakr: ["\\mathfrak{r}"],
+            fraks: ["\\mathfrak{s}"],
+            frakt: ["\\mathfrak{t}"],
+            fraku: ["\\mathfrak{u}"],
+            frakv: ["\\mathfrak{v}"],
+            frakx: ["\\mathfrak{x}"],
+            frakw: ["\\mathfrak{w}"],
+            fraky: ["\\mathfrak{y}"],
+            frakz: ["\\mathfrak{z}"],
+            frakA: ["\\mathfrak{A}"],
+            frakB: ["\\mathfrak{B}"],
+            frakC: ["\\mathfrak{C}"],
+            frakD: ["\\mathfrak{D}"],
+            frakE: ["\\mathfrak{E}"],
+            frakF: ["\\mathfrak{F}"],
+            frakG: ["\\mathfrak{G}"],
+            frakH: ["\\mathfrak{H}"],
+            frakI: ["\\mathfrak{I}"],
+            frakJ: ["\\mathfrak{J}"],
+            frakK: ["\\mathfrak{K}"],
+            frakL: ["\\mathfrak{L}"],
+            frakM: ["\\mathfrak{M}"],
+            frakN: ["\\mathfrak{N}"],
+            frakO: ["\\mathfrak{O}"],
+            frakP: ["\\mathfrak{P}"],
+            frakQ: ["\\mathfrak{Q}"],
+            frakR: ["\\mathfrak{R}"],
+            frakS: ["\\mathfrak{S}"],
+            frakT: ["\\mathfrak{T}"],
+            frakU: ["\\mathfrak{U}"],
+            frakV: ["\\mathfrak{V}"],
+            frakX: ["\\mathfrak{X}"],
+            frakW: ["\\mathfrak{W}"],
+            frakY: ["\\mathfrak{Y}"],
+            frakZ: ["\\mathfrak{Z}"],
+            frakgl: ["\\mathfrak{gl}"],
+            fraksl: ["\\mathfrak{sl}"],
+            frakso: ["\\mathfrak{so}"],
+            fraksp: ["\\mathfrak{sp}"],
+            bba: ["\\mathbb{a}"],
+            bbb: ["\\mathbb{b}"],
+            bbc: ["\\mathbb{c}"],
+            bbd: ["\\mathbb{d}"],
+            bbe: ["\\mathbb{e}"],
+            bbf: ["\\mathbb{f}"],
+            bbg: ["\\mathbb{g}"],
+            bbh: ["\\mathbb{h}"],
+            bbi: ["\\mathbb{i}"],
+            bbj: ["\\mathbb{j}"],
+            bbk: ["\\mathbb{k}"],
+            bbl: ["\\mathbb{l}"],
+            bbm: ["\\mathbb{m}"],
+            bbn: ["\\mathbb{n}"],
+            bbo: ["\\mathbb{o}"],
+            bbp: ["\\mathbb{p}"],
+            bbq: ["\\mathbb{q}"],
+            bbr: ["\\mathbb{r}"],
+            bbs: ["\\mathbb{s}"],
+            bbt: ["\\mathbb{t}"],
+            bbu: ["\\mathbb{u}"],
+            bbv: ["\\mathbb{v}"],
+            bbx: ["\\mathbb{x}"],
+            bbw: ["\\mathbb{w}"],
+            bby: ["\\mathbb{y}"],
+            bbz: ["\\mathbb{z}"],
+            bbA: ["\\mathbb{A}"],
+            bbB: ["\\mathbb{B}"],
+            bbC: ["\\mathbb{C}"],
+            bbD: ["\\mathbb{D}"],
+            bbE: ["\\mathbb{E}"],
+            bbF: ["\\mathbb{F}"],
+            bbG: ["\\mathbb{G}"],
+            bbH: ["\\mathbb{H}"],
+            bbI: ["\\mathbb{I}"],
+            bbJ: ["\\mathbb{J}"],
+            bbK: ["\\mathbb{K}"],
+            bbL: ["\\mathbb{L}"],
+            bbM: ["\\mathbb{M}"],
+            bbN: ["\\mathbb{N}"],
+            bbO: ["\\mathbb{O}"],
+            bbP: ["\\mathbb{P}"],
+            bbQ: ["\\mathbb{Q}"],
+            bbR: ["\\mathbb{R}"],
+            bbS: ["\\mathbb{S}"],
+            bbT: ["\\mathbb{T}"],
+            bbU: ["\\mathbb{U}"],
+            bbV: ["\\mathbb{V}"],
+            bbX: ["\\mathbb{X}"],
+            bbW: ["\\mathbb{W}"],
+            bbY: ["\\mathbb{Y}"],
+            bbZ: ["\\mathbb{Z}"],
+            cala: ["\\mathcal{a}"],
+            calb: ["\\mathcal{b}"],
+            calc: ["\\mathcal{c}"],
+            cald: ["\\mathcal{d}"],
+            cale: ["\\mathcal{e}"],
+            calf: ["\\mathcal{f}"],
+            calg: ["\\mathcal{g}"],
+            calh: ["\\mathcal{h}"],
+            cali: ["\\mathcal{i}"],
+            calj: ["\\mathcal{j}"],
+            calk: ["\\mathcal{k}"],
+            call: ["\\mathcal{l}"],
+            calm: ["\\mathcal{m}"],
+            caln: ["\\mathcal{n}"],
+            calo: ["\\mathcal{o}"],
+            calp: ["\\mathcal{p}"],
+            calq: ["\\mathcal{q}"],
+            calr: ["\\mathcal{r}"],
+            cals: ["\\mathcal{s}"],
+            calt: ["\\mathcal{t}"],
+            calu: ["\\mathcal{u}"],
+            calv: ["\\mathcal{v}"],
+            calx: ["\\mathcal{x}"],
+            calw: ["\\mathcal{w}"],
+            caly: ["\\mathcal{y}"],
+            calz: ["\\mathcal{z}"],
+            calA: ["\\mathcal{A}"],
+            calB: ["\\mathcal{B}"],
+            calC: ["\\mathcal{C}"],
+            calD: ["\\mathcal{D}"],
+            calE: ["\\mathcal{E}"],
+            calF: ["\\mathcal{F}"],
+            calG: ["\\mathcal{G}"],
+            calH: ["\\mathcal{H}"],
+            calI: ["\\mathcal{I}"],
+            calJ: ["\\mathcal{J}"],
+            calK: ["\\mathcal{K}"],
+            calL: ["\\mathcal{L}"],
+            calM: ["\\mathcal{M}"],
+            calN: ["\\mathcal{N}"],
+            calO: ["\\mathcal{O}"],
+            calP: ["\\mathcal{P}"],
+            calQ: ["\\mathcal{Q}"],
+            calR: ["\\mathcal{R}"],
+            calS: ["\\mathcal{S}"],
+            calT: ["\\mathcal{T}"],
+            calU: ["\\mathcal{U}"],
+            calV: ["\\mathcal{V}"],
+            calX: ["\\mathcal{X}"],
+            calW: ["\\mathcal{W}"],
+            calY: ["\\mathcal{Y}"],
+            calZ: ["\\mathcal{Z}"],
+            bfa: ["\\mathbf{a}"],
+            bfb: ["\\mathbf{b}"],
+            bfc: ["\\mathbf{c}"],
+            bfd: ["\\mathbf{d}"],
+            bfe: ["\\mathbf{e}"],
+            bff: ["\\mathbf{f}"],
+            bfg: ["\\mathbf{g}"],
+            bfh: ["\\mathbf{h}"],
+            bfi: ["\\mathbf{i}"],
+            bfj: ["\\mathbf{j}"],
+            bfk: ["\\mathbf{k}"],
+            bfl: ["\\mathbf{l}"],
+            bfm: ["\\mathbf{m}"],
+            bfn: ["\\mathbf{n}"],
+            bfo: ["\\mathbf{o}"],
+            bfp: ["\\mathbf{p}"],
+            bfq: ["\\mathbf{q}"],
+            bfr: ["\\mathbf{r}"],
+            bfs: ["\\mathbf{s}"],
+            bft: ["\\mathbf{t}"],
+            bfu: ["\\mathbf{u}"],
+            bfv: ["\\mathbf{v}"],
+            bfx: ["\\mathbf{x}"],
+            bfw: ["\\mathbf{w}"],
+            bfy: ["\\mathbf{y}"],
+            bfz: ["\\mathbf{z}"],
+            bfA: ["\\mathbf{A}"],
+            bfB: ["\\mathbf{B}"],
+            bfC: ["\\mathbf{C}"],
+            bfD: ["\\mathbf{D}"],
+            bfE: ["\\mathbf{E}"],
+            bfF: ["\\mathbf{F}"],
+            bfG: ["\\mathbf{G}"],
+            bfH: ["\\mathbf{H}"],
+            bfI: ["\\mathbf{I}"],
+            bfJ: ["\\mathbf{J}"],
+            bfK: ["\\mathbf{K}"],
+            bfL: ["\\mathbf{L}"],
+            bfM: ["\\mathbf{M}"],
+            bfN: ["\\mathbf{N}"],
+            bfO: ["\\mathbf{O}"],
+            bfP: ["\\mathbf{P}"],
+            bfQ: ["\\mathbf{Q}"],
+            bfR: ["\\mathbf{R}"],
+            bfS: ["\\mathbf{S}"],
+            bfT: ["\\mathbf{T}"],
+            bfU: ["\\mathbf{U}"],
+            bfV: ["\\mathbf{V}"],
+            bfX: ["\\mathbf{X}"],
+            bfW: ["\\mathbf{W}"],
+            bfY: ["\\mathbf{Y}"],
+            bfZ: ["\\mathbf{Z}"],
+            bfad: ["\\mathbf{ad}"],
+            zero: ["\\{0\\}"],
+            id: ["\\operatorname\{id\}"],
+            sen: ["\\operatorname\{sen\}"],
+            tg: ["\\operatorname\{tg\}"],
+            ad: ["\\operatorname\{ad\}"],
+            mdc: ["\\operatorname\{mdc\}"],
+            im: ["\\operatorname\{im\}"],
+            Quat: ["\\operatorname\{Quat\}"],
+            Aut: ["\\operatorname\{Aut\}"],
+            Inn: ["\\operatorname\{Inn\}"],
+            orb: ["\\operatorname\{orb\}"],
+            stab: ["\\operatorname\{stab\}"],
+            Rep: ["\\operatorname\{Rep\}"],
+            Hom: ["\\operatorname\{Hom\}"],
+            End: ["\\operatorname\{End\}"],
+            Obj: ["\\operatorname\{Obj\}"],
+            tr: ["\\operatorname\{tr\}"],
+            diam: ["\\operatorname\{diam\}"],
+            diag: ["\\operatorname\{diag\}"],
+            Ind: ["\\operatorname\{Ind\}"],
+            Res: ["\\operatorname\{Res\}"],
+            Set: ["\\operatorname\{Set\}"],
+            coker: ["\\operatorname\{coker\}"],
+            supp: ["\\operatorname\{supp\}"],
+            Tor: ["\\operatorname\{Tor\}"],
+            vspan: ["\\operatorname\{vspan\}"],
+            char: ["\\operatorname\{char\}"],
+            Ann: ["\\operatorname\{Ann\}"],
+            Der: ["\\operatorname\{Der\}"],
+            ma: ["\\operatorname\{ma\}"],
+            mg: ["\\operatorname\{mg\}"],
+            Rad: ["\\operatorname\{Rad\}"],
+            pint: ["{ \\langle #1,#2 \\rangle }",2],
+            rfrac: ["{ {}^{#1}\\!/_{#2} }",2],
+            norma: ["{ \\Vert #1 \\Vert }",1],
+          },
+        },
+      });
+    </script>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js"></script>
+    <script src="http://www.w3schools.com/lib/w3data.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../itemParenteses.css" />
+    <link rel="stylesheet" type="text/css" href="../../../ambTeor.css" />
+    
+    <script>
+      function closeDetail(detailsElement) {
+        detailsElement.removeAttribute("open");
+        window.location = '#' + detailsElement.scrollIntoView({block: "nearest", behavior: "smooth"});
+      }
+    </script>
+    
+    <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+
+    <style>
+      body{
+        font-size: 16pt;
+        font-family: "Helvetica", sans-serif;
+        line-height: 1.5;
+        background-color: rgb(233,227,206);
+        counter-reset: contTeor contProp contLema contCoro contObs contDef contExerc contExemplo contSec 12;
+      }
+      
+      h1{
+        background-color: rgb(153,51,153);
+        color: rgb(255,250,250);
+      }
+      
+      h2{
+        color: rgb(153,51,153);
+      }
+      
+      h3{
+        color: rgb(153,51,153);
+      }
+      
+      details > summary {
+        font-style: italic;
+        color: blue;
+        cursor: pointer;
+        position: relative;
+        transition: 0.15s background linear;
+      }
+      
+      details > summary:hover {
+        background: #d4d1ec;
+      }
+
+      details > .caixa{
+        border: solid;
+      }
+      
+      .equationCenter {
+        width: 100%;
+        overflow-y: hidden;
+        overflow-x: auto;
+      }
+      
+      .buttonDetails {
+        border: none;
+        text-align: center;
+        cursor: pointer;
+        position: absolute;
+        right: 10px;
+      }
+      
+    </style>
+
+  </head>
+  
+  <body>
+
+    <div style="text-align:center"><h1>Introdução às Álgebras de Lie</h1></div>
+    
+    <!-- ############ -->
+    <h2>Aula 12 - Sistema de raízes</h2>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="prop-fomasProporc" class="prop">
+      Seja \(L\) uma álgebra de Lie simples.
+      <ol class="alfa">
+        <li>Se \((\cdot,\cdot)\) é forma bilinear simétrica e invariante, então \((\cdot,\cdot)\) é não degenerada ou é identicamente nula.</li>
+        <li>Se \((\cdot,\cdot)_{1}\) e \((\cdot,\cdot)_{2}\) são formas bilineares simétricas invariantes, então existe \(c \in \bbK\) tal que \((\cdot,\cdot)_{2} = c(\cdot,\cdot)_{1}\).</li>
+      </ol>
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+           
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- COROLÁRIO -->
+    <p id="coro-fomasProporcTraco" class="coro">
+      Se \(\frakg \subseteq \frakgl_{n}\) é simples, então a forma de Killing de \(\frakg\) é proporcional a forma traço \((x,y) := \tr(xy)\).
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+           
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-vantagemFormaTraco" class="obs">
+      Em \(\frakgl_{n}\), temos que \(\tr(e_{ii},e_{jj}) = \delta_{ij}\). Logo, podemos calcular a forma traço usando essa fórmula, quando restritos à subálgebra de Cartan \(H\) de \(\frakg\), constituída pelas matrizes diagonais. Seguindo a ideia da <a href="intrAlgebrasLie-aula08.html#obs-geradoresSAC">Observação 8.5</a>, temos que \(\epsilon_{i} \in H^{\ast}\) corresponde a \(h_{\epsilon_{i}}' \in H\), onde \(\epsilon_{i}(h) = \tr(h_{\epsilon_{i}}'h)\), para todo \(h \in H\). Escrevendo \(h\) como combinação linear de \(e_{jj}\) e usando as definições de \(\epsilon_{i}\) e \(\tr\), podemos concluir que \(h_{\epsilon_{i}}' = e_{ii}\). Portanto, temos que
+    </p>
+    <p class="equationCenter">
+      \[
+        \begin{equation} \label{eq-vantagemFormaTraco} \tag{\(\ast\)}
+          (\epsilon_{i},\epsilon_{j}) = \tr(h_{\epsilon_{i}}',h_{\epsilon_{j}}') = \tr(e_{ii},e_{jj}) = \delta_{ij}
+        \end{equation}
+      \]
+    </p>
+    <p>
+      Assim, se \(L\) é do tipo \(A_{n}\), \(B_{n}\), \(C_{n}\) e \(D_{n}\), a forma de Killing de \(L\) é proporcional a forma traço, que pode ser calculada usando a Equação \eqref{eq-vantagemFormaTraco}.
+    <span class="fim"></span></p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-numeroKilling" class="obs">
+      No <a href="intrAlgebrasLie-aula09.html#teor-cadeiaConexa">Teorema 9.1</a>, provamos que se \(\alpha, \beta \in \Phi\), então
+      <div style="equationCenter">
+        \[
+          \{\beta + n\alpha \mid n \in \bbZ\} \cap (\Phi \cup \zero) = \{\beta - p\alpha, \cdots, \beta + q\alpha\},
+        \]
+      </div>
+      onde \(p,q \in \bbZ_{\ge 0}\) são tais que \(p-q = \frac{2\pint{\alpha}{\beta}}{\pint{\alpha}{\alpha}}\). Números dessa forma, quer dizer, números da forma \(\frac{2\pint{\alpha}{\beta}}{\pint{\alpha}{\alpha}}\) são chamados de <strong>números de Killing</strong>. Se \((\cdot,\cdot) = c\pint{\cdot}{\cdot}\), então \(\frac{2(\alpha,\beta)}{(\alpha,\alpha)} = \frac{2c\pint{\alpha}{\beta}}{c\pint{\alpha}{\alpha}} = \frac{2\pint{\alpha}{\beta}}{\pint{\alpha}{\alpha}}\).
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-sistemaRaizes" class="def">
+      Seja \(V\) um espaço euclidiano (\(\bbR\)-espaço vetorial com produto interno). Denote o produto interno por \((\cdot,\cdot)\). Seja \(\Delta \subseteq V\) um subconjunto. Dizemos que \((V, \Delta)\) é um <strong>sistema de raízes</strong>, se valem as seguintes condições
+      <ol class="alfa">
+        <li>\(|\Delta| < \infty\), \(0 \not\in \Delta\) e \(V = \bbR\Delta\),</li>
+        <li><em>condição de corda</em>: para todo \(\alpha, \beta \in \Delta\), temos quer
+          <div style="equationCenter">
+            \[
+              \{\beta + n\alpha \mid n \in \bbZ\} \cap (\Phi \cup \zero) = \{\beta - p\alpha, \cdots, \beta + q\alpha\},
+            \]
+          </div>
+          onde \(p,q \in \bbZ_{\ge 0}\) são tais que \(p-q = \frac{2(\alpha,\beta)}{(\alpha,\alpha)}\),
+        </li>
+        <li>se \(\alpha \in \Delta\), então \(z\alpha \in \Delta\) se, e somente se, \(z = \pm 1\).</li>
+      </ol>
+      Dizemos que \((V,\Delta)\) é <strong>decomponível</strong>, se existem \(V_{1}, V_{2} \subseteq V\) e \(\Delta_{i} \subseteq V_{i}\) tais que \(V = V_{1} \oplus V_{2}\), \(V_{1} \perp V_{2}\) e \(\Delta = \Delta_{1} \cup \Delta_{2}\). Dizemos que \((V,\Delta)\) é <strong>indecomponível</strong>, se não for decomponível. Definimos o <strong>posto</strong> de \((V, \Delta)\) como sendo \(\dim(V)\).
+    <span class="fim"></span></p>
+
+    <!-- EXEMPLO -->
+    <p id="exemplo-sistemaRaizes" class="exemplo">
+      Sejam \(L\) uma álgebra de Lie semissimples, \(H \subseteq L\) uma subálgebra de Cartan. Sabemos que \(L = H \oplus \displaystyle\bigoplus_{\alpha \in \Phi}L_{\alpha}\). Definindo \(V = \bbR \otimes_{\bbQ} H_{\bbQ}^{\ast}\) e \(\Delta = \Phi\), temos que \((V, \Delta)\) é um sistema de raízes, com \((\cdot,\cdot) = \pint{\cdot}{\cdot}|_{\bbR \otimes_{\bbQ} H_{\bbQ}^{\ast}}\).
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-isoSistRaizes" class="def">
+      Dizemos que \((V_{1},\Delta_{1})\) e \((V_{2},\Delta_{2})\) são <strong>sistemas de raízes isomorfos</strong>, se existe uma transformação linear \(\varphi: V_{1} \to V_{2}\) tal que \(\varphi(\Delta_{1}) = \Delta_{2}\) e \((\varphi(\alpha), \varphi(\beta))_{2} = c(\alpha,\beta)_{1}\), para todo \(\alpha, \beta \in \Delta\), onde \(c \in \bbR_{>0}\).
+    <span class="fim"></span></p>
+
+    <!-- EXEMPLO -->
+    <p id="exemplo-isoSistRaizes" class="exemplo">
+      Sejam \(V = \bbR\), \(\Delta = \{\gamma,-\gamma\}\), com \(\gamma \neq 0\), e \((\alpha, \beta) = \alpha\beta\). Então \((V,\Delta)\) é um sistema de raízes. Para ver isso, basta checar a condição de corda. Tome \(\beta = \gamma\) e \(\alpha = -\gamma\). Então
+    <p class="equationCenter">
+      \[
+        \{\beta + n\alpha \mid n \in \bbZ\} \cap (\Delta \cup \zero) = \{\gamma, 0, -\gamma\} = \{\beta + 0\alpha, \beta + \alpha, \beta + 2\alpha\}.
+      \]
+    </p>
+    <p>
+      Assim, \(p = 0\), \(q = 2\) e \(p - q = -2\). Por outro lado, \(\frac{2(\alpha,\beta)}{(\alpha,\alpha)} = \frac{-2\gamma\gamma}{\gamma\gamma} = -2\). Portanto, \((V,\Delta)\) é um sistema de raízes. Pode-se mostrar que esse sistema é isomorfo ao sistema de raízes de \(\fraksl_{2}\), \(\frakso_{3}\) e \(\fraksp_{2}\), segundo o isomorfismo \(\varphi: \bbR \to H^{\ast}, \gamma \mapsto \alpha = \epsilon_{1} - \epsilon_{2}\).
+    <span class="fim"></span></p>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="prop-propriedSistRaizesIndecomp" class="prop">
+      Seja \((V, \Delta)\) um sistema de raízes indecomponível. Então valem
+      <ol>
+        <li>qualquer produto interno \((\cdot,\cdot)_{1}\) satisfazendo a propriedade corda é proporcional a \((\cdot,\cdot)\), isto é, existe \(c \in \bbR_{>0}\) tal que \((\cdot, \cdot)_{1} = c(\cdot,\cdot)\),</li>
+        <li>se \((\alpha,\alpha) \in \bbQ\), para algum \(\alpha \in \Delta\), então \((\beta,\gamma) \in \bbQ\), para todo \(\beta,\gamma \in \Delta\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+           
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-reticulado" class="def">
+      Um <strong>reticulado</strong> em um espaço euclidiano \(V\) é um subgrupo discreto \((Q,+) \le (V,+)\) tal que \(V = \bbR Q\).
+    <span class="fim"></span></p>
+    
+    <!-- EXEMPLO -->
+    <p id="exemplo-reticulado" class="exemplo">
+      \(\bbZ^{n}\) é um reticulado em \(\bbR^{n}\).
+    <span class="fim"></span></p>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="prop-reticuladoZDelta" class="prop">
+      Se \(\Delta\) é um conjunto finito de um espaço euclidiano \(V\) tal que
+      <ol>
+        <li>\(V = \bbR\Delta\) e</li>
+        <li>\((\alpha,\beta) \in \bbQ\), para todo \(\alpha, \beta \in \Delta\),</li>
+      </ol>
+      então \(Q = \bbZ\Delta\) é um reticulado de \(V\).
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+           
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- EXERCÍCIO -->
+    <p id="exerc-aula12" class="exerc">
+      <ol class="numerico">
+        <li>Mostre que se \(H_{1}\) e \(H_{2}\) são subálgebras de Cartan de \(L\), então os sistemas de raízes correspondentes de \(H_{1}\) e \(H_{2}\) são isomorfos.</li>
+        <li>Mostre que \(\bbZ\{1,\sqrt{2}\} \subseteq \bbR\) não é discreto.<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+  </body>
+  
+</html>
+
