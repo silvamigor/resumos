@@ -362,15 +362,35 @@
       Seja \(L\) uma álgebra de Lie simples.
       <ol class="alfa">
         <li>Se \((\cdot,\cdot)\) é forma bilinear simétrica e invariante, então \((\cdot,\cdot)\) é não degenerada ou é identicamente nula.</li>
-        <li>Se \((\cdot,\cdot)_{1}\) e \((\cdot,\cdot)_{2}\) são formas bilineares simétricas invariantes, então existe \(c \in \bbK\) tal que \((\cdot,\cdot)_{2} = c(\cdot,\cdot)_{1}\).</li>
+        <li>Se \((\cdot,\cdot)_{1}\) e \((\cdot,\cdot)_{2}\) são formas bilineares simétricas invariantes, então existe \(c \in \bbK\) tal que \((\cdot,\cdot)_{2} = c(\cdot,\cdot)_{1}\).<span class="fim"></span></li>
       </ol>
-    <span class="fim"></span></p>
+    </p>
     
     <details>
       <summary>Demonstração</summary>
       <div class="caixa">
         <p>
-           
+          (a) Segue do fato de \(L\) ser simples e do radical à esquerda de \((\cdot,\cdot)\) (que é igual a \(\{y \in L \mid (y,x) = 0, \, \forall \, x \in L\}\)) ser um ideal de \(L\).
+        </p>
+        <p>
+          (b) Pelo item anterior, podemos supor que \((\cdot,\cdot)_{1}\) e \((\cdot,\cdot)_{2}\) são não degeneradas. Disso, segue que 
+        </p>
+        <p class="equationCenter">
+          \[
+            \begin{array}{ccc}
+              \begin{array}{rcl}
+                T: L & \to & L^{\ast} \\
+                x & \mapsto & (x,\cdot)_{1}
+              \end{array} & \text{ e }&
+              \begin{array}{rcl}
+                S: L & \to & L^{\ast} \\
+                x & \mapsto & (x,\cdot)_{2}
+              \end{array}
+            \end{array}
+          \]
+        </p>
+        <p>
+          são isomorfismos, já que as formas são não degeneradas. Além disso, \(T\) e \(S\) são isomorfismos de \(L\)-módulos. Então \(S^{-1}\circ T \in \End_{L}(L)\). Pelo <a href="intrAlgebrasLie-aula11.html#prop-lemaSchur">Lema de Schur</a>, \(S^{-1}\circ T = c\id_{L}\), para algum \(c \in \bbK\). Logo, \(T = cS\). Isso significa que \((x,\cdot)_{1} = T(x) = cS(x) = c(x,\cdot)_{2}\). Portanto, para todo \(y \in L\), temos que \((x,y)_{1} = c(x,y)_{2}\).
         </p>
       </div>
       <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
@@ -386,7 +406,19 @@
       <summary>Demonstração</summary>
       <div class="caixa">
         <p>
-           
+          Temos que mostrar que a forma traço é simétrica, bilinear, invariante e não degenerada. Que ela é simétrica e bilinear, vem da definição de traço. Que ela é invariante, segue da seguinte conta
+        </p>
+        <p class="equationCenter">
+          \[
+            \begin{split}
+              ([x,y],z) &= \tr([x,y]z) = \tr(xyz - yxz) = \tr(xyz) - \tr(yxz) = \tr(xyz) - \tr(zyx) \\
+              &= \tr(xyz) - \tr(xzy) = \tr(xyz - xzy) = \tr(x[y,z]) \\
+              &= (x,[y,z]).
+            \end{split}
+          \]
+        </p>
+        <p>
+          Agora, o fato dela ser não degenerada acontece porque a forma traço é não nula. 
         </p>
       </div>
       <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
@@ -462,7 +494,7 @@
     <!-- PROPOSIÇÃO -->
     <p id="prop-propriedSistRaizesIndecomp" class="prop">
       Seja \((V, \Delta)\) um sistema de raízes indecomponível. Então valem
-      <ol>
+      <ol class="alfa">
         <li>qualquer produto interno \((\cdot,\cdot)_{1}\) satisfazendo a propriedade corda é proporcional a \((\cdot,\cdot)\), isto é, existe \(c \in \bbR_{>0}\) tal que \((\cdot, \cdot)_{1} = c(\cdot,\cdot)\),</li>
         <li>se \((\alpha,\alpha) \in \bbQ\), para algum \(\alpha \in \Delta\), então \((\beta,\gamma) \in \bbQ\), para todo \(\beta,\gamma \in \Delta\).<span class="fim"></span></li>
       </ol>
@@ -472,7 +504,34 @@
       <summary>Demonstração</summary>
       <div class="caixa">
         <p>
-           
+          (a) Fixe \(\alpha \in \Delta\) e defina \(c \in \bbR_{>0}\) tal que \((\alpha, \alpha)_{1} = c(\alpha, \alpha)\). Como \(\Delta\) é indecomponível, se \(\beta \in \Delta\), então existe uma sequência \(\gamma_{0} = \alpha\), \(\gamma_{1}\), \(\cdots\), \(\gamma_{n} = \beta\) tais que \((\gamma_{i},\gamma_{i+1}) \neq 0\). Assim, 
+        </p>
+        <p class="equationCenter">
+          \[
+            p-q = \frac{2(\alpha,\gamma_{1})}{(\alpha,\alpha)} = \frac{2(\alpha,\gamma_{1})_{1}}{(\alpha,\alpha)_{1}} = \frac{2(\alpha,\gamma_{1})_{1}}{c(\alpha,\alpha)}.
+          \]
+        </p>
+        <p>
+          Logo, \((\alpha,\gamma_{1})_{1} = c(\alpha,\gamma_{1})\). Note também que
+        </p>
+        <p class="equationCenter">
+          \[
+            \frac{2(\alpha,\gamma_{1})}{(\gamma_{1},\gamma_{1})} = \frac{2(\alpha,\gamma_{1})_{1}}{(\gamma_{1},\gamma_{1})_{1}} = \frac{2c(\alpha,\gamma)_{1}}{(\gamma_{1},\gamma_{1})_{1}}.
+          \]
+        </p>
+        <p>
+          Logo, \((\gamma_{1},\gamma_{1})_{1} = c(\gamma_{1},\gamma_{1})\). Repetindo esse argumento para os outros elementos de \(\gamma_{i}\), uma vez que \(\beta \in \Delta\) foi arbitrário, temos que \((\beta,\beta)_{1} = c(\beta,\beta)\), para todo \(\beta \in \Delta\). Logo, para todo \(\gamma, \theta \in \Delta\), temos que
+        </p>
+        <p class="equationCenter">
+          \[
+            \frac{2(\gamma,\theta)}{(\theta,\theta)} = \frac{2(\gamma,\theta)_{1}}{(\theta,\theta)_{1}} = \frac{2c(\alpha,\gamma_{1})}{(\theta,\theta)_{1}}.
+          \]
+        </p>
+        <p>
+          Portanto, \((\gamma,\theta)_{1} = c(\gamma,\theta)\). Isso conclui o item (a), porque \(V = \bbR\Delta\).
+        </p>
+        <p>
+          (b) Para demonstrar esse item, usamos o mesmo argumento do item anterior. Se \((\alpha,\alpha) \in \bbQ\), então \((\gamma_{1},\gamma_{1}) \in \bbQ\). Seguindo até o \(\gamma_{n} = \beta\), concluímos que \((\beta,\beta) \in \bbQ\). Logo, para todo \(\gamma, \theta \in \Delta\), temos que \(\frac{2(\gamma,\theta)}{(\theta,\theta)} \in \bbZ\). Uma vez que \((\theta,\theta) \in \bbQ\), concluímos que \((\gamma,\theta) \in \bbQ\).
         </p>
       </div>
       <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
@@ -492,7 +551,7 @@
     <!-- PROPOSIÇÃO -->
     <p id="prop-reticuladoZDelta" class="prop">
       Se \(\Delta\) é um conjunto finito de um espaço euclidiano \(V\) tal que
-      <ol>
+      <ol class="alfa">
         <li>\(V = \bbR\Delta\) e</li>
         <li>\((\alpha,\beta) \in \bbQ\), para todo \(\alpha, \beta \in \Delta\),</li>
       </ol>
@@ -503,7 +562,30 @@
       <summary>Demonstração</summary>
       <div class="caixa">
         <p>
-           
+          Basta ver que \(Q\) é discreto. Tome \(\{\beta_{1},\dots,\beta_{n}\} \subseteq \Delta\) base de \(V\). Para todo \(\alpha \in \Delta\), temos que \(\alpha = \sum_{i=1}^{n}c_{i}\beta_{i}\), onde \(c_{i} \in \bbR\). Então \((\alpha,\beta_{j}) = \sum_{i=1}^{n}c_{i}(\beta_{i},\beta_{j})\), para todo \(j = 1, \dots, n\), ou seja,
+        </p>
+        <p class="equationCenter">
+          \[
+            \begin{pmatrix}
+              (\beta_{1},\beta_{1}) & \cdots & (\beta_{1},\beta_{n}) \\
+              \vdots & \ddots & \vdots \\
+              (\beta_{n},\beta_{1}) & \cdots & (\beta_{n},\beta_{n})
+            \end{pmatrix}
+            \begin{pmatrix}
+              c_{1} \\
+              \vdots \\
+              c_{n}
+            \end{pmatrix}
+            =
+            \begin{pmatrix}
+              (\alpha,\beta_{1}) \\
+              \vdots \\
+              (\alpha,\beta_{n})
+            \end{pmatrix}
+          \]
+        </p>
+        <p>
+          A matrix \(n \times n\) desse sistema é a <a href="https://en.wikipedia.org/wiki/Gram_matrix">matriz de Gramm</a> de \((\cdot,cdot)\) que é um produto interno. Logo, ela é invertível. Como seus coeficientes são racionais, resolvendo usando a <a href="https://en.wikipedia.org/wiki/Cramer%27s_rule">regra de Cramer</a>, temos que \(c_{i} \in \bbQ\), para todo \(i\). Logo, \(\Delta \subseteq \bbQ\{\beta_{1}, \dots, \beta_{n}\}\) e em particular, \(\bbZ\Delta \subseteq \bbQ\{\beta_{1}, \dots, \beta_{n}\}\). Como \(|\Delta| < \infty\), então para todo \(\alpha \in \Delta\), existe \(n_{\alpha} \in \bbZ\) tal que \(n_{\alpha}\alpha \in \bbZ\{\beta_{1},\dots,\beta_{n}\}\). Defina \(N := \prod_{\alpha \in \Delta}n_{\alpha}\). Então, \(N\Delta \subseteq \bbZ\{\beta_{1}, \dots, \beta_{n}\}\). Logo, \(\Delta \subseteq \frac{1}{N}\{\beta_{1}, \dots, \beta_{n}\} = \bbZ\{\tilde{\beta}_{1}, \dots, \tilde{\beta}_{n}\}\), onde \(\tilde{\beta}_{i} = \frac{\beta_{i}}{N}\). Portanto, \(\bbZ\Delta = \bbQ \subseteq \bbZ\{\tilde{\beta}_{1}, \dots, \tilde{\beta}_{n}\}\). Como \(\bbZ\{\tilde{\beta}_{1}, \dots, \tilde{\beta}_{n}\}\) é discreto, então \(Q\) é discreto. 
         </p>
       </div>
       <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
@@ -521,4 +603,3 @@
   </body>
   
 </html>
-
