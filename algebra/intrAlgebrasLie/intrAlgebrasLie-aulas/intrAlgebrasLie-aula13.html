@@ -366,7 +366,7 @@
       <summary>Demonstração</summary>
       <div class="caixa">
         <p>
-           
+           Segue da <a href="intrAlgebrasLie-aula12.html#prop-reticuladoZDelta">Proposição 12.3</a>, pois, por definição de sistema de raízes \(|\Delta| < \infty\) e \(V = \bbR\Delta\). (?)
         </p>
       </div>
       <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
@@ -444,7 +444,25 @@
       <summary>Demonstração</summary>
       <div class="caixa">
         <p>
-           
+          \(E_{r}\) é subgrupo e é discreto. Só falta mostrar que \((\alpha,\alpha) \in 2\bbZ\), para todo \(\alpha \in E_{r}\) se, e somente se, \(8 \mid r\). Note que para todo \(a \in \bbZ\), \(a^{2} \pm a \in 2\bbz\). Tome \(\alpha = \sum a_{i}\epsilon_{i}\). Temos duas possibilidades.
+          <ol class="alfa">
+            <li>Caso 1: \(a_{i} \in \bbZ\), para todo \(i\). Nesse caso, temos que
+              <div class="equationCenter">
+                \[
+                  (\alpha,\alpha) = (\sum a_{i}\epsilon_{i},\sum a_{i}\epsilon_{i}) = \sum a_{i}^{2} \equiv \sum a_{i} \pmod{2} \equiv 0 \pmod{2}.
+                \]
+              </div>
+              Logo, \((\alpha,\alpha) \in 2\bbZ\).
+            </li>
+            <li>Caso 2: \(a_{i} \in \frac{1}{2} + \bbZ\), para todo \(i\). Nesse caso, podemos escrever \(\alpha = \underbrace{(\frac{1}{2}, \dots, \frac{1}{2})}_{\rho} + \underbrace{(b_{1}, \dots, b_{r})}_{b}\). Assim, 
+              <div class="equationCenter">
+                \[
+                  (\alpha,\alpha) = (\rho + b, \rho + b) = (\rho,\rho) + \underbrace{2(\rho,b)}_{\sum b_{1}} + \underbrace{(b,b)}_{\sum b_{i}^{2}} = (\rho,\rho) + \underbrace{\sum(b_{i}^{2} + b_{i})}_{:= n \in 2\bbZ} = \frac{r}{4} + n.
+                \]
+              </div>
+              Dessa forma, \((\alpha,\alpha) \in 2\bbZ\) se, e somente se, \(\frac{r}{4} \in 2\bbZ\) se, e somente se, \(8\mid r\).
+            </li>
+          </ol>
         </p>
       </div>
       <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
@@ -460,7 +478,20 @@
       <summary>Demonstração</summary>
       <div class="caixa">
         <p>
-           
+          Note que
+          <ol class="alfa">
+            <li>\(0 \not\in \Delta\),</li>
+            <li>por hipótese, \(\Delta\) gera \(V\),</li>
+            <li>temos que
+              <div class="equationCenter">
+                \[
+                  (n\alpha,n\alpha) = 2 \;\Leftrightarrow\; n^{2}\cancel{(\alpha,\alpha)} = \cancel{2} \;\Leftrightarrow\; n^{2} = 1 \;\Leftrightarrow\; n = \pm 1
+                \]
+              </div>
+            </li>
+            <li>\(|\Delta| < \infty\), vem da teoria de espaços métricos (conjunto discreto e limitado).</li>
+          </ol>
+          Falta ver a condição de corda. Tome \(\alpha,\beta \in \Delta\) e suponha, sem perda de generalidade, que \((\alpha,\beta) \ge 0\) (podemos supor isso porque a \(\beta\) sequência passando por \(\alpha\) é igual a \(-\beta\) sequência passando por \(\alpha\)). Daí, \(0 \le (\alpha - \beta, \alpha - \beta) = (\alpha, \alpha) - 2(\alpha,\beta) + (\beta,\beta) = 4 - 2(\alpha,\beta)\). Como \(Q\) é um reticulado par, então \((\alpha,\beta) \in \bbZ_{\ge 0}\). Logo, \((\alpha, \beta) = 0, 1\) ou \(2\). Note que \(\alpha + \beta \not\in \Delta\), porque a norma dele é maior do que \(2\). Assim, \(q = 0\) (\(q\) da condição da corda). Suponha que \((\alpha, \beta) = 2\). Então \((\alpha - \beta, \alpha - \beta) = 0\), o que implica que \(\alpha - \beta = 0 \in \Delta \cup \zero\). Temos também que \((\alpha - 2\beta, \alpha - 2\beta) = \underbrace{(\alpha,\alpha)}_{2} - 4\underbrace{(\alpha,\beta)}_{2} + 4\underbrace{(\beta,\beta)}_{2} = 2\). Uma conta análoga mostra que \((\alpha - 3\beta, \alpha - 3\beta) > 2\), o que implica que \(\alpha - 3\beta \not\in \Delta\). Portanto, \(p = 2\). Assim, por um lado, \(p -q = 2\) e, por outro, \(p - q = \frac{2(\alpha,\beta)}{(\beta,\beta)} = 2\). O mesmo raciocínio mostra que para os casos onde  \((\alpha, \beta) = 0, 1\), temos que \(p - q = \frac{2(\alpha,\beta)}{(\beta,\beta)}\).
         </p>
       </div>
       <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
@@ -482,21 +513,21 @@
           \begin{array}{l}
             \Delta_{+} = \{\alpha \in \Delta \mid f(\alpha) > 0\} \\
             \Delta_{-} = \{\alpha \in \Delta \mid f(\alpha) < 0\} \\
-            \pi = \{\alpha \in \Delta_{+} \mid \alpha \text{ é simples}\}.
+            \Pi = \{\alpha \in \Delta_{+} \mid \alpha \text{ é simples}\}.
           \end{array}
         \]
       </div>
-      Dizemos que \(\pi\) é <strong>indecomponível</strong>, se não podemos escrever \(\pi = \pi_{1} \cup \pi_{2}\), com \(\pi_{1} \perp \pi_{2}\).
+      Dizemos que \(\Pi\) é <strong>indecomponível</strong>, se não podemos escrever \(\Pi = \Pi_{1} \cup \Pi_{2}\), com \(\Pi_{1} \perp \Pi_{2}\).
     <span class="fim"></span></p>
     
     <!-- TEOREMA -->
     <p id="teor-dynkin" class="teor" text="Teorema de Dynkin">
       <ol class="alfa">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li><span class="fim"></span></li>
+        <li>Se \(\alpha, \beta \in \Pi\), com \(\alpha \neq \beta\), então \(\alpha - \beta \not\in \Delta\) e \((\alpha,\beta) \le 0\).</li>
+        <li>\(\Delta_{+} \subseteq \bbZ_{\ge 0}\Pi\).</li>
+        <li>Se \(\alpha \in \Delta_{+}\setminus\Pi\), então existe \(\gamma \in \Pi\) tal que \(\alpha - \gamma \in \Delta_{+}\).</li>
+        <li>\(\Pi\) é uma base de \(V\). Em particular, \(V = \bbR\Pi\), \(Q = \bbZ\Delta\) é igual a \(\bbZ\Pi\) e a combinação linear de (b) é única.</li>
+        <li>\(\Delta\) é indecomponível se, e somente se, \(\Pi\) é indecomponível<span class="fim"></span></li>
       </ol>
     </p>
     
@@ -504,7 +535,19 @@
       <summary>Demonstração</summary>
       <div class="caixa">
         <p>
-           
+          (a) Suponha que \(\gamma = \alpha - \beta \in \Delta\). Então \(\gamma \in \Delta_{+}\) ou \(\gamma \in \Delta_{-}\). Se \(\gamma \in \Delta_{+}\), então \(\alpha = \beta + \underbrace{\alpha - \beta}_{\gamma}\), o que é uma contradição com o fato de \(\alpha\) ser simples. Se \(\gamma \in \Delta_{-}\), então \(\beta = \alpha + \underbrace{\beta - \alpha}_{-\gamma}\), o que é uma contradição com o fato de \(\beta\) ser simples. Portanto, \(\alpha - \beta \not\in \Delta\). Esse fato, implica que \(p = 0\), ou seja, \(p-q = -q\). Como \(p-q = \frac{2(\alpha,\beta)}{(\beta,\beta)}\) e \((\beta,\beta) > 0\), temos que \((\alpha,\beta) \le 0\).
+        </p>
+        <p>
+          (b) Tome \(\alpha \in \Delta_{+}\). Se \(\alpha \in \Pi\), então \(\alpha = 1\alpha\). Se \(\alpha \not\in \Pi\), então \(\alpha = \beta + \gamma\), com \(\beta, \gamma \in \Delta_{+}\). Note que \(f(\alpha) = f(\beta) + f(\gamma)\) e que \(f(\alpha), f(\beta), f(\gamma) > 0\). Portanto, \(f(\beta), f(\gamma) < f(\alpha)\). Se \(\beta, \gamma \in \Pi\), temos o que queremos. Caso contrário, repetimos o argumento para \(\beta\) e \(\gamma\). Como \(|\Delta| < \infty\), esse processo tem um fim, ou seja, vamos encontrar uma decomposição de \(\alpha\) como combinação linear inteira de raízes positivas, quer dizer, \(\alpha \in \bbZ_{\ge 0}\Pi\).
+        </p>
+        <p>
+          (c) Tome \(\alpha \in \Delta_{+}\setminus\Pi\) e suponha que \(\alpha - \gamma \not\in \Delta\), para todo \(\gamma \in \Pi\). Então \(p = 0\) e \(\frac{2(\alpha,\gamma)}{(\gamma,\gamma)} = p - q = -q\). Assim, \((\alpha,\gamma) \le 0\), para todo \(\gamma \in \Pi\). Logo, \((\alpha,\alpha) = (\alpha,\sum_{\gamma \in \Pi}\underbrace{n_{\gamma}}_{\in\bbZ_{\ge 0}}\gamma) \le 0\). Dessa forma, \(\alpha = 0\), ou seja, \(\alpha \not\in \Delta\). Absurdo, pois \(\alpha \in \Delta_{+}\setminus\Pi\). Assim, existe \(\gamma \in \Pi\) tal que \(\alpha - \gamma \in \Delta\). Se \(\alpha - \gamma \in \Delta_{-}\), então \(\gamma = \alpha + \underbrace{\gamma - \alpha}_{\in \Delta_{+}}\). Absurdo, pois \(\gamma \in \Pi\). Portanto, \(\alpha - \gamma \in \Delta_{+}\).
+        </p>
+        <p>
+          (d)
+        </p>
+        <p>
+          (e)
         </p>
       </div>
       <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
@@ -568,4 +611,3 @@
   </body>
   
 </html>
-
