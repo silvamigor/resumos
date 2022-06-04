@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Introdução às Álgebras de Lie </title>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Register.StartupHook("TeX Jax Ready",function (){
+         MathJax.Hub.Insert(MathJax.InputJax.TeX.Definitions.macros,{
+          cancel: ["Extension","cancel"],
+          bcancel: ["Extension","cancel"],
+          xcancel: ["Extension","cancel"],
+          cancelto: ["Extension","cancel"]
+        });
+      });
+      MathJax.Hub.Config({
+        extensions: ["https://lomath.in/doc/xyjax/xypic.js","tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+          processEscapes: true
+        },
+        "HTML-CSS": { fonts: ["TeX"] },
+        TeX: {
+          equationNumbers: { autoNumber: "AMS" },
+          Macros: {
+            fraka: ["\\mathfrak{a}"],
+            frakb: ["\\mathfrak{b}"],
+            frakc: ["\\mathfrak{c}"],
+            frakd: ["\\mathfrak{d}"],
+            frake: ["\\mathfrak{e}"],
+            frakf: ["\\mathfrak{f}"],
+            frakg: ["\\mathfrak{g}"],
+            frakh: ["\\mathfrak{h}"],
+            fraki: ["\\mathfrak{i}"],
+            frakj: ["\\mathfrak{j}"],
+            frakk: ["\\mathfrak{k}"],
+            frakl: ["\\mathfrak{l}"],
+            frakm: ["\\mathfrak{m}"],
+            frakn: ["\\mathfrak{n}"],
+            frako: ["\\mathfrak{o}"],
+            frakp: ["\\mathfrak{p}"],
+            frakq: ["\\mathfrak{q}"],
+            frakr: ["\\mathfrak{r}"],
+            fraks: ["\\mathfrak{s}"],
+            frakt: ["\\mathfrak{t}"],
+            fraku: ["\\mathfrak{u}"],
+            frakv: ["\\mathfrak{v}"],
+            frakx: ["\\mathfrak{x}"],
+            frakw: ["\\mathfrak{w}"],
+            fraky: ["\\mathfrak{y}"],
+            frakz: ["\\mathfrak{z}"],
+            frakA: ["\\mathfrak{A}"],
+            frakB: ["\\mathfrak{B}"],
+            frakC: ["\\mathfrak{C}"],
+            frakD: ["\\mathfrak{D}"],
+            frakE: ["\\mathfrak{E}"],
+            frakF: ["\\mathfrak{F}"],
+            frakG: ["\\mathfrak{G}"],
+            frakH: ["\\mathfrak{H}"],
+            frakI: ["\\mathfrak{I}"],
+            frakJ: ["\\mathfrak{J}"],
+            frakK: ["\\mathfrak{K}"],
+            frakL: ["\\mathfrak{L}"],
+            frakM: ["\\mathfrak{M}"],
+            frakN: ["\\mathfrak{N}"],
+            frakO: ["\\mathfrak{O}"],
+            frakP: ["\\mathfrak{P}"],
+            frakQ: ["\\mathfrak{Q}"],
+            frakR: ["\\mathfrak{R}"],
+            frakS: ["\\mathfrak{S}"],
+            frakT: ["\\mathfrak{T}"],
+            frakU: ["\\mathfrak{U}"],
+            frakV: ["\\mathfrak{V}"],
+            frakX: ["\\mathfrak{X}"],
+            frakW: ["\\mathfrak{W}"],
+            frakY: ["\\mathfrak{Y}"],
+            frakZ: ["\\mathfrak{Z}"],
+            frakgl: ["\\mathfrak{gl}"],
+            fraksl: ["\\mathfrak{sl}"],
+            frakso: ["\\mathfrak{so}"],
+            fraksp: ["\\mathfrak{sp}"],
+            bba: ["\\mathbb{a}"],
+            bbb: ["\\mathbb{b}"],
+            bbc: ["\\mathbb{c}"],
+            bbd: ["\\mathbb{d}"],
+            bbe: ["\\mathbb{e}"],
+            bbf: ["\\mathbb{f}"],
+            bbg: ["\\mathbb{g}"],
+            bbh: ["\\mathbb{h}"],
+            bbi: ["\\mathbb{i}"],
+            bbj: ["\\mathbb{j}"],
+            bbk: ["\\mathbb{k}"],
+            bbl: ["\\mathbb{l}"],
+            bbm: ["\\mathbb{m}"],
+            bbn: ["\\mathbb{n}"],
+            bbo: ["\\mathbb{o}"],
+            bbp: ["\\mathbb{p}"],
+            bbq: ["\\mathbb{q}"],
+            bbr: ["\\mathbb{r}"],
+            bbs: ["\\mathbb{s}"],
+            bbt: ["\\mathbb{t}"],
+            bbu: ["\\mathbb{u}"],
+            bbv: ["\\mathbb{v}"],
+            bbx: ["\\mathbb{x}"],
+            bbw: ["\\mathbb{w}"],
+            bby: ["\\mathbb{y}"],
+            bbz: ["\\mathbb{z}"],
+            bbA: ["\\mathbb{A}"],
+            bbB: ["\\mathbb{B}"],
+            bbC: ["\\mathbb{C}"],
+            bbD: ["\\mathbb{D}"],
+            bbE: ["\\mathbb{E}"],
+            bbF: ["\\mathbb{F}"],
+            bbG: ["\\mathbb{G}"],
+            bbH: ["\\mathbb{H}"],
+            bbI: ["\\mathbb{I}"],
+            bbJ: ["\\mathbb{J}"],
+            bbK: ["\\mathbb{K}"],
+            bbL: ["\\mathbb{L}"],
+            bbM: ["\\mathbb{M}"],
+            bbN: ["\\mathbb{N}"],
+            bbO: ["\\mathbb{O}"],
+            bbP: ["\\mathbb{P}"],
+            bbQ: ["\\mathbb{Q}"],
+            bbR: ["\\mathbb{R}"],
+            bbS: ["\\mathbb{S}"],
+            bbT: ["\\mathbb{T}"],
+            bbU: ["\\mathbb{U}"],
+            bbV: ["\\mathbb{V}"],
+            bbX: ["\\mathbb{X}"],
+            bbW: ["\\mathbb{W}"],
+            bbY: ["\\mathbb{Y}"],
+            bbZ: ["\\mathbb{Z}"],
+            cala: ["\\mathcal{a}"],
+            calb: ["\\mathcal{b}"],
+            calc: ["\\mathcal{c}"],
+            cald: ["\\mathcal{d}"],
+            cale: ["\\mathcal{e}"],
+            calf: ["\\mathcal{f}"],
+            calg: ["\\mathcal{g}"],
+            calh: ["\\mathcal{h}"],
+            cali: ["\\mathcal{i}"],
+            calj: ["\\mathcal{j}"],
+            calk: ["\\mathcal{k}"],
+            call: ["\\mathcal{l}"],
+            calm: ["\\mathcal{m}"],
+            caln: ["\\mathcal{n}"],
+            calo: ["\\mathcal{o}"],
+            calp: ["\\mathcal{p}"],
+            calq: ["\\mathcal{q}"],
+            calr: ["\\mathcal{r}"],
+            cals: ["\\mathcal{s}"],
+            calt: ["\\mathcal{t}"],
+            calu: ["\\mathcal{u}"],
+            calv: ["\\mathcal{v}"],
+            calx: ["\\mathcal{x}"],
+            calw: ["\\mathcal{w}"],
+            caly: ["\\mathcal{y}"],
+            calz: ["\\mathcal{z}"],
+            calA: ["\\mathcal{A}"],
+            calB: ["\\mathcal{B}"],
+            calC: ["\\mathcal{C}"],
+            calD: ["\\mathcal{D}"],
+            calE: ["\\mathcal{E}"],
+            calF: ["\\mathcal{F}"],
+            calG: ["\\mathcal{G}"],
+            calH: ["\\mathcal{H}"],
+            calI: ["\\mathcal{I}"],
+            calJ: ["\\mathcal{J}"],
+            calK: ["\\mathcal{K}"],
+            calL: ["\\mathcal{L}"],
+            calM: ["\\mathcal{M}"],
+            calN: ["\\mathcal{N}"],
+            calO: ["\\mathcal{O}"],
+            calP: ["\\mathcal{P}"],
+            calQ: ["\\mathcal{Q}"],
+            calR: ["\\mathcal{R}"],
+            calS: ["\\mathcal{S}"],
+            calT: ["\\mathcal{T}"],
+            calU: ["\\mathcal{U}"],
+            calV: ["\\mathcal{V}"],
+            calX: ["\\mathcal{X}"],
+            calW: ["\\mathcal{W}"],
+            calY: ["\\mathcal{Y}"],
+            calZ: ["\\mathcal{Z}"],
+            bfa: ["\\mathbf{a}"],
+            bfb: ["\\mathbf{b}"],
+            bfc: ["\\mathbf{c}"],
+            bfd: ["\\mathbf{d}"],
+            bfe: ["\\mathbf{e}"],
+            bff: ["\\mathbf{f}"],
+            bfg: ["\\mathbf{g}"],
+            bfh: ["\\mathbf{h}"],
+            bfi: ["\\mathbf{i}"],
+            bfj: ["\\mathbf{j}"],
+            bfk: ["\\mathbf{k}"],
+            bfl: ["\\mathbf{l}"],
+            bfm: ["\\mathbf{m}"],
+            bfn: ["\\mathbf{n}"],
+            bfo: ["\\mathbf{o}"],
+            bfp: ["\\mathbf{p}"],
+            bfq: ["\\mathbf{q}"],
+            bfr: ["\\mathbf{r}"],
+            bfs: ["\\mathbf{s}"],
+            bft: ["\\mathbf{t}"],
+            bfu: ["\\mathbf{u}"],
+            bfv: ["\\mathbf{v}"],
+            bfx: ["\\mathbf{x}"],
+            bfw: ["\\mathbf{w}"],
+            bfy: ["\\mathbf{y}"],
+            bfz: ["\\mathbf{z}"],
+            bfA: ["\\mathbf{A}"],
+            bfB: ["\\mathbf{B}"],
+            bfC: ["\\mathbf{C}"],
+            bfD: ["\\mathbf{D}"],
+            bfE: ["\\mathbf{E}"],
+            bfF: ["\\mathbf{F}"],
+            bfG: ["\\mathbf{G}"],
+            bfH: ["\\mathbf{H}"],
+            bfI: ["\\mathbf{I}"],
+            bfJ: ["\\mathbf{J}"],
+            bfK: ["\\mathbf{K}"],
+            bfL: ["\\mathbf{L}"],
+            bfM: ["\\mathbf{M}"],
+            bfN: ["\\mathbf{N}"],
+            bfO: ["\\mathbf{O}"],
+            bfP: ["\\mathbf{P}"],
+            bfQ: ["\\mathbf{Q}"],
+            bfR: ["\\mathbf{R}"],
+            bfS: ["\\mathbf{S}"],
+            bfT: ["\\mathbf{T}"],
+            bfU: ["\\mathbf{U}"],
+            bfV: ["\\mathbf{V}"],
+            bfX: ["\\mathbf{X}"],
+            bfW: ["\\mathbf{W}"],
+            bfY: ["\\mathbf{Y}"],
+            bfZ: ["\\mathbf{Z}"],
+            bfad: ["\\mathbf{ad}"],
+            zero: ["\\{0\\}"],
+            id: ["\\operatorname\{id\}"],
+            sen: ["\\operatorname\{sen\}"],
+            tg: ["\\operatorname\{tg\}"],
+            ad: ["\\operatorname\{ad\}"],
+            mdc: ["\\operatorname\{mdc\}"],
+            im: ["\\operatorname\{im\}"],
+            Quat: ["\\operatorname\{Quat\}"],
+            Aut: ["\\operatorname\{Aut\}"],
+            Inn: ["\\operatorname\{Inn\}"],
+            orb: ["\\operatorname\{orb\}"],
+            stab: ["\\operatorname\{stab\}"],
+            Rep: ["\\operatorname\{Rep\}"],
+            Hom: ["\\operatorname\{Hom\}"],
+            End: ["\\operatorname\{End\}"],
+            Obj: ["\\operatorname\{Obj\}"],
+            tr: ["\\operatorname\{tr\}"],
+            diam: ["\\operatorname\{diam\}"],
+            diag: ["\\operatorname\{diag\}"],
+            Ind: ["\\operatorname\{Ind\}"],
+            Res: ["\\operatorname\{Res\}"],
+            Set: ["\\operatorname\{Set\}"],
+            coker: ["\\operatorname\{coker\}"],
+            supp: ["\\operatorname\{supp\}"],
+            Tor: ["\\operatorname\{Tor\}"],
+            vspan: ["\\operatorname\{vspan\}"],
+            char: ["\\operatorname\{char\}"],
+            Ann: ["\\operatorname\{Ann\}"],
+            Der: ["\\operatorname\{Der\}"],
+            ma: ["\\operatorname\{ma\}"],
+            mg: ["\\operatorname\{mg\}"],
+            Rad: ["\\operatorname\{Rad\}"],
+            pint: ["{ \\langle #1,#2 \\rangle }",2],
+            rfrac: ["{ {}^{#1}\\!/_{#2} }",2],
+            norma: ["{ \\Vert #1 \\Vert }",1],
+          },
+        },
+      });
+    </script>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js"></script>
+    <script src="http://www.w3schools.com/lib/w3data.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../itemParenteses.css" />
+    <link rel="stylesheet" type="text/css" href="../../../ambTeor.css" />
+    
+    <script>
+      function closeDetail(detailsElement) {
+        detailsElement.removeAttribute("open");
+        window.location = '#' + detailsElement.scrollIntoView({block: "nearest", behavior: "smooth"});
+      }
+    </script>
+    
+    <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+
+    <style>
+      body{
+        font-size: 16pt;
+        font-family: "Helvetica", sans-serif;
+        line-height: 1.5;
+        background-color: rgb(233,227,206);
+        counter-reset: contTeor contProp contLema contCoro contObs contDef contExerc contExemplo contSec 13;
+      }
+      
+      h1{
+        background-color: rgb(153,51,153);
+        color: rgb(255,250,250);
+      }
+      
+      h2{
+        color: rgb(153,51,153);
+      }
+      
+      h3{
+        color: rgb(153,51,153);
+      }
+      
+      details > summary {
+        font-style: italic;
+        color: blue;
+        cursor: pointer;
+        position: relative;
+        transition: 0.15s background linear;
+      }
+      
+      details > summary:hover {
+        background: #d4d1ec;
+      }
+
+      details > .caixa{
+        border: solid;
+      }
+      
+      .equationCenter {
+        width: 100%;
+        overflow-y: hidden;
+        overflow-x: auto;
+      }
+      
+      .buttonDetails {
+        border: none;
+        text-align: center;
+        cursor: pointer;
+        position: absolute;
+        right: 10px;
+      }
+      
+    </style>
+
+  </head>
+  
+  <body>
+
+    <div style="text-align:center"><h1>Introdução às Álgebras de Lie</h1></div>
+    
+    <!-- ############ -->
+    <h2>Aula 13 - Sistema de raízes (parte II)</h2>
+    
+    <!-- COROLÁRIO -->
+    <p id="coro-reticuladoZDelta" class="coro">
+      Se \((V,\Delta)\) é um sistema de raízes, então \(Q = \bbZ\Delta\) é um reticulado de \(V\).
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+           
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-sitRaizParaAlgLieSemis" class="obs">
+      Vimos que se \(L\) é uma álgebra de Lie semissimples, então \(\bbR \otimes_{\bbQ} H_{\bbQ}^{\ast}, \Phi\) é um sistema de raízes, conforme visto no <a href="intrAlgebrasLie-aula12.html#exemplo-sistemaRaizes">Exemplo 12.1</a>. Nosso objetivo, nestas próximas aulas, é construir uma álgebra de Lie semissimples a partir de um sistema de raízes.
+    <span class="fim"></span></p>
+    
+    <!-- EXEMPLO -->
+    <p id="exemplo-sistRaizABCD" class="exemplo">
+      Nos exemplos apresentados na tabela abaixo, a forma utilizada foi a forma traço.
+    </p>
+    <p class="equationCenter">
+      \[
+        \begin{array}{|c|c|c|c|c|}
+          \hline
+          \text{Tipo} & L & \Delta & V = \bbR\Delta & Q = \bbZ\Delta \\
+          \hline
+          A_{r} & \fraksl_{r+1} & \{\epsilon_{i} - \epsilon_{j} \mid i \neq j\} & \{\sum a_{i}\epsilon_{i} \mid a_{i} \in \bbR, \sum a_{i} = 0\} & \{\sum a_{i}\epsilon_{i} \mid a_{i} \in \bbR, \sum a_{i} = 0\} \\
+          \hline
+          B_{r} & \frakso_{2r+1} & \{\pm\epsilon_{i} \pm\epsilon_{j}, \pm\epsilon_{i} \mid i \neq j\} & \{\sum a_{i}\epsilon_{i} \mid a_{i} \in \bbR\} & \{\sum a_{i}\epsilon_{i} \mid a_{i} \in \bbR\} \\
+          \hline
+          C_{r} & \fraksp_{2r} & \{\pm\epsilon_{i}\pm\epsilon_{j}, \pm 2\epsilon_{i} \mid i \neq j\} & \{\sum a_{i}\epsilon_{i} \mid a_{i} \in \bbR\} & \{\sum a_{i}\epsilon_{i} \mid a_{i} \in \bbR, \sum a_{i} \in 2\bbZ\} \\
+          \hline
+          D_{r} & \frakso_{2r} & \{\pm\epsilon_{i}\pm \epsilon_{j} \mid i \neq j\} & \{\sum a_{i}\epsilon_{i} \mid a_{i} \in \bbR\} & \{\sum a_{i}\epsilon_{i} \mid a_{i} \in \bbR, \sum a_{i} \in 2\bbZ\} \\
+          \hline
+        \end{array}
+      \]
+    </p>
+    <p>
+      Para entender o porquê da coluna dos reticulados, é importante ter em mente que
+      <ol class="alfa">
+        <li>para \(A_{r}\), \(\{\epsilon_{1} - \epsilon_{2}, \epsilon_{2} - \epsilon_{3}, \dots, \epsilon_{r} - \epsilon_{r+1}\}\) é base de \(V\),</li>
+        <li>para \(C_{r}\), \(\{\epsilon_{1} - \epsilon_{2}, \epsilon_{2} - \epsilon_{3}, \dots, \epsilon_{r-1} - \epsilon_{r},2\epsilon_{r}\}\) é base de \(V\),</li>
+        <li>para \(D_{r}\), \(\{\epsilon_{1} - \epsilon_{2}, \epsilon_{2} - \epsilon_{3}, \dots, \epsilon_{r-1} - \epsilon_{r},2\epsilon_{r}\}\) é base de \(V\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-reticIntPar" class="def">
+      Um reticulado \(Q\) é 
+      <ol class="alfa">
+        <li><strong>integral</strong>, se \((\alpha, \beta) \in \bbZ\), para todo \(\alpha, \beta \in Q\);</li>
+        <li><strong>par</strong>, se \((\alpha,\alpha) \in 2\bbZ\), para todo \(\alpha \in Q\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-reticParImplicInteg" class="obs">
+      Todo reticulado par é integral: por um lado, \((\alpha + \beta, \alpha + \beta) \in 2\bbZ\) e, por outro, \((\alpha + \beta, \alpha + \beta) = \underbrace{(\alpha, \alpha)}_{\in 2\bbZ} + 2(\alpha,\beta) + \underbrace{(\beta, \beta)}_{\in 2\bbZ}\). Logo, \((\alpha,\beta) \in \bbZ\).
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-Er" class="def">
+      Para cada \(r \in \bbZ_{>0}\), defina
+    </p>
+    <p class="equationCenter">
+      \[
+        E_{r} = \left\{\sum_{i=1}^{r}a_{i}\epsilon_{i} \;\;\bigg|\;\; \sum_{i=1}^{r}a_{i} \in 2\bbZ \;\text{ e }\; \Big(\forall \, i, \; a_{i} \in \bbZ \;\text{ ou }\; a_{i} \in \frac{1}{2} + \bbZ\Big)\right\} \subseteq \bbR^{r} := \bbR\{\epsilon_{1},\dots,\epsilon_{r}\},
+      \]
+    </p>
+    <p>
+      com \((\epsilon_{i},\epsilon_{j}) = \delta_{ij}\).
+    <span class="fim"></span></p>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="prop-ErReticPar" class="prop">
+      \(E_{r}\) é reticulado par se, e somente se, \(8 \mid r\).
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+           
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- TEOREMA -->
+    <p id="teor-reticParSistRaiz" class="teor">
+      Seja \(Q\) um reticulado par de um espaço euclidiano \(V\). Suponha que \(\Delta = \{\alpha \in V \mid (\alpha, \alpha) = 2\}\) gera \(V\). Então \((V, \Delta)\) é um sistema de raízes.
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+           
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-raizesSimples" class="def">
+      Suponha que \((V,\Delta)\) é um sistema de raízes e seja \(f: V \to \bbR\) uma função linear tal que \(f(\alpha) \neq 0\), para todo \(\alpha \in \Delta\). Então
+      <ol class="alfa">
+        <li>\(\alpha \in \Delta\) é <strong>positivo</strong>, se \(f(\alpha) > 0\) (às vezes, escrevemos \(\alpha > 0\), ao invés de \(f(\alpha) > 0\)),</li>
+        <li>\(\alpha \in \Delta\) é <strong>negativo</strong>, se \(f(\alpha) < 0\) (às vezes, escrevemos \(\alpha < 0\), ao invés de \(f(\alpha) < 0\)),</li>
+        <li>\(\alpha \in \Delta\) é <strong>simples</strong>, se \(\alpha\) é positivo e se \(\alpha\) não pode ser escrito como soma de raízes positivas,</li>
+        <li>\(\theta \in \Delta\) é <strong>maximal</strong>, se \(f(\theta) \ge f(\alpha)\), para \(\alpha \in \Delta\).</li>
+      </ol>
+      Notação:
+      <div class="equationCenter">
+        \[
+          \begin{array}{l}
+            \Delta_{+} = \{\alpha \in \Delta \mid f(\alpha) > 0\} \\
+            \Delta_{-} = \{\alpha \in \Delta \mid f(\alpha) < 0\} \\
+            \pi = \{\alpha \in \Delta_{+} \mid \alpha \text{ é simples}\}.
+          \end{array}
+        \]
+      </div>
+      Dizemos que \(\pi\) é <strong>indecomponível</strong>, se não podemos escrever \(\pi = \pi_{1} \cup \pi_{2}\), com \(\pi_{1} \perp \pi_{2}\).
+    <span class="fim"></span></p>
+    
+    <!-- TEOREMA -->
+    <p id="teor-dynkin" class="teor" text="Teorema de Dynkin">
+      <ol class="alfa">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li><span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+           
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- EXERCÍCIO -->
+    <p id="exerc-" class="exerc">
+      <ol class="numerico">
+        <li>Mostre que \(\Delta_{E_{8}} := \{\alpha \in E_{8} \mid (\alpha, \alpha) = 2\}\) é igual a 
+          <div class="equationCenter">
+            \[
+              \{\pm\epsilon_{i} \pm\epsilon_{j} \mid i \neq j\} \cup \left\{\frac{1}{2}(\pm\epsilon_{1} \pm\cdots \pm \epsilon_{8}), \text{ com número para de sinais negativos}\right\}.
+            \]
+          </div>
+          Mostre também que \(|\Delta_{E_{8}}| = 240\) e que \(\bbR\Delta_{E_{8}} = \bbR^{8}\).
+        </li>
+        <li>Considere os seguintes subconjuntos de \(E_{8}\):
+          <div class="equationCenter">
+            \[
+              \begin{array}{ll}
+                \Delta_{E_{7}} = \{\alpha \in \Delta_{E_{8}} \mid (\alpha, \rho) = 0\} & \quad\quad \Delta_{E_{6}} = \{\alpha \in \Delta_{E_{6}} \mid (\alpha, \epsilon_{7} + \epsilon_{8}) = 0\}\\
+                Q_{E_{7}} = \{\alpha \in Q_{E_{8}} \mid (\alpha, \rho) = 0\} & \quad\quad Q_{E_{6}} = \{\alpha \in Q_{E_{7}} \mid (\alpha, \epsilon_{7} + \epsilon_{8}) = 0\} \\
+                V_{E_{7}} = \{v \in V_{E_{8}} \mid (v,\rho) = 0\} & \quad\quad V_{E_{6}} = \{v \in V_{E_{7}} \mid (v,\epsilon_{7} + \epsilon_{8}) = 0\}
+              \end{array}
+            \]
+          </div>
+          onde \(\rho = (\frac{1}{2},\dots,\frac{1}{2})\). Mostre que 
+          <ol class="alfa">
+            <li>\((V_{E_{7}},\Delta_{E_{7}})\) é um sistema de raízes de posto \(7\) e que \(|\Delta_{E_{7}}| = 126\);</li>
+            <li>\((V_{E_{6}},\Delta_{E_{6}})\) é um sistema de raízes de posto \(6\) e que \(|\Delta_{E_{6}}| = 72\).</li>
+          </ol>
+        </li>
+        <li>Defina
+          <div class="equationCenter">
+            \[
+              \begin{array}{l}
+                V_{F_{4}} = \bigoplus_{i=1}^{4}\bbR\epsilon_{i}, \text{ com } (\epsilon_{i},\epsilon_{j}) = 0 \\
+                Q_{F_{4}} = \{\sum a_{i}\epsilon_{i} \mid a_{i} \in \bbZ \text{ ou } a_{i} \in \frac{1}{2} + \bbZ, \forall \, i\} \\
+                \Delta_{F_{4}} = \{\alpha \in Q_{F_{4}} \mid (\alpha, \alpha) = 1 \text{ ou } 2\}.
+              \end{array}
+            \]
+          </div>
+          Mostre que \((V_{F_{4}},\Delta_{F_{4}})\) é um sistema de raízes de posto \(4\) e que \(|\Delta_{F_{4}}| = 48\).
+        </li>
+        <li>Defina
+          <div class="equationCenter">
+            \[
+              \begin{array}{l}
+                V_{G_{2}} = V_{A_{2}} \\
+                Q_{G_{2}} = Q_{A_{2}} \\
+                \Delta_{G_{2}} = \{\alpha \in Q_{G_{2}} \mid (\alpha, \alpha) = 2 \text{ ou } 6\},
+              \end{array}
+            \]
+          </div>
+          onde \(A_{2} = \fraksl_{3}\). Mostre que \((V_{G_{2}},\Delta_{G_{2}})\) é um sistema de raízes de posto \(2\) e que \(|\Delta_{G_{2}}| = 12\).
+        <span class="fim"></span></li>
+      </ol>
+    </p>
+    
+  </body>
+  
+</html>
+
