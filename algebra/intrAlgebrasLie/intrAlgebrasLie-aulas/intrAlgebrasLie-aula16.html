@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Introdução às Álgebras de Lie </title>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Register.StartupHook("TeX Jax Ready",function (){
+         MathJax.Hub.Insert(MathJax.InputJax.TeX.Definitions.macros,{
+          cancel: ["Extension","cancel"],
+          bcancel: ["Extension","cancel"],
+          xcancel: ["Extension","cancel"],
+          cancelto: ["Extension","cancel"]
+        });
+      });
+      MathJax.Hub.Config({
+        extensions: ["https://lomath.in/doc/xyjax/xypic.js","tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+          processEscapes: true
+        },
+        "HTML-CSS": { fonts: ["TeX"] },
+        TeX: {
+          equationNumbers: { autoNumber: "AMS" },
+          Macros: {
+            fraka: ["\\mathfrak{a}"],
+            frakb: ["\\mathfrak{b}"],
+            frakc: ["\\mathfrak{c}"],
+            frakd: ["\\mathfrak{d}"],
+            frake: ["\\mathfrak{e}"],
+            frakf: ["\\mathfrak{f}"],
+            frakg: ["\\mathfrak{g}"],
+            frakh: ["\\mathfrak{h}"],
+            fraki: ["\\mathfrak{i}"],
+            frakj: ["\\mathfrak{j}"],
+            frakk: ["\\mathfrak{k}"],
+            frakl: ["\\mathfrak{l}"],
+            frakm: ["\\mathfrak{m}"],
+            frakn: ["\\mathfrak{n}"],
+            frako: ["\\mathfrak{o}"],
+            frakp: ["\\mathfrak{p}"],
+            frakq: ["\\mathfrak{q}"],
+            frakr: ["\\mathfrak{r}"],
+            fraks: ["\\mathfrak{s}"],
+            frakt: ["\\mathfrak{t}"],
+            fraku: ["\\mathfrak{u}"],
+            frakv: ["\\mathfrak{v}"],
+            frakx: ["\\mathfrak{x}"],
+            frakw: ["\\mathfrak{w}"],
+            fraky: ["\\mathfrak{y}"],
+            frakz: ["\\mathfrak{z}"],
+            frakA: ["\\mathfrak{A}"],
+            frakB: ["\\mathfrak{B}"],
+            frakC: ["\\mathfrak{C}"],
+            frakD: ["\\mathfrak{D}"],
+            frakE: ["\\mathfrak{E}"],
+            frakF: ["\\mathfrak{F}"],
+            frakG: ["\\mathfrak{G}"],
+            frakH: ["\\mathfrak{H}"],
+            frakI: ["\\mathfrak{I}"],
+            frakJ: ["\\mathfrak{J}"],
+            frakK: ["\\mathfrak{K}"],
+            frakL: ["\\mathfrak{L}"],
+            frakM: ["\\mathfrak{M}"],
+            frakN: ["\\mathfrak{N}"],
+            frakO: ["\\mathfrak{O}"],
+            frakP: ["\\mathfrak{P}"],
+            frakQ: ["\\mathfrak{Q}"],
+            frakR: ["\\mathfrak{R}"],
+            frakS: ["\\mathfrak{S}"],
+            frakT: ["\\mathfrak{T}"],
+            frakU: ["\\mathfrak{U}"],
+            frakV: ["\\mathfrak{V}"],
+            frakX: ["\\mathfrak{X}"],
+            frakW: ["\\mathfrak{W}"],
+            frakY: ["\\mathfrak{Y}"],
+            frakZ: ["\\mathfrak{Z}"],
+            frakgl: ["\\mathfrak{gl}"],
+            fraksl: ["\\mathfrak{sl}"],
+            frakso: ["\\mathfrak{so}"],
+            fraksp: ["\\mathfrak{sp}"],
+            bba: ["\\mathbb{a}"],
+            bbb: ["\\mathbb{b}"],
+            bbc: ["\\mathbb{c}"],
+            bbd: ["\\mathbb{d}"],
+            bbe: ["\\mathbb{e}"],
+            bbf: ["\\mathbb{f}"],
+            bbg: ["\\mathbb{g}"],
+            bbh: ["\\mathbb{h}"],
+            bbi: ["\\mathbb{i}"],
+            bbj: ["\\mathbb{j}"],
+            bbk: ["\\mathbb{k}"],
+            bbl: ["\\mathbb{l}"],
+            bbm: ["\\mathbb{m}"],
+            bbn: ["\\mathbb{n}"],
+            bbo: ["\\mathbb{o}"],
+            bbp: ["\\mathbb{p}"],
+            bbq: ["\\mathbb{q}"],
+            bbr: ["\\mathbb{r}"],
+            bbs: ["\\mathbb{s}"],
+            bbt: ["\\mathbb{t}"],
+            bbu: ["\\mathbb{u}"],
+            bbv: ["\\mathbb{v}"],
+            bbx: ["\\mathbb{x}"],
+            bbw: ["\\mathbb{w}"],
+            bby: ["\\mathbb{y}"],
+            bbz: ["\\mathbb{z}"],
+            bbA: ["\\mathbb{A}"],
+            bbB: ["\\mathbb{B}"],
+            bbC: ["\\mathbb{C}"],
+            bbD: ["\\mathbb{D}"],
+            bbE: ["\\mathbb{E}"],
+            bbF: ["\\mathbb{F}"],
+            bbG: ["\\mathbb{G}"],
+            bbH: ["\\mathbb{H}"],
+            bbI: ["\\mathbb{I}"],
+            bbJ: ["\\mathbb{J}"],
+            bbK: ["\\mathbb{K}"],
+            bbL: ["\\mathbb{L}"],
+            bbM: ["\\mathbb{M}"],
+            bbN: ["\\mathbb{N}"],
+            bbO: ["\\mathbb{O}"],
+            bbP: ["\\mathbb{P}"],
+            bbQ: ["\\mathbb{Q}"],
+            bbR: ["\\mathbb{R}"],
+            bbS: ["\\mathbb{S}"],
+            bbT: ["\\mathbb{T}"],
+            bbU: ["\\mathbb{U}"],
+            bbV: ["\\mathbb{V}"],
+            bbX: ["\\mathbb{X}"],
+            bbW: ["\\mathbb{W}"],
+            bbY: ["\\mathbb{Y}"],
+            bbZ: ["\\mathbb{Z}"],
+            cala: ["\\mathcal{a}"],
+            calb: ["\\mathcal{b}"],
+            calc: ["\\mathcal{c}"],
+            cald: ["\\mathcal{d}"],
+            cale: ["\\mathcal{e}"],
+            calf: ["\\mathcal{f}"],
+            calg: ["\\mathcal{g}"],
+            calh: ["\\mathcal{h}"],
+            cali: ["\\mathcal{i}"],
+            calj: ["\\mathcal{j}"],
+            calk: ["\\mathcal{k}"],
+            call: ["\\mathcal{l}"],
+            calm: ["\\mathcal{m}"],
+            caln: ["\\mathcal{n}"],
+            calo: ["\\mathcal{o}"],
+            calp: ["\\mathcal{p}"],
+            calq: ["\\mathcal{q}"],
+            calr: ["\\mathcal{r}"],
+            cals: ["\\mathcal{s}"],
+            calt: ["\\mathcal{t}"],
+            calu: ["\\mathcal{u}"],
+            calv: ["\\mathcal{v}"],
+            calx: ["\\mathcal{x}"],
+            calw: ["\\mathcal{w}"],
+            caly: ["\\mathcal{y}"],
+            calz: ["\\mathcal{z}"],
+            calA: ["\\mathcal{A}"],
+            calB: ["\\mathcal{B}"],
+            calC: ["\\mathcal{C}"],
+            calD: ["\\mathcal{D}"],
+            calE: ["\\mathcal{E}"],
+            calF: ["\\mathcal{F}"],
+            calG: ["\\mathcal{G}"],
+            calH: ["\\mathcal{H}"],
+            calI: ["\\mathcal{I}"],
+            calJ: ["\\mathcal{J}"],
+            calK: ["\\mathcal{K}"],
+            calL: ["\\mathcal{L}"],
+            calM: ["\\mathcal{M}"],
+            calN: ["\\mathcal{N}"],
+            calO: ["\\mathcal{O}"],
+            calP: ["\\mathcal{P}"],
+            calQ: ["\\mathcal{Q}"],
+            calR: ["\\mathcal{R}"],
+            calS: ["\\mathcal{S}"],
+            calT: ["\\mathcal{T}"],
+            calU: ["\\mathcal{U}"],
+            calV: ["\\mathcal{V}"],
+            calX: ["\\mathcal{X}"],
+            calW: ["\\mathcal{W}"],
+            calY: ["\\mathcal{Y}"],
+            calZ: ["\\mathcal{Z}"],
+            bfa: ["\\mathbf{a}"],
+            bfb: ["\\mathbf{b}"],
+            bfc: ["\\mathbf{c}"],
+            bfd: ["\\mathbf{d}"],
+            bfe: ["\\mathbf{e}"],
+            bff: ["\\mathbf{f}"],
+            bfg: ["\\mathbf{g}"],
+            bfh: ["\\mathbf{h}"],
+            bfi: ["\\mathbf{i}"],
+            bfj: ["\\mathbf{j}"],
+            bfk: ["\\mathbf{k}"],
+            bfl: ["\\mathbf{l}"],
+            bfm: ["\\mathbf{m}"],
+            bfn: ["\\mathbf{n}"],
+            bfo: ["\\mathbf{o}"],
+            bfp: ["\\mathbf{p}"],
+            bfq: ["\\mathbf{q}"],
+            bfr: ["\\mathbf{r}"],
+            bfs: ["\\mathbf{s}"],
+            bft: ["\\mathbf{t}"],
+            bfu: ["\\mathbf{u}"],
+            bfv: ["\\mathbf{v}"],
+            bfx: ["\\mathbf{x}"],
+            bfw: ["\\mathbf{w}"],
+            bfy: ["\\mathbf{y}"],
+            bfz: ["\\mathbf{z}"],
+            bfA: ["\\mathbf{A}"],
+            bfB: ["\\mathbf{B}"],
+            bfC: ["\\mathbf{C}"],
+            bfD: ["\\mathbf{D}"],
+            bfE: ["\\mathbf{E}"],
+            bfF: ["\\mathbf{F}"],
+            bfG: ["\\mathbf{G}"],
+            bfH: ["\\mathbf{H}"],
+            bfI: ["\\mathbf{I}"],
+            bfJ: ["\\mathbf{J}"],
+            bfK: ["\\mathbf{K}"],
+            bfL: ["\\mathbf{L}"],
+            bfM: ["\\mathbf{M}"],
+            bfN: ["\\mathbf{N}"],
+            bfO: ["\\mathbf{O}"],
+            bfP: ["\\mathbf{P}"],
+            bfQ: ["\\mathbf{Q}"],
+            bfR: ["\\mathbf{R}"],
+            bfS: ["\\mathbf{S}"],
+            bfT: ["\\mathbf{T}"],
+            bfU: ["\\mathbf{U}"],
+            bfV: ["\\mathbf{V}"],
+            bfX: ["\\mathbf{X}"],
+            bfW: ["\\mathbf{W}"],
+            bfY: ["\\mathbf{Y}"],
+            bfZ: ["\\mathbf{Z}"],
+            bfad: ["\\mathbf{ad}"],
+            zero: ["\\{0\\}"],
+            id: ["\\operatorname\{id\}"],
+            sen: ["\\operatorname\{sen\}"],
+            tg: ["\\operatorname\{tg\}"],
+            ad: ["\\operatorname\{ad\}"],
+            mdc: ["\\operatorname\{mdc\}"],
+            im: ["\\operatorname\{im\}"],
+            Quat: ["\\operatorname\{Quat\}"],
+            Aut: ["\\operatorname\{Aut\}"],
+            Inn: ["\\operatorname\{Inn\}"],
+            orb: ["\\operatorname\{orb\}"],
+            stab: ["\\operatorname\{stab\}"],
+            Rep: ["\\operatorname\{Rep\}"],
+            Hom: ["\\operatorname\{Hom\}"],
+            End: ["\\operatorname\{End\}"],
+            Obj: ["\\operatorname\{Obj\}"],
+            tr: ["\\operatorname\{tr\}"],
+            diam: ["\\operatorname\{diam\}"],
+            diag: ["\\operatorname\{diag\}"],
+            Ind: ["\\operatorname\{Ind\}"],
+            Res: ["\\operatorname\{Res\}"],
+            Set: ["\\operatorname\{Set\}"],
+            coker: ["\\operatorname\{coker\}"],
+            supp: ["\\operatorname\{supp\}"],
+            Tor: ["\\operatorname\{Tor\}"],
+            vspan: ["\\operatorname\{vspan\}"],
+            char: ["\\operatorname\{char\}"],
+            Ann: ["\\operatorname\{Ann\}"],
+            Der: ["\\operatorname\{Der\}"],
+            ma: ["\\operatorname\{ma\}"],
+            mg: ["\\operatorname\{mg\}"],
+            Rad: ["\\operatorname\{Rad\}"],
+            pint: ["{ \\langle #1,#2 \\rangle }",2],
+            rfrac: ["{ {}^{#1}\\!/_{#2} }",2],
+            norma: ["{ \\Vert #1 \\Vert }",1],
+          },
+        },
+      });
+    </script>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js"></script>
+    <script src="http://www.w3schools.com/lib/w3data.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../itemParenteses.css" />
+    <link rel="stylesheet" type="text/css" href="../../../ambTeor.css" />
+    
+    <script>
+      function closeDetail(detailsElement) {
+        detailsElement.removeAttribute("open");
+        window.location = '#' + detailsElement.scrollIntoView({block: "nearest", behavior: "smooth"});
+      }
+    </script>
+    
+    <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+
+    <style>
+      body{
+        font-size: 16pt;
+        font-family: "Helvetica", sans-serif;
+        line-height: 1.5;
+        background-color: rgb(233,227,206);
+        counter-reset: contTeor contProp contLema contCoro contObs contDef contExerc contExemplo contSec 16;
+      }
+      
+      h1{
+        background-color: rgb(153,51,153);
+        color: rgb(255,250,250);
+      }
+      
+      h2{
+        color: rgb(153,51,153);
+      }
+      
+      h3{
+        color: rgb(153,51,153);
+      }
+      
+      details > summary {
+        font-style: italic;
+        color: blue;
+        cursor: pointer;
+        position: relative;
+        transition: 0.15s background linear;
+      }
+      
+      details > summary:hover {
+        background: #d4d1ec;
+      }
+
+      details > .caixa{
+        border: solid;
+      }
+      
+      .equationCenter {
+        width: 100%;
+        overflow-y: hidden;
+        overflow-x: auto;
+      }
+      
+      .buttonDetails {
+        border: none;
+        text-align: center;
+        cursor: pointer;
+        position: absolute;
+        right: 10px;
+      }
+      
+    </style>
+
+  </head>
+  
+  <body>
+
+    <div style="text-align:center"><h1>Introdução às Álgebras de Lie</h1></div>
+    
+    <!-- ############ -->
+    <h2>Aula 16 - Diagramas de Dynkin iguais implica álgebras equivalentes (parte II)</h2>
+    
+    <!-- LEMA -->
+    <p id="lema-diagDynkImplAlgIsomAuxiliar" class="lema">
+      Seja \(L\) uma álgebra semissimples tal que o conjunto das raízes simples é \(\Pi = \{\alpha_{1}, \dots, \alpha_{r}\}\). Sejam \(e_i\), \(f_{i}\) e \(h_{i}\) conforme <a href="intrAlgebrasLie-aula15.html#obs-relacoesChevalley">Observação 15.3</a>. Defina \(\tilde{L}\) como sendo a álgebra de Lie gerada por \(X = \{e_{i}, f_{i}, h_{i} \mid i = 1, \dots, r\}\) sujeitas às relações de Chevalley \(R = \{[h_{i},h_{j}], [h_{i},e_{j}] - A_{ij}e_{j}, [h_{i}, f_{j}] + A_{ij}f_{j}, [e_{i},f_{j}] - \delta_{ij}h_{i}\}\), isto é, \(\tilde{L} = \rfrac{L(X)}{I(R)}\) (veja <a href="intrAlgebrasLie-aula15.html#obs-algLivre">Observação 15.2</a>). Sejam \(\tilde{n}_{+} \subseteq \tilde{L}\) a subálgebra de Lie gerada por \(\{e_{1}, \dots, e_{r}\}\), \(\tilde{n}_{-} \subseteq \tilde{L}\) a subálgebra de Lie gerada por \(\{f_{1}, \dots, f_{r}\}\) e \(\tilde{H}\) o espaço vetorial gerado por \(\{h_{1}, \dots, h_{r}\}\). Então
+      <ol class="alfa">
+        <li>\(\tilde{L} = \tilde{n}_{-} \oplus \tilde{H} \oplus \tilde{n}_{+}\) como espaço vetorial,</li>
+        <li>\(\tilde{n}_{+} = \displaystyle\bigoplus_{\alpha \in Q_{+}}\tilde{L}_{\alpha}\), \(\tilde{n}_{-} = \displaystyle\bigoplus_{\alpha \in Q_{+}}\tilde{L}_{-\alpha}\), onde \(Q_{+} = \bbZ_{\ge 0}\Pi\setminus\zero\) e \(\tilde{L}_{\alpha} = \{x \in \tilde{L} \mid [h,x] = \alpha(h)x, \forall \, h \in H\}\),</li>
+        <li>se \(I \unlhd \tilde{L}\), então \(I = (I \cap H) \oplus \displaystyle\bigoplus_{\alpha \in Q_{+}}(I \cap \tilde{L}_{\pm\alpha})\),</li>
+        <li>\(\tilde{L}\) contém um único ideal maximal próprio, \(I(A)\), desde que \(D(A)\) seja conexo.</li>
+      </ol>
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- TEOREMA -->
+    <p id="teor-diagDynkImplAlgIsom" class="teor">
+      Se duas álgebras de Lie semissimples têm o mesmo diagrama de Dynkin, então elas são isomorfas.
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          A ideia dessa demonstração é construir, a partir da matriz de Cartan \(A\) de \(L\), uma álgebra de Lie \(L(A)\) isomorfa a álgebra inicial, pois isso conclui o teorema. Sejam \(L\) uma álgebra de Lie semissimples, \(H\) uma subálgebra de Cartan, \(\Delta_{+}\) o conjunto das raízes positivas, \(\Pi = \{\alpha_{1}, \dots, \alpha_{r}\}\) o conjunto das raízes simples e \(A\) sua matriz de Cartan. Considere \(e_i\), \(f_{i}\) e \(h_{i}\) conforme <a href="intrAlgebrasLie-aula15.html#obs-relacoesChevalley">Observação 15.3</a>. Defina \(\tilde{L}(A)\) como sendo a álgebra de Lie gerada por \(X = \{e_{i}, f_{i}, h_{i} \mid i = 1, \dots, r\}\) sujeitas às relações de Chevalley \(R = \{[h_{i},h_{j}], [h_{i},e_{j}] - A_{ij}e_{j}, [h_{i}, f_{j}] + A_{ij}f_{j}, [e_{i},f_{j}] - \delta_{ij}h_{i}\}\), isto é, \(\tilde{L}(A) = \rfrac{L(X)}{I(R)}\) (veja <a href="intrAlgebrasLie-aula15.html#obs-algLivre">Observação 15.2</a>). Note que para a projeção \(\pi: X \to L\) existe único \(\psi: L(X) \to L\) homomorfismo de álgebras de Lie sobrejetivo tal que \(\psi(R) = \zero\). Assim, como \(\psi(I(R))) = \zero\), então podemos considerar o epimorfismo \(\tilde{\psi}: \tilde{L}(A) \to L\).
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+  </body>
+  
+</html>
+

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Introdução às Álgebras de Lie </title>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Register.StartupHook("TeX Jax Ready",function (){
+         MathJax.Hub.Insert(MathJax.InputJax.TeX.Definitions.macros,{
+          cancel: ["Extension","cancel"],
+          bcancel: ["Extension","cancel"],
+          xcancel: ["Extension","cancel"],
+          cancelto: ["Extension","cancel"]
+        });
+      });
+      MathJax.Hub.Config({
+        extensions: ["https://lomath.in/doc/xyjax/xypic.js","tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+          processEscapes: true
+        },
+        "HTML-CSS": { fonts: ["TeX"] },
+        TeX: {
+          equationNumbers: { autoNumber: "AMS" },
+          Macros: {
+            fraka: ["\\mathfrak{a}"],
+            frakb: ["\\mathfrak{b}"],
+            frakc: ["\\mathfrak{c}"],
+            frakd: ["\\mathfrak{d}"],
+            frake: ["\\mathfrak{e}"],
+            frakf: ["\\mathfrak{f}"],
+            frakg: ["\\mathfrak{g}"],
+            frakh: ["\\mathfrak{h}"],
+            fraki: ["\\mathfrak{i}"],
+            frakj: ["\\mathfrak{j}"],
+            frakk: ["\\mathfrak{k}"],
+            frakl: ["\\mathfrak{l}"],
+            frakm: ["\\mathfrak{m}"],
+            frakn: ["\\mathfrak{n}"],
+            frako: ["\\mathfrak{o}"],
+            frakp: ["\\mathfrak{p}"],
+            frakq: ["\\mathfrak{q}"],
+            frakr: ["\\mathfrak{r}"],
+            fraks: ["\\mathfrak{s}"],
+            frakt: ["\\mathfrak{t}"],
+            fraku: ["\\mathfrak{u}"],
+            frakv: ["\\mathfrak{v}"],
+            frakx: ["\\mathfrak{x}"],
+            frakw: ["\\mathfrak{w}"],
+            fraky: ["\\mathfrak{y}"],
+            frakz: ["\\mathfrak{z}"],
+            frakA: ["\\mathfrak{A}"],
+            frakB: ["\\mathfrak{B}"],
+            frakC: ["\\mathfrak{C}"],
+            frakD: ["\\mathfrak{D}"],
+            frakE: ["\\mathfrak{E}"],
+            frakF: ["\\mathfrak{F}"],
+            frakG: ["\\mathfrak{G}"],
+            frakH: ["\\mathfrak{H}"],
+            frakI: ["\\mathfrak{I}"],
+            frakJ: ["\\mathfrak{J}"],
+            frakK: ["\\mathfrak{K}"],
+            frakL: ["\\mathfrak{L}"],
+            frakM: ["\\mathfrak{M}"],
+            frakN: ["\\mathfrak{N}"],
+            frakO: ["\\mathfrak{O}"],
+            frakP: ["\\mathfrak{P}"],
+            frakQ: ["\\mathfrak{Q}"],
+            frakR: ["\\mathfrak{R}"],
+            frakS: ["\\mathfrak{S}"],
+            frakT: ["\\mathfrak{T}"],
+            frakU: ["\\mathfrak{U}"],
+            frakV: ["\\mathfrak{V}"],
+            frakX: ["\\mathfrak{X}"],
+            frakW: ["\\mathfrak{W}"],
+            frakY: ["\\mathfrak{Y}"],
+            frakZ: ["\\mathfrak{Z}"],
+            frakgl: ["\\mathfrak{gl}"],
+            fraksl: ["\\mathfrak{sl}"],
+            frakso: ["\\mathfrak{so}"],
+            fraksp: ["\\mathfrak{sp}"],
+            bba: ["\\mathbb{a}"],
+            bbb: ["\\mathbb{b}"],
+            bbc: ["\\mathbb{c}"],
+            bbd: ["\\mathbb{d}"],
+            bbe: ["\\mathbb{e}"],
+            bbf: ["\\mathbb{f}"],
+            bbg: ["\\mathbb{g}"],
+            bbh: ["\\mathbb{h}"],
+            bbi: ["\\mathbb{i}"],
+            bbj: ["\\mathbb{j}"],
+            bbk: ["\\mathbb{k}"],
+            bbl: ["\\mathbb{l}"],
+            bbm: ["\\mathbb{m}"],
+            bbn: ["\\mathbb{n}"],
+            bbo: ["\\mathbb{o}"],
+            bbp: ["\\mathbb{p}"],
+            bbq: ["\\mathbb{q}"],
+            bbr: ["\\mathbb{r}"],
+            bbs: ["\\mathbb{s}"],
+            bbt: ["\\mathbb{t}"],
+            bbu: ["\\mathbb{u}"],
+            bbv: ["\\mathbb{v}"],
+            bbx: ["\\mathbb{x}"],
+            bbw: ["\\mathbb{w}"],
+            bby: ["\\mathbb{y}"],
+            bbz: ["\\mathbb{z}"],
+            bbA: ["\\mathbb{A}"],
+            bbB: ["\\mathbb{B}"],
+            bbC: ["\\mathbb{C}"],
+            bbD: ["\\mathbb{D}"],
+            bbE: ["\\mathbb{E}"],
+            bbF: ["\\mathbb{F}"],
+            bbG: ["\\mathbb{G}"],
+            bbH: ["\\mathbb{H}"],
+            bbI: ["\\mathbb{I}"],
+            bbJ: ["\\mathbb{J}"],
+            bbK: ["\\mathbb{K}"],
+            bbL: ["\\mathbb{L}"],
+            bbM: ["\\mathbb{M}"],
+            bbN: ["\\mathbb{N}"],
+            bbO: ["\\mathbb{O}"],
+            bbP: ["\\mathbb{P}"],
+            bbQ: ["\\mathbb{Q}"],
+            bbR: ["\\mathbb{R}"],
+            bbS: ["\\mathbb{S}"],
+            bbT: ["\\mathbb{T}"],
+            bbU: ["\\mathbb{U}"],
+            bbV: ["\\mathbb{V}"],
+            bbX: ["\\mathbb{X}"],
+            bbW: ["\\mathbb{W}"],
+            bbY: ["\\mathbb{Y}"],
+            bbZ: ["\\mathbb{Z}"],
+            cala: ["\\mathcal{a}"],
+            calb: ["\\mathcal{b}"],
+            calc: ["\\mathcal{c}"],
+            cald: ["\\mathcal{d}"],
+            cale: ["\\mathcal{e}"],
+            calf: ["\\mathcal{f}"],
+            calg: ["\\mathcal{g}"],
+            calh: ["\\mathcal{h}"],
+            cali: ["\\mathcal{i}"],
+            calj: ["\\mathcal{j}"],
+            calk: ["\\mathcal{k}"],
+            call: ["\\mathcal{l}"],
+            calm: ["\\mathcal{m}"],
+            caln: ["\\mathcal{n}"],
+            calo: ["\\mathcal{o}"],
+            calp: ["\\mathcal{p}"],
+            calq: ["\\mathcal{q}"],
+            calr: ["\\mathcal{r}"],
+            cals: ["\\mathcal{s}"],
+            calt: ["\\mathcal{t}"],
+            calu: ["\\mathcal{u}"],
+            calv: ["\\mathcal{v}"],
+            calx: ["\\mathcal{x}"],
+            calw: ["\\mathcal{w}"],
+            caly: ["\\mathcal{y}"],
+            calz: ["\\mathcal{z}"],
+            calA: ["\\mathcal{A}"],
+            calB: ["\\mathcal{B}"],
+            calC: ["\\mathcal{C}"],
+            calD: ["\\mathcal{D}"],
+            calE: ["\\mathcal{E}"],
+            calF: ["\\mathcal{F}"],
+            calG: ["\\mathcal{G}"],
+            calH: ["\\mathcal{H}"],
+            calI: ["\\mathcal{I}"],
+            calJ: ["\\mathcal{J}"],
+            calK: ["\\mathcal{K}"],
+            calL: ["\\mathcal{L}"],
+            calM: ["\\mathcal{M}"],
+            calN: ["\\mathcal{N}"],
+            calO: ["\\mathcal{O}"],
+            calP: ["\\mathcal{P}"],
+            calQ: ["\\mathcal{Q}"],
+            calR: ["\\mathcal{R}"],
+            calS: ["\\mathcal{S}"],
+            calT: ["\\mathcal{T}"],
+            calU: ["\\mathcal{U}"],
+            calV: ["\\mathcal{V}"],
+            calX: ["\\mathcal{X}"],
+            calW: ["\\mathcal{W}"],
+            calY: ["\\mathcal{Y}"],
+            calZ: ["\\mathcal{Z}"],
+            bfa: ["\\mathbf{a}"],
+            bfb: ["\\mathbf{b}"],
+            bfc: ["\\mathbf{c}"],
+            bfd: ["\\mathbf{d}"],
+            bfe: ["\\mathbf{e}"],
+            bff: ["\\mathbf{f}"],
+            bfg: ["\\mathbf{g}"],
+            bfh: ["\\mathbf{h}"],
+            bfi: ["\\mathbf{i}"],
+            bfj: ["\\mathbf{j}"],
+            bfk: ["\\mathbf{k}"],
+            bfl: ["\\mathbf{l}"],
+            bfm: ["\\mathbf{m}"],
+            bfn: ["\\mathbf{n}"],
+            bfo: ["\\mathbf{o}"],
+            bfp: ["\\mathbf{p}"],
+            bfq: ["\\mathbf{q}"],
+            bfr: ["\\mathbf{r}"],
+            bfs: ["\\mathbf{s}"],
+            bft: ["\\mathbf{t}"],
+            bfu: ["\\mathbf{u}"],
+            bfv: ["\\mathbf{v}"],
+            bfx: ["\\mathbf{x}"],
+            bfw: ["\\mathbf{w}"],
+            bfy: ["\\mathbf{y}"],
+            bfz: ["\\mathbf{z}"],
+            bfA: ["\\mathbf{A}"],
+            bfB: ["\\mathbf{B}"],
+            bfC: ["\\mathbf{C}"],
+            bfD: ["\\mathbf{D}"],
+            bfE: ["\\mathbf{E}"],
+            bfF: ["\\mathbf{F}"],
+            bfG: ["\\mathbf{G}"],
+            bfH: ["\\mathbf{H}"],
+            bfI: ["\\mathbf{I}"],
+            bfJ: ["\\mathbf{J}"],
+            bfK: ["\\mathbf{K}"],
+            bfL: ["\\mathbf{L}"],
+            bfM: ["\\mathbf{M}"],
+            bfN: ["\\mathbf{N}"],
+            bfO: ["\\mathbf{O}"],
+            bfP: ["\\mathbf{P}"],
+            bfQ: ["\\mathbf{Q}"],
+            bfR: ["\\mathbf{R}"],
+            bfS: ["\\mathbf{S}"],
+            bfT: ["\\mathbf{T}"],
+            bfU: ["\\mathbf{U}"],
+            bfV: ["\\mathbf{V}"],
+            bfX: ["\\mathbf{X}"],
+            bfW: ["\\mathbf{W}"],
+            bfY: ["\\mathbf{Y}"],
+            bfZ: ["\\mathbf{Z}"],
+            bfad: ["\\mathbf{ad}"],
+            zero: ["\\{0\\}"],
+            id: ["\\operatorname\{id\}"],
+            sen: ["\\operatorname\{sen\}"],
+            tg: ["\\operatorname\{tg\}"],
+            ad: ["\\operatorname\{ad\}"],
+            mdc: ["\\operatorname\{mdc\}"],
+            im: ["\\operatorname\{im\}"],
+            Quat: ["\\operatorname\{Quat\}"],
+            Aut: ["\\operatorname\{Aut\}"],
+            Inn: ["\\operatorname\{Inn\}"],
+            orb: ["\\operatorname\{orb\}"],
+            stab: ["\\operatorname\{stab\}"],
+            Rep: ["\\operatorname\{Rep\}"],
+            Hom: ["\\operatorname\{Hom\}"],
+            End: ["\\operatorname\{End\}"],
+            Obj: ["\\operatorname\{Obj\}"],
+            tr: ["\\operatorname\{tr\}"],
+            diam: ["\\operatorname\{diam\}"],
+            diag: ["\\operatorname\{diag\}"],
+            Ind: ["\\operatorname\{Ind\}"],
+            Res: ["\\operatorname\{Res\}"],
+            Set: ["\\operatorname\{Set\}"],
+            coker: ["\\operatorname\{coker\}"],
+            supp: ["\\operatorname\{supp\}"],
+            Tor: ["\\operatorname\{Tor\}"],
+            vspan: ["\\operatorname\{vspan\}"],
+            char: ["\\operatorname\{char\}"],
+            Ann: ["\\operatorname\{Ann\}"],
+            Der: ["\\operatorname\{Der\}"],
+            ma: ["\\operatorname\{ma\}"],
+            mg: ["\\operatorname\{mg\}"],
+            Rad: ["\\operatorname\{Rad\}"],
+            ht: ["\\operatorname\{ht\}"],
+            pint: ["{ \\langle #1,#2 \\rangle }",2],
+            rfrac: ["{ {}^{#1}\\!/_{#2} }",2],
+            norma: ["{ \\Vert #1 \\Vert }",1],
+          },
+        },
+      });
+    </script>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js"></script>
+    <script src="http://www.w3schools.com/lib/w3data.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../itemParenteses.css" />
+    <link rel="stylesheet" type="text/css" href="../../../ambTeor.css" />
+    
+    <script>
+      function closeDetail(detailsElement) {
+        detailsElement.removeAttribute("open");
+        window.location = '#' + detailsElement.scrollIntoView({block: "nearest", behavior: "smooth"});
+      }
+    </script>
+    
+    <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+
+    <style>
+      body{
+        font-size: 16pt;
+        font-family: "Helvetica", sans-serif;
+        line-height: 1.5;
+        background-color: rgb(233,227,206);
+        counter-reset: contTeor contProp contLema contCoro contObs contDef contExerc contExemplo contSec 15;
+      }
+      
+      h1{
+        background-color: rgb(153,51,153);
+        color: rgb(255,250,250);
+      }
+      
+      h2{
+        color: rgb(153,51,153);
+      }
+      
+      h3{
+        color: rgb(153,51,153);
+      }
+      
+      details > summary {
+        font-style: italic;
+        color: blue;
+        cursor: pointer;
+        position: relative;
+        transition: 0.15s background linear;
+      }
+      
+      details > summary:hover {
+        background: #d4d1ec;
+      }
+
+      details > .caixa{
+        border: solid;
+      }
+      
+      .equationCenter {
+        width: 100%;
+        overflow-y: hidden;
+        overflow-x: auto;
+      }
+      
+      .buttonDetails {
+        border: none;
+        text-align: center;
+        cursor: pointer;
+        position: absolute;
+        right: 10px;
+      }
+      
+    </style>
+
+  </head>
+  
+  <body>
+
+    <div style="text-align:center"><h1>Introdução às Álgebras de Lie</h1></div>
+    
+    <!-- ############ -->
+    <h2>Aula 15 - Diagramas de Dynkin iguais implica álgebras equivalentes (parte I)</h2>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-diagramasDynkinClasExcep" class="obs">
+      Vimos, até agora, os seguintes diagramas de Dynkin:
+    </p>
+    <p class="equationCenter">
+      \[
+        \begin{array}{l}
+          \xymatrix@R=1pt{
+            A_{r} & *=<4pt>{\circ} \ar@{-}[r] & *=<4pt>{\circ} \ar@{-}[r] & \cdots \ar@{-}[r] & *=<4pt>{\circ} \ar@{-}[r] & *=<4pt>{\circ}
+          }
+          \\[1em]
+          \xymatrix@R=1pt{
+            B_{r} & *=<4pt>{\circ} \ar@{-}[r] & *=<4pt>{\circ} \ar@{-}[r] & \cdots \ar@{-}[r] & *=<4pt>{\circ} \ar@2{->}[r] & *=<4pt>{\circ}
+          }
+          \\[1em]
+          \xymatrix@R=1pt{
+            C_{r} & *=<4pt>{\circ} \ar@{-}[r] & *=<4pt>{\circ} \ar@{-}[r] & \cdots \ar@{-}[r] & *=<4pt>{\circ} \ar@2{<-}[r] & *=<4pt>{\circ}
+          }
+          \\[1em]
+          \xymatrix@R=10pt{
+            & & & & & *=<4pt>{\circ} \\
+            D_{r} & *=<4pt>{\circ} \ar@{-}[r] & *=<4pt>{\circ} \ar@{-}[r] & \cdots \ar@{-}[r] & *=<4pt>{\circ} \ar@{-}[ur] \ar@{-}[dr] & \\
+            & & & & & *=<4pt>{\circ} \\
+          }       
+        \end{array}
+      \]
+    </p>
+    <p>
+      Tais diagramas, são chamados de <strong>diagramas clássicos</strong>. Considere os sistemas de raízes \(E_{8}\), \(E_{7}\), \(E_{6}\), \(F_{4}\) e \(G_{2}\), vistos no <a href="intrAlgebrasLie-aula13.html#exerc-13">Exercício 13.1</a>. Pode-se provar que seus respectivos diagramas de Dynkin são como abaixo:
+    <p class="equationCenter">
+      \[
+        \begin{array}{l}
+          \xymatrix@R=10pt{
+            & & & & & *=<4pt>{\circ} & & \\
+            E_{8} & *=<4pt>{\circ} \ar@{-}[r] & *=<4pt>{\circ} \ar@{-}[r] & *=<4pt>{\circ} \ar@{-}[r] & *=<4pt>{\circ} \ar@{-}[r] & *=<4pt>{\circ} \ar@{-}[r] \ar@{-}[u] & *=<4pt>{\circ} \ar@{-}[r] & *=<4pt>{\circ}
+          }
+          \\[1em]
+          \xymatrix@R=10pt{
+            & & & & *=<4pt>{\circ} & & \\
+            E_{7} & *=<4pt>{\circ} \ar@{-}[r] & *=<4pt>{\circ} \ar@{-}[r] & *=<4pt>{\circ} \ar@{-}[r] & *=<4pt>{\circ} \ar@{-}[r] \ar@{-}[u] & *=<4pt>{\circ} \ar@{-}[r] & *=<4pt>{\circ}
+          }
+          \\[1em]
+          \xymatrix@R=10pt{
+            & & & *=<4pt>{\circ} & & \\
+            E_{6} & *=<4pt>{\circ} \ar@{-}[r] & *=<4pt>{\circ} \ar@{-}[r] & *=<4pt>{\circ} \ar@{-}[r] \ar@{-}[u] & *=<4pt>{\circ} \ar@{-}[r] & *=<4pt>{\circ}
+          }
+          \\[1em]
+          \xymatrix@R=10pt{
+            F_{4} & *=<4pt>{\circ} \ar@{-}[r] & *=<4pt>{\circ} \ar@2{->}[r] & *=<4pt>{\circ} \ar@{-}[r] & *=<4pt>{\circ}
+          } \\[1em]
+          \xymatrix@R=10pt{
+            G_{2} & *=<4pt>{\circ} \ar@3{->}[r] & *=<4pt>{\circ}
+          }   
+        \end{array}
+      \]
+    </p>
+    <p>
+      Tais diagramas, são chamados de <strong>diagramas excepcionais</strong>. Pode-se mostrar que essa lista de diagramas acima contém todos os possíveis diagramas de Dynkin conexos. Essa classificação de diagramas equivale a classificar bases de \(\bbR^{r} = \bbR\{\epsilon_{1}, \dots, \epsilon_{r}\}\) cujos vetores da base tem ângulos \(90^{\circ}\), \(120^{\circ}\), \(135^{\circ}\) e \(150^{\circ}\) e que satisfazem o seguinte: se o ângulo entre \(\alpha_{i}\) e \(\alpha_{j}\) é \(135^{\circ}\) ou \(150^{\circ}\), então \(\frac{\norma{\alpha_{i}}^{2}}{\norma{\alpha_{j}}^{2}} = 2\) ou \(3\), respectivamente (veja o capítulo 7, do San Martin). 
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-algLivre" class="def">
+      Seja \(L\) uma álgebra de Lie gerada como espaço vetorial por um conjunto \(X\). Dizemos que \(L\) é <strong>álgebra de Lie livre</strong> sobre \(X\), se vale o seguinte: dadas \(G\) uma álgebra de Lie e \(\varphi: X \to G\) uma função, então existe única \(\psi: L \to G\), homomorfismo de álgebras de Lie tal que \(\psi \circ \pi = \varphi\), onde \(\pi: X \to L\) é a projeção.
+    </p>
+    <p class="equationCenter" style="text-align:center">
+      \(
+        \xymatrix{
+          X \ar@{->}[r]^-{\pi} \ar@{->}[rd]_-{\forall \, \varphi} \ar@{}[rd]^{\circlearrowright} & L \ar@{-->}[d]^-{\exists ! \, \psi} \\
+          & G
+        }
+      \)
+    <span class="fim"></span></p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-algLivre" class="obs">
+      Sejam \(V\) um espaço vetorial com base \(X\) e \(T(V) = \bigoplus_{k \ge 0} V^{\otimes k}\) a álgebra tensorial de \(V\). Defina \(L(X) \subseteq [T(V)]\), como sendo a álgebra de Lie gerada pelo conjunto \(X\) (ou seja, \(L(X) = \bbK\{\)colchetes de elementos de \(V\}\)). Vamos provar, mais a frente, que \(L(X)\) é livre sobre \(X\). Dado um conjunto \(R \subseteq L(X)\), denote por \(I(R)\) o ideal de \(L(X)\) gerado por \(R\). Definimos a <em>álgebra de Lie gerada por \(X\) e com relações \(R\)</em> por \(\rfrac{L(X)}{I(R)}\).
+    <span class="fim"></span></p>
+    
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-relacoesChevalley" class="obs">
+      Seja \(L\) semissimples. Considere sua decomposição de Cartan (<a href="intrAlgebrasLie-aula07.html#def-espRaizes">Definição 7.1</a>), isto é, \(L = H \oplus \displaystyle\bigoplus_{\alpha \in \Phi}L_{\alpha}\). Seja \((V, \Delta)\) um sistema de raízes, conforme visto no <a href="intrAlgebrasLie-aula12.html#exemplo-sistemaRaizes">Exemplo 12.1</a>, onde \(V = \bbR \otimes_{\bbQ} H_{\bbQ}^{\ast}\), \(\Delta = \Phi\) e o produto interno em \(V\) é \((\cdot,\cdot) = \pint{\cdot}{\cdot}|_{\bbR \otimes_{\bbQ} H_{\bbQ}^{\ast}}\). Vimos na <a href="intrAlgebrasLie-aula09.html#obs-sl2EmL2">Observação 9.3</a> que, dado \(\alpha \in \Delta\), podemos escolher \(e_{\alpha} \in L_{\alpha}\), \(f_{\alpha} \in L_{-\alpha}\) e \(h_{\alpha} = \frac{2h_{\alpha}'}{\pint{\alpha}{\alpha}}\) tais que \(\bbK\{e_{\alpha}, f_{\alpha}, h_{\alpha}\} \cong \fraksl_{2}\). Seja \(\Pi = \{\alpha_{1}, \dots, \alpha_{r}\}\) o conjunto das raízes simples. Para cada \(\alpha_{i} \in \Pi\), defina \(e_{i} = e_{\alpha_{i}}\), \(f_{i} = f_{\alpha_{i}}\) e \(h_{i} = h_{\alpha_{i}}\). Note que
+      <ol class="alfa">
+        <li>\([h_{i},h_{j}] = 0\),</li>
+        <li>\([h_{i},e_{j}] = \alpha_{j}(h_{i})e_{j} = \frac{2\alpha_{j}(h_{\alpha_{i}}')}{\pint{\alpha_{i}}{\alpha_{i}}} = \frac{2\pint{\alpha_{i}}{\alpha_{j}}}{\pint{\alpha_{i}}{\alpha_{i}}} = A_{ij}e_{j}\),</li>
+        <li>\([h_{i},f_{j}] = -A_{ij}f_{j}\),</li>
+        <li>\([e_{i},f_{j}] = \delta_{ij}h_{j}\), se \(i \neq j\),</li>
+      </ol>
+      onde \(A = (A_{ij}) = \left(\frac{2\pint{\alpha_{i}}{\alpha_{j}}}{\pint{\alpha_{i}}{\alpha_{i}}}\right)\). Essas relações são conhecidas como <strong>relações de Chevalley</strong>.
+    <span class="fim"></span></p>
+
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-NMenosNMais" class="obs">
+      Sejam \(L\) uma álgebra de Lie semissimples, \(H\) uma subálgebra de Cartan, \(\Delta_{+}\) o conjunto das raízes positivas e \(\Pi\) o conjunto das raízes simples. Definindo \(n_{-} = \displaystyle\bigoplus_{\alpha \in \Delta_{+}}L_{-\alpha}\) e \(n_{+} = \displaystyle\bigoplus_{\alpha \in \Delta_{+}}L_{\alpha}\), temos que \(L = n_{-} \oplus H \oplus n_{+}\).
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-algLieGerPorUmConj" class="def">
+      Uma álgebra de Lie \(L\) é uma <strong>gerada</strong> por um conjunto \(F \subseteq L\), se \(L = \bbK\{\)colchetes genéricos de elementos de \(F\}\).
+    <span class="fim"></span></p>
+    
+    <!-- LEMA -->
+    <p id="lema-NMenosNMais" class="lema">
+      Considere a <a href="#obs-relacoesChevalley">Observação 15.3</a> e a <a href="#obs-NMenosNMais">Observação 15.4</a>. Então \(\{e_{1}, \dots, e_{r}\}\) gera, como álgebra de Lie, \(n_{+}\) e \(\{f_{1}, \dots, f_{r}\}\) gera, também como álgebra de Lie, \(n_{-}\). Em particular, \(\{e_{1}, \dots, e_{r}\} \cup \{f_{1}, \dots, f_{r}\}\) gera \(L\).
+    <span class="fim"></span></p>
+    
+    <details>
+      <summary>Demonstração</summary>
+      <div class="caixa">
+        <p>
+          Se \(\alpha \in \Delta_{+}\), então \(\alpha = \sum n_{i}\alpha_{i}\), onde \(n_{i} \in \bbZ_{\ge 0}\), para todo \(i\). Defina \(\ht(\alpha) = \sum n_{i}\). Se \(\ht(\alpha) = 1\), então \(\alpha = \alpha_{i} \in \Pi\). Isso implica que \(L_{\alpha} = \bbK\{e_{i}\}\). Se \(\ht(\alpha) = n > 1\), então existem \(\alpha_{j} \in \Pi\) tais que \(\alpha - \alpha_{j} \in \Delta_{+}\). Como \(\ht(\alpha - \alpha_{i}) = n - 1\), temos que \(L_{\alpha - \alpha_{i}}\) é obtido por colchetes dos \(e_{i}\). Uma vez que \(L_{\alpha} = [L_{\alpha_{i}}, L_{\alpha - \alpha_{i}}]\), então \(L_{\alpha}\) também é obtido por colchetes dos \(e_{i}\). Portanto,  \(\{e_{1}, \dots, e_{r}\}\) gera \(n_{+}\). Para \(n_{-}\), a demonstração é análoga.
+        </p>
+      </div>
+      <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
+      <br>
+    </details>
+    
+    <!-- EXERCÍCIO -->
+    <p id="exerc-" class="exerc">
+      <ol class="numerico">
+        <li>Se \(L_{1}\) e \(L_{2}\) são livres sobre \(X\), então \(L_{1} \cong L_{2}\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+  </body>
+  
+</html>
+
