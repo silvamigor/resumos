@@ -358,7 +358,7 @@
     <h2>Aula 17 - Classificação das álgebras de Lie semissimples</h2>
     
     <!-- PROPOSIÇÃO -->
-    <p id="prop-" class="prop">
+    <p id="prop-funcaoEpsilon" class="prop">
       Seja \(Q\) um reticulado de \(V\). Então existe \(\epsilon: Q \times Q \to \{\pm 1\}\) tal que
       <ol class="alfa">
         <li>\(\epsilon(\alpha,\beta + \gamma) = \epsilon(\alpha,\beta)\epsilon(\alpha,\gamma)\),</li>
@@ -371,16 +371,34 @@
       <summary>Demonstração</summary>
       <div class="caixa">
         <p>
-          
+          Seja \(\Pi = \{\alpha_{1},\dots,\alpha_{r}\}\). Lembre-se de que \(Q = \bbZ\Pi\). Assim, para cada \(\alpha_{i}, \alpha_{j} \in Pi\), com \(i \neq j\), defina
+          <ol class="alfa">
+            <li>\(\epsilon(\alpha_{i}, \alpha_{j}) = \epsilon(\alpha_{j}, \alpha_{i})\), se \((\alpha_{i}, \alpha_{j})\) é par,</li>
+            <li>\(\epsilon(\alpha_{i}, \alpha_{j}) = -\epsilon(\alpha_{j}, \alpha_{i})\), se \((\alpha_{i}, \alpha_{j})\) é ímpar.</li>
+          </ol>
+          Se \(i = j\), defina \(\(\epsilon(\alpha_{i}, \alpha_{i}) = (-1)^{(\alpha_{i},\alpha_{i})}\). Defina também \(\epsilon(a\alpha_{i},b\alpha_{j}) = \epsilon(\alpha_{i},\alpha_{j})\), para todo \(a, b \in \{\pm 1\}\). Estendendo \(\epsilon\) bimultiplicativamente em \(Q\), temos que \(\epsilon\) satisfaz as condições do enunciado.
         </p>
       </div>
       <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
       <br>
     </details>
     
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-funcaoEpsilon" class="obs">
+      Considere a função \(\epsilon\) da <a href="#prop-funcaoEpsilon">Proposição 17.1</a>. Então,
+    </p>
+    <p class="equationCenter">
+      \[
+        \epsilon(\alpha+\beta,\alpha+\beta) = \epsilon(\alpha,\alpha)\epsilon(\alpha,\beta)\epsilon(\beta,\alpha)\epsilon(\beta,\beta)
+      \]
+    </p>
+    <p>
+      Logo, \(\epsilon(\alpha,\beta) = (-1)^{(\alpha,\beta)}\epsilon(\beta\alpha)\), para todo \(\alpha, \beta \in Q\).
+    <span class="fim"></span></p>
+    
     <!-- TEOREMA -->
     <p id="teor-classAlgSemiss" class="teor">
-      Se \(L\) é semissimples, então \(L\) é isomorfa a uma das seguintes álgebras:
+      Se \(L\) é simples de dimensão finita, então \(L\) é isomorfa a uma das seguintes álgebras:
       <ol class="alfa">
         <li>\(\fraksl_{n}\), com \(n \ge 2\),</li>
         <li>\(\frakso_{n}\), com \(n \ge 7\),</li>
@@ -397,7 +415,15 @@
       <summary>Demonstração</summary>
       <div class="caixa">
         <p>
-          
+          Já sabemos que se \(L\) é simples e de dimensão finita, então \(L \cong L(A)\), para alguma matriz de Cartan. Já sabemos também que se \(A\) é do tipo \(A\), \(B\), \(C\) ou \(D\), então \(L(A)\) é de dimensão finita. Logo, falta ver que \(L(A)\) tem dimensão finita se \(A\) for do tipo \(E\), \(F\) ou \(G\). Vamos começar pelo tipo \(E\) (nesse caso, \(\Delta = \{\alpha \in Q = \bbZ\Pi \mid (\alpha,\alpha) = 2\}\)). Seja \(H = \bbK \otimes_{\bbZ} Q\) e, para cada \(\alpha \in \Delta\), considere um gerador \(e_{\alpha}\). Defina \(L = H \oplus (\oplus_{\alpha \in \Delta} \bbK\{e_{\alpha}\})\) tal que 
+          <ol class="romano">
+            <li>\([h,h'] = 0\), para todo \(h, h' \in H\),</li>
+            <li>\([h,e_{\alpha}] = -[e_{\alpha},h] = \alpha(h)e_{\alpha}\),</li>
+            <li>\([e_{\alpha},e_{-\alpha}] = h_{\alpha}'\) (\(h_{\alpha}'\) vem do isomorfismo induzido do produto interno de \(H\) - veja o <a href="intrAlgebrasLie-aula08.html#obs-geradoresSAC">Observação 8.5</a>),</li>
+            <li>\([e_{\alpha},e_{\beta}] = \epsilon(\alpha,\beta)e_{\alpha + \beta}\), se \(\alpha + \beta \in \Delta\),</li>
+            <li>\([e_{\alpha},e_{\beta}] = 0\), se \(\alpha + \beta \not\in \Delta \cup \zero\).</li>
+          </ol>
+          Temos que mostrar que \(L\) é álgebra de Lie. A simplicidade segue do <a href="intrAlgebrasLie-aula10.html#teor-CondNecesSuficSemissimp">Teorema 10.2</a>, pelo fato de \(\Delta\) ser indecomponível. Para mostrar que \(L\) é uma álgebra de Lie, temos que ver que \([\cdot, \cdot]\) é antissimétrica e satisfaz a identidade de Jacobi. Isso segue da <a href="#prop-funcaoEpsilon">Proposição 17.1</a> e da definição de \([\cdot,\cdot]\) (para mais detalhes, ver Kac, Lecture 20). Feito isso, produzimos \(3\) álgebras de Lie simples de dimensão finita \(L_{E_{6}}\), \(L_{E_{7}}\) e \(L_{E_{8}}\). Falta ver somente que \(L(A_{F_{4}})\) e \(L(A_{G_{2}})\) têm dimensão finita. Isso também pode ser visto nas notas do Kac, Lecture 20.
         </p>
       </div>
       <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
@@ -418,4 +444,3 @@
   </body>
   
 </html>
-
