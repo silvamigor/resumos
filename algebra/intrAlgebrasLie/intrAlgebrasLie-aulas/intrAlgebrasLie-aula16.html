@@ -372,7 +372,32 @@
       <summary>Demonstração</summary>
       <div class="caixa">
         <p>
-          
+          (a) Sejam \(h_{\ell} \in \tilde{H}\) e \(z = [e_{i,1},[e_{i,2},[\dots,[e_{i,k-1},e_{i,k}]\dots]] \in \tilde{n}_{+}\). Então 
+        </p>
+        <p class="equationCenter">
+          \[
+            [h_{\ell},z] = \ad(h_{\ell})(z) = \ad(h_{\ell})(z) = \sum_{j=1}^{k}[e_{i,1},[\dots,[h_{\ell},e_{i,j}]\dots]] \in \tilde{n}_{+}
+          \]
+        </p>
+        <p>
+          Analogamente, se \(z \in \tilde{n}_{-}\), então \([h_{\ell},z] \in \tilde{n}_{-}\) e se \(h \in \tilde{H}\), então \([h_{\ell},h] \in \tilde{H}\). Fazendo as mesmas contas para \(e_{\ell}\) e \(f_{\ell}\), no lugar de \(h_{\ell}\), concluímos que 
+        </p>
+        <p class="equationCenter">
+          \[
+            [x, \tilde{n}_{+} + \tilde{H} + \tilde{n}_{-}] \subseteq \tilde{n}_{+} + \tilde{H} + \tilde{n}_{-}, \; \forall \, x \in \{e_{i},f_{i},h_{i}\}.
+          \]
+        </p>
+        <p>
+          Como \(\tilde{L}\) é gerada por colchetes <em>iterados</em> entre elementos \(e_{i}\), \(f_{i}\) e \(h_{i}\), então, pela identidade de Jacobi, \(\tilde{n}_{+} + \tilde{H} + \tilde{n}_{-}\) é subálgebra de Lie de \(\tilde{L}\). Uma vez que os geradores de \(\tilde{L}\) estão em \(\tilde{n}_{+} + \tilde{H} + \tilde{n}_{-}\), temos que \(\tilde{L} = \tilde{n}_{+} + \tilde{H} + \tilde{n}_{-}\). Para ver que a soma é direta tome \(h \in H\) tal que \(\alpha(h) = 1\), para todo \(\alpha \in \Pi\). Note que os \(h\)-autovalores de \(\tilde{n}_{+}\) são maiores do que ou iguais a \(1\) (veja que \([h,e_{i}] = \alpha_{i}(h)e_{i} = e_{i}\), \([e_{i},e_{j}] = 2[e_{i},e_{j}]\)). Temos também que os \(h\)-autovalores de \(\tilde{n}_{-}\) são menores do que ou iguais a \(-1\) e para \(\tilde{H}\) é zero, já que \(\tilde{H}\) é álgebra abeliana. Portanto, por Álgebra Linear, \(\tilde{n}_{+} + \tilde{n}_{-} + \tilde{H}\) é soma direta.
+        </p>
+        <p>
+          (b) Por definição, \(\tilde{n}_{+} = \bbK\{\)colchetes iterados de \(e_{1}, \dots, e_{r}\}\). Para todo \(h \in H\), \(\ad(h)\) é derivação. Sabemos que \(\ad(h)e_{i} = [h,e_{i}] = \alpha_{i}(h)e_{i}\). Logo, fazendo \(z = [e_{i,1},[e_{i,2},[\dots,[e_{i,k-1},e_{i,k}]\dots]]\), temos que \(\ad(h)z = [h, e_{i,\ell}] = \alpha_{i,\ell}(h)e_{i,\ell} = (\alpha_{i,1} + \cdots + \alpha_{i,k})(h)z\). Portanto, \(\tilde{n}_{+} = \oplus_{\alpha \in Q_{+}}\tilde{L}_{\alpha}\) (a soma é direta, porque \(\tilde{L}_{\alpha}\) tem autovalores distintos). Para \(\tilde{n}_{-}\) é similar.
+        </p>
+        <p>
+          (c) Se \(I \unlhd \tilde{L}\), então \([H, I] \subseteq I\), ou seja, \(I\) é \(H\)-submódulo de \(\tilde{L}\) com a representação adjunta. Como \(\tilde{L} = \underbrace{\tilde{n}{-}}_{\oplus_{\alpha \in Q_{+}}\tilde{L}_{-\alpha}} \oplus \underbrace{H}_{\tilde{L}_{0}} \oplus \underbrace{\tilde{n}{+}}_{\oplus_{\alpha \in Q_{+}}\tilde{L}_{\alpha}}\), então \(I = \oplus_{\alpha \in Q_{+}}(\tilde{L}_{-\alpha} \cap I) \oplus (I \cap H) \oplus_{\alpha \in Q_{+}}(\tilde{L}_{\alpha} \cap I)\) (lembre-se do <a href="intrAlgebrasLie-aula10.html#lema-conjIndecomp">Lema 10.1</a>).
+        </p>
+        <p>
+          (d) Afirmação: se \(D(A)\) é conexo e \(I \unlhd \tilde{L}\) é ideal próprio, então \(I \cap H = \zero\). De fato, tome \(h \in (I \cap H)\setminus\zero\). Então existe \(\alpha_{i} \in \Pi\) tal que \(\alpha_{i}(h) \neq 0\). Assim, \([h, e_{i}] = \alpha_{i}(h)e_{i} \in I\). Analogamente, \(f_{i} \in I\). Logo, \(h_{i} = [e_{i}, f_{i}] \in I\). Das relações de Chevalley, \([h_{i},e_{j}] = A_{ij}e_{j}\) e \([h_{i},f_{j}] = -A_{ij}f_{j}\). Logo, se \(A_{ij} \neq 0\), então \(e_{j}, f_{j} \in I\), o que implica que \(e_{j}, f_{j}, h_{j} \in I\). Como \(A_{ij} \neq 0\) se, e somente se, \((\alpha_{i},\alpha_{j}) \neq 0\) se, e somente se, \(\alpha_{i}\) e \(\alpha_{j}\) são conectados, temos que \(e_{j}, f_{j}, h_{j} \in I\) para todo \(j\) tal que os vértices \(j\) e \(i\)são conectados. Como o diagrama é conexo, repetindo esse argumento finitas vezes, concluímos que \(e_{j}, f_{j}, h_{j} \in I\), para todo \(j\). Logo, \(I = \tilde{L}\). Assim, se \(I\) é um ideal próprio de \(\tilde{L}\), então \(I \cap H = \zero\), ou ainda, \(I = (\tilde{n}_{-} \cap I) \oplus (\tilde{n}_{+} \cap I)\), o que implica que \(I \subseteq \tilde{n}_{-} \oplus \tilde{n}_{+}\). Logo, \(I(A) := \sum_{\tilde{L} \neq I \unlhd \tilde{L}} \subseteq \tilde{n}_{-} \oplus \tilde{n}_{+}\) é único ideal maximal próprio de \(\tilde{L}\).
         </p>
       </div>
       <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
@@ -388,7 +413,7 @@
       <summary>Demonstração</summary>
       <div class="caixa">
         <p>
-          A ideia dessa demonstração é construir, a partir da matriz de Cartan \(A\) de \(L\), uma álgebra de Lie \(L(A)\) isomorfa a álgebra inicial, pois isso conclui o teorema. Sejam \(L\) uma álgebra de Lie semissimples, \(H\) uma subálgebra de Cartan, \(\Delta_{+}\) o conjunto das raízes positivas, \(\Pi = \{\alpha_{1}, \dots, \alpha_{r}\}\) o conjunto das raízes simples e \(A\) sua matriz de Cartan. Considere \(e_i\), \(f_{i}\) e \(h_{i}\) conforme <a href="intrAlgebrasLie-aula15.html#obs-relacoesChevalley">Observação 15.3</a>. Defina \(\tilde{L}(A)\) como sendo a álgebra de Lie gerada por \(X = \{e_{i}, f_{i}, h_{i} \mid i = 1, \dots, r\}\) sujeitas às relações de Chevalley \(R = \{[h_{i},h_{j}], [h_{i},e_{j}] - A_{ij}e_{j}, [h_{i}, f_{j}] + A_{ij}f_{j}, [e_{i},f_{j}] - \delta_{ij}h_{i}\}\), isto é, \(\tilde{L}(A) = \rfrac{L(X)}{I(R)}\) (veja <a href="intrAlgebrasLie-aula15.html#obs-algLivre">Observação 15.2</a>). Note que para a projeção \(\pi: X \to L\) existe único \(\psi: L(X) \to L\) homomorfismo de álgebras de Lie sobrejetivo tal que \(\psi(R) = \zero\). Assim, como \(\psi(I(R))) = \zero\), então podemos considerar o epimorfismo \(\tilde{\psi}: \tilde{L}(A) \to L\).
+          A ideia dessa demonstração é construir, a partir da matriz de Cartan \(A\) de \(L\), uma álgebra de Lie \(L(A)\) isomorfa a álgebra inicial, pois isso conclui o teorema. Sejam \(L\) uma álgebra de Lie semissimples, \(H\) uma subálgebra de Cartan, \(\Delta_{+}\) o conjunto das raízes positivas, \(\Pi = \{\alpha_{1}, \dots, \alpha_{r}\}\) o conjunto das raízes simples e \(A\) sua matriz de Cartan. Considere \(e_i\), \(f_{i}\) e \(h_{i}\) conforme <a href="intrAlgebrasLie-aula15.html#obs-relacoesChevalley">Observação 15.3</a>. Defina \(\tilde{L}(A)\) como sendo a álgebra de Lie gerada por \(X = \{e_{i}, f_{i}, h_{i} \mid i = 1, \dots, r\}\) sujeitas às relações de Chevalley \(R = \{[h_{i},h_{j}], [h_{i},e_{j}] - A_{ij}e_{j}, [h_{i}, f_{j}] + A_{ij}f_{j}, [e_{i},f_{j}] - \delta_{ij}h_{i}\}\), isto é, \(\tilde{L}(A) = \rfrac{L(X)}{I(R)}\) (veja <a href="intrAlgebrasLie-aula15.html#obs-algLivre">Observação 15.2</a>). Note que para a projeção \(\pi: X \to L\) existe único \(\psi: L(X) \to L\) homomorfismo de álgebras de Lie sobrejetivo tal que \(\psi(R) = \zero\). Assim, como \(\psi(I(R))) = \zero\), então podemos considerar o epimorfismo \(\tilde{\psi}: \tilde{L}(A) \to L\). Como \(L\) é simples, \(\ker(\tilde{\psi})\) é um ideal próprio maximal de \(\tilde{L}\). Mas, pelo <a href="#lema-diagDynkImplAlgIsomAuxiliar">Lema 16.1</a>, \(\ker(\tilde{\psi}) = I(A)\). Defina \(L(A)\) como sendo \(\rfrac{L(A)}{I(A)}\). Então \(L(A) \cong L\). Com isso, provamos que se \(L_{1}\) e \(L_{2}\) têm o mesmo diagrama de Dynkin \(D(A)\), então \(L_{1} \cong L(A) \cong L_{2}\).
         </p>
       </div>
       <button class="buttonDetails" onclick="closeDetail(this.parentElement)">&#9650;</button>
@@ -398,4 +423,3 @@
   </body>
   
 </html>
-
