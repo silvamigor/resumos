@@ -271,6 +271,8 @@
             ma: ["\\operatorname\{ma\}"],
             mg: ["\\operatorname\{mg\}"],
             Rad: ["\\operatorname\{Rad\}"],
+            proj: ["\\operatorname\{proj\}"],
+            ht: ["\\operatorname\{ht\}"],
             pint: ["{ \\langle #1,#2 \\rangle }",2],
             rfrac: ["{ {}^{#1}\\!/_{#2} }",2],
             norma: ["{ \\Vert #1 \\Vert }",1],
@@ -355,11 +357,73 @@
     <div style="text-align:center"><h1>Introdução às Álgebras de Lie</h1></div>
     
     <!-- ############ -->
-    <h2>Aula 18 - </h2>
+    <h2>Aula 18 - Grupo de Weyl (parte II)</h2>
     
+    <!-- OBSERVAÇÃO -->
+    <p id="obs-objCartanNaoDepF" class="obs">
+      O objetivo, agora, é ver que a matriz de Cartan (diagrama de Dynkin) de \(L\) não depende da escolha do funcional \(f\) tal que \(f(\alpha) \neq 0\), para todo \(\alpha \in \Delta\).
+    <span class="fim"></span></p>
     
+    <!-- DEFINIÇÃO -->
+    <p id="def-reflOrt" class="def">
+      Seja \(V\) um espaço vetorial euclidiano com produto interno denotado por \((\cdot, \cdot)\). Seja \(a \in V\). Defina \(r_{a}: V \to V\) a <strong>reflexão ortogonal relativa à \(a\)</strong>, isto é, \(r_{a}(a) = -a\) e \(r_{a}(v) = v\), se \((v,a) = 0\) (\(r_{a}\) é a reflexão com respeito ao hiperplano ortogonal a \(a\)). Como \(\proj_{a}(v) = \frac{(v,a)}{(a,a)}a\), então \(r_{a}(v) = v - 2\frac{(v,a)}{(a,a)}a\), para todo \(v \in V\).
+    <span class="fim"></span></p>
+    
+    <!-- LEMA -->
+    <p id="lema-reflOrt" class="lema">
+      <ol class="alfa">
+        <li>\(r_{a} \in \calO(V)\), ou seja, \((r_{a}(v), r_{a}(w)) = (v, w)\), para todo \(v, w \in V\).</li>
+        <li>\(r_{a} = r_{-a}\) e \(r_{a}^{2} = \id\).</li>
+        <li>\(\det(r_{a}) = -1\). Em particular, \(r_{a}\) é não singular, ou seja, é invertível.</li>
+        <li>Se \(A \in \calO(V)\) (operador ortogonal), então \(Ar_{a}A^{-1} = r_{A(a)}\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-grupoWeyl" class="def">
+      Seja \((V, \Delta)\) um sistema de raízes. O <strong>grupo de Weyl</strong> de \((V, \Delta)\) é o subgrupo de \(\calO(V)\) gerado por \(r_{\alpha}\), onde \(\alpha \in \Delta\), ou seja, é o subgrupo \(W := \langle r_{\alpha} \mid \alpha \in \Delta \rangle\).
+    <span class="fim"></span></p>
+    
+    <!-- PROPOSIÇÃO -->
+    <p id="prop-grupoWeyl" class="prop">
+      <ol class="alfa">
+        <li>\(w(\Delta) = \Delta\), para todo \(w \in W\).</li>
+        <li>\(|W| < \infty\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-reflSimples" class="def">
+      Fixe \(f \in V^{\ast}\) tal que \(f(\alpha) \neq 0\), para todo \(\alpha \in \Delta\). Seja \(\Pi = \{\alpha_{1}, \dots, \alpha_{r}\} \subseteq \Delta_{+}\) o conjunto das raízes simples. As reflexões associadas às raízes simples \(r_{\alpha_{i}}\) serão denotadas por \(s_{i}\) e são chamadas de <strong>reflexões simples</strong>.
+    <span class="fim"></span></p>
+    
+    <!-- TEOREMA -->
+    <p id="teor-reflSimples" class="teor">
+      <ol class="alfa">
+        <li>\(s_{i}(\Delta_{+}\setminus\{\alpha_{i}\}) = \Delta_{+}\setminus\{\alpha_{i}\).</li>
+        <li>Se \(\alpha \in \Delta_{+}\setminus\Pi\), então existe \(s_{i}\) tal que \(\ht(s_{i}(\alpha)) < \ht(\alpha)\).</li>
+        <li>Se \(\alpha \in \Delta_{+}\setminus\Pi\), então existem \(s_{i_{1}}, \dots, s_{i_{n}}\) tais que \(s_{i_{n}}\cdots s_{i_{1}}(\alpha) \in \Pi\) e \(s_{i_{j}}\cdots s_{i_{1}}(\alpha) \in \Delta_{+}\), para todo \(j \in \{1, \dots, n\}\).</li>
+        <li>\(W = \langle s_{i} \mid i = 1, \dots, r \rangle\).<span class="fim"></span></li>
+      </ol>
+    </p>
+    
+    <!-- EXEMPLO -->
+    <p id="exemplo-grupoWeylAr" class="exemplo">
+      O grupo de Weyl de \(A_{r}\) é \(W = S_{r+1}\), grupo simétrico em \(\{1, \dots, r+1\}\).
+    <span class="fim"></span></p>
+    
+    <!-- DEFINIÇÃO -->
+    <p id="def-camaraWeyl" class="def">
+      Considere o aberto (topologia euclidiana) \(V\setminus \cup_{\alpha \in \Delta} T_{\alpha}\), onde \(T_{\alpha} = \{v \in V \mid (\alpha,v) = 0\}\). As componentes conexas desse conjunto são chamadas de <strong>câmaras de Weyl</strong>. O conjunto \(C = \{v \in V \mid (v, \alpha_{i}) > 0, \forall \alpha_{i} \in \Pi\}\) é chamada <strong>câmara de Weyl fundamental</strong>.
+    <span class="fim"></span></p>
+    
+    <!-- EXERCÍCIO -->
+    <p id="exerc-" class="exerc">
+      <ol class="numerico">
+        <li>Calcule o grupo de Weyl para as álgebras de LIe do tipo \(B\), \(C\) e \(D\).<span class="fim"></span></li>
+      </ol>
+    </p>
     
   </body>
   
 </html>
-
